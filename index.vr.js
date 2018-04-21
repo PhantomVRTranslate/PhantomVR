@@ -29,6 +29,6 @@ export default class WelcomeToVR extends React.Component {
       </View>
     );
   }
-};
+}
 
 AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);
