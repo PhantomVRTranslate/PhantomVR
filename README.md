@@ -38,7 +38,7 @@ We will be adding on to the React VR library to allow to people create responsiv
 ### Example code from React VR for reference:
 Taken from [Facebook React VR Intro Page](https://facebook.github.io/react-vr/docs/tutorial.html#content)
 
-```
+```javascript
 import React from 'react';
 import { AppRegistry, asset, Pano, Text, View } from 'react-vr';
 
