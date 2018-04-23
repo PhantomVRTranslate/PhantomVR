@@ -89,10 +89,17 @@ const content = [
     - Scrolling will be managed through 
 - Props: {content}
 
+**`VRGazeButton`**
+- Has a `setTimeout` method that activates as a click handler after a set amount of time
+- Props:
+    - `onHover` same as `onEnter` but it also sets timeout
+    - `onLeave` same as `onExit` but it also clears timeout
+    - `onTrigger` occurs after the timeout has passed with the user continuously gazing at button
+    - `style`
+
 **Potentially more to come as we develop our project**, e.g.:
 - `VRForm`
 - `VRInput`
-- `VRGazeButton` (has a `setTimeout` method that activates as a click handler after a set amount of time)
 
 ### 3. Web Scraper / File Processor (*\*Bonus\**)
 - If we have time, we want to explore the idea of simplying the process of rendering previews of content in VR for developers. Rather than having them learn the React VR technology as well as our library, it would be ideal for them to label their pre-existing content with certain tags or identifiers (i.e., class names) that a scraper or file processor would extract. Based off these class names (which would be directly associated with our components), we would render the inner HTML (and, ideally, event handling, props/state, etc.) in our default template. This will give them an idea of how their website could work in a basic VR environment before diving in and creating their own site using our components.
@@ -110,7 +117,7 @@ const content = [
 ### For the week
 #### Monday
 - [ ] Work with `CylindricalPlane`. (Michael)
-- [ ] Create `NavBar` components. Learn about incorporating React Router. (Nick)
+- [ ] Create `NavBar` and `GazeButton` components. Learn about incorporating React Router. (Nick)
 - [ ] Create `Carousel` and `Gallery` components. (Jon, Drew)
 - [ ] Continue exploring React VR and it's possibilities/limitations. (All)
 
