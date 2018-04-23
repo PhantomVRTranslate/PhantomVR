@@ -30,18 +30,18 @@ We want component library that can be bundled into an npm for developers to use.
 #### Nonexhaustive list of components:
 
 **`VRTitle`**
-    - This will position the title of the website above all content.
-    - Default fixed properties: `fontSize`, `color`, `layoutOrigin` etc.
+- This will position the title of the website above all content.
+- Default fixed properties: `fontSize`, `color`, `layoutOrigin` etc.
 
 **`VRSideNavBar` and `VRBottomNavBar`**
-    - Default fixed properties: `padding`, `layoutOrigin`, `transform`, etc.
-    - Props: {content}*
-    - **`VRNavItem`**
-        - Houses `VRLabel` and `VRLink`.
-    - **`VRNavLabel`**
-        - Simply takes in text.
-    - **`VRNavLink`**
-        - Takes in a url/route.
+- Default fixed properties: `padding`, `layoutOrigin`, `transform`, etc.
+- Props: {content}*
+- **`VRNavItem`**
+    - Houses `VRLabel` and `VRLink`.
+- **`VRNavLabel`**
+    - Simply takes in text.
+- **`VRNavLink`**
+    - Takes in a url/route.
 
 * Ideally, we would want them to declare a `VRSideNavBar` or `VRBottomNavBar` with the content they want displayed. This will be images, text, video previews, etc. They will be formatted into cards and formatted appropriately (through `flex` and setting `layoutOrigin` and `transform` properties, etc., as well as through sizes and behavior of containers).
 
@@ -55,7 +55,7 @@ const content = [
         [{label: 'Gallery', link: '/gallery'}]
     ]
 
-// **********************
+// ~~~~~~~~~~~~~~~~~ //
 
 <VrSideNavBar content={content} />
 ```
@@ -69,10 +69,10 @@ const content = [
         - Default fixed properties: margin, width, height, layoutOrigin, transform(translate), etc.
 
 **`VRGalleryContainer`**
-    - Static container for `VRCard` components. Arranged in rows/columns.
+- Static container for `VRCard` components. Arranged in rows/columns.
 
 **`VRCarouselContainer`**
-    - Scrollable container for `VRCard` components that renders around the user.
+- Scrollable container for `VRCard` components that renders around the user.
 
 ### Web Scraper / File Processor (*\*Bonus\**)
 - 
