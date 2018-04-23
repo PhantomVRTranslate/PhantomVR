@@ -100,4 +100,4 @@ export default class WelcomeToVR extends React.Component {
       }
 }
 
-AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);
+// AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);
