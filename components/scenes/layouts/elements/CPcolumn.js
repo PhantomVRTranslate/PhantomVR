@@ -13,7 +13,7 @@ import {
 // const AnimatedModel = Animated.createAnimatedComponent(CylindricalPanel);
 
 
-export default class Colum2 extends React.Component {
+export default class CPColumn extends React.Component {
     constructor(props){
     super(props);
     this.state = {
@@ -66,4 +66,3 @@ export default class Colum2 extends React.Component {
 }
 
 // AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);
-module.exports = Colum2;

@@ -40,5 +40,3 @@ export default class TextVr extends React.Component {
         );
     }
 }
-
-module.exports = TextVr;

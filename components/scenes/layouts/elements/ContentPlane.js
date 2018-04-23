@@ -19,8 +19,8 @@ class ContentPlane extends React.Component {
     }
 
     componentDidMount() {
-        console.log('this is this.props.children.length: ');
-        console.log(this.props.children.length); 
+        //ensures at most 5 subcomponents  
+        
         let childLength = this.props.children.length >= 5 ? 5 : this.props.children.length;
         this.setState({
             subComponentLimit: childLength
