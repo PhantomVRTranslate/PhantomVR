@@ -12,6 +12,8 @@ import TitleVr from './elements/TitleVr.js';
 import TextVr from './elements/TextVr.js'; 
 import ContentPlane from './elements/ContentPlane'; 
 import CPcolumn from './elements/CPcolumn';
+import Gallery from "./elements/Gallery";
+import CardSorter from "./elements/CardSorter";
 
 export default class DashboardLayout extends React.Component {
     constructor(props){
@@ -34,8 +36,8 @@ export default class DashboardLayout extends React.Component {
                         <TextVr>TWO</TextVr>
                 </CPcolumn>
                         <TextVr>THREE</TextVr>
-                        <TextVr>Four</TextVr>
-                        <TextVr>Five</TextVr>
+                        <Gallery />
+                        <CardSorter options={{type: "image", src: '../static_assets/pictures/puppy.jpeg'}} />
                         <TextVr>Six</TextVr>
 
              </ContentPlane>
