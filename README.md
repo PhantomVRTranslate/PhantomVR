@@ -1,6 +1,6 @@
 # PhantomVR
 
-**PhantomVR** is a proof-of-concept project envisioned to be a node package module (npm) that allows developers to create web applications using `React VR`, a framework for building VR projects using the declarative power of `React`. 
+**PhantomVR** is a proof-of-concept project envisioned to be a node package module (npm) that allows developers to create web applications using React VR, a framework for building VR projects using the declarative power of React. 
 
 Currently, there is a gap in the VR world between VR content and already existing web applications. The potential that VR gives us is endless, with people already taking advantage to create incredibly immersive experiences in the form of games, spatial visualizations, and artistic projects. However, websites remain static, clunky, and uninteractive. Our goal is to bridge this gap and bring the modern web application into this new platform.
 
@@ -19,9 +19,13 @@ As with HTML Elements and React Components, there is certainly the potential to 
 This project is being managed by [Drew Stukey](https://github.com/stukey524), [Jon Halloran](https://github.com/JonHalloran), [Michael Vasquez-Pompili](https://github.com/Mpompili), and [Nick Welch](https://github.com/nwelchr).
 
 ## What we're actually proposing:
-We will be adding on to the React VR library to allow to people create responsive, flexible, and modular sites. We will add semantic class names/components/ids/tags/etc. (TBD) that developers can import to easily structure their websites. We will provide them a framework for creating simple websites based on the pre-existing `React` framework.
+We will be adding on to the React VR library to allow to people create responsive, flexible, and modular sites. We will add semantic class names/components/ids/tags/etc. (TBD) that developers can import to easily structure their websites. We will provide them a framework for creating simple websites based on the pre-existing React framework.
 
 ## MVPs:
+
+### Demo Site
+
+We essentially want to start with a template that uses our components. We are keeping the elements simple, clean, reusable, and uncomplicated in accordance with VR and React design principles. This will be important for the developer showcase as well as to demonstrate how all our components will fit together and be responsive.
 
 ### NPM *(Primary MVP)*
 
@@ -90,12 +94,13 @@ const content = [
 ### For the week:
 - [ ] Make initial website to show how elements will interact with our components.
 - [ ] Work on integrating functionality into a polished NPM and publish.
-- [ ] *\*Bonus\**: Work on web scraper/file processor to simplify process for designers.
+- [ ] *\*Bonus\**: Work on web scraper/file processor.
+    - We are in contact with a VR developer and have resources that we are exploring for making this happen.
 
 ## Technologies:
 - Software: React VR. (Uses three.js, WebGL, WebVR, )
 - Node.js backend for hosting content. 
-    - `TODO`: Ask Ethan how that works.
+    - `TODO`: Ask Ethan how that works/how to publish a React VR project.
 - Hardware: Gear VR, desktop, mobile
 
 ### Resources:
