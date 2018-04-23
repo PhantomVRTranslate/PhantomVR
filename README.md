@@ -12,7 +12,7 @@ React VR, built off of various technologies including React Native, three.js, We
 - `Animation`
 - etc.
 
-As with HTML Elements and React Components, there is certainly the potential to customize websites to a developer's liking. However, for those who lack a thorough understanding of the considerations necessary in rendering components in a 3D dynamic space and principle of VR design, but who simply want to get their website onto a page, our components will take out that guesswork for them. 
+As with HTML Elements and React Components, there is certainly the potential to customize websites to a developer's liking. However, for those who lack a thorough understanding of the considerations necessary in rendering components in a 3D dynamic space and principles of VR design, but who simply want to get their website onto a page, our components will take out that guesswork for them. 
 
 **Simple explanation**: People have websites/web apps and want to display them in 360° space using VR. We are making that easier by leveraging and building off of existing technologies that have yet to be explored for websites.
 
@@ -25,7 +25,7 @@ We will be adding on to the React VR library to allow to people create responsiv
 
 ### NPM *(Primary MVP)*
 
-We want component library that can be bundled into an npm for developers to use. This module will give developers the tools they need to get started with React VR without worrying about the details.
+We want a component library that can be bundled into an npm for developers to use. This module will give developers the tools they need to get started with React VR without worrying about the details.
 
 #### Nonexhaustive list of components:
 
@@ -35,15 +35,15 @@ We want component library that can be bundled into an npm for developers to use.
 
 **`VRSideNavBar` and `VRBottomNavBar`**
 - Default fixed properties: `padding`, `layoutOrigin`, `transform`, etc.
-- Props: {content}*
+- Props: {content} (see below)
 - **`VRNavItem`**
     - Houses `VRLabel` and `VRLink`.
 - **`VRNavLabel`**
-    - Simply takes in text.
+    - Takes in a label.
 - **`VRNavLink`**
     - Takes in a url/route.
 
-* Ideally, we would want them to declare a `VRSideNavBar` or `VRBottomNavBar` with the content they want displayed. This will be images, text, video previews, etc. They will be formatted into cards and formatted appropriately (through `flex` and setting `layoutOrigin` and `transform` properties, etc., as well as through sizes and behavior of containers).
+\* Ideally, we would want them to declare a `VRSideNavBar` or `VRBottomNavBar` with the content they want displayed. This will be images, text, video previews, etc. They will be formatted into cards and formatted appropriately (through `flex` and setting `layoutOrigin` and `transform` properties, etc., as well as through sizes and behavior of containers).
 
 For example:
 ```javascript
@@ -75,8 +75,7 @@ const content = [
 - Scrollable container for `VRCard` components that renders around the user.
 
 ### Web Scraper / File Processor (*\*Bonus\**)
-- 
-
+- If we have time, we want to explore the idea of simplying the process of rendering previews of content in VR for developers. Rather than having them learn the React VR technology as well as our library, it would be ideal for them to label their pre-existing content with certain tags or identifiers (i.e., class names) that a scraper or file processor would extract. Based off these class names (which would be directly associated with our components), we would render the inner HTML (and, ideally, event handling, props/state, etc.) in our default template. This will give them an idea of how their website could work in a basic VR environment before diving in and creating their own site using our components.
 
 ## Timeline:
 ### Weekend (Saturday-Sunday)
@@ -94,20 +93,10 @@ const content = [
 - [ ] *\*Bonus\**: Work on web scraper/file processor to simplify process for designers.
 
 ## Technologies:
-- Software: ReactVR. (Uses three.js, WebGL, WebVR, )
+- Software: React VR. (Uses three.js, WebGL, WebVR, )
 - Node.js backend for hosting content. 
     - `TODO`: Ask Ethan how that works.
 - Hardware: Gear VR, desktop, mobile
-
-## Avenues for further exploration
-- What can React VR even do for us? What extra functionality does it provide?
-- Event listeners: keeping React compenents responsive/modular (passing around state)
-- Hands-free text input: already hardcoded into VR experience? Or is that for us to consider?
-- Background image rendering: Have a way for them to easily input their own (if it's not already easy), if not use a default
-- The bridges between everything. How does this all interact? 
-- WebGL and WebVR: web technologies that React VR uses
-- User interaction (on Gear VR, it's *look*, *touch*, and *swipe*)
-- Image rendering (e.g. carousel)
 
 ### Resources:
 - [Getting Started](https://facebook.github.io/react-vr/docs/getting-started.html#content)
