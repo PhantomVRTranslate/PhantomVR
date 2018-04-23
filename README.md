@@ -10,6 +10,7 @@ React VR, built off of various technologies including React Native, three.js, We
 - `View`
 - `Text`
 - `Animation`
+- `VrButton`
 - etc.
 
 As with HTML Elements and React Components, there is certainly the potential to customize websites to a developer's liking. However, for those who lack a thorough understanding of the considerations necessary in rendering components in a 3D dynamic space and principles of VR design, but who simply want to get their website onto a page, our components will take out that guesswork for them. 
@@ -32,13 +33,12 @@ We essentially want to start with a template that uses our components. We are ke
 We want a component library that can be bundled into an npm for developers to use. This module will give developers the tools they need to get started with React VR without worrying about the details.
 
 #### Nonexhaustive list of components:
+- The idea will be to have default styling/position/event handling on our components (e.g. `layoutOrigin`, `transform`, `flex` properties) with certain props that are handled automatically, given the user follows the protocol for each component.
 
 **`VRTitle`**
 - This will position the title of the website above all content.
-- Default fixed properties: `fontSize`, `color`, `layoutOrigin` etc.
 
 **`VRSideNavBar` and `VRBottomNavBar`**
-- Default fixed properties: `padding`, `layoutOrigin`, `transform`, etc.
 - Props: {content} (see below)
 - **`VRNavItem`**
     - Houses `VRLabel` and `VRLink`.
@@ -65,7 +65,9 @@ const content = [
 ```
 
 **`VRCard`**
-- Default container for index items, including:
+- Default container for index items.
+- Props: {content}
+- Used as a container for the following:
     - **`VRText`**
         - Default fixed properties: fontSize, color, margin, scrollRate, etc.
         - Passed in props: scrollRate?, text
@@ -74,9 +76,17 @@ const content = [
 
 **`VRGalleryContainer`**
 - Static container for `VRCard` components. Arranged in rows/columns.
+- Props: {content}
 
 **`VRCarouselContainer`**
 - Scrollable container for `VRCard` components that renders around the user.
+    - Scrolling will be managed through 
+- Props: {content}
+
+**Potentially more to come as we develop our project**, e.g.:
+- `VRForm`
+- `VRInput`
+- `VRGazeButton` (has a `setTimeout` method that activates as a click handler after a set amount of time)
 
 ### Web Scraper / File Processor (*\*Bonus\**)
 - If we have time, we want to explore the idea of simplying the process of rendering previews of content in VR for developers. Rather than having them learn the React VR technology as well as our library, it would be ideal for them to label their pre-existing content with certain tags or identifiers (i.e., class names) that a scraper or file processor would extract. Based off these class names (which would be directly associated with our components), we would render the inner HTML (and, ideally, event handling, props/state, etc.) in our default template. This will give them an idea of how their website could work in a basic VR environment before diving in and creating their own site using our components.
