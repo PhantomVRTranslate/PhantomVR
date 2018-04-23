@@ -6,7 +6,7 @@ import {
 } from 'react-vr'; 
 import DashboardLayout from './layouts/DashboardLayout.js'; 
 
-class Dashboard extends React.Component { 
+export default class Dashboard extends React.Component { 
    
     render() {
         console.log('this is money');
@@ -17,5 +17,3 @@ class Dashboard extends React.Component {
         );
     }
 }
-
-module.exports = Dashboard; 

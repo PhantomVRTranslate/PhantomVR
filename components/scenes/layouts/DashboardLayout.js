@@ -13,7 +13,7 @@ import TextVr from './elements/TextVr.js';
 import ContentPlane from './elements/ContentPlane'; 
 import CPcolumn from './elements/CPcolumn';
 
-class DashboardLayout extends React.Component {
+export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -42,8 +42,6 @@ class DashboardLayout extends React.Component {
         );
     }
 }
-
-module.exports = DashboardLayout; 
 
 
 
