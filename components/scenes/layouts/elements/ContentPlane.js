@@ -13,12 +13,22 @@ class ContentPlane extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            startPoint: this.props.deg || -75
+            startPoint: this.props.deg || -75,
+            subComponentLimit: 0
         };
     }
 
-    render() {
+    componentDidMount() {
+        console.log('this is this.props.children.length: ');
+        console.log(this.props.children.length); 
+        let childLength = this.props.children.length >= 5 ? 5 : this.props.children.length;
+        this.setState({
+            subComponentLimit: childLength
+        });
+    }
 
+    render() {
+        console.log('this is subCLimit: ' + this.subComponentLimit);
         ///  IMPORTANT 
                 //slice(0,5) only works if there are 5 or more items - remember to adjust
         ///
@@ -42,7 +52,7 @@ class ContentPlane extends React.Component {
                         justifyContent: 'space-between',
                         }}
                     >
-                    {this.props.children.slice(0,5)}
+                    {this.props.children.slice(0,this.subComponentLimit)}
                     </View>
                 </CylindricalPanel>
             </View>
