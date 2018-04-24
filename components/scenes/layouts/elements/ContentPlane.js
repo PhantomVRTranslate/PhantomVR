@@ -20,10 +20,6 @@ class ContentPlane extends React.Component {
 
     componentDidMount() {
         //ensures at most 5 subcomponents  
-        console.log('this');
-        console.log(this.props.children.length === undefined);
-        console.log(this.props.children);
-
 
         if (this.props.children.length === undefined){ 
             this.setState({
@@ -45,14 +41,12 @@ class ContentPlane extends React.Component {
     }
 
     render() {
-        // console.log('this is subCLimit: ' + this.subComponentLimit);
 
         return (
             <View> 
                  <CylindricalPanel
                     layer={{width: 4096, height: 800, density: 8092}} 
                     style={{
-                    // transform: [{rotateY: this.state.startPoint}],
                     opacity: 1
                     }}
                     >
@@ -61,7 +55,7 @@ class ContentPlane extends React.Component {
                             style={{
                             opacity: 1,
                             width: 2048,
-                            height: 800,
+                            height: 1000,
                             flexDirection: 'row',
                             alignItems: 'center',
                             justifyContent: 'space-between',
