@@ -7,21 +7,15 @@ export default class ImageCard extends React.Component {
     render () {
         console.log("imagecard", this.props);
         return (
-            <View
-            style={{
-                width: "33",
-                height:"50"
-            }}
-            > 
                 <VrButton>
                     <Image 
                         source = {{uri: this.props.src}}
-                        style = {{width: '100', 
-                            height: '100',
-                            resizeMode: 'cover'
+                        style = {{
+                            width: '100%', 
+                            height: '100%',
+                            resizeMode: 'contain'
                             }}/>
                 </VrButton>
-            </View>
         );
     }
 }

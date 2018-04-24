@@ -14,6 +14,8 @@ import ContentPlane from './elements/ContentPlane';
 import CPcolumn from './elements/CPcolumn';
 import Gallery from "./elements/Gallery";
 import CardSorter from "./elements/CardSorter";
+import TextCard from "./elements/TextCard.js"; 
+import Card from "./elements/Card.js"; 
 
 export default class DashboardLayout extends React.Component {
     constructor(props){
@@ -28,64 +30,29 @@ export default class DashboardLayout extends React.Component {
 //CPC
 
     render() {
-
+        console.log('rendering dashboard layout'); 
+        let words = "Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression part 2 Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression";
         return (
             <ContentPlane > 
-                <CPcolumn>
-                        <TextVr>ONE</TextVr>
-                        <TextVr>TWO</TextVr>
-                </CPcolumn>
-                        <TextVr>THREE</TextVr>
-                        <Gallery />
-                        <CardSorter options={{type: "image", src: '../static_assets/pictures/puppy.jpeg'}} />
-                        <TextVr>Six</TextVr>
+                        <Gallery >
+                            <TextCard text={words}></TextCard>
+                            <TextCard text={'TWO'}></TextCard>
+                            <TextCard text={'THREE'}></TextCard>
+                            <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
+                            <CardSorter options={{type: "image", src: '../static_assets/pictures/puppy.jpeg'}} />
+                            <TextCard text={'FOur'}></TextCard>
+                        </Gallery> 
+                        <Card>
+                            <TextCard text={'One'}/> 
+                        </Card> 
+                        <Card>
+                            <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
+                        </Card> 
+                        <Card>
+                            <CardSorter options={{type: "image", src: '../static_assets/pictures/puppy.jpeg'}} />
+                        </Card> 
 
              </ContentPlane>
         );
     }
 }
-
-
-
-{/* <View style={{
-    opacity: 1,
-    width: 4096,
-    height: 800,
-    margin: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-    // justifyContent: 'space-evenly',
-    }}
-> */}
-// </View> 
-
-
-    // updateStage(input) {
-    //     if(this.state.showButton === false) {
-    //       this.setState({showButton: true});
-    //     }
-    //   switch (input) {
-    //       case 1:
-    //         this.setState({borderWidths: [0.05, 0, 0, 0, 0, 0]});
-    //         break;
-    //       case 2:
-    //         this.setState({borderWidths: [0, 0.05, 0, 0, 0, 0]});
-    //         break;
-    //       case 3:
-    //         this.setState({borderWidths: [0, 0, 0.05, 0, 0, 0]});
-    //         break;
-    //       case 4:
-    //         this.setState({borderWidths: [0, 0, 0, 0.05, 0, 0]});
-    //         break;
-    //       case 5:
-    //         this.setState({borderWidths: [0, 0, 0, 0, 0.05, 0]});
-    //         break;
-    //       case 6:
-    //         this.setState({borderWidths: [0, 0, 0, 0, 0, 0.05]});
-    //         break;
-    //     }
-    //   }
-
-    // updateScene() {
-    //     this.setState({color1: "#D8DAF1", color2: "#A482DF", text: "Watch Video"});
-    // }

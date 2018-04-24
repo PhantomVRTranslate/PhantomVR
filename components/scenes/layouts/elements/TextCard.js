@@ -1,30 +1,28 @@
 import React from 'react';
 import {View, Text, VrButton} from 'react-vr';
 
-export default class ImageCard extends React.Component {
+export default class TextCard extends React.Component {
     render() {
-        console.log("imagecard", this.props);
         return (
-            <View
-                style = {{
-                    width: "33",
-                    height:"50"
-                }} >
-                <VrButton>
+          
                     <Text
                         style={{
-                            width: "100",
+                            flex: 1,
+                            backgroundColor: 'rgba(0,200,200,0.5)',
+                            width: "100%",
                             height: "100",
+                            maxWidth: 800,
+                            maxHeight: 500,
                             fontSize: 50,
                             fontWeight: '400',
-                            textAlignVertical: 'top',
+                            textAlign: 'center',
+                            textAlignVertical: 'center',
+                            margin: 1
                     }}
-                    numberOfLines={2}
-                    ellipsizeMode={"tail"}>{
-                        this.props.text}
+                   >
+                    {this.props.src || this.props.text || this.props.children}
                     </Text>
-                </VrButton>
-            </View>
+   
         );
     }
 }

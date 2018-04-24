@@ -13,47 +13,63 @@ class ContentPlane extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            startPoint: this.props.deg || -75,
-            subComponentLimit: 0
+            subComponentLimit: 0,
         };
+        this.subComponents = [];
     }
 
     componentDidMount() {
         //ensures at most 5 subcomponents  
-        
-        let childLength = this.props.children.length >= 5 ? 5 : this.props.children.length;
-        this.setState({
-            subComponentLimit: childLength
-        });
+        console.log('this');
+        console.log(this.props.children.length === undefined);
+        console.log(this.props.children);
+
+
+        if (this.props.children.length === undefined){ 
+            this.setState({
+                subComponentLimit: 1
+            });
+            this.subComponents.push(this.props.children);
+        } else {
+            let childLength = this.props.children.length >= 5 ? 5 : this.props.children.length;
+            
+            this.setState({
+                subComponentLimit: childLength
+            });
+            let sComps = []; 
+            for (let i = 0; i < childLength; i++){
+                sComps.push(this.props.children[i]);
+            }
+            this.subComponents = sComps;
+        }
     }
 
     render() {
-        console.log('this is subCLimit: ' + this.subComponentLimit);
-        ///  IMPORTANT 
-                //slice(0,5) only works if there are 5 or more items - remember to adjust
-        ///
-        // console.log(this.props.children.slice(0,5));
+        // console.log('this is subCLimit: ' + this.subComponentLimit);
+
         return (
             <View> 
                  <CylindricalPanel
-                layer={{width: 4096, height: 800}} 
-                style={{
-                    transform: [{rotateY: this.state.startPoint}],
+                    layer={{width: 4096, height: 800, density: 8092}} 
+                    style={{
+                    // transform: [{rotateY: this.state.startPoint}],
                     opacity: 1
                     }}
                     >
-                    <View
-                        style={{
-                        opacity: 1,
-                        width: 2048,
-                        height: 800,
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        }}
-                    >
-                    {this.props.children.slice(0,this.subComponentLimit)}
-                    </View>
+                    <View style={{layoutOrigin: [-.5, 0]}}>
+                        <View
+                            style={{
+                            opacity: 1,
+                            width: 2048,
+                            height: 800,
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            }}
+                        >
+                        {this.subComponents}
+                        </View>
+                    </View> 
                 </CylindricalPanel>
             </View>
         );
