@@ -17,6 +17,7 @@ import CardSorter from "./elements/CardSorter";
 import TextCard from "./elements/TextCard.js"; 
 import Card from "./elements/Card.js"; 
 import ImageCard from "./elements/ImageCard.js";
+import ImageCaption from "./elements/ImageCaption.js";
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
@@ -49,10 +50,11 @@ export default class DashboardLayout extends React.Component {
                 </CardCol>
 
                 {/* Blank Card Works */}
-                <Card/>
+                <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>  
 
                 <Card>
-                    <TextCard text={'One'}/> 
+                    <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
+                    {/* <TextCard text={'One'}/>  */}
                 </Card> 
 
                 <Card>

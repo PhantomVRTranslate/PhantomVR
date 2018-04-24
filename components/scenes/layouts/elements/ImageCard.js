@@ -15,19 +15,24 @@ export default class ImageCard extends React.Component {
     //tried to work with tint color but its opacity variable changes the opacity of the entire fucking image. 
 
     borderShow(){
-        console.log('switched border to ' + this.state.border); 
+        //turned off
         this.setState({border: !this.state.border});
     }
     render () {
-        let border = this.state.border ? 5 : 0; 
+        //uncomment for gaze border 
+
+        // let border = this.state.border ? 5 : 0; 
         return (
                 <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
                     width: '100%' , 
                     height: '100%',
-                    minWidth: 400,
                     minHeight: 250,
                     maxHeight: 500,
                     maxWidth: 400
+                    //uncomment for border to appear on gaze
+                    // minWidth: 400,
+                    // borderColor: '#FFF', 
+                    // borderWidth: border, 
                     }}>
                     
                     <Image 
