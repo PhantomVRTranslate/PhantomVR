@@ -18,32 +18,9 @@ export default class CPColumn extends React.Component {
     super(props);
     this.state = {
         fade: 1
-        // fontgaze: false
     };
-    // this.fade = this.fade.bind(this); 
+
     }
-
-    // componentDidMount() {
-    // this.fade(); 
-    // }
-
-    // fade() {
-    //     this.state.fade.setValue(0);
-    //     Animated.timing(
-    //     this.state.fade,
-    //     {
-    //         toValue: 1,
-    //         duration: 2000,
-    //         delay: 500
-    //     }
-    //     ).start();
-    // }
-
-    // changeFont() {
-    //     console.log('gaze triggered'); 
-    //     this.setState({fontgaze: !this.state.fontgaze});
-    // }
-
 
 
     render() {

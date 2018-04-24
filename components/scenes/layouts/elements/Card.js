@@ -22,12 +22,15 @@ export default class Card extends React.Component {
                 style = {{
                     flex: 1,
                     backgroundColor: 'rgba(0,200,200,0.5)',
-                    //combo of height && max height to ensure one component doesn't take up the whole 180º
-                    minHeight: 500,
                     
+                    //combo of height && max height to ensure one component doesn't take up the whole 180º
+                    minHeight: 250,
+                    height: '100%', 
+                    width: '100%',
                     maxHeight: 500,
                     minWidth: 400,
                     maxWidth: 400,
+
                 }} >
                   {this.props.children}
             </View>

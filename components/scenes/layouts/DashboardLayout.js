@@ -8,7 +8,7 @@ import {
     CylindricalPanel
 } from 'react-vr'; 
 import {Easing} from 'react-native'; 
-import TitleVr from './elements/TitleVr.js'; 
+
 import TextVr from './elements/TextVr.js'; 
 import ContentPlane from './elements/ContentPlane'; 
 import CPcolumn from './elements/CPcolumn';
@@ -16,7 +16,7 @@ import Gallery from "./elements/Gallery";
 import CardSorter from "./elements/CardSorter";
 import TextCard from "./elements/TextCard.js"; 
 import Card from "./elements/Card.js"; 
-
+import ImageCard from "./elements/ImageCard.js";
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
@@ -39,7 +39,7 @@ export default class DashboardLayout extends React.Component {
                             <TextCard text={'TWO'}></TextCard>
                             <TextCard text={'THREE'}></TextCard>
                             <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
-                            <CardSorter options={{type: "image", src: '../static_assets/pictures/puppy.jpeg'}} />
+                            <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                             <TextCard text={'FOur'}></TextCard>
                         </Gallery> 
                         <Card>
@@ -49,7 +49,7 @@ export default class DashboardLayout extends React.Component {
                             <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
                         </Card> 
                         <Card>
-                            <CardSorter options={{type: "image", src: '../static_assets/pictures/puppy.jpeg'}} />
+                            <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
                         </Card> 
 
              </ContentPlane>

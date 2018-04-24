@@ -18,7 +18,6 @@ export default class MainMenuContainer extends React.Component {
     }
 
     generateCard(child, row, col) {
-
         return (
           <View style={{width: `${99 / this.props.children.length * row}%`,
                         height: `${99 / this.props.children.length * col}%`,
@@ -42,14 +41,14 @@ export default class MainMenuContainer extends React.Component {
     render() {
         
         console.log('made gallery');
-        let toRender = [
-            {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
-            {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
-            {type: "video", src: '../static_assets/videos/fireplace.mp4'},
-            {type: "video", src: '../static_assets/videos/fireplace.mp4'},
-            {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
-            {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
-        ];
+        // let toRender = [
+        //     {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
+        //     {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
+        //     {type: "video", src: '../static_assets/videos/fireplace.mp4'},
+        //     {type: "video", src: '../static_assets/videos/fireplace.mp4'},
+        //     {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
+        //     {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
+        // ];
         return (
             <View
                 style = {{
@@ -57,7 +56,7 @@ export default class MainMenuContainer extends React.Component {
                     flexWrap: "wrap",
                     flex: 1,
                     backgroundColor: 'rgba(0,200,200,0.5)',
-
+                    
                     //combo of height && max height to ensure one component doesn't take up the whole 180º
                     
                     minHeight: 500,

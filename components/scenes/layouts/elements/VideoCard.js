@@ -5,7 +5,10 @@ export default class VideoCard extends React.Component {
     render() {
         console.log("Videocard", this.props);
         return (
-                <VrButton>
+                <VrButton style = {{
+                    width: '100%', 
+                    height: '100%',
+                    }}>
                     <Video
                         source={{
                         uri: this.props.src
