@@ -24,6 +24,10 @@ export default class ImageCard extends React.Component {
                 <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
                     width: '100%' , 
                     height: '100%',
+                    minWidth: 400,
+                    minHeight: 250,
+                    maxHeight: 500,
+                    maxWidth: 400
                     }}>
                     
                     <Image 
@@ -31,6 +35,7 @@ export default class ImageCard extends React.Component {
                         style = {{
                             width: '100%', 
                             height: '100%',
+                            
                             resizeMode: 'cover'
                         }}
                         

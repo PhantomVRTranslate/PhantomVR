@@ -11,7 +11,7 @@ export default class TextCard extends React.Component {
                             backgroundColor: 'rgba(0,200,200,0.5)',
                             width: "100%",
                             height: "100",
-                            maxWidth: 800,
+                            maxWidth: 400,
                             maxHeight: 500,
                             fontSize: 50,
                             fontWeight: '400',
