@@ -5,10 +5,11 @@ import {
     Pano, 
     Text, 
     View,
-    CylindricalPanel
+    CylindricalPanel,
 } from "react-vr";
 
 export default class App extends React.Component {
+
   render() {
     return (
       <CylindricalPanel
@@ -23,7 +24,6 @@ export default class App extends React.Component {
          style={{position: 'absolute'}}
       >
       <View style={{
-                opacity: 1,
                 width: 2048,
                 height: 800,
                 layoutOrigin: [-.5, 0],

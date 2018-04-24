@@ -8,7 +8,7 @@ import {
 } from 'react-vr'; 
 import { Easing } from 'react-native'; 
 
-import VRText from './VrText.js'; 
+import VRText from './vr_text.js'; 
 
 export default class Gallery3 extends React.Component {
     constructor(props){

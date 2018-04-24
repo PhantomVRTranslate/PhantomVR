@@ -2,22 +2,75 @@ import React from "react";
 import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
-import VRText from "./VrText.js";
+import VRText from "./vr_text.js";
 
 export default class Gallery1 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { slideLeft: new Animated.Value(-1024), fadeIn: new Animated.Value(0)};
+  }
+
+  componentDidMount() {
+    Animated.sequence([
+      Animated.parallel([
+        Animated.timing(
+          this.state.slideLeft,
+          {
+           toValue: 0,
+           duration: 2000,
+           easing: Easing.linear
+          }
+        ),
+        Animated.timing(
+          this.state.fadeIn,
+          {
+           toValue: 1,
+           duration: 2000,
+           easing: Easing.bezier(.5,.34,.3,.88)
+          }
+        )
+      ])
+    ]).start();
+  }
+
+  ci
+
+  componentReceiveProps() {
+    console.log('hi');
+    Animated.sequence([
+      Animated.parallel([
+        Animated.timing(
+          this.state.slideLeft,
+          {
+           toValue: 1024,
+           duration: 2000,
+           easing: Easing.linear
+          }
+        ),
+        Animated.timing(
+          this.state.fadeIn,
+          {
+           toValue: 0,
+           duration: 2000,
+           easing: Easing.linear
+          }
+        )
+      ])
+    ]).start();
   }
 
   render() {
     return (
-      <View
+      <Animated.View
         style={{
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          height: "100%"
+          height: "100%",
+          opacity: this.state.fadeIn,
+          transform: [
+            {translateX: this.state.slideLeft}
+          ],
         }}
       >
         <VRText>EVERY</VRText>
@@ -26,7 +79,7 @@ export default class Gallery1 extends React.Component {
         <VRText>A</VRText>
         <VRText>GOOD</VRText>
         <VRText>DAY</VRText>
-      </View>
+      </Animated.View>
     );
   }
 }
