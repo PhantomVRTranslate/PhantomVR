@@ -50,15 +50,14 @@ export default class DashboardLayout extends React.Component {
                 </CardCol>
 
                 {/* Blank Card Works */}
+                <Card/> 
+
+                {/* Must hover over image for text to dipslay */}
                 <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>  
 
                 <Card>
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
                     {/* <TextCard text={'One'}/>  */}
-                </Card> 
-
-                <Card>
-                    <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
                 </Card> 
 
              </ContentPlane>
