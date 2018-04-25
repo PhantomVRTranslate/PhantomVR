@@ -56,19 +56,18 @@ class CardCarousel extends React.Component {
     const canPrev = this.state.cardNumber > 0;
 
     return (
-      <View
-        style={{position:"absolute"}}
-      >
+      <View>
       <View style={{
         opacity: 1,
         flex: 1,
-        flexDirection: 'row',
-        width: 500,
-        height: 500,
-        justifyContent: 'flex-start'
+        width: '100%' ,
+        height: '100%',
+        minHeight: 250,
+        maxHeight: 500,
+        maxWidth: 400
       }} >
           <CarouselItem card={this.props.itemCollection[this.state.cardNumber]} />
-      </View>
+
       <View>
           <GazeButton disabled={false} onClick={this.prevCard}
               buttonStyle={{
@@ -82,10 +81,11 @@ class CardCarousel extends React.Component {
                   borderColor:"#222"
               }}
               containerStyle={{
-                  position:"absolute",
-                  transform: [{
-                      translate: [30,100,-499]
-                  }]
+                position: 'absolute',
+                transform: [{
+                    translate: [20,100,0]
+                }]
+
               }}>
                   <Text style={{
                       color:"white",
@@ -111,7 +111,7 @@ class CardCarousel extends React.Component {
               containerStyle={{
                 position:"absolute",
                 transform: [{
-                    translate: [400,100,-470]
+                    translate: [320,100,0]
                 }]
               }}>
               <Text style={{
@@ -124,6 +124,7 @@ class CardCarousel extends React.Component {
                   {">"}
               </Text>
           </GazeButton>
+        </View>
         </View>
       </View>
     )

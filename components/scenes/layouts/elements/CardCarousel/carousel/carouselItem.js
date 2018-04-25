@@ -26,12 +26,11 @@ class CarouselItem extends React.Component {
         <Image
           style={{
             margin: 5,
-            flexDirection:"column",
-            height: 500,
-            width: 500,
-            transform: [{translate: [ 0, 0, -500]}],
+            width: '100%',
+            height: '100%',
+
           }}
-          source={this.state.currentImage}
+            source={this.state.currentImage}
 
         />
       </ View>
