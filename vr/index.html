@@ -10,14 +10,19 @@
     <div class="stophere"></div>
     <script src="./client.bundle?platform=vr"></script>
     <script>
-      // Initialize the React VR application
+      let mobile = false;
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        mobile = true;
+      }
       console.log('REACTVR INIT: ',document.body);
+      // Initialize the React VR application
       ReactVR.init(
         // When you're ready to deploy your app, update this line to point to
         // your compiled index.bundle.js
         '../index.vr.bundle?platform=vr&dev=true',
         // Attach it to the body tag
-        document.body
+        document.body,
+        {mobile}
       );
     </script>
   </body>
