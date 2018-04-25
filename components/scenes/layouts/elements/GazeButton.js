@@ -45,6 +45,6 @@ export default class GazeButton extends React.Component{
             >
                 {this.props.children}
             </VrButton>
-        )
+        );
     }
 }

@@ -21,17 +21,20 @@ export default class NavBarItem extends React.Component {
       : new Animated.Value(0.1);
 
     const progressWidth = new Animated.Value(0);
+    const progressHeight = new Animated.Value(0);
 
     this.state = {
       backgroundColor,
       // opacity,
       fontSize,
       isSelected,
-      progressWidth
+      progressWidth,
+      progressHeight
     };
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(this.state.isSelected, 'new props');
     if (nextProps.currGallery !== nextProps.link && this.state.isSelected) {
       this.setState({
         // backgroundColor: "#222",
@@ -48,51 +51,106 @@ export default class NavBarItem extends React.Component {
   }
 
   handleHover(e) {
+    console.log(this.state.isSelected, 'hover');
     if (!this.state.isSelected) {
-      // this.setState({
-      //   opacity: 0.85
-      // });
-      console.log(this.state.backgroundColor);
+      console.log('hi');
+      console.log(this.state.progressWidth);
+        Animated.timing(this.state.progressWidth, {
+              toValue: .25,
+              duration: 1000,
+              easing: Easing.linear
+      }).start();
+
+        // Animated.sequence([
+        // Animated.parallel([
+          // Animated.timing(
+          //   this.state.backgroundColor, {
+          //    toValue: this.gray,
+          //    duration: 1000,
+          //    easing: Easing.linear
+          //   }),
+          // Animated.timing(
+          //   this.state.progressWidth, {
+          //     toValue: .5,
+          //     duration: 1000,
+          //     easing: Easing.linear
+          //   }),
+          // Animated.timing(
+          //   this.state.progressHeight, {
+          //     toValue: .1,
+          //     duration: 1000,
+          //     easing: Easing.linear
+          //   })
+      //     ])
+      // ]).start();
+    }
+
+
+
+    console.log('hi again');
+
+    //   Animated.sequence([
+    //     Animated.parallel([
+    //       // Animated.timing(
+    //         // this.state.backgroundColor, {
+    //         //  toValue: this.gray,
+    //         //  duration: 1000,
+    //         //  easing: Easing.linear
+    //         // }),
+    //       Animated.timing(
+    //         this.state.progressWidth, {
+    //           toValue: .5,
+    //           duration: 1000,
+    //           easing: Easing.linear
+    //         }),
+    //       Animated.timing(
+    //         this.state.progressHeight, {
+    //           toValue: .1,
+    //           duration: 1000,
+    //           easing: Easing.linear
+    //         })
+    //       // Animated.timing(
+    //       //   this.state.opacity, {
+    //       //     toValue: 1,
+    //       //     duration: 6000,
+    //       //     easing: Easing.linear
+    //       //   })
+    //       ])
+    //   ]).start();
+
+    //   // Animated.timing(this.state.fontSize, {
+    //   //   toValue: .105,
+    //   //   duration: 200,
+    //   //   easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
+    //   // }).start();
+
+    // }
+  }
+
+  handleLeave(e) {
+    console.log(this.state.isSelected, 'leave');
+    if (!this.state.isSelected) {
+      this.setState({
+        // backgroundColor: "#222",
+        // opacity: 0.8,
+      });
 
       Animated.sequence([
         Animated.parallel([
-          // Animated.timing(
-            // this.state.backgroundColor, {
-            //  toValue: this.gray,
-            //  duration: 1000,
-            //  easing: Easing.linear
-            // }),
           Animated.timing(
             this.state.progressWidth, {
-              toValue: .5,
-              duration: 1000,
+              toValue: 0,
+              duration: 200,
               easing: Easing.linear
             })
           // Animated.timing(
-          //   this.state.opacity, {
-          //     toValue: 1,
-          //     duration: 6000,
+          //   this.state.progressHeight, {
+          //     toValue: .1,
+          //     duration: 1000,
           //     easing: Easing.linear
           //   })
           ])
       ]).start();
-
-      // Animated.timing(this.state.fontSize, {
-      //   toValue: .105,
-      //   duration: 200,
-      //   easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
-      // }).start();
-
-    }
-  }
-
-  handleLeave(e) {
-    if (!this.state.isSelected) {
-      this.setState({
-        progressWidth: 0,
-        // backgroundColor: "#222",
-        // opacity: 0.8,
-      });
 
       Animated.timing(this.state.fontSize, {
         toValue: .1,
@@ -103,12 +161,19 @@ export default class NavBarItem extends React.Component {
   }
 
   handleTrigger() {
+    console.log(this.state.isSelected, 'trigger');
     this.setState({
-      progressWidth: 0,
       // backgroundColor: "#444",
       // opacity: 0.9,
       isSelected: true
     });
+
+    Animated.timing(
+      this.state.progressWidth, {
+        toValue: 0,
+        duration: 200,
+        easing: Easing.linear
+      }).start();
 
     Animated.timing(this.state.fontSize, {
       toValue: .11,
@@ -128,7 +193,7 @@ export default class NavBarItem extends React.Component {
     return (
       <AnimatedGaze
         style={{
-          flex: 1,
+          width: .5,
           // fromBgColor: 'rgba(1, 1, 1, 1)',
           // toBgColor: 'rgba(40, 40, 40, 40)',
           // backgroundColor: backgroundColor.interpolate({
@@ -155,11 +220,15 @@ export default class NavBarItem extends React.Component {
         </Animated.Text>
         <Animated.View 
               style={{
-                backgroundColor:'rgb(255, 0, 0)',
-                position: 'relative',
+                backgroundColor:'rgb(132, 56, 162)',
+                // borderRadius: 1,
+                // position: 'absolute',
+                bottom: 0,
                 width: this.state.progressWidth,
                 height: .01,
-                overflow: 'hidden',
+                // opacity: .3,
+                // height: this.state.progressHeight,
+                // overflow: 'hidden',
               }}
               ><Text>.</Text>
               </Animated.View>

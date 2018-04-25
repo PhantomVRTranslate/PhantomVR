@@ -25,11 +25,13 @@ function init(bundle, parent, options) {
         raycasters: [GearVRRaycaster],
         cursorVisibility: "visible",
         enableHotReload: true,
+        antialias: true,
         ...options
       })
     : new VRInstance(bundle, "WelcomeToVR", parent, {
         nativeModules: [browserInfo],  
         enableHotReload: true,  
+        antialias: true,
         ...options
       });
 

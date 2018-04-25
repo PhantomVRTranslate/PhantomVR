@@ -72,7 +72,7 @@ export default class BottomNavBar extends React.Component {
           borderWidth: 0.002,
           borderColor: "#444",
           padding: .02,
-          width: 1.5,
+          // width: 1.5,
           height: 0.3,
           layoutOrigin: [0.5, 0.5],
           transform: [{ translate: [0, this.state.slideUp, this.state.slideForward] }, { rotateX: "-45deg" }],
