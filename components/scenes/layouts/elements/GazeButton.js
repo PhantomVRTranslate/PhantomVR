@@ -8,7 +8,7 @@ export default class GazeButton extends React.Component{
         super(props);
 
         // eventually will make this optional as a prop?
-        this.timeout = 1000
+        this.timeout = 2000;
         this.triggerSelection = this.triggerSelection.bind(this);
     }
 

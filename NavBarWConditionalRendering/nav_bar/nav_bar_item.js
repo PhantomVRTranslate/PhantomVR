@@ -20,11 +20,14 @@ export default class NavBarItem extends React.Component {
       ? new Animated.Value(0.105)
       : new Animated.Value(0.1);
 
+    const progressWidth = new Animated.Value(0);
+
     this.state = {
       backgroundColor,
       // opacity,
       fontSize,
-      isSelected
+      isSelected,
+      progressWidth
     };
   }
 
@@ -53,11 +56,17 @@ export default class NavBarItem extends React.Component {
 
       Animated.sequence([
         Animated.parallel([
+          // Animated.timing(
+            // this.state.backgroundColor, {
+            //  toValue: this.gray,
+            //  duration: 1000,
+            //  easing: Easing.linear
+            // }),
           Animated.timing(
-            this.state.backgroundColor, {
-             toValue: this.gray,
-             duration: 1000,
-             easing: Easing.linear
+            this.state.progressWidth, {
+              toValue: .5,
+              duration: 1000,
+              easing: Easing.linear
             })
           // Animated.timing(
           //   this.state.opacity, {
@@ -80,6 +89,7 @@ export default class NavBarItem extends React.Component {
   handleLeave(e) {
     if (!this.state.isSelected) {
       this.setState({
+        progressWidth: 0,
         // backgroundColor: "#222",
         // opacity: 0.8,
       });
@@ -94,6 +104,7 @@ export default class NavBarItem extends React.Component {
 
   handleTrigger() {
     this.setState({
+      progressWidth: 0,
       // backgroundColor: "#444",
       // opacity: 0.9,
       isSelected: true
@@ -120,10 +131,10 @@ export default class NavBarItem extends React.Component {
           flex: 1,
           // fromBgColor: 'rgba(1, 1, 1, 1)',
           // toBgColor: 'rgba(40, 40, 40, 40)',
-          backgroundColor: backgroundColor.interpolate({
-            inputRange: [this.black, this.gray, this.white],
-            outputRange: ['rgb(0, 0, 0)', 'rgb(100, 100, 100)', 'rgb(255, 255, 255)']
-          }),
+          // backgroundColor: backgroundColor.interpolate({
+          //   inputRange: [this.black, this.gray, this.white],
+          //   outputRange: ['rgb(0, 0, 0)', 'rgb(100, 100, 100)', 'rgb(255, 255, 255)']
+          // }),
           // opacity,
           height: "100%",
           margin: 0.01,
@@ -142,6 +153,16 @@ export default class NavBarItem extends React.Component {
         >
           {this.props.children}
         </Animated.Text>
+        <Animated.View 
+              style={{
+                backgroundColor:'rgb(255, 0, 0)',
+                position: 'relative',
+                width: this.state.progressWidth,
+                height: .01,
+                overflow: 'hidden',
+              }}
+              ><Text>.</Text>
+              </Animated.View>
       </AnimatedGaze>
     );
   }

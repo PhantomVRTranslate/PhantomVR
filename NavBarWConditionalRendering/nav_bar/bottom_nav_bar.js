@@ -5,6 +5,19 @@ import { Easing } from "react-native";
 import NavBarItem from "./nav_bar_item.js";
 
 
+// ///
+
+// progressWidth: new Animated.value(0)
+
+// <Progress width={this.state.progressWidth} />
+
+// onHover () 
+// Animated.timingwidth,
+// toValue: navbaritem.width,
+// Easing.ease
+
+// ///
+
 export default class BottomNavBar extends React.Component {
   constructor(props) {
     super(props);
