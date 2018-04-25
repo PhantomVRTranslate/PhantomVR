@@ -6,18 +6,19 @@ import {
     Image,
     Text,
     CylindricalPanel
-} from 'react-vr'; 
-import {Easing} from 'react-native'; 
+} from 'react-vr';
+import {Easing} from 'react-native';
 
-import TextVr from './elements/TextVr.js'; 
-import ContentPlane from './elements/ContentPlane'; 
+import TextVr from './elements/TextVr.js';
+import ContentPlane from './elements/ContentPlane';
 import CardCol from './elements/CardCol.js';
 import Gallery from "./elements/Gallery";
 import CardSorter from "./elements/CardSorter";
-import TextCard from "./elements/TextCard.js"; 
-import Card from "./elements/Card.js"; 
+import TextCard from "./elements/TextCard.js";
+import Card from "./elements/Card.js";
 import ImageCard from "./elements/ImageCard.js";
 import ImageCaption from "./elements/ImageCaption.js";
+import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
@@ -31,34 +32,44 @@ export default class DashboardLayout extends React.Component {
 //CPC
 
     render() {
-        console.log('rendering dashboard layout'); 
+        console.log('rendering dashboard layout');
         let words = "Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression";
         return (
-            <ContentPlane > 
+            <ContentPlane >
                 <Gallery >
                     <TextCard text={words}></TextCard>
                     <TextCard text={'TWO'}></TextCard>
                     <TextCard text={'THREE'}></TextCard>
                     <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
-                    <TextCard text={'FOur'}></TextCard>
-                </Gallery> 
+                    <TextCard text={'Four'}></TextCard>
+                </Gallery>
+                <CardCarousel itemCollection={[
+                  asset("1.jpeg"),
+                  asset("2.jpeg"),
+                  asset("3.jpeg"),
+                  asset("4.jpeg"),
+                  asset("5.jpeg")
+                ]}
+                initialCard={0}/>
 
                 <CardCol>
+
                 <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
+
                 </CardCol>
 
                 {/* Blank Card Works */}
-                <Card/> 
+
 
                 {/* Must hover over image for text to dipslay */}
-                <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>  
+                <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>
 
                 <Card>
-                    <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
+                    <ImageCard src={'../static_assets/pictures/pup.jpg'}/>
                     {/* <TextCard text={'One'}/>  */}
-                </Card> 
+                </Card>
 
              </ContentPlane>
         );
