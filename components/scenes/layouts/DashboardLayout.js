@@ -45,7 +45,7 @@ export default class DashboardLayout extends React.Component {
                 </Gallery> 
 
                 <CardCol>
-                    <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
+                <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
                 </CardCol>
 
