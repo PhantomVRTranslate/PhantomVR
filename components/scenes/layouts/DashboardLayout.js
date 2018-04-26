@@ -34,12 +34,12 @@ export default class DashboardLayout extends React.Component {
         let toRender = theContent.map(el =>{
             console.log("el", el);
             switch(el.type){
-                case "text":
+                case "text-vr":
                 console.log("in text", el.content);
                     return (<TextCard text={el.content} /> );
-                case "image":
+                case "image-vr":
                     return(<ImageCard src={el.content} />);
-                case "video":
+                case "video-vr":
                     return(<VideoCard src={el.content} />);
                 default: 
                     return null; 

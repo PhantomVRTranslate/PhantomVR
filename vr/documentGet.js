@@ -3,9 +3,7 @@ import {Module} from 'react-vr-web';
 export default class DocumentGet extends Module {
     constructor() {
         super('DocumentGet');
-
         this.userAgent = navigator.userAgent;
-
     }
 
     _setRNContext(rnctx) {
@@ -13,62 +11,35 @@ export default class DocumentGet extends Module {
     }
 
     getDocument(cb) {
-        let result = [];
-
-        let textEls = document.getElementsByClassName('text-vr');
-        textEls = Array.from(textEls);
-        textEls.forEach((textEl) => 
-            result.push({
-                type: "text",
-                content: textEl.innerHTML,
-            })
-        );
-
-        let imageEls = document.getElementsByClassName('image-vr');
-        imageEls = Array.from(imageEls);
-        imageEls.forEach((imageEl) => 
-            result.push({
-                type: "image",
-                content: imageEl.getAttribute('src'),
-            })
-        );
-
-        let videoEls = document.getElementsByClassName('video-vr');
-        videoEls = Array.from(videoEls);
-        videoEls.forEach((videoEl) => 
-            result.push({
-                type: "video",
-                content: videoEl.getAttribute('src'),
-            })
-        );
-
-
-        let body = document.getElementsByTagName('body')[0];
+        let result = this.getBaseContent();
+        const body = document.getElementsByTagName('body')[0];
 
         while (body.firstChild.className !== "stophere") {
-            console.log('first child: ', body.firstChild); 
             body.removeChild(body.firstChild);
             
         }
-
-        // Array.from(body.children).forEach((child) =>{
-        //     if (child !)
-        // }
-    
-
         if (this._rnctx) {
             this
                 ._rnctx
                 .invokeCallback(cb, [result]);
         }
-
-    }
-    setTitle(title) {
-        document.title = title;
+        return result;
     }
 
-    findElement(type) {
-        return console.log(document.type);
+    getBaseContent() { 
+        let result = [];
+        let types = ['text-vr', 'image-vr', 'video-vr']; 
+            types.forEach(type => {
+                let content = Array.from(document.getElementsByClassName(type)); 
+                content.forEach((el) => {
+                    let specify = type === "text-vr" ? el.innerHTML : el.getAttribute('src');
+                    result.push({
+                        type: type,
+                        content: specify
+                    });
+                });
+            });
+        return result; 
     }
 
     $getConfirmation(message, resolve, reject) {
