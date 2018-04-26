@@ -19,6 +19,7 @@ import ImageCard from "./elements/ImageCard.js";
 import ImageCaption from "./elements/ImageCaption.js";
 import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
 import VideoCard from './elements/VideoCard.js';
+
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
@@ -28,14 +29,10 @@ export default class DashboardLayout extends React.Component {
     }
 
     generateComponents() {
-        console.log("store", this.state);
         let theContent = this.state.content;
-        console.log("theContent", theContent[0]);
         let toRender = theContent.map(el =>{
-            console.log("el", el);
             switch(el.type){
                 case "text-vr":
-                console.log("in text", el.content);
                     return (<TextCard text={el.content} /> );
                 case "image-vr":
                     return(<ImageCard src={el.content} />);
@@ -45,13 +42,11 @@ export default class DashboardLayout extends React.Component {
                     return null; 
                 }
             });
-        console.log('generateComp from forward', toRender);
         return toRender; 
 
     }
 
     componentWillReceiveProps(newProps){
-        console.log("newProps", newProps);
         this.setState(newProps);
     }
 
@@ -59,19 +54,21 @@ export default class DashboardLayout extends React.Component {
     //CPC
 
     render() {
-        console.log('rendering dashboard layout', this.props);
-        let words = "Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression";
+        let words = "Hello";
         let components = this.generateComponents(this.props.content);
-        let component = components[0];
-        console.log("in render", components[0]);
-        let two = (<TextCard text={'TWO'}></TextCard>);
-        console.log('two', two);
         return (
             <ContentPlane >
                 <Gallery >
                     {components[0]}
-                    {two}
-                    <TextCard text={'THREE'}></TextCard>
+                    {components[1]}
+                    {components[2]}
+
+                    {/* The following does not work.  Uncertain as to why. */}
+                    {/* {components.map((comp) => {
+                        comp;
+                    })} */}
+                    {/* <TextCard text={'TWO'}></TextCard>
+                    <TextCard text={'THREE'}></TextCard> */}
                     <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <TextCard text={'Four'}></TextCard>
@@ -92,9 +89,7 @@ export default class DashboardLayout extends React.Component {
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
 
                 </CardCol>
-
                 {/* Blank Card Works */}
-
 
                 {/* Must hover over image for text to dipslay */}
                 <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>

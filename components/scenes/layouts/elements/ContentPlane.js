@@ -9,61 +9,50 @@ import {
 } from 'react-vr'; 
 
 
-class ContentPlane extends React.Component {
+export default class ContentPlane extends React.Component {
     constructor(props){
-        console.log("in Content plane");
         super(props);
         this.state = {
             subComponentLimit: 0,
         };
         this.subComponents = [];
+
+        this.propsToState = this.propsToState.bind(this);
     }
 
     componentWillReceiveProps(newProps){
-        console.log("CPrecieve new props", newProps);
-                if (newProps.children.length === undefined){ 
-            this.setState({
-                subComponentLimit: 1
-            });
-            this.subComponents.push(newProps.children);
-        } else {
-            let childLength = newProps.children.length >= 5 ? 5 : newProps.children.length;
-            
-            this.setState({
-                subComponentLimit: childLength
-            });
-            let sComps = []; 
-            for (let i = 0; i < childLength; i++){
-                sComps.push(newProps.children[i]);
-            }
-            this.subComponents = sComps;
-        }
+        this.propsToState(newProps);
     }
 
     componentDidMount() {
         //ensures at most 5 subcomponents  
+        this.propsToState(this.props);
 
-        if (this.props.children.length === undefined){ 
+    }
+
+    propsToState(props) {
+                //ensures at most 5 subcomponents  
+
+        if (props.children.length === undefined){ 
             this.setState({
                 subComponentLimit: 1
             });
-            this.subComponents.push(this.props.children);
+            this.subComponents.push(props.children);
         } else {
-            let childLength = this.props.children.length >= 5 ? 5 : this.props.children.length;
+            let childLength = props.children.length >= 5 ? 5 : props.children.length;
             
             this.setState({
                 subComponentLimit: childLength
             });
             let sComps = []; 
             for (let i = 0; i < childLength; i++){
-                sComps.push(this.props.children[i]);
+                sComps.push(props.children[i]);
             }
             this.subComponents = sComps;
         }
     }
 
     render() {
-        console.log("CP rerender", this.subComponents);
         return (
             <View> 
                  <CylindricalPanel
@@ -91,6 +80,3 @@ class ContentPlane extends React.Component {
         );
     }
 }
-
-module.exports = ContentPlane; 
-
