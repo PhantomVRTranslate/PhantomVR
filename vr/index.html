@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
+    <script src="./hideBody.js"></script>
+    <main></main>
 
     <div class="text-vr" onclick="myFunction()">YUS</div>
     <img src='../static_assets/pictures/puppy.jpeg' class="image-vr" />
     <video class="video-vr" src='../static_assets//videos/fireplace.mp4'></video>
-    <div class="stophere"></div>
+
+    <div style='height: 100vh; width: 100vw;' id="phantom"></div>
     <script>
       function myFunction() {
         console.log('onclick working');
@@ -29,11 +32,12 @@
         '../index.vr.bundle?platform=vr&dev=true',
 
         // Attach it to the body tag
-        document.body,
+        document.getElementById('phantom'), 
         {mobile}
 
       );
     </script>
   </body>
+  
 </html>
 

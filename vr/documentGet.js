@@ -30,10 +30,13 @@ export default class DocumentGet extends Module {
         let el = document.getElementsByClassName(classname)[i]; 
         console.log('triggered'); 
         el.click(); 
+        let testtt = document.getElementsByClassName('jessica')[0] || 'no jessica';
+        console.log(testtt); 
         console.log('triggered'); 
     }
 
     getBaseContent() { 
+        
         let result = [];
         let types = ['text-vr', 'image-vr', 'video-vr']; 
             types.forEach(type => {
