@@ -8,7 +8,6 @@ import {
     CylindricalPanel
 } from 'react-vr';
 import {Easing} from 'react-native';
-
 import TextVr from './elements/TextVr.js';
 import ContentPlane from './elements/ContentPlane';
 import CardCol from './elements/CardCol.js';
@@ -19,6 +18,7 @@ import Card from "./elements/Card.js";
 import ImageCard from "./elements/ImageCard.js";
 import ImageCaption from "./elements/ImageCaption.js";
 import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
+import VideoCard from './elements/VideoCard.js';
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
@@ -32,15 +32,19 @@ export default class DashboardLayout extends React.Component {
         let theContent = this.state.content;
         console.log("theContent", theContent[0]);
         let toRender = theContent.map(el =>{
-        console.log("el", el);
-        switch(el.type){
-            case "text":
-            console.log("in text", el.content);
-        return (<TextCard text={`${el.content}`} /> );
-            default: 
-                return null; 
-            }
-        });
+            console.log("el", el);
+            switch(el.type){
+                case "text":
+                console.log("in text", el.content);
+                    return (<TextCard text={el.content} /> );
+                case "image":
+                    return(<ImageCard src={el.content} />);
+                case "video":
+                    return(<VideoCard src={el.content} />);
+                default: 
+                    return null; 
+                }
+            });
         console.log('generateComp from forward', toRender);
         return toRender; 
 
@@ -80,10 +84,11 @@ export default class DashboardLayout extends React.Component {
                   asset("5.jpeg")
                 ]}
                 initialCard={0}/>
-
+                {components.map((comp) => 
+                    (<Card>{comp}</Card>)
+                )}
                 <CardCol>
-
-                <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
+                    <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
 
                 </CardCol>

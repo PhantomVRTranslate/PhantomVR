@@ -22,13 +22,39 @@ export default class DocumentGet extends Module {
                 type: "text",
                 content: textEl.innerHTML,
             })
-    );
+        );
+
+        let imageEls = document.getElementsByClassName('image-vr');
+        imageEls = Array.from(imageEls);
+        imageEls.forEach((imageEl) => 
+            result.push({
+                type: "image",
+                content: imageEl.getAttribute('src'),
+            })
+        );
+
+        let videoEls = document.getElementsByClassName('video-vr');
+        videoEls = Array.from(videoEls);
+        videoEls.forEach((videoEl) => 
+            result.push({
+                type: "video",
+                content: videoEl.getAttribute('src'),
+            })
+        );
+
+
         let body = document.getElementsByTagName('body')[0];
-        
+
         while (body.firstChild.className !== "stophere") {
-            console.log('first child: ', body.firstChild);
+            console.log('first child: ', body.firstChild); 
             body.removeChild(body.firstChild);
+            
         }
+
+        // Array.from(body.children).forEach((child) =>{
+        //     if (child !)
+        // }
+    
 
         if (this._rnctx) {
             this

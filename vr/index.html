@@ -6,17 +6,14 @@
   </head>
   <body>
     <div class="text-vr" onclick="() => console.log('onclick()')">YUS</div>
-    <!-- When you're ready to deploy your app, update this line to point to your compiled client.bundle.js -->
+    <img src='../static_assets/pictures/puppy.jpeg' class="image-vr" />
+    <video class="video-vr" src='../static_assets//videos/fireplace.mp4'></video>
     <div class="stophere"></div>
     <script src="./client.bundle?platform=vr"></script>
     <script>
-      // Initialize the React VR application
       console.log('REACTVR INIT: ',document.body);
       ReactVR.init(
-        // When you're ready to deploy your app, update this line to point to
-        // your compiled index.bundle.js
         '../index.vr.bundle?platform=vr&dev=true',
-        // Attach it to the body tag
         document.body
       );
     </script>
