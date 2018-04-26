@@ -68,22 +68,8 @@ export default class GazeButton extends React.Component{
                 onExit={this.onExit.bind(this)}
                 style={style} 
                 onClick={this.triggerSelection}
-                // style={{
-                //     width: .5,
-                //     // backgroundColor: backgroundColor.interpolate({
-                //     //   inputRange: [this.black, this.gray, this.white],
-                //     //   outputRange: ['rgb(0, 0, 0)', 'rgb(40, 40, 40)', 'rgb(255, 255, 255)']
-                //     // }),
-                //     backgroundColor,
-                //     overflow: 'hidden',
-                //     height: "100%",
-                //     margin: 0.01,
-                //     justifyContent: "center",
-                //     alignItems: "center"
-                //   }}
             >
                 {this.props.children}
-                <Text>HELEHLO</Text>
                 <Animated.View 
                     style={{
                         backgroundColor:'rgb(200, 200, 200)',

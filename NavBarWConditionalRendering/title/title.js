@@ -9,9 +9,10 @@ export default class Title extends React.Component {
     super(props);
     this.state = {
       slideForward: new Animated.Value(-10),
-      slideUp: new Animated.Value(-0.35),
+      slideUp: new Animated.Value(0),
       fadeInTitle: new Animated.Value(0),
-      fadeInStart: new Animated.Value(0)
+      fadeInStart: new Animated.Value(0),
+      enteredScene: false
     };
   }
 
@@ -24,7 +25,7 @@ export default class Title extends React.Component {
           easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
         }),
         Animated.timing(this.state.slideUp, {
-          toValue: -.35,
+          toValue: .5,
           duration: 3000,
           easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
         }),
@@ -45,6 +46,7 @@ export default class Title extends React.Component {
 
   handleTrigger() {
     setTimeout(this.props.activateScene, 3000);
+    setTimeout(() => this.setState({ enteredScene : true }), 3000);
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.slideForward, {
@@ -53,7 +55,7 @@ export default class Title extends React.Component {
           easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
         }),
         Animated.timing(this.state.slideUp, {
-          toValue: 1.3,
+          toValue: 2,
           duration: 3000,
           easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
         }),
@@ -69,67 +71,48 @@ export default class Title extends React.Component {
         })
       ])
     ]).start();
-
-    // Animated.sequence([
-    //   Animated.parallel([
-    //     Animated.timing(this.state.fadeInStart, {
-    //       toValue: 0,
-    //       duration: 3000,
-    //       easing: Easing.bezier(0.5, 0.34, 0.3, 0.88),
-    //     }),
-    //     Animated.timing(this.state.slideForward, {
-    //       toValue: -10,
-    //       duration: 3000,
-    //       delay: 3000,
-    //       easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
-    //     }),
-    //     // Animated.timing(this.state.slideUp, {
-    //     //   toValue: -1,
-    //     //   duration: 3000,
-    //     //   delay: 3000,
-    //     //   easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
-    //     // }),
-    //   ])
-    // ]).start();
   }
 
   render() {
+    const { slideForward, slideUp, fadeInTitle, fadeInStart, enteredScene } = this.state;
+
     return (
       <Animated.View
         style={{
-          opacity: this.state.fadeInTitle,
+          opacity: fadeInTitle,
           padding: 0.02,
           margin: 0.02,
           width: 10,
           height: 0.3,
           layoutOrigin: [0.5, 0.5],
-          transform: [{ translate: [0, this.state.slideUp, this.state.slideForward] }],
+          transform: [{ translate: [0, slideUp, slideForward] }],
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-around",
-          position: "absolute"
+          justifyContent: "flex-start",
+          position: "absolute",
         }}
       >
         <Text
           style={{
             fontSize: 0.6,
-            transform: [{ translate: [0, 0.7, 0] }]
+            transform: [{ translate: [0, 0, 0] }]
           }}
         >
           Sample App
         </Text>
+
+        { !enteredScene ? 
         <GazeButton 
-          timeout={3000}
           onTrigger={this.handleTrigger.bind(this)}>
           <Animated.View
             style={{
-              opacity: this.state.fadeInStart,
+              opacity: fadeInStart,
               width: 1,
-              backgroundColor: "#111",
-              borderRadius: 0.06,
-              padding: 0.03,
-              paddingLeft: 0.08,
-              paddingRight: 0.08
+              backgroundColor: "transparent",
+              // borderRadius: 0.06,
+              // padding: 0.03,
+              // paddingLeft: 0.08,
+              // paddingRight: 0.08,
             }}
           >
             <Text
@@ -142,7 +125,7 @@ export default class Title extends React.Component {
               Start
             </Text>
           </Animated.View>
-        </GazeButton>
+        </GazeButton> : <View /> }
       </Animated.View>
     );
   }
