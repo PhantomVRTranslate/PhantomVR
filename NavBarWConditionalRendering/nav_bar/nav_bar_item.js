@@ -22,12 +22,14 @@ export default class NavBarItem extends React.Component {
       : new Animated.Value(0.1);
 
     const progressWidth = new Animated.Value(0);
+    // const progressHeight = new Animated.Value(0);
 
     this.state = {
       backgroundColor,
       fontSize,
       isSelected,
       progressWidth,
+      // progressHeight
     };
   }
 
@@ -57,13 +59,13 @@ export default class NavBarItem extends React.Component {
               toValue: .2,
               duration: 1000,
               easing: Easing.linear
-            }),
-          Animated.timing(
-            this.state.progressHeight, {
-              toValue: .1,
-              duration: 1000,
-              easing: Easing.linear
             })
+          // Animated.timing(
+          //   this.state.progressHeight, {
+          //     toValue: .1,
+          //     duration: 1000,
+          //     easing: Easing.linear
+          //   })
           ])
       ]).start();
     }

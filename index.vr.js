@@ -34,11 +34,12 @@ export default class WelcomeToVR extends React.Component {
     return (
       <View>
         <Pano source={{uri: backgroundImage}}/>
+        {/* <App /> */}
         <Title activateScene={this.activateScene.bind(this)} />
     { this.state.enterScene ? <App /> : <View /> }
       </View>
     );
   }
-};
+}
 
 AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);

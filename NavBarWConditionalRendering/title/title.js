@@ -39,6 +39,7 @@ export default class Title extends React.Component {
   }
 
   handleTrigger() {
+    setTimeout(this.props.activateScene, 5000);
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.fadeInStart, {
@@ -60,8 +61,6 @@ export default class Title extends React.Component {
           })
       ])
     ]).start();
-
-    setTimeout(this.props.activateScene, 5000);
   }
 
   render() {
@@ -89,15 +88,16 @@ export default class Title extends React.Component {
         >
           Sample App
         </Text>
-        <GazeButton onTrigger={this.handleTrigger.bind(this)}>
+        <GazeButton 
+          onTrigger={this.handleTrigger.bind(this)}>
           <Animated.View
             style={{
               opacity: this.state.fadeInStart,
-              backgroundColor: "#111",
-              borderRadius: 0.06,
-              padding: 0.03,
-              paddingLeft: 0.08,
-              paddingRight: 0.08
+              // backgroundColor: "#111",
+              // borderRadius: 0.06,
+              // padding: 0.03,
+              // paddingLeft: 0.08,
+              // paddingRight: 0.08
             }}
           >
             <Text
