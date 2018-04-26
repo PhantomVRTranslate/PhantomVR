@@ -17,11 +17,37 @@ class CardCarousel extends React.Component {
 
     this.state = {
       cardNumber: this.props.initialCard,
-
+      textSlices: [],
+      currentTextSlice: -1,
     }
 
     this.nextCard = this.nextCard.bind(this);
     this.prevCard = this.prevCard.bind(this);
+    this.textSet = this.textSet.bind(this);
+  }
+
+  componentDidMount() {
+    this.textSet();
+  }
+
+  textSet(iterateCount = 95) {
+
+      const text = this.props.children || this.props.text;
+      if (text.length < 95) {
+        this.setState({currentTextSlice: 0});
+      } else {
+          for(let i = 0; i < text.length; i += iterateCount){
+              if (text.length - i >= iterateCount){
+                  this.state.textSlices.push(text.slice(i, (i + iterateCount)));
+              }else{
+                  this.state.textSlices.push(text.slice(i, (i + iterateCount)));
+              }
+          }
+          this.setState({currentTextSlice: 0});
+      }
+      console.log(this.state.textSlices);
+
+
   }
 
 
@@ -73,9 +99,7 @@ class CardCarousel extends React.Component {
         maxWidth: 400
       }} >
           <CarouselItem card={this.props.itemCollection[this.state.cardNumber]}
-                        cardType={TEXT}>alfksdjflkajfkljawasdfafasdfafawefawefawelkefjaklwefjlakwefjaklwejflkawejflkawejflkawefjlkawefjlakwejfaklwefjaklwefjakwefj
-                        alfksdjflkajfkljawasdfafasdfafawefawefawelkefjaklwefjlakwefjaklwejflkawejflkawejflkawefjlkawefjlakwejfaklwefjaklwefjakwefj
-                        </CarouselItem>
+                        cardType={TEXT}>{this.props.children}</CarouselItem>
 
       <View>
           <GazeButton disabled={false} onClick={this.prevCard}

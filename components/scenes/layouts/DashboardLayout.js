@@ -85,7 +85,9 @@ export default class DashboardLayout extends React.Component {
                   asset("4.jpeg"),
                   asset("5.jpeg")
                 ]}
-                initialCard={0}/>
+                initialCard={0}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                kljalkwejflkawjflkawejflkawejfklawefjkalwejflkawejflkawefjlkawfjlkawfejlkawejflkajeflkawejfl
+                                </CardCarousel>
                 {components.map((comp, i) =>
                     (<Card key={i}>{comp}</Card>)
                 )}
