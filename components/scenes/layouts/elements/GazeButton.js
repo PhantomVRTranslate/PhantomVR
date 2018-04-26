@@ -61,24 +61,40 @@ export default class GazeButton extends React.Component{
     }
 
     render(){
-        const { style } = this.props;
+        const { buttonStyle, progressDisabled } = this.props;
+
+        const style = {
+                    width: .5,
+                    // backgroundColor: backgroundColor.interpolate({
+                    //   inputRange: [this.black, this.gray, this.white],
+                    //   outputRange: ['rgb(0, 0, 0)', 'rgb(40, 40, 40)', 'rgb(255, 255, 255)']
+                    // }),
+                    overflow: 'hidden',
+                    height: "100%",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  };
+        
+        const mergedStyle = Object.assign({}, buttonStyle, style);
+
         return ( 
             <VrButton 
                 onEnter={this.onEnter.bind(this)} 
                 onExit={this.onExit.bind(this)}
                 style={style} 
                 onClick={this.triggerSelection}
+                style={mergedStyle}
             >
                 {this.props.children}
-                <Animated.View 
+                { !progressDisabled ? <Animated.View 
                     style={{
                         backgroundColor:'rgb(200, 200, 200)',
                         bottom: 0,
                         width: this.state.progressWidth,
                         height: .01,
                     }}
-                    />
+                /> : <View /> }
             </VrButton>
-        )
+        );
     }
 }
