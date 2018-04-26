@@ -8,6 +8,7 @@ import {
   Text,
   View,
 } from 'react-vr';
+import {merge} from 'lodash'; 
 
 import Dashboard from './components/scenes/Dashboard.js';
 import TextVR from './components/scenes/layouts/elements/TextVr';
@@ -27,15 +28,26 @@ export default class WelcomeToVR extends React.Component {
     theDocs.triggerEvent(classname, i); 
   }
 
+  acceptNewElements(elements){ 
+    console.log('acceptNewElements: ', elements); 
+    // theDocs.domListener();
+    
+    // elementsList => {
+    //   this.setState(merge({}, this.state, {store: elemenstList}));
+    // }
+  }
+
   componentWillMount(){
     theDocs.getDocument(result => {
       this.setState({
         store: result
       },
       console.log('this is store/result: ', result)
-    );
+      );
 
     });
+    console.log('this is acceptNewElements: ', this.acceptNewElements);
+    theDocs.domListener();
   }
 
   testMethod() {}
