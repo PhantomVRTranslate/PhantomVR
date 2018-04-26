@@ -6,10 +6,15 @@
   </head>
   <body>
 
-    <div class="text-vr" onclick="() => console.log('onclick()')">YUS</div>
+    <div class="text-vr" onclick="myFunction()">YUS</div>
     <img src='../static_assets/pictures/puppy.jpeg' class="image-vr" />
     <video class="video-vr" src='../static_assets//videos/fireplace.mp4'></video>
     <div class="stophere"></div>
+    <script>
+      function myFunction() {
+        console.log('onclick working');
+      }
+      </script>
     <script src="./client.bundle?platform=vr"></script>
 
 

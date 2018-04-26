@@ -14,10 +14,10 @@ export default class DocumentGet extends Module {
         let result = this.getBaseContent();
         const body = document.getElementsByTagName('body')[0];
 
-        while (body.firstChild.className !== "stophere") {
-            body.removeChild(body.firstChild);
+        // while (body.firstChild.className !== "stophere") {
+        //     body.removeChild(body.firstChild);
             
-        }
+        // }
         if (this._rnctx) {
             this
                 ._rnctx
@@ -26,19 +26,31 @@ export default class DocumentGet extends Module {
         return result;
     }
 
+    triggerEvent(classname, i){
+        let el = document.getElementsByClassName(classname)[i]; 
+        console.log('triggered'); 
+        el.click(); 
+        console.log('triggered'); 
+    }
+
     getBaseContent() { 
         let result = [];
         let types = ['text-vr', 'image-vr', 'video-vr']; 
             types.forEach(type => {
                 let content = Array.from(document.getElementsByClassName(type)); 
-                content.forEach((el) => {
+                content.forEach((el, i) => {
+                    console.log('this is el in gBC: ', el);
+                   
                     let specify = type === "text-vr" ? el.innerHTML : el.getAttribute('src');
                     result.push({
                         type: type,
-                        content: specify
+                        content: specify,
+                        index: i
                     });
                 });
             });
+            // this.triggerEvent('text-vr'); 
+            console.log('result in gbc: ', result); 
         return result; 
     }
 

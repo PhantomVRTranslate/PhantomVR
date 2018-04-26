@@ -20,20 +20,17 @@ import ImageCaption from "./elements/ImageCaption.js";
 import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
 import VideoCard from './elements/VideoCard.js';
 
-
-
-
-
-
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             content: [],
+            clickEvent: null
         };
     }
 
     generateComponents() {
+        console.log('generatecomponets state: ', this.state); 
         let theContent = this.state.content;
         let toRender = theContent.map((el, i) =>{
             switch(el.type){
@@ -52,7 +49,11 @@ export default class DashboardLayout extends React.Component {
     }
 
     componentWillReceiveProps(newProps){
-        this.setState(newProps);
+        console.log('this is new props: ', newProps); 
+        this.setState({
+            content: newProps.content.store,
+            clickEvent: newProps.content.clickEvent
+        });
     }
 
     //ContentPlane is the CylinderPanel that has the row flexbox
