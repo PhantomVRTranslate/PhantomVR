@@ -25,7 +25,7 @@ export default class MainMenuContainer extends React.Component {
     renderCards(props,row, col){
         let cards = [];
         for(let i = 0; i < props.children.length; i++){
-            cards.push(this.generateCard(props.children[i], row, col));
+            cards.push(this.generateCard(props.children[i], row, col, i));
         }
         this.setState({
             cards: cards
@@ -33,11 +33,12 @@ export default class MainMenuContainer extends React.Component {
         
     }
 
-    generateCard(child, row, col) {
+    generateCard(child, row, col, i) {
         return (
             <View style={{width: `${99 / this.props.children.length * row}%`,
                         height: `${99 / this.props.children.length * col}%`,
-                        margin: 1}}>
+                        margin: 1}}
+                    key={i}>
                 {child}
             </View>   
         );

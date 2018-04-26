@@ -30,7 +30,7 @@ export default class DashboardLayout extends React.Component {
 
     generateComponents() {
         let theContent = this.state.content;
-        let toRender = theContent.map(el =>{
+        let toRender = theContent.map((el, i) =>{
             switch(el.type){
                 case "text-vr":
                     return (<TextCard text={el.content} /> );
@@ -81,8 +81,8 @@ export default class DashboardLayout extends React.Component {
                   asset("5.jpeg")
                 ]}
                 initialCard={0}/>
-                {components.map((comp) => 
-                    (<Card>{comp}</Card>)
+                {components.map((comp, i) => 
+                    (<Card key={i}>{comp}</Card>)
                 )}
                 <CardCol>
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
