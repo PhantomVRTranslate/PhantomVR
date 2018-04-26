@@ -23,6 +23,11 @@ export default class Title extends React.Component {
           duration: 3000,
           easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
         }),
+        Animated.timing(this.state.slideUp, {
+          toValue: -.35,
+          duration: 3000,
+          easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
+        }),
         Animated.timing(this.state.fadeInTitle, {
           toValue: 0.8,
           duration: 3000,
@@ -39,28 +44,53 @@ export default class Title extends React.Component {
   }
 
   handleTrigger() {
-    setTimeout(this.props.activateScene, 5000);
+    setTimeout(this.props.activateScene, 3000);
     Animated.sequence([
       Animated.parallel([
-        Animated.timing(this.state.fadeInStart, {
-          toValue: 0,
-          duration: 2000,
-          easing: Easing.linear
-        }),
         Animated.timing(this.state.slideForward, {
-          toValue: -3.5,
+          toValue: -5,
           duration: 3000,
-        //   delay: 2000,
-          easing: Easing.bezier(0.5, 0.34, 0.3, 0.88),
+          easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
         }),
         Animated.timing(this.state.slideUp, {
-            toValue: 1,
-            duration: 3000,
-            // delay: 3000,
-            easing: Easing.bezier(0.5, 0.34, 0.3, 0.88),
-          })
+          toValue: 1.3,
+          duration: 3000,
+          easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
+        }),
+        Animated.timing(this.state.fadeInTitle, {
+          toValue: 0.8,
+          duration: 3000,
+          easing: Easing.linear
+        }),
+        Animated.timing(this.state.fadeInStart, {
+          toValue: 0,
+          duration: 3000,
+          easing: Easing.bezier(0.5, 0.34, 0.3, 0.88),
+        })
       ])
     ]).start();
+
+    // Animated.sequence([
+    //   Animated.parallel([
+    //     Animated.timing(this.state.fadeInStart, {
+    //       toValue: 0,
+    //       duration: 3000,
+    //       easing: Easing.bezier(0.5, 0.34, 0.3, 0.88),
+    //     }),
+    //     Animated.timing(this.state.slideForward, {
+    //       toValue: -10,
+    //       duration: 3000,
+    //       delay: 3000,
+    //       easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
+    //     }),
+    //     // Animated.timing(this.state.slideUp, {
+    //     //   toValue: -1,
+    //     //   duration: 3000,
+    //     //   delay: 3000,
+    //     //   easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
+    //     // }),
+    //   ])
+    // ]).start();
   }
 
   render() {
@@ -89,15 +119,17 @@ export default class Title extends React.Component {
           Sample App
         </Text>
         <GazeButton 
+          timeout={3000}
           onTrigger={this.handleTrigger.bind(this)}>
           <Animated.View
             style={{
               opacity: this.state.fadeInStart,
-              // backgroundColor: "#111",
-              // borderRadius: 0.06,
-              // padding: 0.03,
-              // paddingLeft: 0.08,
-              // paddingRight: 0.08
+              width: 1,
+              backgroundColor: "#111",
+              borderRadius: 0.06,
+              padding: 0.03,
+              paddingLeft: 0.08,
+              paddingRight: 0.08
             }}
           >
             <Text
