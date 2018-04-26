@@ -12,9 +12,25 @@ export default class MainMenuContainer extends React.Component {
         
     }
 
+    componentWillReceiveProps(newProps) {
+        //if they give two props (row, column) will adjust row column
+        this.renderCards(newProps, newProps.row || 2, newProps.col || 3); 
+    }
+
     componentWillMount(){
         //if they give two props (row, column) will adjust row column
-        this.renderCards(this.props.row || 2, this.props.col || 3); 
+        this.renderCards(this.props, this.props.row || 2, this.props.col || 3); 
+    }
+
+    renderCards(props,row, col){
+        let cards = [];
+        for(let i = 0; i < props.children.length; i++){
+            cards.push(this.generateCard(props.children[i], row, col));
+        }
+        this.setState({
+            cards: cards
+        });
+        
     }
 
     generateCard(child, row, col) {
@@ -27,20 +43,12 @@ export default class MainMenuContainer extends React.Component {
         );
       }
 
-    renderCards(row, col){
-        let cards = [];
-        for(let i = 0; i < this.props.children.length; i++){
-            cards.push(this.generateCard(this.props.children[i], row, col));
-        }
-        this.setState({
-            cards: cards
-        });
-        
-    }
 
     render() {
+
         
-        console.log('made gallery');
+        console.log('made gallery', this.props);
+        console.log("gallary cards", this.state);
         // let toRender = [
         //     {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
         //     {type: "image", src: '../static_assets/pictures/puppy.jpeg'},

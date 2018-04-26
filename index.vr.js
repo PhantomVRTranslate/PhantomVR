@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-vr';
 import Dashboard from './components/scenes/Dashboard.js';
-
+import TextVR from './components/scenes/layouts/elements/TextVr';
 const theDocs = NativeModules.DocumentGet;
 
 
@@ -18,17 +18,17 @@ export default class WelcomeToVR extends React.Component {
   constructor(){
     super();
     this.state = {
-     heaven: 'hello'
+     store: []
     };
   }
 
   componentWillMount(){
   
     console.log('WTF');
-    console.log('checking state', this.state.heaven); 
+    console.log('checking state', this.state.store); 
     theDocs.getDocument(result => {
       this.setState({
-        heaven: result
+        store: result
       });
     });
   }
@@ -42,29 +42,39 @@ export default class WelcomeToVR extends React.Component {
 
   }
   render() {
-    
-
-    let solution = this.state.heaven; 
-    console.log(solution);
+    console.log("store", this.state.store);
+    let toRender = this.state.store.map((el)=>{
+      console.log("el", el);
+      switch(el.type){
+        case "text":
+          console.log("in text", console.log(el));
+          return (<Text
+                    style={{
+                        backgroundColor: 'rgba(0,200,200,0.5)',
+                        color: '#FFF',
+                        fontSize: .2,
+                        textAlign: 'center',
+                        textAlignVertical: 'center',
+                        //combo of height && max height to ensure one component doesn't take up the whole 180º
+                        height: 1,
+                        maxHeight: 1,
+                        width: 1,
+                        maxWidth: 1,
+                        layoutOrigin: [0.5, 0.5],
+                        transform: [{translate: [0, 0, -2]}]
+                    }}>
+                    {`${el.content}`}  
+                  </Text> );
+      }
+    });
+    console.log("toRender", toRender);
     return (
       <View>
         <Pano source={asset('space.jpg')}/>
-        <VrButton onClick={() => this.testMethod()}>
-        <Text
-          style={{
-            backgroundColor: '#777879',
-            fontSize: 0.8,
-            layoutOrigin: [0.5, 0.5],
-            paddingLeft: 0.2,
-            paddingRight: 0.2,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            transform: [{translate: [0, 0, -3]}],
-          }}>
-          {solution}
-        </Text>
-        </VrButton>
-        <Dashboard/> 
+        {toRender}
+          <VrButton onClick={() => this.testMethod()}>
+          </VrButton>
+        <Dashboard content={this.state.store}/> 
       </View>
     );
   }

@@ -23,22 +23,50 @@ export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            content: [],
         };
     }
 
+    generateComponents() {
+        console.log("store", this.state);
+        let theContent = this.state.content;
+        console.log("theContent", theContent[0]);
+        let toRender = theContent.map(el =>{
+        console.log("el", el);
+        switch(el.type){
+            case "text":
+            console.log("in text", el.content);
+        return (<TextCard text={`${el.content}`} /> );
+            default: 
+                return null; 
+            }
+        });
+        console.log('generateComp from forward', toRender);
+        return toRender; 
 
-//ContentPlane is the CylinderPanel that has the row flexbox
+    }
 
-//CPC
+    componentWillReceiveProps(newProps){
+        console.log("newProps", newProps);
+        this.setState(newProps);
+    }
+
+    //ContentPlane is the CylinderPanel that has the row flexbox
+    //CPC
 
     render() {
-        console.log('rendering dashboard layout');
+        console.log('rendering dashboard layout', this.props);
         let words = "Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression";
+        let components = this.generateComponents(this.props.content);
+        let component = components[0];
+        console.log("in render", components[0]);
+        let two = (<TextCard text={'TWO'}></TextCard>);
+        console.log('two', two);
         return (
             <ContentPlane >
                 <Gallery >
-                    <TextCard text={words}></TextCard>
-                    <TextCard text={'TWO'}></TextCard>
+                    {components[0]}
+                    {two}
                     <TextCard text={'THREE'}></TextCard>
                     <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />

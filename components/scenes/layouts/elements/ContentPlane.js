@@ -11,11 +11,33 @@ import {
 
 class ContentPlane extends React.Component {
     constructor(props){
+        console.log("in Content plane");
         super(props);
         this.state = {
             subComponentLimit: 0,
         };
         this.subComponents = [];
+    }
+
+    componentWillReceiveProps(newProps){
+        console.log("CPrecieve new props", newProps);
+                if (newProps.children.length === undefined){ 
+            this.setState({
+                subComponentLimit: 1
+            });
+            this.subComponents.push(newProps.children);
+        } else {
+            let childLength = newProps.children.length >= 5 ? 5 : newProps.children.length;
+            
+            this.setState({
+                subComponentLimit: childLength
+            });
+            let sComps = []; 
+            for (let i = 0; i < childLength; i++){
+                sComps.push(newProps.children[i]);
+            }
+            this.subComponents = sComps;
+        }
     }
 
     componentDidMount() {
@@ -41,7 +63,7 @@ class ContentPlane extends React.Component {
     }
 
     render() {
-
+        console.log("CP rerender", this.subComponents);
         return (
             <View> 
                  <CylindricalPanel

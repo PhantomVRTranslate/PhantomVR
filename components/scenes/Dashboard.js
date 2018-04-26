@@ -9,10 +9,10 @@ import DashboardLayout from './layouts/DashboardLayout.js';
 export default class Dashboard extends React.Component { 
    
     render() {
-        console.log('this is money');
+        console.log('this is DASHBOARD', this.props);
         return (
             <View>
-                <DashboardLayout/> 
+                <DashboardLayout content={this.props.content}/> 
             </View> 
         );
     }
