@@ -1,58 +1,66 @@
-import {Module} from 'react-vr-web'; 
+import {Module} from 'react-vr-web';
 
 export default class DocumentGet extends Module {
     constructor() {
         super('DocumentGet');
-
         this.userAgent = navigator.userAgent;
-
     }
 
     _setRNContext(rnctx) {
-        this._rnctx = rnctx; 
+        this._rnctx = rnctx;
     }
 
-    getDocument(cb){
-        let result; 
-     
- 
+    getDocument(cb) {
+        let result = this.getBaseContent();
+        const body = document.getElementsByTagName('body')[0];
 
-        result = document.getElementsByClassName('Money');
-        result = result[0].innerHTML;
-        let body = document.getElementsByTagName('body')[0];
-        
-        console.log('this is body: ',body);
-        console.log('bodys first child: ',body.firstChild);
-
-        while (body.firstChild.className !== "stophere"){
-            console.log('first child: ', body.firstChild);
+        while (body.firstChild.className !== "stophere") {
             body.removeChild(body.firstChild);
+            
         }
-     
         if (this._rnctx) {
-            this._rnctx.invokeCallback(cb, [result]);
+            this
+                ._rnctx
+                .invokeCallback(cb, [result]);
         }
-        
-    }
-    setTitle(title){
-        document.title = title;
+        return result;
     }
 
-    findElement(type){
-        return console.log(document.type);
+    getBaseContent() { 
+        let result = [];
+        let types = ['text-vr', 'image-vr', 'video-vr']; 
+            types.forEach(type => {
+                let content = Array.from(document.getElementsByClassName(type)); 
+                content.forEach((el) => {
+                    let specify = type === "text-vr" ? el.innerHTML : el.getAttribute('src');
+                    result.push({
+                        type: type,
+                        content: specify
+                    });
+                });
+            });
+        return result; 
     }
 
     $getConfirmation(message, resolve, reject) {
         const result = window.confirm(message);
         if (this._rnctx) {
-          if (result) {
-            this._rnctx.invokeCallback(resolve, []);
-          } else {
-            // When rejecting a Promise, a message should be provided to populate
-            // the Error object on the React side
-            this._rnctx.invokeCallback(reject, [{message: 'Canceled the dialog'}]);
-          }
+            if (result) {
+                this
+                    ._rnctx
+                    .invokeCallback(resolve, []);
+            } else {
+                // When rejecting a Promise, a message should be provided to populate the Error
+                // object on the React side
+                this
+                    ._rnctx
+                    .invokeCallback(reject, [
+                        {
+                            message: 'Canceled the dialog'
+                        }
+                    ]);
+            }
         }
-      }
+    }
 
 }

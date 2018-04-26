@@ -6,19 +6,25 @@ import {
 
 import CarouselItem from './carouselItem';
 import GazeButton from '../gaze_button/gaze_button';
+import { IMAGE, TEXT } from './cardTypes';
 
 class CardCarousel extends React.Component {
+
+
 
   constructor(props) {
     super(props);
 
     this.state = {
       cardNumber: this.props.initialCard,
+
     }
 
     this.nextCard = this.nextCard.bind(this);
     this.prevCard = this.prevCard.bind(this);
   }
+
+
 
   nextCard() {
     const nextCardNum = this.state.cardNumber + 1;
@@ -66,7 +72,10 @@ class CardCarousel extends React.Component {
         maxHeight: 500,
         maxWidth: 400
       }} >
-          <CarouselItem card={this.props.itemCollection[this.state.cardNumber]} />
+          <CarouselItem card={this.props.itemCollection[this.state.cardNumber]}
+                        cardType={TEXT}>alfksdjflkajfkljawasdfafasdfafawefawefawelkefjaklwefjlakwefjaklwejflkawejflkawejflkawefjlkawefjlakwejfaklwefjaklwefjakwefj
+                        alfksdjflkajfkljawasdfafasdfafawefawefawelkefjaklwefjlakwefjaklwejflkawejflkawejflkawefjlkawefjlakwejfaklwefjaklwefjakwefj
+                        </CarouselItem>
 
       <View>
           <GazeButton disabled={false} onClick={this.prevCard}

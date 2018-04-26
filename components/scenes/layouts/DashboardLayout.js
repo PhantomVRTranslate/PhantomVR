@@ -8,7 +8,6 @@ import {
     CylindricalPanel
 } from 'react-vr';
 import {Easing} from 'react-native';
-
 import TextVr from './elements/TextVr.js';
 import ContentPlane from './elements/ContentPlane';
 import CardCol from './elements/CardCol.js';
@@ -19,27 +18,62 @@ import Card from "./elements/Card.js";
 import ImageCard from "./elements/ImageCard.js";
 import ImageCaption from "./elements/ImageCaption.js";
 import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
+import VideoCard from './elements/VideoCard.js';
+
+
+
+
+
+
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            content: [],
         };
     }
 
+    generateComponents() {
+        let theContent = this.state.content;
+        let toRender = theContent.map((el, i) =>{
+            switch(el.type){
+                case "text-vr":
+                    return (<TextCard text={el.content} /> );
+                case "image-vr":
+                    return(<ImageCard src={el.content} />);
+                case "video-vr":
+                    return(<VideoCard src={el.content} />);
+                default: 
+                    return null; 
+                }
+            });
+        return toRender; 
 
-//ContentPlane is the CylinderPanel that has the row flexbox
+    }
 
-//CPC
+    componentWillReceiveProps(newProps){
+        this.setState(newProps);
+    }
+
+    //ContentPlane is the CylinderPanel that has the row flexbox
+    //CPC
 
     render() {
-        console.log('rendering dashboard layout');
-        let words = "Hello omg whats going on baby, idk but its pretty frosty outside, maybe the snowman and the lumberjack can make me some pancakes to relieve me of my depression";
+        let words = "Hello";
+        let components = this.generateComponents(this.props.content);
         return (
             <ContentPlane >
                 <Gallery >
-                    <TextCard text={words}></TextCard>
-                    <TextCard text={'TWO'}></TextCard>
-                    <TextCard text={'THREE'}></TextCard>
+                    {components[0]}
+                    {components[1]}
+                    {components[2]}
+
+                    {/* The following does not work.  Uncertain as to why. */}
+                    {/* {components.map((comp) => {
+                        comp;
+                    })} */}
+                    {/* <TextCard text={'TWO'}></TextCard>
+                    <TextCard text={'THREE'}></TextCard> */}
                     <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <TextCard text={'Four'}></TextCard>
@@ -52,16 +86,15 @@ export default class DashboardLayout extends React.Component {
                   asset("5.jpeg")
                 ]}
                 initialCard={0}/>
-
+                {components.map((comp, i) => 
+                    (<Card key={i}>{comp}</Card>)
+                )}
                 <CardCol>
-
-                <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
+                    <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
 
                 </CardCol>
-
                 {/* Blank Card Works */}
-
 
                 {/* Must hover over image for text to dipslay */}
                 <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>
