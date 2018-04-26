@@ -1,71 +1,96 @@
 import React from 'react';
 import {
   AppRegistry,
+  NativeModules,
   asset,
+<<<<<<< HEAD
+=======
+  NativeModules, 
+>>>>>>> 6089eb48f7ee28e7e3fe01710736a23137bdf843
+  VrButton,
   Pano,
   Text,
   View,
 } from 'react-vr';
+import Dashboard from './components/scenes/Dashboard.js';
 
-import App from './NavBarWConditionalRendering/app';
-import Gallery1 from './NavBarWConditionalRendering/gallery/gallery1';
-import Gallery2 from './NavBarWConditionalRendering/gallery/gallery2';
-import Gallery3 from './NavBarWConditionalRendering/gallery/gallery3';
-import BottomNavBar from './NavBarWConditionalRendering/nav_bar/bottom_nav_bar';
+const theDocs = NativeModules.DocumentGet;
 
-import { backgroundImage } from './helperFiles/styleSheet.js';
+<<<<<<< HEAD
+
+=======
+import Dashboard from './components/scenes/Dashboard.js';
+import TextVR from './components/scenes/layouts/elements/TextVr';
+const theDocs = NativeModules.DocumentGet;
+>>>>>>> 6089eb48f7ee28e7e3fe01710736a23137bdf843
 
 export default class WelcomeToVR extends React.Component {
-  constructor() {
+  constructor(){
     super();
     this.state = {
-      gallery: <Gallery1/>
-    }
-
-    this.changeGallery = this.changeGallery.bind(this);
+<<<<<<< HEAD
+     heaven: 'hello'
+    };
   }
 
-  changeGallery(galleryId) {
-    let gallery;
-
-    // TODO: extract from navbarContent in content.js
-    switch(galleryId) {
-      case 'gallery1':
-        gallery = <Gallery1/>;
-        break;
-      case 'gallery2':
-        gallery = <Gallery2/>;
-        break;
-      case 'gallery3':
-        gallery = <Gallery3/>;
-        break;
-    }
-
-    this.setState({gallery});
+  componentWillMount(){
+  
+    console.log('WTF');
+    console.log('checking state', this.state.heaven); 
+    theDocs.getDocument(result => {
+      this.setState({
+        heaven: result
+      });
+    });
   }
 
+  testMethod() {
+   
+    //this sets the state to have whatever we pass in from the DOM 
+   
+
+
+
+  }
   render() {
-    // TODO: put in content.js
-    content = [
-      {label: 'Home', link: 'gallery1'},
-      {label: 'About', link: 'gallery2'},
-      {label: 'Gallery', link: 'gallery3'}
-    ];
+    
 
+    let solution = this.state.heaven; 
+    console.log(solution);
     return (
       <View>
-        <Pano source={{uri: backgroundImage}}/>
-        <App>
-        {this.state.gallery}
-        </App>
-        <BottomNavBar
-          content={content}
-          changeGallery={this.changeGallery.bind(this)}
-          gallery={this.state.gallery}
-          />
+        <Pano source={asset('space.jpg')}/>
+        <VrButton onClick={() => this.testMethod()}>
+        </VrButton>
+        <Dashboard/> 
+=======
+
+     store: []
+    };
+  }
+
+  componentWillMount(){
+    theDocs.getDocument(result => {
+      this.setState({
+        store: result
+      });
+    });
+  }
+
+  testMethod() {}
+  render() {
+    return (
+      <View>
+        <Pano source={asset('space.jpg')}/>
+          <VrButton onClick={() => this.testMethod()}>
+          </VrButton>
+        <Dashboard content={this.state.store}/> 
+
+>>>>>>> 6089eb48f7ee28e7e3fe01710736a23137bdf843
       </View>
     );
   }
-};
+
+}
 
 AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);

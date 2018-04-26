@@ -15,11 +15,10 @@ import {
 
 export default class CardCol extends React.Component {
     constructor(props){
-    super(props);
-    this.state = {
-        cards: []
-    };
-
+        super(props);
+        this.state = {
+            cards: []
+        };
     }
 
 
@@ -28,20 +27,21 @@ export default class CardCol extends React.Component {
         this.renderCards(this.props.row || 2, this.props.col || 1); 
     }
 
-    generateCard(child, row, col) {
+    generateCard(child, row, col, i) {
         return (
-          <View style={{width: `${99 / this.props.children.length * row}%`,
+            <View style={{width: `${99 / this.props.children.length * row}%`,
                         height: `${99 / this.props.children.length * col}%`,
-                        margin: 1}}>
-              {child}
-          </View>   
+                        margin: 1}}
+                key={i}>
+                {child}
+            </View>   
         );
       }
 
     renderCards(row, col){
         let cards = [];
         for(let i = 0; i < this.props.children.length; i++){
-            cards.push(this.generateCard(this.props.children[i], row, col));
+            cards.push(this.generateCard(this.props.children[i], row, col, i));
         }
         this.setState({
             cards: cards
@@ -50,7 +50,6 @@ export default class CardCol extends React.Component {
     }
 
     render() {
-
         // let fsize = this.state.fontgaze ? 50 : 30; 
         return (
             <View style={{

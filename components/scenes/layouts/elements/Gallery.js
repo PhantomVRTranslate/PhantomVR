@@ -12,25 +12,20 @@ export default class MainMenuContainer extends React.Component {
         
     }
 
-    componentWillMount(){
+    componentWillReceiveProps(newProps) {
         //if they give two props (row, column) will adjust row column
-        this.renderCards(this.props.row || 2, this.props.col || 3); 
+        this.renderCards(newProps, newProps.row || 2, newProps.col || 3); 
     }
 
-    generateCard(child, row, col) {
-        return (
-          <View style={{width: `${99 / this.props.children.length * row}%`,
-                        height: `${99 / this.props.children.length * col}%`,
-                        margin: 1}}>
-              {child}
-          </View>   
-        );
-      }
+    componentWillMount(){
+        //if they give two props (row, column) will adjust row column
+        this.renderCards(this.props, this.props.row || 2, this.props.col || 3); 
+    }
 
-    renderCards(row, col){
+    renderCards(props,row, col){
         let cards = [];
-        for(let i = 0; i < this.props.children.length; i++){
-            cards.push(this.generateCard(this.props.children[i], row, col));
+        for(let i = 0; i < props.children.length; i++){
+            cards.push(this.generateCard(props.children[i], row, col, i));
         }
         this.setState({
             cards: cards
@@ -38,17 +33,19 @@ export default class MainMenuContainer extends React.Component {
         
     }
 
+    generateCard(child, row, col, i) {
+        return (
+            <View style={{width: `${99 / this.props.children.length * row}%`,
+                        height: `${99 / this.props.children.length * col}%`,
+                        margin: 1}}
+                    key={i}>
+                {child}
+            </View>   
+        );
+      }
+
+
     render() {
-        
-        console.log('made gallery');
-        // let toRender = [
-        //     {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
-        //     {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
-        //     {type: "video", src: '../static_assets/videos/fireplace.mp4'},
-        //     {type: "video", src: '../static_assets/videos/fireplace.mp4'},
-        //     {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
-        //     {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
-        // ];
         return (
             <View
                 style = {{
@@ -65,8 +62,6 @@ export default class MainMenuContainer extends React.Component {
                     maxWidth: 800,
                 }} >
                   {this.state.cards} 
-                
-                {/* {toRender.map((toCard, ind) => <CardSorter key={ind} options={toCard}/>)} */}
             </View>
         );
     }
