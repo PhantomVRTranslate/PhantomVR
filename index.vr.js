@@ -2,6 +2,8 @@ import React from 'react';
 import {
   AppRegistry,
   asset,
+  NativeModules, 
+  VrButton,
   Pano,
   Text,
   View,
