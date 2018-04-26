@@ -43,11 +43,11 @@ export default class DashboardLayout extends React.Component {
                     return(<ImageCard src={el.content} />);
                 case "video-vr":
                     return(<VideoCard src={el.content} />);
-                default: 
-                    return null; 
+                default:
+                    return null;
                 }
             });
-        return toRender; 
+        return toRender;
 
     }
 
@@ -86,12 +86,12 @@ export default class DashboardLayout extends React.Component {
                   asset("5.jpeg")
                 ]}
                 initialCard={0}/>
-                {components.map((comp, i) => 
+                {components.map((comp, i) =>
                     (<Card key={i}>{comp}</Card>)
                 )}
                 <CardCol>
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
-                    <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
+                    <ImageCard src={'../static_assets/pictures/pup.jpg'}/>
 
                 </CardCol>
                 {/* Blank Card Works */}
