@@ -18,7 +18,8 @@ class CardCarousel extends React.Component {
     this.state = {
       cardNumber: this.props.initialCard,
       textSlices: [],
-      currentTextSlice: -1,
+      currentTextSlice: 0,
+      cardType: this.props.cardType,
     }
 
     this.nextCard = this.nextCard.bind(this);
@@ -68,7 +69,6 @@ class CardCarousel extends React.Component {
   }
   prevCard() {
     const prevCardNum = this.state.cardNumber - 1;
-    console.log(this.state.cardNumber);
 
     if( prevCardNum < 0 ) {
       this.setState({
@@ -99,7 +99,7 @@ class CardCarousel extends React.Component {
         maxWidth: 400
       }} >
           <CarouselItem card={this.props.itemCollection[this.state.cardNumber]}
-                        cardType={TEXT}>{this.props.children}</CarouselItem>
+                        cardType={this.state.cardType}>{this.state.textSlices[this.state.currentTextSlice]}</CarouselItem>
 
       <View>
           <GazeButton disabled={false} onClick={this.prevCard}

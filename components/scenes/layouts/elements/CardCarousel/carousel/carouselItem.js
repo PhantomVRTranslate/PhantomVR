@@ -22,6 +22,9 @@ class CarouselItem extends React.Component {
     if(this.props.card != next.card){
       this.setState({currentItem: next.card});
     }
+    if(this.props.children != next.children) {
+      this.setState({textSlice: next.children});
+    }
   }
 
   render() {

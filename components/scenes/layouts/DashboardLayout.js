@@ -18,6 +18,7 @@ import Card from "./elements/Card.js";
 import ImageCard from "./elements/ImageCard.js";
 import ImageCaption from "./elements/ImageCaption.js";
 import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
+import { IMAGE, TEXT } from './elements/CardCarousel/carousel/cardTypes.js';
 import VideoCard from './elements/VideoCard.js';
 
 
@@ -85,9 +86,11 @@ export default class DashboardLayout extends React.Component {
                   asset("4.jpeg"),
                   asset("5.jpeg")
                 ]}
-                initialCard={0}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                initialCard={0}
+                cardType={TEXT}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
                                 kljalkwejflkawjflkawejflkawejfklawefjkalwejflkawejflkawefjlkawfjlkawfejlkawejflkajeflkawejfl
                                 </CardCarousel>
+                                
                 {components.map((comp, i) =>
                     (<Card key={i}>{comp}</Card>)
                 )}
