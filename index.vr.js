@@ -36,7 +36,6 @@ export default class WelcomeToVR extends React.Component {
         <Pano source={{uri: backgroundImage}}/>
         <Title activateScene={this.activateScene.bind(this)} />
     { this.state.enterScene ? <App /> : <View /> }
-    {/* <App /> */}
       </View>
     );
   }
