@@ -56,7 +56,7 @@ export default class NavBarItem extends React.Component {
         Animated.parallel([
           Animated.timing(
             this.state.progressWidth, {
-              toValue: .3,
+              toValue: .2,
               duration: 1000,
               easing: Easing.linear
             }),

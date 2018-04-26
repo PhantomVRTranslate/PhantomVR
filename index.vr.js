@@ -12,57 +12,31 @@ import Gallery1 from './NavBarWConditionalRendering/gallery/gallery1';
 import Gallery2 from './NavBarWConditionalRendering/gallery/gallery2';
 import Gallery3 from './NavBarWConditionalRendering/gallery/gallery3';
 import BottomNavBar from './NavBarWConditionalRendering/nav_bar/bottom_nav_bar';
+import Title from './NavBarWConditionalRendering/title/title';
 
 import { backgroundImage } from './helperFiles/styleSheet.js';
 
 export default class WelcomeToVR extends React.Component {
   constructor() {
     super();
-    this.state = {
-      gallery: <Gallery1/>
-    }
 
-    this.changeGallery = this.changeGallery.bind(this);
+    this.state = {
+      enterScene: false
+    };
   }
 
-  changeGallery(galleryId) {
-    let gallery;
-
-    // TODO: extract from navbarContent in content.js
-    switch(galleryId) {
-      case 'gallery1':
-        gallery = <Gallery1/>;
-        break;
-      case 'gallery2':
-        gallery = <Gallery2/>;
-        break;
-      case 'gallery3':
-        gallery = <Gallery3/>;
-        break;
-    }
-
-    this.setState({gallery});
+  activateScene() {
+    this.setState({ enterScene: true });
   }
 
   render() {
-    // TODO: put in content.js
-    content = [
-      {label: 'Home', link: 'gallery1'},
-      {label: 'About', link: 'gallery2'},
-      {label: 'Gallery', link: 'gallery3'}
-    ];
 
     return (
       <View>
         <Pano source={{uri: backgroundImage}}/>
-        <App>
-        {this.state.gallery}
-        </App>
-        <BottomNavBar 
-          content={content}
-          changeGallery={this.changeGallery.bind(this)}
-          gallery={this.state.gallery}
-          />
+        <Title activateScene={this.activateScene.bind(this)} />
+    { this.state.enterScene ? <App /> : <View /> }
+    {/* <App /> */}
       </View>
     );
   }
