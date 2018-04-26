@@ -2,8 +2,6 @@ import React from "react";
 import { View, Animated, asset, Image, Text, VrButton } from "react-vr";
 import { Easing } from "react-native";
 
-import { NavLink } from 'react-router-dom';
-
 import NavBarItem from "./nav_bar_item.js";
 
 

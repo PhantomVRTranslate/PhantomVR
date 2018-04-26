@@ -5,15 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
+
     <div class="text-vr" onclick="() => console.log('onclick()')">YUS</div>
     <img src='../static_assets/pictures/puppy.jpeg' class="image-vr" />
     <video class="video-vr" src='../static_assets//videos/fireplace.mp4'></video>
     <div class="stophere"></div>
     <script src="./client.bundle?platform=vr"></script>
+
+
+ 
     <script>
+      let mobile = false;
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        mobile = true;
+      }
+
       ReactVR.init(
         '../index.vr.bundle?platform=vr&dev=true',
+
         document.body
+
+        // Attach it to the body tag
+        document.body,
+        {mobile}
+
       );
     </script>
   </body>

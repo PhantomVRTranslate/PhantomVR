@@ -6,7 +6,7 @@ import {
 export default class GazeButton extends React.Component{
     constructor(props){
         super(props);
-        this.timeout = 1000
+        this.timeout = 1000;
         this.triggerSelection = this.triggerSelection.bind(this);
     }
 
