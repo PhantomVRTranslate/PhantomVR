@@ -9,15 +9,16 @@ export default class NavBarItem extends React.Component {
     super(props);
 
     const isSelected = this.props.currGallery === this.props.link;
+    console.log( isSelected);
 
     this.black = 0;
     this.gray = 1;
     this.white = 2;
 
-    const backgroundColor = isSelected ? new Animated.Value(1) : new Animated.Value(0);
+    const backgroundColor = isSelected ? '#333' : '#222';
     // const opacity = isSelected ? new Animated.Value(1) : new Animated.Value(.1);
     const fontSize = isSelected
-      ? new Animated.Value(0.105)
+      ? new Animated.Value(0.12)
       : new Animated.Value(0.1);
 
     const progressWidth = new Animated.Value(0);
@@ -25,7 +26,6 @@ export default class NavBarItem extends React.Component {
 
     this.state = {
       backgroundColor,
-      // opacity,
       fontSize,
       isSelected,
       progressWidth,
@@ -34,13 +34,13 @@ export default class NavBarItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.state.isSelected, 'new props');
     if (nextProps.currGallery !== nextProps.link && this.state.isSelected) {
       this.setState({
-        // backgroundColor: "#222",
-        // opacity: 0.8,
+        backgroundColor: "#222",
         isSelected: false
       });
+
+      console.log(this.state.fontSize);
 
       Animated.timing(this.state.fontSize, {
         toValue: .1,
@@ -51,90 +51,28 @@ export default class NavBarItem extends React.Component {
   }
 
   handleHover(e) {
-    console.log(this.state.isSelected, 'hover');
     if (!this.state.isSelected) {
-      console.log('hi');
-      console.log(this.state.progressWidth);
-        Animated.timing(this.state.progressWidth, {
-              toValue: .25,
+      Animated.sequence([
+        Animated.parallel([
+          Animated.timing(
+            this.state.progressWidth, {
+              toValue: .3,
               duration: 1000,
               easing: Easing.linear
-      }).start();
-
-        // Animated.sequence([
-        // Animated.parallel([
-          // Animated.timing(
-          //   this.state.backgroundColor, {
-          //    toValue: this.gray,
-          //    duration: 1000,
-          //    easing: Easing.linear
-          //   }),
-          // Animated.timing(
-          //   this.state.progressWidth, {
-          //     toValue: .5,
-          //     duration: 1000,
-          //     easing: Easing.linear
-          //   }),
-          // Animated.timing(
-          //   this.state.progressHeight, {
-          //     toValue: .1,
-          //     duration: 1000,
-          //     easing: Easing.linear
-          //   })
-      //     ])
-      // ]).start();
+            }),
+          Animated.timing(
+            this.state.progressHeight, {
+              toValue: .1,
+              duration: 1000,
+              easing: Easing.linear
+            })
+          ])
+      ]).start();
     }
-
-
-
-    console.log('hi again');
-
-    //   Animated.sequence([
-    //     Animated.parallel([
-    //       // Animated.timing(
-    //         // this.state.backgroundColor, {
-    //         //  toValue: this.gray,
-    //         //  duration: 1000,
-    //         //  easing: Easing.linear
-    //         // }),
-    //       Animated.timing(
-    //         this.state.progressWidth, {
-    //           toValue: .5,
-    //           duration: 1000,
-    //           easing: Easing.linear
-    //         }),
-    //       Animated.timing(
-    //         this.state.progressHeight, {
-    //           toValue: .1,
-    //           duration: 1000,
-    //           easing: Easing.linear
-    //         })
-    //       // Animated.timing(
-    //       //   this.state.opacity, {
-    //       //     toValue: 1,
-    //       //     duration: 6000,
-    //       //     easing: Easing.linear
-    //       //   })
-    //       ])
-    //   ]).start();
-
-    //   // Animated.timing(this.state.fontSize, {
-    //   //   toValue: .105,
-    //   //   duration: 200,
-    //   //   easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
-    //   // }).start();
-
-    // }
   }
 
   handleLeave(e) {
-    console.log(this.state.isSelected, 'leave');
     if (!this.state.isSelected) {
-      this.setState({
-        // backgroundColor: "#222",
-        // opacity: 0.8,
-      });
-
       Animated.sequence([
         Animated.parallel([
           Animated.timing(
@@ -143,45 +81,34 @@ export default class NavBarItem extends React.Component {
               duration: 200,
               easing: Easing.linear
             })
-          // Animated.timing(
-          //   this.state.progressHeight, {
-          //     toValue: .1,
-          //     duration: 1000,
-          //     easing: Easing.linear
-          //   })
           ])
       ]).start();
-
-      Animated.timing(this.state.fontSize, {
-        toValue: .1,
-        duration: 200,
-        easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
-      }).start();
     }
   }
 
   handleTrigger() {
-    console.log(this.state.isSelected, 'trigger');
     this.setState({
-      // backgroundColor: "#444",
-      // opacity: 0.9,
+      backgroundColor: "#333",
       isSelected: true
     });
 
-    Animated.timing(
-      this.state.progressWidth, {
-        toValue: 0,
-        duration: 200,
-        easing: Easing.linear
-      }).start();
+    Animated.sequence([
+      Animated.parallel([
+        Animated.timing(
+          this.state.progressWidth, {
+            toValue: 0,
+            duration: 200,
+            easing: Easing.linear
+          }),
+        Animated.timing(this.state.fontSize, {
+          toValue: .12,
+          duration: 200,
+          easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
+        })
+        ])
+    ]).start();
 
-    Animated.timing(this.state.fontSize, {
-      toValue: .11,
-      duration: 200,
-      easing: Easing.bezier(0.5, 0.34, 0.3, 0.88)
-    }).start();
-
-    // When the gaze button is triggered, it changes the 'link'
+    // // When the gaze button is triggered, it changes the 'link'
     this.props.changeGallery(this.props.link);
   }
 
@@ -191,16 +118,15 @@ export default class NavBarItem extends React.Component {
     const AnimatedGaze = Animated.createAnimatedComponent(GazeButton);
 
     return (
-      <AnimatedGaze
+      <GazeButton
         style={{
           width: .5,
-          // fromBgColor: 'rgba(1, 1, 1, 1)',
-          // toBgColor: 'rgba(40, 40, 40, 40)',
           // backgroundColor: backgroundColor.interpolate({
           //   inputRange: [this.black, this.gray, this.white],
-          //   outputRange: ['rgb(0, 0, 0)', 'rgb(100, 100, 100)', 'rgb(255, 255, 255)']
+          //   outputRange: ['rgb(0, 0, 0)', 'rgb(40, 40, 40)', 'rgb(255, 255, 255)']
           // }),
-          // opacity,
+          backgroundColor,
+          overflow: 'hidden',
           height: "100%",
           margin: 0.01,
           justifyContent: "center",
@@ -220,19 +146,13 @@ export default class NavBarItem extends React.Component {
         </Animated.Text>
         <Animated.View 
               style={{
-                backgroundColor:'rgb(132, 56, 162)',
-                // borderRadius: 1,
-                // position: 'absolute',
+                backgroundColor:'rgb(200, 200, 200)',
                 bottom: 0,
                 width: this.state.progressWidth,
                 height: .01,
-                // opacity: .3,
-                // height: this.state.progressHeight,
-                // overflow: 'hidden',
               }}
-              ><Text>.</Text>
-              </Animated.View>
-      </AnimatedGaze>
+               />
+      </GazeButton>
     );
   }
 }
