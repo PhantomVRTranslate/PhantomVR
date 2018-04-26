@@ -18,24 +18,32 @@ class CardCarousel extends React.Component {
     this.state = {
       cardNumber: this.props.initialCard,
       textSlices: [],
-      currentTextSlice: 0,
+      currentTextSliceIndex: 0,
+      currentTextSlice: this.props.children,
       cardType: this.props.cardType,
+      largeText: false,
+      maxTextSize: 180,
     }
 
     this.nextCard = this.nextCard.bind(this);
     this.prevCard = this.prevCard.bind(this);
+    this.nextSlice = this.nextSlice.bind(this);
+    this.prevSlice = this.prevSlice.bind(this);
     this.textSet = this.textSet.bind(this);
   }
 
   componentDidMount() {
     this.textSet();
+    if(this.props.cardType === IMAGE) {
+      this.setState({largeText: true});
+    }
   }
 
-  textSet(iterateCount = 95) {
+  textSet(iterateCount = this.state.maxTextSize) {
 
       const text = this.props.children || this.props.text;
-      if (text.length < 95) {
-        this.setState({currentTextSlice: 0});
+      if (text.length < this.state.maxTextSize) {
+        this.setState({currentTextSlice: text});
       } else {
           for(let i = 0; i < text.length; i += iterateCount){
               if (text.length - i >= iterateCount){
@@ -44,15 +52,41 @@ class CardCarousel extends React.Component {
                   this.state.textSlices.push(text.slice(i, (i + iterateCount)));
               }
           }
-          this.setState({currentTextSlice: 0});
+
+          this.setState({currentTextSlice: this.state.textSlices[0], largeText: true});
       }
-      console.log(this.state.textSlices);
-
-
   }
 
+  nextSlice() {
+    const nextSliceNum = this.state.currentTextSliceIndex + 1;
 
+    if(nextSliceNum > this.state.textSlices.length - 1) {
+        this.setState({
+          currentTextSlice: this.state.textSlices[0],
+          currentTextSliceIndex: 0,
+        });
+    } else {
+      this.setState({
+        currentTextSliceIndex: nextSliceNum,
+        currentTextSlice: this.state.textSlices[nextSliceNum],
+      });
+    }
+  }
+  prevSlice() {
+    const prevSliceNum = this.state.currentTextSliceIndex - 1;
 
+    if( prevSliceNum < 0 ) {
+      this.setState({
+        currentTextSlice: this.state.textSlices[this.state.textSlices.length - 1],
+        currentTextSliceIndex: this.state.textSlices.length - 1,
+      });
+    } else {
+      this.setState({
+        currentTextSlice: this.state.textSlices[prevSliceNum],
+        currentTextSliceIndex: prevSliceNum,
+      });
+    }
+  }
   nextCard() {
     const nextCardNum = this.state.cardNumber + 1;
 
@@ -99,10 +133,11 @@ class CardCarousel extends React.Component {
         maxWidth: 400
       }} >
           <CarouselItem card={this.props.itemCollection[this.state.cardNumber]}
-                        cardType={this.state.cardType}>{this.state.textSlices[this.state.currentTextSlice]}</CarouselItem>
+                        cardType={this.state.cardType}>{this.state.currentTextSlice}</CarouselItem>
 
-      <View>
-          <GazeButton disabled={false} onClick={this.prevCard}
+      { this.state.largeText &&
+        <View>
+          <GazeButton disabled={false} onClick={this.state.cardType === IMAGE ? this.prevCard : this.prevSlice}
               buttonStyle={{
                   borderRadius:40,
                   opacity:.85,
@@ -130,7 +165,7 @@ class CardCarousel extends React.Component {
                       {"<"}
                   </Text>
           </GazeButton>
-          <GazeButton disabled={false} onClick={this.nextCard}
+          <GazeButton disabled={false} onClick={this.state.cardType === IMAGE ? this.nextCard : this.nextSlice}
               buttonStyle={{
                 borderRadius:40,
                 opacity:.85,
@@ -158,6 +193,7 @@ class CardCarousel extends React.Component {
               </Text>
           </GazeButton>
         </View>
+        }
         </View>
       </View>
     )

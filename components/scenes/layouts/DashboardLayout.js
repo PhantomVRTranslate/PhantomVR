@@ -21,11 +21,6 @@ import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
 import { IMAGE, TEXT } from './elements/CardCarousel/carousel/cardTypes.js';
 import VideoCard from './elements/VideoCard.js';
 
-
-
-
-
-
 export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
@@ -88,9 +83,11 @@ export default class DashboardLayout extends React.Component {
                 ]}
                 initialCard={0}
                 cardType={TEXT}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
-                                kljalkwejflkawjflkawejflkawejfklawefjkalwejflkawejflkawefjlkawfjlkawfejlkawejflkajeflkawejfl
+                                klj there once was a mouse who lived on a house
+                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
                                 </CardCarousel>
-                                
+
                 {components.map((comp, i) =>
                     (<Card key={i}>{comp}</Card>)
                 )}
