@@ -35,28 +35,16 @@ export default class MainMenuContainer extends React.Component {
 
     generateCard(child, row, col) {
         return (
-          <View style={{width: `${99 / this.props.children.length * row}%`,
+            <View style={{width: `${99 / this.props.children.length * row}%`,
                         height: `${99 / this.props.children.length * col}%`,
                         margin: 1}}>
-              {child}
-          </View>   
+                {child}
+            </View>   
         );
       }
 
 
     render() {
-
-        
-        console.log('made gallery', this.props);
-        console.log("gallary cards", this.state);
-        // let toRender = [
-        //     {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
-        //     {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
-        //     {type: "video", src: '../static_assets/videos/fireplace.mp4'},
-        //     {type: "video", src: '../static_assets/videos/fireplace.mp4'},
-        //     {type: "text", text: "helloas;lkfjsdl;kajflsak;djfls;dkajfl;sdkajfl;ksdajfls;adkjfsalk;jfsdal;kjsdlafj"},
-        //     {type: "image", src: '../static_assets/pictures/puppy.jpeg'},
-        // ];
         return (
             <View
                 style = {{
@@ -73,8 +61,6 @@ export default class MainMenuContainer extends React.Component {
                     maxWidth: 800,
                 }} >
                   {this.state.cards} 
-                
-                {/* {toRender.map((toCard, ind) => <CardSorter key={ind} options={toCard}/>)} */}
             </View>
         );
     }

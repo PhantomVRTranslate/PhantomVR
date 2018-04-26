@@ -25,13 +25,12 @@ export default class ContentPlane extends React.Component {
     }
 
     componentDidMount() {
-        //ensures at most 5 subcomponents  
         this.propsToState(this.props);
 
     }
 
     propsToState(props) {
-                //ensures at most 5 subcomponents  
+        //ensures at most 5 subcomponents  
 
         if (props.children.length === undefined){ 
             this.setState({

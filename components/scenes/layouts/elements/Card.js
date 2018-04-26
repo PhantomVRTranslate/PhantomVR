@@ -6,17 +6,7 @@ import TextVr from './TextVr.js';
 // can be used as a "BlankCard" To TakeUp 1 unit of space in Content Plane
 
 export default class Card extends React.Component {
-    constructor(){
-        super();
-        this.state={
-        
-        };
-        
-    }
-
     render() {
-        
-        console.log('single card'); 
         return (
             <View
                 style = {{
@@ -32,7 +22,7 @@ export default class Card extends React.Component {
                     maxWidth: 400,
 
                 }} >
-                  {this.props.children}
+                {this.props.children}
             </View>
         );
     }
