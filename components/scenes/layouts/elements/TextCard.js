@@ -3,8 +3,9 @@ import {View, Text, VrButton} from 'react-vr';
 
 export default class TextCard extends React.Component {
     render() {
+        console.log('in textcard: ', this.props);
         return (
-            <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
+            <VrButton onClick={()=> this.props.clickEvent(this.props.el.type, this.props.el.index)} style = {{
                 width: '100%' , 
                 height: '100%',
                 minHeight: 250,
@@ -30,10 +31,12 @@ export default class TextCard extends React.Component {
                             margin: 1
                     }}
                    >
-                    {this.props.src || this.props.text || this.props.children}
+                    { this.props.src || this.props.text || this.props.children || this.props.el.content}
                     </Text>
             </VrButton> 
    
         );
     }
 }
+
+// onEnter={() => this.borderShow()} onExit={() => this.borderShow()} 

@@ -35,7 +35,7 @@ export default class DashboardLayout extends React.Component {
         let toRender = theContent.map((el, i) =>{
             switch(el.type){
                 case "text-vr":
-                    return (<TextCard text={el.content} /> );
+                    return (<TextCard el={el} clickEvent={this.state.clickEvent}/> );
                 case "image-vr":
                     return(<ImageCard src={el.content} />);
                 case "video-vr":
