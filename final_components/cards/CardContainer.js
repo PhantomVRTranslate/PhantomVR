@@ -6,7 +6,7 @@ import CardSorter from './CardSorter';
 
 export default class CardContainer extends React.Component {
     render() {
-        const maxWidth = this.props.flex === 1 ? 400 : 1200;
+        const maxWidth = this.props.flex === 1 ? 400 : 2 ? 800 : 1200;
         return (
             <View
                 style = {{

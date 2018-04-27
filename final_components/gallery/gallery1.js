@@ -73,24 +73,30 @@ export default class Gallery1 extends React.Component {
       >
         <CardCarousel
           flex={1}
-          itemCollection={[
-            asset("1.jpeg"),
-            asset("2.jpeg"),
-            asset("3.jpeg"),
-            asset("4.jpeg"),
-            asset("5.jpeg")
-          ]}
+          // itemCollection={[
+          //   asset("1.jpeg"),
+          //   asset("2.jpeg"),
+          //   asset("3.jpeg"),
+          //   asset("4.jpeg"),
+          //   asset("5.jpeg")
+          // ]}
           initialCard={0}
           cardType={TEXT}
           maxTextLength={120}
         >
-          {`There once was a man from Peru who dreamed he was eating his shoe\n
+          {/* {`There once was a man from Peru who dreamed he was eating his shoe\n
           He woke with a fright In the middle of the night\n
           To find that his dream had come true.\n
           There once was a man from Peru who dreamed he was eating his shoe\n
           He woke with a fright\n
           In the middle of the night\n
-          To find that his dream had come true.`}
+          To find that his dream had come true.`} */}
+
+          <Text>Hello</Text>
+          <Text>Goodbye</Text>
+          <Text>Thanks</Text>
+          <Text>Welcome</Text>
+
         </CardCarousel>
         {/* <TextCard flex={2}>ojpwef</TextCard> */}
         {/* <Gallery>

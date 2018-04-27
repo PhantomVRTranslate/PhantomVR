@@ -59,7 +59,7 @@ class CarouselItem extends React.Component {
                     fontWeight: '400',
                     textAlign: 'center',
                     textAlignVertical: 'center',
-                    // margin: 2,
+                    marginBottom: 80,
                 }}
               >{this.state.textSlice}</Text>
             </View>
