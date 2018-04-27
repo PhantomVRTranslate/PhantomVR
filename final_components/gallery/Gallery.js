@@ -1,30 +1,56 @@
-import React from 'react';
-import {View, Text} from 'react-vr';
-import CardSorter from '../cards/CardSorter';
+import React, { Component } from 'react';
+import {
+  asset,
+  Animated,
+  Pano,
+  Text,
+  View,
+  Image,
+  CylindricalPanel
+} from 'react-vr';
 
-export default class MainMenuContainer extends React.Component {
-    constructor(){
-        super();
-        this.state={
-            cards: ""
+import CardContainer from '../cards/CardContainer';
+
+
+// const AnimatedModel = Animated.createAnimatedComponent(CylindricalPanel);
+
+
+export default class Gallery extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            cards: []
         };
-        
     }
 
-    componentWillReceiveProps(newProps) {
-        //if they give two props (row, column) will adjust row column
-        this.renderCards(newProps, newProps.row || 2, newProps.col || 3); 
-    }
 
     componentWillMount(){
-        //if they give two props (row, column) will adjust row column
-        this.renderCards(this.props, this.props.row || 2, this.props.col || 3); 
+        const rows = this.props.rows || 2;
+        const cols = this.props.cols || Math.ceil(this.props.children.length / 2);
+        this.renderCards(rows, cols); 
     }
 
-    renderCards(props,row, col){
+    generateCard(child, rows, cols, i) {
+        return (
+            <View style={{
+                width: `${95 / cols}%`,
+                height: `${95 / rows}%`,
+                margin: 5,
+                borderWidth: 2,
+                borderColor: 'black',
+                }}
+                key={i}>
+                {child}
+            </View>   
+        );
+      }
+
+    renderCards(rows, cols){
+
+        console.log(rows, cols, "rows and cols");
         let cards = [];
-        for(let i = 0; i < props.children.length; i++){
-            cards.push(this.generateCard(props.children[i], row, col, i));
+        for(let i = 0; i < this.props.children.length; i++){
+            cards.push(this.generateCard(this.props.children[i], rows, cols, i));
         }
         this.setState({
             cards: cards
@@ -32,36 +58,30 @@ export default class MainMenuContainer extends React.Component {
         
     }
 
-    generateCard(child, row, col, i) {
-        return (
-            <View style={{width: `${99 / this.props.children.length * row}%`,
-                        height: `${99 / this.props.children.length * col}%`,
-                        margin: 1}}
-                    key={i}>
-                {child}
-            </View>   
-        );
-      }
-
-
     render() {
+        // let fsize = this.state.fontgaze ? 50 : 30; 
+        console.log(this.state.cards.length, "hi");
         return (
-            <View
-                style = {{
-                    flexDirection: "row",
-                    flexWrap: "wrap",
-                    flex: 1,
-                    backgroundColor: 'rgba(0,200,200,0.5)',
-                    
-                    //combo of height && max height to ensure one component doesn't take up the whole 180º
-                    
-                    minHeight: 500,
-                    maxHeight: 500,
-                    minWidth: 800,
-                    maxWidth: 800,
-                }} >
-                  {this.state.cards} 
-            </View>
+            <CardContainer flex={Math.ceil(this.state.cards.length / 2)}>
+                <View style={{
+                    opacity: 1,
+                    // flex: 1,
+                    height: '100%',
+                    width: '100%',
+                    // minHeight: 250,
+                    // maxHeight: 500,
+                    // minWidth: 400,
+                    // maxWidth: 400,
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    // margin: 5
+                }}>{this.state.cards}
+                </View> 
+            </CardContainer>
         );
     }
 }
+
+// AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);

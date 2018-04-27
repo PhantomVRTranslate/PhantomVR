@@ -23,7 +23,7 @@ class CardCarousel extends React.Component {
       currentTextSlice: this.props.children,
       cardType: this.props.cardType,
       largeText: false,
-      maxTextSize: 120,
+      maxTextSize: this.props.maxTextSize || 120,
     };
 
     this.nextCard = this.nextCard.bind(this);
@@ -123,7 +123,7 @@ class CardCarousel extends React.Component {
     const canPrev = this.state.cardNumber > 0;
 
     return (
-      <CardContainer>
+      <CardContainer flex={this.props.flex || 1}>
       <View style={{
         width: '100%',
         height: '100%',
@@ -146,9 +146,8 @@ class CardCarousel extends React.Component {
               }}
               containerStyle={{
                 position: 'absolute',
-                transform: [{
-                    translate: [20,100,0]
-                }]
+                left: 10,
+                bottom: 10,
 
               }}>
                   <Text style={{
@@ -173,10 +172,9 @@ class CardCarousel extends React.Component {
                 borderColor:"#222"
               }}
               containerStyle={{
-                position:"absolute",
-                transform: [{
-                    translate: [320,100,0]
-                }]
+                position: 'absolute',
+                right: 10,
+                bottom: 10,
               }}>
               <Text style={{
                 color:"white",

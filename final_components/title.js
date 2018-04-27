@@ -98,7 +98,7 @@ export default class Title extends React.Component {
             transform: [{ translate: [0, 0, 0] }]
           }}
         >
-          Sample App
+          Phantom VR
         </Text>
 
         { !enteredScene ? 

@@ -95,7 +95,6 @@ export default class DashboardLayout extends React.Component {
                 <CardCol>
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/>
-
                 </CardCol>
                 {/* Blank Card Works */}
 

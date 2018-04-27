@@ -25,26 +25,32 @@ export default class CardCol extends React.Component {
 
 
     componentWillMount(){
-        //if they give two props (row, column) will adjust row column
-        this.renderCards(this.props.row || 2, this.props.col || 1); 
+        const rows = this.props.rows || 2;
+        const cols = this.props.cols || Math.ceil(this.props.children.length / 2);
+        this.renderCards(rows, cols); 
     }
 
-    generateCard(child, row, col, i) {
+    generateCard(child, rows, cols, i) {
         return (
             <View style={{
-                width: `${99 / this.props.children.length * row}%`,
-                        height: `${99 / this.props.children.length * col}%`,
-                        margin: 1}}
+                width: `${95 / cols}%`,
+                height: `${95 / rows}%`,
+                margin: 5,
+                borderWidth: 2,
+                borderColor: 'black',
+                }}
                 key={i}>
                 {child}
             </View>   
         );
       }
 
-    renderCards(row, col){
+    renderCards(rows, cols){
+
+        console.log(rows, cols, "rows and cols");
         let cards = [];
         for(let i = 0; i < this.props.children.length; i++){
-            cards.push(this.generateCard(this.props.children[i], row, col, i));
+            cards.push(this.generateCard(this.props.children[i], rows, cols, i));
         }
         this.setState({
             cards: cards
@@ -54,20 +60,22 @@ export default class CardCol extends React.Component {
 
     render() {
         // let fsize = this.state.fontgaze ? 50 : 30; 
+        console.log(this.state.cards.length, "hi");
         return (
-            <CardContainer>
+            <CardContainer flex={Math.ceil(this.state.cards.length / 2)}>
                 <View style={{
                     opacity: 1,
                     // flex: 1,
-                    // height: '100%',
-                    // width: '100%',
+                    height: '100%',
+                    width: '100%',
                     // minHeight: 250,
                     // maxHeight: 500,
                     // minWidth: 400,
                     // maxWidth: 400,
-                    flexDirection: 'column',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
+                    justifyContent: 'center',
                     // margin: 5
                 }}>{this.state.cards}
                 </View> 
