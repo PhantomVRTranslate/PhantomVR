@@ -2,11 +2,21 @@ import React from "react";
 import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
-import VRText from "./vr_text.js";
+import CardContainer from '../cards/CardContainer';
+import CardCol from '../cards/CardCol';
+import CardSorter from '../cards/CardSorter';
+import Gallery from '../gallery/Gallery';
+import GazeButton from '../button/GazeButton';
+import ImageCaption from '../cards/ImageCaption';
+import ImageCard from '../cards/ImageCard';
+import TextCard from '../cards/TextCard';
+import VideoCard from '../cards/VideoCard';
+import { IMAGE, TEXT } from '../carousel/cardTypes.js';
+import CardCarousel from "../carousel/carousel.js";
 
-export default class Gallery1 extends React.Component {
-  constructor(props) {
-    super(props);
+export default class Gallery2 extends React.Component {
+  constructor() {
+    super();
     this.state = { slideLeft: new Animated.Value(-1024), fadeIn: new Animated.Value(0)};
   }
 
@@ -33,9 +43,7 @@ export default class Gallery1 extends React.Component {
     ]).start();
   }
 
-  ci
-
-  componentReceiveProps() {
+  componentWillReceiveProps() {
     console.log('hi');
     Animated.sequence([
       Animated.parallel([
@@ -73,12 +81,12 @@ export default class Gallery1 extends React.Component {
           ],
         }}
       >
-        <VRText>EVERY</VRText>
-        <VRText>DAY</VRText>
-        <VRText>IS</VRText>
-        <VRText>A</VRText>
-        <VRText>GOOD</VRText>
-        <VRText>DAY</VRText>
+        <TextCard>EVERY</TextCard>
+        <TextCard>DAY</TextCard>
+        <TextCard>IS</TextCard>
+        <TextCard>A</TextCard>
+        <TextCard>GOOD</TextCard>
+        <TextCard>DAY</TextCard>
       </Animated.View>
     );
   }

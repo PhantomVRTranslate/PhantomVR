@@ -21,16 +21,12 @@ export default class GazeButton extends React.Component{
     }
 
     triggerSelection(){
-        console.log('hi');
-        this.setState({
-            progressWidth: new Animated.Value(0)
-        });
-        // Animated.timing(
-        //     this.state.progressWidth, {
-        //       toValue: 0,
-        //       duration: 200,
-        //       easing: Easing.linear
-        //     }).start();
+        Animated.timing(
+            this.state.progressWidth, {
+              toValue: 0,
+              duration: 200,
+              easing: Easing.linear
+            }).start();
 
         const { onTrigger } = this.props;
         onTrigger();
@@ -65,7 +61,6 @@ export default class GazeButton extends React.Component{
     }
 
     render(){
-
         const { buttonStyle, progressDisabled } = this.props;
 
         const style = {

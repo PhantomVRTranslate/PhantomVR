@@ -18,6 +18,7 @@ import Card from "./elements/Card.js";
 import ImageCard from "./elements/ImageCard.js";
 import ImageCaption from "./elements/ImageCaption.js";
 import CardCarousel from "./elements/CardCarousel/carousel/carousel.js";
+import { IMAGE, TEXT } from './elements/CardCarousel/carousel/cardTypes.js';
 import VideoCard from './elements/VideoCard.js';
 
 export default class DashboardLayout extends React.Component {
@@ -43,11 +44,11 @@ export default class DashboardLayout extends React.Component {
                     return(<ImageCard src={el.content} />);
                 case "video-vr":
                     return(<VideoCard src={el.content} />);
-                default: 
-                    return null; 
+                default:
+                    return null;
                 }
             });
-        return toRender; 
+        return toRender;
 
     }
 
@@ -65,6 +66,7 @@ export default class DashboardLayout extends React.Component {
     render() {
         let words = "Hello";
         let components = this.generateComponents(this.props.content);
+        console.log(components);
         return (
             <ContentPlane >
                 <Gallery >
@@ -89,15 +91,21 @@ export default class DashboardLayout extends React.Component {
                   asset("4.jpeg"),
                   asset("5.jpeg")
                 ]}
-                initialCard={0}/>
-                {components.map((comp, i) => 
+                initialCard={0}
+                cardType={TEXT} maxTextLength={180}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                klj there once was a mouse who lived on a house
+                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                </CardCarousel>
+
+                {components.map((comp, i) =>
                     (<Card key={i}>{comp}</Card>)
                 )}
-                {/* <CardCol>
-                    <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
-                    <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
+               
 
-                </CardCol> */}
+                    <ImageCard src={'../static_assets/pictures/pup.jpg'}/>
+
+
                 {/* Blank Card Works */}
 
                 {/* Must hover over image for text to dipslay */}

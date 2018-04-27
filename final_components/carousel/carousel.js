@@ -5,10 +5,13 @@ import {
 } from 'react-vr';
 
 import CarouselItem from './carouselItem';
-import GazeButton from '../gaze_button/gaze_button';
+import GazeButton from '../../components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button';
 import { IMAGE, TEXT } from './cardTypes';
+import CardContainer from '../cards/CardContainer';
 
 class CardCarousel extends React.Component {
+
+
 
   constructor(props) {
     super(props);
@@ -17,11 +20,11 @@ class CardCarousel extends React.Component {
       cardNumber: this.props.initialCard,
       textSlices: [],
       currentTextSliceIndex: 0,
-      currentTextSlice: this.props.children || this.props.text,
+      currentTextSlice: this.props.children,
       cardType: this.props.cardType,
       largeText: false,
-      maxTextSize: this.props.maxTextLength,
-    }
+      maxTextSize: this.props.maxTextSize || 120,
+    };
 
     this.nextCard = this.nextCard.bind(this);
     this.prevCard = this.prevCard.bind(this);
@@ -50,6 +53,7 @@ class CardCarousel extends React.Component {
                   this.state.textSlices.push(text.slice(i, (i + iterateCount)));
               }
           }
+
           this.setState({currentTextSlice: this.state.textSlices[0], largeText: true});
       }
   }
@@ -108,7 +112,7 @@ class CardCarousel extends React.Component {
     } else {
       this.setState({
         cardNumber: prevCardNum
-      })
+      });
     }
 
   }
@@ -119,16 +123,11 @@ class CardCarousel extends React.Component {
     const canPrev = this.state.cardNumber > 0;
 
     return (
-      <View>
+      <CardContainer flex={this.props.flex || 1}>
       <View style={{
-        opacity: 1,
-        flex: 1,
-        width: '100%' ,
+        width: '100%',
         height: '100%',
-        minHeight: 250,
-        maxHeight: 500,
-        maxWidth: 400
-      }} >
+      }}>
           <CarouselItem card={this.props.itemCollection[this.state.cardNumber]}
                         cardType={this.state.cardType}>{this.state.currentTextSlice}</CarouselItem>
 
@@ -147,9 +146,8 @@ class CardCarousel extends React.Component {
               }}
               containerStyle={{
                 position: 'absolute',
-                transform: [{
-                    translate: [20,100,0]
-                }]
+                left: 10,
+                bottom: 10,
 
               }}>
                   <Text style={{
@@ -174,10 +172,9 @@ class CardCarousel extends React.Component {
                 borderColor:"#222"
               }}
               containerStyle={{
-                position:"absolute",
-                transform: [{
-                    translate: [320,100,0]
-                }]
+                position: 'absolute',
+                right: 10,
+                bottom: 10,
               }}>
               <Text style={{
                 color:"white",
@@ -192,8 +189,8 @@ class CardCarousel extends React.Component {
         </View>
         }
         </View>
-      </View>
-    )
+      </CardContainer>
+    );
   }
 
 

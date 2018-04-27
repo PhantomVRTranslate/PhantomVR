@@ -8,7 +8,7 @@ import {
     CylindricalPanel,
 } from "react-vr";
 
-export default class App extends React.Component {
+export default class ContentPlane extends React.Component {
 
   render() {
     return (

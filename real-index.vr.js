@@ -23,9 +23,9 @@ export default class WelcomeToVR extends React.Component {
   }
 
   componentWillMount(){
-  
+
     console.log('WTF');
-    console.log('checking state', this.state.heaven); 
+    console.log('checking state', this.state.heaven);
     theDocs.getDocument(result => {
       this.setState({
         heaven: result
@@ -34,24 +34,24 @@ export default class WelcomeToVR extends React.Component {
   }
 
   testMethod() {
-   
-    //this sets the state to have whatever we pass in from the DOM 
-   
+
+    //this sets the state to have whatever we pass in from the DOM
+
 
 
 
   }
   render() {
-    
 
-    let solution = this.state.heaven; 
+
+    let solution = this.state.heaven;
     console.log(solution);
     return (
       <View>
         <Pano source={asset('space.jpg')}/>
         <VrButton onClick={() => this.testMethod()}>
         </VrButton>
-        <Dashboard/> 
+        <Dashboard/>
       </View>
     );
   }

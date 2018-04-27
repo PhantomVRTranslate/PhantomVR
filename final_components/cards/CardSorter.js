@@ -6,7 +6,6 @@ import VideoCard from './VideoCard';
 
 export default class CardSorter extends React.Component {
     render() {
-        console.log('hi');
         switch(this.props.options.type){
             case "image":
                 return (<ImageCard src={this.props.options.src}/>);

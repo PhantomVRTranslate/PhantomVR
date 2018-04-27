@@ -2,10 +2,9 @@ import React from "react";
 import { View, Animated, asset, Image, Text, VrButton } from "react-vr";
 import { Easing } from "react-native";
 
-import NavBarItem from "./nav_bar_item.js";
+import NavBarItem from "./NavBarItem.js";
 
-
-export default class BottomNavBar extends React.Component {
+export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
@@ -37,7 +36,7 @@ export default class BottomNavBar extends React.Component {
         Animated.timing(
           this.state.fadeIn,
           {
-           toValue: 1,
+           toValue: .8,
            duration: 4000,
            easing: Easing.linear
           }
@@ -54,12 +53,11 @@ export default class BottomNavBar extends React.Component {
     return (
       <Animated.View
         style={{
-          backgroundColor: "#111",
           opacity: this.state.fadeIn,
           borderWidth: 0.002,
           borderColor: "#444",
           padding: .02,
-          width: 1.5,
+          margin: .02,
           height: 0.3,
           layoutOrigin: [0.5, 0.5],
           transform: [{ translate: [0, this.state.slideUp, this.state.slideForward] }, { rotateX: "-45deg" }],
