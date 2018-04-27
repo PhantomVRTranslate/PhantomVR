@@ -49,6 +49,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.warn('this is APP: ', this.state); 
     return (
       <View>
       <ContentPlane>

@@ -30,13 +30,10 @@ export default class DashboardLayout extends React.Component {
         };
     }
 
-    generateComponents() {
-        console.log('generatecomponets state: ', this.state); 
-        let theContent = Object.values(this.state.content);
-        console.log("theContent", theContent);
+    generateComponents() {    
+        let theContent = Object.values(this.state.content);    
         let toRender = Object.values(theContent).map(el =>{
-            
-            console.log("el", el);
+                    
             switch(el.type){
                 case "text-vr":
                     return (<TextCard el={el} clickEvent={this.state.clickEvent}/> );
@@ -52,8 +49,7 @@ export default class DashboardLayout extends React.Component {
 
     }
 
-    componentWillReceiveProps(newProps){
-        console.log('this is new props: ', newProps); 
+    componentWillReceiveProps(newProps){        
         this.setState({
             content: newProps.content.store,
             clickEvent: newProps.content.clickEvent
@@ -65,8 +61,7 @@ export default class DashboardLayout extends React.Component {
 
     render() {
         let words = "Hello";
-        let components = this.generateComponents(this.props.content);
-        console.log(components);
+        let components = this.generateComponents(this.props.content);        
         return (
             <ContentPlane >
                 <Gallery >

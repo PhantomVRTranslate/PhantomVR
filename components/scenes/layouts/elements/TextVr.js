@@ -9,7 +9,6 @@ import {
 
 export default class TextVr extends React.Component {
     constructor(props){
-        console.log("text props", props);
     super(props);
         this.state = {
             text: [],

@@ -5,8 +5,6 @@ const hideBody = () =>  {
 };
 
 
-
-
 const hideChildren = () =>  {
     let body = document.getElementsByTagName('body')[0]; 
     let phantom = document.getElementById('phantom'); 

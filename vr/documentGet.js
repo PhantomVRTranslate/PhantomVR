@@ -1,5 +1,5 @@
 import {Module} from 'react-vr-web';
-import {merge} from 'lodash';
+import {merge, isEmpty} from 'lodash';
 
 export default class DocumentGet extends Module {
     constructor() {
@@ -11,6 +11,7 @@ export default class DocumentGet extends Module {
     }
 
     _setRNContext(rnctx) {
+        console.log('_setRNCOntext', rnctx); 
         this._rnctx = rnctx;
     }
 
@@ -21,7 +22,9 @@ export default class DocumentGet extends Module {
     }
 
     triggerEvent(classname, key){
-        let el = document.getElementsByClassName(key)[0]; 
+
+        let el = document.getElementsByClassName(classname)[0]; 
+        console.log('triggerEvent el, classname, key', el, classname, key); 
         el.click(); 
         let body = document.body;
         let div = document.createElement('div'); 
@@ -32,9 +35,8 @@ export default class DocumentGet extends Module {
     }
 
     _emit(addContent, removeContent) {
-        if (!this._rnctx) {
-            return;
-        }
+        if (!this._rnctx) return; 
+        if (isEmpty(addContent) && removeContent.length === 0) return; 
         this._rnctx.callFunction('BrowserBridge', 'notifyEvent', [addContent, removeContent]);
     }
     
@@ -50,7 +52,6 @@ export default class DocumentGet extends Module {
         let addContent = {}; 
         let removeContent = []; 
         Array.from(mutationList).forEach(mutation => {
-            console.warn('mutation: ', mutation); 
             Array.from(mutation.addedNodes).forEach(node => {
                     let resultObj = this.makeResult(node); 
                     if (resultObj) addContent = merge({}, addContent, resultObj); 
