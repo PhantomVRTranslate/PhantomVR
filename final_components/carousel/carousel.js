@@ -5,8 +5,9 @@ import {
 } from 'react-vr';
 
 import CarouselItem from './carouselItem';
-import GazeButton from '../button/GazeButton';
+import GazeButton from '../../components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button';
 import { IMAGE, TEXT } from './cardTypes';
+import CardContainer from '../cards/CardContainer';
 
 class CardCarousel extends React.Component {
 
@@ -22,7 +23,7 @@ class CardCarousel extends React.Component {
       currentTextSlice: this.props.children,
       cardType: this.props.cardType,
       largeText: false,
-      maxTextSize: 180,
+      maxTextSize: 120,
     };
 
     this.nextCard = this.nextCard.bind(this);
@@ -122,16 +123,11 @@ class CardCarousel extends React.Component {
     const canPrev = this.state.cardNumber > 0;
 
     return (
-      <View>
+      <CardContainer>
       <View style={{
-        opacity: 1,
-        flex: 1,
-        width: '100%' ,
+        width: '100%',
         height: '100%',
-        minHeight: 250,
-        maxHeight: 500,
-        maxWidth: 400
-      }} >
+      }}>
           <CarouselItem card={this.props.itemCollection[this.state.cardNumber]}
                         cardType={this.state.cardType}>{this.state.currentTextSlice}</CarouselItem>
 
@@ -195,7 +191,7 @@ class CardCarousel extends React.Component {
         </View>
         }
         </View>
-      </View>
+      </CardContainer>
     );
   }
 

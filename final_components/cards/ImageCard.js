@@ -2,6 +2,8 @@ import React from 'react';
 import {View, Image, VrButton} from 'react-vr';
 // import ImageZoom from 'imageZoom';
 
+import CardContainer from './CardContainer';
+
 
 export default class ImageCard extends React.Component {
     constructor(){
@@ -23,6 +25,7 @@ export default class ImageCard extends React.Component {
 
         // let border = this.state.border ? 5 : 0; 
         return (
+            <CardContainer flex={this.props.flex}>
                 <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
                     width: '100%' , 
                     height: '100%',
@@ -46,6 +49,7 @@ export default class ImageCard extends React.Component {
                         
                         />
                 </VrButton>
+                </CardContainer>
         );
     }
 }

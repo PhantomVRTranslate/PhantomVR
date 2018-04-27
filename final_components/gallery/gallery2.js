@@ -2,7 +2,7 @@ import React from "react";
 import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
-import Card from '../cards/Card';
+import CardContainer from '../cards/CardContainer';
 import CardCol from '../cards/CardCol';
 import CardSorter from '../cards/CardSorter';
 import Gallery from '../gallery/Gallery';
@@ -10,7 +10,7 @@ import GazeButton from '../button/GazeButton';
 import ImageCaption from '../cards/ImageCaption';
 import ImageCard from '../cards/ImageCard';
 import TextCard from '../cards/TextCard';
-import VideoCard from '../cards/Card';
+import VideoCard from '../cards/VideoCard';
 import { IMAGE, TEXT } from '../carousel/cardTypes.js';
 import CardCarousel from "../carousel/carousel.js";
 

@@ -2,6 +2,8 @@ import React from 'react';
 import {View, Image, VrButton, Text} from 'react-vr';
 import TextCard from "./TextCard.js";
 
+import CardContainer from './CardContainer';
+
 // import ImageZoom from 'imageZoom';
 
 
@@ -24,29 +26,10 @@ export default class ImageCaption extends React.Component {
     render () {
         let border = this.state.border ? 1 : 0; 
         return (
-            <View style={{
-                opacity: 1,
-                flex: 1,
-                height: '100%',
-                width: '100%',
-                minHeight: 250,
-                maxHeight: 600,
-                minWidth: 400,
-                maxWidth: 400,
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginHorizontal: 1,
-                marginTop: 50
-            }}>
+            <CardContainer flex={this.props.flex}>
              <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
                     width: '100%' , 
                     height: '100%',
-                    flex: 1,
-                    minWidth: 400,
-                    minHeight: 500,
-                    maxHeight: 500,
-                    maxWidth: 400
                     }}>
                     
                     <Image 
@@ -54,39 +37,32 @@ export default class ImageCaption extends React.Component {
                         style = {{
                             width: '100%', 
                             height: '100%',
-                            
-                            resizeMode: 'cover'
                         }}
                         
                         />
-                </VrButton>
                 <VrButton style = {{
                     width: '100%' , 
                     height: '100%',
                     flex: 1,
-                    minWidth: 400,
-                    minHeight: 100,
-                    maxHeight: 100,
-                    maxWidth: 400,
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    marginTop: -50,
-                    opacity: border
+                    opacity: border,
+                    alignItems: 'center'
                     }}>
                     <Text style={{
                         flex: 1, 
                         minWidth: '100%', 
                         minHeight: '100%',
-                        fontSize: 45,
+                        fontSize: 50,
                         color: '#FFF',
                         fontWeight: '500',
                         textAlign: 'center',
                         textAlignVertical: 'center',
+                        padding: '10',
                         }}>
                         {this.props.text || this.props.children}
                     </Text>  
                 </VrButton>          
-                
-            </View> 
+            </VrButton>
+            </CardContainer>
                
         );
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Image, VrButton} from 'react-vr';
 // import ImageZoom from 'imageZoom';
+import Card from './Card';
 
 
 export default class ImageCard extends React.Component {
@@ -23,12 +24,14 @@ export default class ImageCard extends React.Component {
 
         // let border = this.state.border ? 5 : 0; 
         return (
+            <CardContainer>
                 <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
+                    flex: 1,
                     width: '100%' , 
                     height: '100%',
                     minHeight: 250,
                     maxHeight: 500,
-                    maxWidth: 400
+                    maxWidth: 400,
                     //uncomment for border to appear on gaze
                     // minWidth: 400,
                     // borderColor: '#FFF', 
@@ -46,6 +49,7 @@ export default class ImageCard extends React.Component {
                         
                         />
                 </VrButton>
+                </CardContainer>
         );
     }
 }
