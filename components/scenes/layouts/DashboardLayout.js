@@ -83,7 +83,7 @@ export default class DashboardLayout extends React.Component {
                   asset("5.jpeg")
                 ]}
                 initialCard={0}
-                cardType={TEXT}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                cardType={TEXT} maxTextLength={180}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
                                 klj there once was a mouse who lived on a house
                                 asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
                                 asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka

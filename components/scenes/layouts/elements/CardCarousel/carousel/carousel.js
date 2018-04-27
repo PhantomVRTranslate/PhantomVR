@@ -10,8 +10,6 @@ import { IMAGE, TEXT } from './cardTypes';
 
 class CardCarousel extends React.Component {
 
-
-
   constructor(props) {
     super(props);
 
@@ -19,10 +17,10 @@ class CardCarousel extends React.Component {
       cardNumber: this.props.initialCard,
       textSlices: [],
       currentTextSliceIndex: 0,
-      currentTextSlice: this.props.children,
+      currentTextSlice: this.props.children || this.props.text,
       cardType: this.props.cardType,
       largeText: false,
-      maxTextSize: 180,
+      maxTextSize: this.props.maxTextLength,
     }
 
     this.nextCard = this.nextCard.bind(this);
@@ -52,7 +50,6 @@ class CardCarousel extends React.Component {
                   this.state.textSlices.push(text.slice(i, (i + iterateCount)));
               }
           }
-
           this.setState({currentTextSlice: this.state.textSlices[0], largeText: true});
       }
   }
