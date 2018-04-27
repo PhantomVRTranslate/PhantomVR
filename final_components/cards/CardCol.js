@@ -47,7 +47,6 @@ export default class CardCol extends React.Component {
 
     renderCards(rows, cols){
 
-        console.log(rows, cols, "rows and cols");
         let cards = [];
         for(let i = 0; i < this.props.children.length; i++){
             cards.push(this.generateCard(this.props.children[i], rows, cols, i));
@@ -60,7 +59,6 @@ export default class CardCol extends React.Component {
 
     render() {
         // let fsize = this.state.fontgaze ? 50 : 30; 
-        console.log(this.state.cards.length, "hi");
         return (
             <CardContainer flex={Math.ceil(this.state.cards.length / 2)}>
                 <View style={{
