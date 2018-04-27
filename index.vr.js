@@ -47,8 +47,8 @@ export default class WelcomeToVR extends React.Component {
   constructor() {
     super();
     this.state = {
-
-     store: [],
+    
+     store: {},
      clickEvent: this.clickEvent
     };
 
@@ -68,8 +68,12 @@ export default class WelcomeToVR extends React.Component {
     // }
   }
 
-  dummy(input){
-    console.log('this is dummy input: ', input); 
+  dummy(name, event){
+    console.log('this is dummy input: ', name, event); 
+    let store = lodash.merge({}, this.state.store, event); 
+    this.setState({
+      store: store
+    });
   }
 
   componentWillMount(){
@@ -79,11 +83,6 @@ export default class WelcomeToVR extends React.Component {
     theDocs.getDocument(result => {
       let mergedStore =  this.state.store + result; 
       console.log('mergedstore, ',mergedStore); 
-      this.setState({
-        store: result
-      },
-      console.log('this is store/result: ', result)
-      );
 
     });
     console.log('this is acceptNewElements: ', this.acceptNewElements);
@@ -97,6 +96,7 @@ export default class WelcomeToVR extends React.Component {
 
   testMethod() {}
   render() {
+    console.warn('this is the state::', this.state); 
     return (
       <View>
         <Pano source={asset('space.jpg')}/>

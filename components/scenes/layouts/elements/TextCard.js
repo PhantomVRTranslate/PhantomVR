@@ -5,7 +5,7 @@ export default class TextCard extends React.Component {
     render() {
         console.log('in textcard: ', this.props);
         return (
-            <VrButton onClick={()=> this.props.clickEvent(this.props.el.type, this.props.el.index)} style = {{
+            <VrButton onClick={()=> this.props.clickEvent(this.props.el.type, this.props.el.key)} style = {{
                 width: '100%' , 
                 height: '100%',
                 minHeight: 250,

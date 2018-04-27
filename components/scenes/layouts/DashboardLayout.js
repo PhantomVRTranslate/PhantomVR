@@ -24,15 +24,18 @@ export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            content: [],
+            content: {},
             clickEvent: null
         };
     }
 
     generateComponents() {
         console.log('generatecomponets state: ', this.state); 
-        let theContent = this.state.content;
-        let toRender = theContent.map((el, i) =>{
+        let theContent = Object.values(this.state.content);
+        console.log("theContent", theContent);
+        let toRender = Object.values(theContent).map(el =>{
+            
+            console.log("el", el);
             switch(el.type){
                 case "text-vr":
                     return (<TextCard el={el} clickEvent={this.state.clickEvent}/> );
@@ -90,20 +93,19 @@ export default class DashboardLayout extends React.Component {
                 {components.map((comp, i) => 
                     (<Card key={i}>{comp}</Card>)
                 )}
-                <CardCol>
+                {/* <CardCol>
                     <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/> 
 
-                </CardCol>
+                </CardCol> */}
                 {/* Blank Card Works */}
 
                 {/* Must hover over image for text to dipslay */}
-                <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>
+                {/* <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption> */}
 
-                <Card>
+                {/* <Card>
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/>
-                    {/* <TextCard text={'One'}/>  */}
-                </Card>
+                </Card> */}
 
              </ContentPlane>
         );

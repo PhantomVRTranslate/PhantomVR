@@ -1,4 +1,5 @@
 import {Module} from 'react-vr-web';
+import {merge} from 'lodash';
 
 export default class DocumentGet extends Module {
     constructor() {
@@ -20,7 +21,7 @@ export default class DocumentGet extends Module {
         let result = this.getBaseContent();
         const body = document.getElementsByTagName('body')[0];
 
-        
+        this._emit('initial countdown', result);
         if (this._rnctx) {
             this
                 ._rnctx
@@ -30,8 +31,8 @@ export default class DocumentGet extends Module {
     this.domListener(this.getNewContent);
     }
 
-    triggerEvent(classname, i){
-        let el = document.getElementsByClassName(classname)[i]; 
+    triggerEvent(classname, key){
+        let el = document.getElementsByClassName(key)[0]; 
         
         el.click(); 
         let body = document.body;
@@ -74,18 +75,12 @@ export default class DocumentGet extends Module {
     }
 
     getNewContent(mutationList){
-        console.warn('THIS IS IT IF IT WORKS: ', mutationList);
         
-        let result = []; 
-
+        let result = {}; 
         Array.from(mutationList).forEach(mutation => {
             Array.from(mutation.addedNodes).forEach(node => {
-                console.warn('this is Node in Mutation:', node);
-
                     let resultObj = this.makeResult(node); 
-                    if (resultObj) result.push(resultObj); 
-
-                // node.className 
+                    if (resultObj) result = merge({}, result, resultObj); 
             });
         });
 
@@ -93,12 +88,10 @@ export default class DocumentGet extends Module {
     }
 
     makeResult(node){
-        console.log("NODEEEEE: ", node); 
+        
         let key = Math.floor(Math.random() * 1000000000000); 
-        let nodeObj = {[key]: {type: node.className, events: []}};
-        console.log("OBBBJJJNODE:", nodeObj); 
-        console.log('classlist', node.classList);
-        // node.classList.add(key); 
+        let nodeObj = {[key]: {type: node.className, events: [], key: key}};
+ 
         switch(node.className) {
             case 'text-vr': 
                 nodeObj[key]['content'] = node.innerHTML;
@@ -118,17 +111,16 @@ export default class DocumentGet extends Module {
     }
     getBaseContent() { 
 
-        let result = [];
+        let result = {};
         let types = ['text-vr', 'image-vr', 'video-vr']; 
             types.forEach(type => {
                 let content = Array.from(document.getElementsByClassName(type)); 
                 content.forEach((el) => {
-                    result.push(this.makeResult(el)); 
+                    result = merge({}, result, this.makeResult(el));
                 
                 });
             });
 
-        console.warn('getBaseContent using makeResult: ', result); 
         return result; 
     }
 
