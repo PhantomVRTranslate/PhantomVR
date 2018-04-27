@@ -24,7 +24,7 @@ export default class ImageCard extends React.Component {
 
         // let border = this.state.border ? 5 : 0; 
         return (
-            <CardContainer>
+            // <CardContainer>
                 <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
                     flex: 1,
                     width: '100%' , 
@@ -49,7 +49,7 @@ export default class ImageCard extends React.Component {
                         
                         />
                 </VrButton>
-                </CardContainer>
+                // </CardContainer>
         );
     }
 }

@@ -21,7 +21,7 @@ export default class Gallery1 extends React.Component {
     super(props);
     this.state = {
       slideLeft: new Animated.Value(-1024),
-      fadeIn: new Animated.Value(0)
+      fadeIn: new Animated.Value(0),
     };
   }
 

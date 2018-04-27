@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-vr";
+import { View, Text, VrButton } from "react-vr";
 
 import CarouselItem from "./carouselItem";
 import GazeButton from "../../components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button";
@@ -155,7 +155,7 @@ class CardCarousel extends React.Component {
 
           {this.state.largeText && (
             <View>
-              <GazeButton
+              <VrButton
                 disabled={false}
                 onClick={
                   this.state.cardType === IMAGE ? this.prevCard : this.prevSlice
@@ -187,8 +187,8 @@ class CardCarousel extends React.Component {
                 >
                   {"<"}
                 </Text>
-              </GazeButton>
-              <GazeButton
+              </VrButton>
+              <VrButton
                 disabled={false}
                 onClick={
                   this.state.cardType === IMAGE ? this.nextCard : this.nextSlice
@@ -220,7 +220,7 @@ class CardCarousel extends React.Component {
                 >
                   {">"}
                 </Text>
-              </GazeButton>
+              </VrButton>
             </View>
           )}
         </View>
