@@ -9,7 +9,15 @@ import {
   View,
 } from 'react-vr';
 
+import {merge} from 'lodash';
 import Dashboard from './components/scenes/Dashboard.js';
+
+import BatchedBridge from 'react-native/Libraries/BatchedBridge/BatchedBridge';
+import BrowserBridge from './vr/BrowserBridge.js'; 
+
+const browserBridge = new BrowserBridge();
+BatchedBridge.registerCallableModule(BrowserBridge.name, browserBridge);
+
 const theDocs = NativeModules.DocumentGet;
 
 import App from './final_components/app';
@@ -21,24 +29,44 @@ export default class WelcomeToVR extends React.Component {
   constructor() {
     super();
     this.state = {
+     store: {},
+     clickEvent: this.clickEvent,
       enterScene: false,
-      store: []
     };
+    this.mergeState = this.mergeState.bind(this); 
+  }
+
+  clickEvent(classname, i){
+    theDocs.triggerEvent(classname, i); 
+  }
+
+  mergeState(addContent, removeContent){
+    console.warn('this is removed Content: ', removeContent); 
+    let store = merge({}, this.state.store, addContent); 
+    removeContent.forEach(content => {
+      console.log('this is removeC in mergeState: ', content, store); 
+      delete store[content];
+      console.log('this is store after delete: ', store); 
+
+    });
+
+    this.setState({
+      store: store
+    });
   }
 
   componentWillMount(){
+    this.unsubscribe = browserBridge.subscribe(this.mergeState); 
     theDocs.getDocument(result => {
-      this.setState({
-        store: result
-      });
+      let mergedStore =  this.state.store + result; 
     });
   }
+
 
   activateScene() {
     this.setState({ enterScene: true });
   }
 
-  testMethod() {}
   render() {
     // return (
     //   <View>
@@ -55,7 +83,7 @@ export default class WelcomeToVR extends React.Component {
         <Pano source={{uri: backgroundImage}}/>
         {/* <App /> */}
         <Title activateScene={this.activateScene.bind(this)} />
-    { this.state.enterScene ? <App /> : <View /> }
+        { this.state.enterScene ? <App /> : <View /> }
       </View>
     );
 

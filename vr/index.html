@@ -5,16 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
-<<<<<<< HEAD
-    <div class="Money">YUS</div>
-    <!-- When you're ready to deploy your app, update this line to point to your compiled client.bundle.js -->
-=======
 
-    <div class="text-vr" onclick="() => console.log('onclick()')">YUS</div>
+    <script src="./hideBody.js"></script>
+    <main></main>
+
+    <div class="text-vr" onclick="myFunction()">YUS</div>
     <img src='../static_assets/pictures/puppy.jpeg' class="image-vr" />
     <video class="video-vr" src='../static_assets//videos/fireplace.mp4'></video>
->>>>>>> 6089eb48f7ee28e7e3fe01710736a23137bdf843
+
+
+    <div style='height: 100vh; width: 100vw;' id="phantom"></div>
+    <script>
+      function myFunction() {
+        console.log('onclick working');
+      }
+      </script>
+
     <div class="stophere"></div>
+
     <script src="./client.bundle?platform=vr"></script>
 
 
@@ -29,10 +37,11 @@
         '../index.vr.bundle?platform=vr&dev=true',
 
         // Attach it to the body tag
-        document.body,
+        document.getElementById('phantom'), 
         {mobile}
 
       );
     </script>
   </body>
+  
 </html>
