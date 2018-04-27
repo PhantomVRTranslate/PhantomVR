@@ -14,9 +14,6 @@ export default class BrowserBridge {
     }
 
     notifyEvent(name, event) {
-      console.log('name and : ', name);
-      console.log(' event: ', event);
-
         lodash.forEach(this._subscribers, handler => {
             handler(name, event);
         });

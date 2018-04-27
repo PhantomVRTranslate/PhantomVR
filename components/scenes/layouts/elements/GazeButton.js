@@ -21,7 +21,6 @@ export default class GazeButton extends React.Component{
     }
 
     triggerSelection(){
-        console.log('hi');
         this.setState({
             progressWidth: new Animated.Value(0)
         });

@@ -9,7 +9,6 @@ import DashboardLayout from './layouts/DashboardLayout.js';
 export default class Dashboard extends React.Component { 
    
     render() {
-        console.log('this is dashboard: ', this.props);
         return (
             <View>
                 <DashboardLayout content={this.props.content}/> 

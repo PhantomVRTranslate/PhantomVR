@@ -9,6 +9,9 @@ import {
   View,
 } from 'react-vr';
 
+import { merge } from 'lodash';
+
+
 import Dashboard from './components/scenes/Dashboard.js';
 const theDocs = NativeModules.DocumentGet;
 
@@ -24,6 +27,23 @@ export default class WelcomeToVR extends React.Component {
       enterScene: false,
       store: []
     };
+    this.mergeState = this.mergeState.bind(this); 
+  }
+
+  clickEvent(classname, i){
+    theDocs.triggerEvent(classname, i); 
+  }
+
+  mergeState(addContent, removeContent){
+    let store = merge({}, this.state.store, addContent); 
+    removeContent.forEach(content => {
+      delete store[content];
+
+    });
+
+    this.setState({
+      store: store
+    });
   }
 
   componentWillMount(){

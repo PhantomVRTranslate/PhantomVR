@@ -7,7 +7,6 @@ import GazeButton from "../button/GazeButton";
 export default class NavbarItem extends React.Component {
   constructor(props) {
     super(props);
-    console.log('construction');
 
     const isSelected = this.props.currGallery === this.props.link;
 
@@ -26,7 +25,6 @@ export default class NavbarItem extends React.Component {
   componentWillReceiveProps(nextProps) {
     // will hit after fake dispatch of changeGallery
     if (this.props.currGallery === this.props.link && nextProps.currGallery === nextProps.link) {
-      console.log(this);
       this.setState({
           backgroundColor: "#222",
           fontSize: .1,
@@ -42,7 +40,6 @@ export default class NavbarItem extends React.Component {
   }
 
   handleTrigger() {
-    console.log(this.props.currGallery, this.props.link);
     if (this.props.currGallery !== this.props.link) {
       this.setState({
         backgroundColor: "#333",
@@ -58,8 +55,6 @@ export default class NavbarItem extends React.Component {
   }
 
   onHover() {
-    console.log(this.props.currGallery, this.props.link);
-    console.log(this.state.isSelected, this.props.currGallery === this.props.link);
   }
 
   render() {

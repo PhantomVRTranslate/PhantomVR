@@ -32,8 +32,6 @@ class CarouselItem extends React.Component {
     const imageType = this.props.cardType === IMAGE;
     const textType = this.props.cardType === TEXT;
 
-    console.log(this.state.currentItem);
-
     return (
       <View>
         { imageType ?

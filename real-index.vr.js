@@ -24,8 +24,6 @@ export default class WelcomeToVR extends React.Component {
 
   componentWillMount(){
 
-    console.log('WTF');
-    console.log('checking state', this.state.heaven);
     theDocs.getDocument(result => {
       this.setState({
         heaven: result
@@ -45,7 +43,6 @@ export default class WelcomeToVR extends React.Component {
 
 
     let solution = this.state.heaven;
-    console.log(solution);
     return (
       <View>
         <Pano source={asset('space.jpg')}/>
