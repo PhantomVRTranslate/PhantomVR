@@ -44,15 +44,11 @@ class CarouselItem extends React.Component {
               source={this.state.currentItem}
             />
           ) : textType ? (
-            <View style={{height:'100%', width: '100%', padding: 15 }}>
+            <View style={{height:'100%', width: '100%' }}>
             <Text
                 style={{
-                    flex: 1,
                     width: "100%",
-                    height: "100",
-                    // maxWidth: 400,
-                    // maxHeight: 500,
-                    // lineHeight: 80,
+                    height: "100%",
                     fontSize: 40,
                     fontWeight: '400',
                     textAlign: 'center',

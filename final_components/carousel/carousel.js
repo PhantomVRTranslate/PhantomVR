@@ -39,7 +39,6 @@ class CardCarousel extends React.Component {
   }
 
   textSet(iterateCount = this.state.maxTextSize) {
-    // let cxt = this;
     if (typeof this.props.children === "string") {
       const text = this.props.children || this.props.text;
       if (text.length < this.state.maxTextSize) {
@@ -156,25 +155,23 @@ class CardCarousel extends React.Component {
           {this.state.largeText && (
             <View>
               <VrButton
+              style={{
+                borderRadius: 40,
+                opacity: 0.85,
+                paddingLeft: 0.06,
+                borderWidth: 0.01,
+                width: 70,
+                height: 70,
+                backgroundColor: "#333",
+                borderColor: "#222",
+                position: "absolute",
+                left: 10,
+                bottom: 10
+              }}
                 disabled={false}
                 onClick={
                   this.state.cardType === IMAGE ? this.prevCard : this.prevSlice
                 }
-                buttonStyle={{
-                  borderRadius: 40,
-                  opacity: 0.85,
-                  paddingLeft: 0.06,
-                  borderWidth: 0.01,
-                  width: 70,
-                  height: 70,
-                  backgroundColor: "#333",
-                  borderColor: "#222"
-                }}
-                containerStyle={{
-                  position: "absolute",
-                  left: 10,
-                  bottom: 10
-                }}
               >
                 <Text
                   style={{
@@ -193,7 +190,7 @@ class CardCarousel extends React.Component {
                 onClick={
                   this.state.cardType === IMAGE ? this.nextCard : this.nextSlice
                 }
-                buttonStyle={{
+                style={{
                   borderRadius: 40,
                   opacity: 0.85,
                   paddingLeft: 0.06,
@@ -201,9 +198,7 @@ class CardCarousel extends React.Component {
                   width: 70,
                   height: 70,
                   backgroundColor: "#333",
-                  borderColor: "#222"
-                }}
-                containerStyle={{
+                  borderColor: "#222",
                   position: "absolute",
                   right: 10,
                   bottom: 10
