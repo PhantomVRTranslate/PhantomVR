@@ -12,7 +12,36 @@ import {merge} from 'lodash';
 
 import Dashboard from './components/scenes/Dashboard.js';
 import TextVR from './components/scenes/layouts/elements/TextVr';
+import BatchedBridge from 'react-native/Libraries/BatchedBridge/BatchedBridge';
+import lodash from 'lodash';
+
 const theDocs = NativeModules.DocumentGet;
+
+class BrowserBridge {
+    constructor() {
+        this._subscribers = {};
+    }
+
+    subscribe(handler) {
+        const key = String(Math.random());
+        this._subscribers[key] = handler;
+        return () => {
+            delete this._subscribers[key];
+        };
+    }
+
+    notifyEvent(name, event) {
+      console.log('name and : ', name);
+      console.log(' event: ', event);
+
+        lodash.forEach(this._subscribers, handler => {
+            handler(name, event);
+        });
+    }
+}
+
+const browserBridge = new BrowserBridge();
+BatchedBridge.registerCallableModule(BrowserBridge.name, browserBridge);
 
 export default class WelcomeToVR extends React.Component {
   constructor() {
@@ -22,6 +51,8 @@ export default class WelcomeToVR extends React.Component {
      store: [],
      clickEvent: this.clickEvent
     };
+
+    this.dummy = this.dummy.bind(this); 
   }
 
   clickEvent(classname, i){
@@ -37,8 +68,17 @@ export default class WelcomeToVR extends React.Component {
     // }
   }
 
+  dummy(input){
+    console.log('this is dummy input: ', input); 
+  }
+
   componentWillMount(){
+
+    this.unsubscribe = browserBridge.subscribe(this.dummy); 
+    console.log('unsubscribe in will mount: ', this.unsubscribe); 
     theDocs.getDocument(result => {
+      let mergedStore =  this.state.store + result; 
+      console.log('mergedstore, ',mergedStore); 
       this.setState({
         store: result
       },
@@ -47,7 +87,12 @@ export default class WelcomeToVR extends React.Component {
 
     });
     console.log('this is acceptNewElements: ', this.acceptNewElements);
-    theDocs.domListener();
+    // theDocs.domListener(result => {
+      
+    //   console.warn('this is AFTER result: ', result);
+  
+
+    // });
   }
 
   testMethod() {}
