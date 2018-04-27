@@ -3,7 +3,7 @@ import {View, Text, VrButton} from 'react-vr';
 
 export default class TextCard extends React.Component {
     render() {
-        console.log('in textcard: ', this.props);
+        
         return (
             <VrButton onClick={()=> this.props.clickEvent(this.props.el.type, this.props.el.key)} style = {{
                 width: '100%' , 
@@ -11,10 +11,7 @@ export default class TextCard extends React.Component {
                 minHeight: 250,
                 maxHeight: 500,
                 maxWidth: 400
-                //uncomment for border to appear on gaze
-                // minWidth: 400,
-                // borderColor: '#FFF', 
-                // borderWidth: border, 
+
                 }}>
                     <Text
                         style={{
@@ -22,8 +19,6 @@ export default class TextCard extends React.Component {
                             backgroundColor: 'rgba(0,200,200,0.5)',
                             width: "100%",
                             height: "100",
-                            // maxWidth: 400,
-                            // maxHeight: 500,
                             fontSize: 50,
                             fontWeight: '400',
                             textAlign: 'center',
@@ -39,4 +34,3 @@ export default class TextCard extends React.Component {
     }
 }
 
-// onEnter={() => this.borderShow()} onExit={() => this.borderShow()} 
