@@ -25,16 +25,21 @@ export default class DashboardLayout extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            content: [],
+            content: {},
+            clickEvent: null
         };
     }
 
     generateComponents() {
-        let theContent = this.state.content;
-        let toRender = theContent.map((el, i) =>{
+        console.log('generatecomponets state: ', this.state); 
+        let theContent = Object.values(this.state.content);
+        console.log("theContent", theContent);
+        let toRender = Object.values(theContent).map(el =>{
+            
+            console.log("el", el);
             switch(el.type){
                 case "text-vr":
-                    return (<TextCard text={el.content} /> );
+                    return (<TextCard el={el} clickEvent={this.state.clickEvent}/> );
                 case "image-vr":
                     return(<ImageCard src={el.content} />);
                 case "video-vr":
@@ -48,7 +53,11 @@ export default class DashboardLayout extends React.Component {
     }
 
     componentWillReceiveProps(newProps){
-        this.setState(newProps);
+        console.log('this is new props: ', newProps); 
+        this.setState({
+            content: newProps.content.store,
+            clickEvent: newProps.content.clickEvent
+        });
     }
 
     //ContentPlane is the CylinderPanel that has the row flexbox
@@ -92,19 +101,19 @@ export default class DashboardLayout extends React.Component {
                 {components.map((comp, i) =>
                     (<Card key={i}>{comp}</Card>)
                 )}
-                <CardCol>
-                    <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} />
+               
+
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/>
-                </CardCol>
+
+
                 {/* Blank Card Works */}
 
                 {/* Must hover over image for text to dipslay */}
-                <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption>
+                {/* <ImageCaption src={'../static_assets/pictures/pup.jpg'}>Caption</ImageCaption> */}
 
-                <Card>
+                {/* <Card>
                     <ImageCard src={'../static_assets/pictures/pup.jpg'}/>
-                    {/* <TextCard text={'One'}/>  */}
-                </Card>
+                </Card> */}
 
              </ContentPlane>
         );

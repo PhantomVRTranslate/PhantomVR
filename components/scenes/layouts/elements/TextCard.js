@@ -3,8 +3,8 @@ import {View, Text, VrButton} from 'react-vr';
 
 export default class TextCard extends React.Component {
     render() {
+        
         return (
-
                     <Text
                         style={{
                             flex: 1,
@@ -21,9 +21,10 @@ export default class TextCard extends React.Component {
                             margin: 2,
                     }}
                    >
-                    {this.props.src || this.props.text || this.props.children}
+                    { this.props.src || this.props.text || this.props.children || this.props.el.content}
                     </Text>
 
         );
     }
 }
+
