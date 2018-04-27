@@ -14,10 +14,6 @@ import TextVR from './components/scenes/layouts/elements/TextVr';
 const theDocs = NativeModules.DocumentGet;
 
 import App from './NavBarWConditionalRendering/app';
-import Gallery1 from './NavBarWConditionalRendering/gallery/gallery1';
-import Gallery2 from './NavBarWConditionalRendering/gallery/gallery2';
-import Gallery3 from './NavBarWConditionalRendering/gallery/gallery3';
-import BottomNavBar from './NavBarWConditionalRendering/nav_bar/bottom_nav_bar';
 import Title from './NavBarWConditionalRendering/title/title';
 
 import { backgroundImage } from './helperFiles/styleSheet.js';

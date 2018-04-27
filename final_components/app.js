@@ -15,6 +15,8 @@ import Gallery3 from './gallery/gallery3';
 import BottomNavBar from './nav_bar/bottom_nav_bar';
 import Title from './title/title';
 
+import { navbarContent } from '../helperFiles/content';
+
 export default class App extends React.Component {
 
   constructor() {
@@ -46,13 +48,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    // TODO: put in content.js
-    const content = [
-      {label: 'Home', link: 'gallery1'},
-      {label: 'About', link: 'gallery2'},
-      {label: 'Gallery', link: 'gallery3'}
-    ];
-
     return (
       <View>
       <ContentPlane>
@@ -60,7 +55,7 @@ export default class App extends React.Component {
        </ContentPlane>
 
         <BottomNavBar 
-          content={content}
+          content={navbarContent}
           changeGallery={this.changeGallery.bind(this)}
           gallery={this.state.gallery}
           />

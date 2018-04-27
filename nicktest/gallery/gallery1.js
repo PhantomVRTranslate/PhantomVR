@@ -4,6 +4,20 @@ import { Easing } from "react-native";
 
 import VRText from "./vr_text.js";
 
+import Card from '../../components/scenes/layouts/elements/Card';
+import CardCol from '../../components/scenes/layouts/elements/Card';
+import CardSorter from '../../components/scenes/layouts/elements/Card';
+import Gallery from '../../components/scenes/layouts/elements/Card';
+import GazeButton from '../../components/scenes/layouts/elements/Card';
+import ImageCaption from '../../components/scenes/layouts/elements/Card';
+import ImageCard from '../../components/scenes/layouts/elements/Card';
+import TextCard from '../../components/scenes/layouts/elements/Card';
+import TextVr from '../../components/scenes/layouts/elements/Card';
+import VideoCard from '../../components/scenes/layouts/elements/Card';
+import { IMAGE, TEXT } from '../../components/scenes/layouts/elements/CardCarousel/carousel/cardTypes.js';
+import CardCarousel from "../../components/scenes/layouts/elements/CardCarousel/carousel/carousel.js";
+
+
 export default class Gallery1 extends React.Component {
   constructor(props) {
     super(props);
@@ -33,9 +47,7 @@ export default class Gallery1 extends React.Component {
     ]).start();
   }
 
-  ci
-
-  componentReceiveProps() {
+  componentWillReceiveProps() {
     console.log('hi');
     Animated.sequence([
       Animated.parallel([
@@ -75,10 +87,26 @@ export default class Gallery1 extends React.Component {
       >
         <VRText>EVERY</VRText>
         <VRText>DAY</VRText>
-        <VRText>IS</VRText>
-        <VRText>A</VRText>
-        <VRText>GOOD</VRText>
-        <VRText>DAY</VRText>
+        <CardSorter options={{type: "video", src: 'https://github.com/mediaelement/mediaelement-files/blob/master/big_buck_bunny.mp4'}} />
+        <CardSorter options={{type: "image", src: 'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg'}} />
+        <TextCard text={'Four'}></TextCard>
+        <CardCarousel itemCollection={[
+                  asset("1.jpeg"),
+                  asset("2.jpeg"),
+                  asset("3.jpeg"),
+                  asset("4.jpeg"),
+                  asset("5.jpeg")
+                ]}
+                initialCard={0}
+                cardType={TEXT}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                klj there once was a mouse who lived on a house
+                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
+                                </CardCarousel>
+        <CardCol>
+          <ImageCard src={'https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg'}/>
+          <TextCard text={'One'}/> 
+        </CardCol>
       </Animated.View>
     );
   }

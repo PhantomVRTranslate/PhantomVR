@@ -65,6 +65,8 @@ export default class NavBarItem extends React.Component {
         }}
         progressDisabled={isSelected}
         onTrigger={this.handleTrigger.bind(this)}
+        onHover={() => {}}
+        onLeave={() => {}}
       >
         <Animated.Text
           style={{

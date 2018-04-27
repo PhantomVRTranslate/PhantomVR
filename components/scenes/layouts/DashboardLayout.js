@@ -57,6 +57,7 @@ export default class DashboardLayout extends React.Component {
     render() {
         let words = "Hello";
         let components = this.generateComponents(this.props.content);
+        console.log(components);
         return (
             <ContentPlane >
                 <Gallery >
