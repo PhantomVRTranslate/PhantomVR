@@ -10,11 +10,10 @@ import {
 } from 'react-vr';
 
 import Dashboard from './components/scenes/Dashboard.js';
-import TextVR from './components/scenes/layouts/elements/TextVr';
 const theDocs = NativeModules.DocumentGet;
 
-import App from './NavBarWConditionalRendering/app';
-import Title from './NavBarWConditionalRendering/title/title';
+import App from './final_components/app';
+import Title from './final_components/title';
 
 import { backgroundImage } from './helperFiles/styleSheet.js';
 
@@ -23,7 +22,7 @@ export default class WelcomeToVR extends React.Component {
     super();
     this.state = {
       enterScene: false,
-     store: []
+      store: []
     };
   }
 
@@ -41,24 +40,24 @@ export default class WelcomeToVR extends React.Component {
 
   testMethod() {}
   render() {
-    return (
-      <View>
-        <Pano source={asset('space.jpg')}/>
-          <VrButton onClick={() => this.testMethod()}>
-          </VrButton>
-        <Dashboard content={this.state.store}/>
-        </View>
-    );
-
-
     // return (
     //   <View>
-    //     <Pano source={{uri: backgroundImage}}/>
-    //     {/* <App /> */}
-    //     <Title activateScene={this.activateScene.bind(this)} />
-    // { this.state.enterScene ? <App /> : <View /> }
-    //   </View>
+    //     <Pano source={asset('space.jpg')}/>
+    //       <VrButton onClick={() => this.testMethod()}>
+    //       </VrButton>
+    //     <Dashboard content={this.state.store}/>
+    //     </View>
     // );
+
+
+    return (
+      <View>
+        <Pano source={{uri: backgroundImage}}/>
+        {/* <App /> */}
+        <Title activateScene={this.activateScene.bind(this)} />
+    { this.state.enterScene ? <App /> : <View /> }
+      </View>
+    );
 
   }
 }

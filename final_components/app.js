@@ -8,12 +8,13 @@ import {
     CylindricalPanel,
 } from "react-vr";
 
-import ContentPlane from './ContentPlane';
+// Import your custom pages here
 import Gallery1 from './gallery/gallery1';
 import Gallery2 from './gallery/gallery2';
 import Gallery3 from './gallery/gallery3';
-import BottomNavBar from './nav_bar/bottom_nav_bar';
-import Title from './title/title';
+
+import ContentPlane from './ContentPlane';
+import NavBar from './navbar/Navbar';
 
 import { navbarContent } from '../helperFiles/content';
 
@@ -54,7 +55,7 @@ export default class App extends React.Component {
         {this.state.gallery}
        </ContentPlane>
 
-        <BottomNavBar 
+        <NavBar 
           content={navbarContent}
           changeGallery={this.changeGallery.bind(this)}
           gallery={this.state.gallery}

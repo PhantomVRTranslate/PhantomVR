@@ -22,7 +22,6 @@ export default class ImageCard extends React.Component {
         //uncomment for gaze border 
 
         // let border = this.state.border ? 5 : 0; 
-        debugger;
         return (
                 <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
                     width: '100%' , 

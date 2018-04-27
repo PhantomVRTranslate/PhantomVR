@@ -6,7 +6,7 @@ import {
 } from 'react-vr';
 
 import { IMAGE, TEXT } from './cardTypes.js';
-import TextCard from '../../TextCard.js';
+import TextCard from '../cards/TextCard.js';
 
 class CarouselItem extends React.Component {
   constructor(props) {

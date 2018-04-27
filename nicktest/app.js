@@ -12,7 +12,7 @@ import ContentPlane from './ContentPlane';
 import Gallery1 from './gallery/gallery1';
 import Gallery2 from './gallery/gallery2';
 import Gallery3 from './gallery/gallery3';
-import BottomNavBar from './nav_bar/bottom_nav_bar';
+import NavBar from './nav_bar/bottom_nav_bar';
 import Title from './title/title';
 
 import { navbarContent } from '../helperFiles/content';
@@ -54,7 +54,7 @@ export default class App extends React.Component {
         {this.state.gallery}
        </ContentPlane>
 
-        <BottomNavBar 
+        <NavBar 
           content={navbarContent}
           changeGallery={this.changeGallery.bind(this)}
           gallery={this.state.gallery}

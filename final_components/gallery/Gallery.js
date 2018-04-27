@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-vr';
-import CardSorter from './CardSorter';
-import TextVr from './TextVr.js'; 
+import CardSorter from '../cards/CardSorter';
 
 export default class MainMenuContainer extends React.Component {
     constructor(){

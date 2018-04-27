@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { asset, Animated, Text, Image } from "react-vr";
 import { Easing } from "react-native";
 
-import GazeButton from "../button/gaze_button";
+import GazeButton from "../button/GazeButton";
 
-export default class NavBarItem extends React.Component {
+export default class NavbarItem extends React.Component {
   constructor(props) {
     super(props);
 
@@ -39,6 +39,7 @@ export default class NavBarItem extends React.Component {
   }
 
   handleTrigger() {
+    if (this.props.currGallery !== this.props.link) {
     this.setState({
       backgroundColor: "#333",
       isSelected: true
@@ -51,8 +52,10 @@ export default class NavBarItem extends React.Component {
     }).start();
 
     // // When the gaze button is triggered, it changes the 'link'
-    this.props.changeGallery(this.props.link);
+    this.props.changeGallery(this.props.currGallery);
+    setTimeout(() => this.props.changeGallery(this.props.link), 1500);
   }
+}
 
   render() {
     const { backgroundColor, opacity, fontSize, isSelected } = this.state;

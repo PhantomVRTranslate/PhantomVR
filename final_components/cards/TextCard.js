@@ -18,7 +18,7 @@ export default class TextCard extends React.Component {
                             fontWeight: '400',
                             textAlign: 'center',
                             textAlignVertical: 'center',
-                            margin: 2,
+                            margin: 5,
                     }}
                    >
                     {this.props.src || this.props.text || this.props.children}

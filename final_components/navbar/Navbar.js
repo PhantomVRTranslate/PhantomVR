@@ -2,9 +2,9 @@ import React from "react";
 import { View, Animated, asset, Image, Text, VrButton } from "react-vr";
 import { Easing } from "react-native";
 
-import NavBarItem from "./nav_bar_item.js";
+import NavbarItem from "./NavbarItem.js";
 
-export default class BottomNavBar extends React.Component {
+export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
@@ -67,14 +67,14 @@ export default class BottomNavBar extends React.Component {
         }}
       >
         {content.map((el, idx) => (
-        <NavBarItem 
+        <NavbarItem 
           changeGallery={changeGallery} 
           currGallery={currGallery}
           link={el.link} 
           key={idx}
           >
             {el.label}
-          </NavBarItem>)
+          </NavbarItem>)
         )}
       </Animated.View>
     );

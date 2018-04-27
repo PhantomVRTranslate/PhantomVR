@@ -2,24 +2,21 @@ import React from "react";
 import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
-import VRText from "./vr_text.js";
+import Card from '../cards/Card';
+import CardCol from '../cards/CardCol';
+import CardSorter from '../cards/CardSorter';
+import Gallery from '../gallery/Gallery';
+import GazeButton from '../button/GazeButton';
+import ImageCaption from '../cards/ImageCaption';
+import ImageCard from '../cards/ImageCard';
+import TextCard from '../cards/TextCard';
+import VideoCard from '../cards/Card';
+import { IMAGE, TEXT } from '../carousel/cardTypes.js';
+import CardCarousel from "../carousel/carousel.js";
 
-import Card from '../../components/scenes/layouts/elements/Card';
-import CardCol from '../../components/scenes/layouts/elements/Card';
-import CardSorter from '../../components/scenes/layouts/elements/Card';
-import Gallery from '../../components/scenes/layouts/elements/Card';
-import GazeButton from '../../components/scenes/layouts/elements/Card';
-import ImageCaption from '../../components/scenes/layouts/elements/Card';
-import ImageCard from '../../components/scenes/layouts/elements/Card';
-import TextCard from '../../components/scenes/layouts/elements/Card';
-import VideoCard from '../../components/scenes/layouts/elements/Card';
-import { IMAGE, TEXT } from '../../components/scenes/layouts/elements/CardCarousel/carousel/cardTypes.js';
-import CardCarousel from "../../components/scenes/layouts/elements/CardCarousel/carousel/carousel.js";
-
-
-export default class Gallery1 extends React.Component {
-  constructor(props) {
-    super(props);
+export default class Gallery2 extends React.Component {
+  constructor() {
+    super();
     this.state = { slideLeft: new Animated.Value(-1024), fadeIn: new Animated.Value(0)};
   }
 
@@ -84,28 +81,12 @@ export default class Gallery1 extends React.Component {
           ],
         }}
       >
-        <VRText>EVERY</VRText>
-        <VRText>DAY</VRText>
-        <CardSorter options={{type: "video", src: 'https://github.com/mediaelement/mediaelement-files/blob/master/big_buck_bunny.mp4'}} />
-        <CardSorter options={{type: "image", src: 'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg'}} />
-        <TextCard text={'Four'}></TextCard>
-        <CardCarousel itemCollection={[
-                  asset("1.jpeg"),
-                  asset("2.jpeg"),
-                  asset("3.jpeg"),
-                  asset("4.jpeg"),
-                  asset("5.jpeg")
-                ]}
-                initialCard={0}
-                cardType={TEXT}>asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
-                                klj there once was a mouse who lived on a house
-                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
-                                asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka
-                                </CardCarousel>
-        <CardCol>
-          <ImageCard src={'https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg'}/>
-          <TextCard text={'One'}/> 
-        </CardCol>
+        <TextCard>EVERY</TextCard>
+        <TextCard>DAY</TextCard>
+        <TextCard>IS</TextCard>
+        <TextCard>A</TextCard>
+        <TextCard>GOOD</TextCard>
+        <TextCard>DAY</TextCard>
       </Animated.View>
     );
   }

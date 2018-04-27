@@ -5,7 +5,7 @@ import {
 } from 'react-vr';
 
 import CarouselItem from './carouselItem';
-import GazeButton from '../gaze_button/gaze_button';
+import GazeButton from '../button/GazeButton';
 import { IMAGE, TEXT } from './cardTypes';
 
 class CardCarousel extends React.Component {
