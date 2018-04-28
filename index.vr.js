@@ -25,6 +25,7 @@ import App from './final_components/app';
 import Title from './final_components/title';
 import ContentPlane from './final_components/ContentPlane.js'; 
 import { backgroundImage } from './helperFiles/styleSheet.js';
+import NavBar from './final_components/navbar/Navbar.js'; 
 
 export default class WelcomeToVR extends React.Component {
   constructor() {
@@ -32,7 +33,7 @@ export default class WelcomeToVR extends React.Component {
     this.state = {
       enterScene: false,
       store: {},
-      clickEvent: this.clickEvent,
+      clickEvent: this.clickEvent.bind(this),
     };
     this.mergeState = this.mergeState.bind(this); 
     this.activateScene = this.activateScene.bind(this); 
@@ -65,14 +66,29 @@ export default class WelcomeToVR extends React.Component {
     });
   }
 
+  makeNavLinks(){
+    let theContent = Object.values(this.state.store);
+    console.log('theContent: ', theContent); 
+    let navLinks = [];
+    theContent.forEach(content => {
+      console.log('content: ', content); 
+      if (content.type === 'navlink-vr'){
+        navLinks.push({label: content.navTitle, link: content.key});
+      }
+    });
+    console.warn('final navLinks: ', navLinks); 
+    return navLinks; 
+  }
 
   activateScene() {
-  
     this.setState({ enterScene: true });
   }
 
   render() {
     console.log('this is state in indexVJS:', this.state); 
+    let navbarContent = this.makeNavLinks();
+    console.warn('this is navbarContent,',navbarContent); 
+    console.warn('navbarC[0],',navbarContent[0]); 
     return (
       <View>
         <Pano source={asset('space.jpg')}/>
@@ -84,6 +100,11 @@ export default class WelcomeToVR extends React.Component {
             </ContentPlane>) : 
             <View />
          }
+         <NavBar 
+          content={navbarContent}
+          changeGallery={this.state.clickEvent}
+          gallery={{type: {name: 'key'} }}
+          />
         </View>
     );
 

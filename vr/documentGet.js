@@ -47,8 +47,8 @@ export default class DocumentGet extends Module {
         const observer = new MutationObserver(cb);
         observer.observe(targetNode, config);
     }
-
     modifyContent(mutationList){
+        let typeArray = ['navlink-vr', 'text-vr', 'image-vr', 'video-vr'];
         let addContent = {}; 
         let removeContent = []; 
         Array.from(mutationList).forEach(mutation => {
@@ -58,11 +58,28 @@ export default class DocumentGet extends Module {
             });
             Array.from(mutation.removedNodes).forEach(node => {
                 let classList = node.className.split(' ');
-                removeContent.push(node.classList[classList.length - 1]); 
+                if ((typeArray.indexOf(classList[classList.length - 2]) !== -1))
+                    removeContent.push(node.classList[classList.length - 1]); 
             });
         });
         this._emit(addContent, removeContent);
     }
+
+    // modifyContent(mutationList){
+    //     let addContent = {}; 
+    //     let removeContent = []; 
+    //     Array.from(mutationList).forEach(mutation => {
+    //         Array.from(mutation.addedNodes).forEach(node => {
+    //                 let resultObj = this.makeResult(node); 
+    //                 if (resultObj) addContent = merge({}, addContent, resultObj); 
+    //         });
+    //         Array.from(mutation.removedNodes).forEach(node => {
+    //             let classList = node.className.split(' ');
+    //             removeContent.push(node.classList[classList.length - 1]); 
+    //         });
+    //     });
+    //     this._emit(addContent, removeContent);
+    // }
 
     makeResult(node){
         
@@ -82,6 +99,11 @@ export default class DocumentGet extends Module {
                 nodeObj[key]['content'] = node.getAttribute('src'); 
                 node.classList.add(key); 
                 return nodeObj; 
+            case 'navlink-vr':
+                nodeObj[key]['content'] = node.getAttribute('href'); 
+                nodeObj[key]['navTitle'] = node.innerHTML; 
+                node.classList.add(key); 
+                return nodeObj; 
             default: 
                 false; 
             }
@@ -89,7 +111,7 @@ export default class DocumentGet extends Module {
 
     getBaseContent() { 
         let result = {};
-        let types = ['text-vr', 'image-vr', 'video-vr']; 
+        let types = ['navlink-vr', 'text-vr', 'image-vr', 'video-vr']; 
             types.forEach(type => {
                 let content = Array.from(document.getElementsByClassName(type)); 
                 content.forEach((el) => {
