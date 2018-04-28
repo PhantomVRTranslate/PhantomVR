@@ -72,7 +72,7 @@ export default class Gallery1 extends React.Component {
         }}
       >
         <CardCarousel
-          flex={2}
+          flex={1}
           // itemCollection={[
           //   asset("1.jpeg"),
           //   asset("2.jpeg"),

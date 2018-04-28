@@ -50,10 +50,9 @@ class CarouselItem extends React.Component {
                     width: "100%",
                     height: "100%",
                     fontSize: 40,
-                    fontWeight: '400',
                     textAlign: 'center',
                     textAlignVertical: 'center',
-                    marginBottom: 80,
+                    marginBottom: this.props.flex > 1 ? 0 : 100,
                 }}
               >{this.state.textSlice}</Text>
             </View>

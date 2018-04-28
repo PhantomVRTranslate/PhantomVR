@@ -17,7 +17,7 @@ class CardCarousel extends React.Component {
       currentTextSlice: '',
       cardType: this.props.cardType,
       largeText: false,
-      maxTextSize: this.props.maxTextSize || 120
+      maxTextSize: this.props.maxTextSize || this.props.flex > 1 ? 200 : 120
     };
 
     this.nextCard = this.nextCard.bind(this);
@@ -148,6 +148,7 @@ class CardCarousel extends React.Component {
           <CarouselItem
             card={itemCollection ? itemCollection[this.state.cardNumber] : null}
             cardType={this.state.cardType}
+            flex={this.props.flex}
           >
             {this.state.currentTextSlice}
           </CarouselItem>
