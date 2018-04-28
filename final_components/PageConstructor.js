@@ -36,7 +36,17 @@ export default class PageConstructor extends React.Component {
                 console.log('what is el?', el); 
         switch(el.type){
             case "text-vr":
-                return (<TextCard key={el.key} text={el.content} clickEvent={this.state.clickEvent}/> );
+                return (
+                  <CardCarousel
+                  key={el.key}
+                  flex={1}
+                  initialCard={0}
+                  cardType={TEXT}
+                  maxTextLength={120}
+                >
+                  {el.content}
+                </CardCarousel> 
+              );
             case "image-vr":
                 return(<ImageCard key={el.key} passkey={el.key} src={el.content} click={this.state.clickEvent}/>);
             case "video-vr":
