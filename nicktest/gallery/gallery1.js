@@ -46,8 +46,7 @@ export default class Gallery1 extends React.Component {
     ]).start();
   }
 
-  componentWillReceiveProps() {
-    console.log('hi');
+  componentWillReceiveProps() {    
     Animated.sequence([
       Animated.parallel([
         Animated.timing(

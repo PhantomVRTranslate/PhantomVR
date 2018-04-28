@@ -7,7 +7,7 @@ import NavbarItem from "./NavbarItem.js";
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
-    console.log('we making a navbar', props); 
+    
     this.state = { 
       slideForward: new Animated.Value(-5), 
       slideUp: new Animated.Value(-4),
@@ -47,7 +47,6 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    console.log('inside NAVBAR:', this.props); 
     const { content, changeGallery, gallery } = this.props;
 
     const currGallery = gallery.type.name.toLowerCase();

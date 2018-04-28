@@ -21,9 +21,6 @@ export default class ImageCard extends React.Component {
         this.setState({border: !this.state.border});
     }
     render () {
-        //uncomment for gaze border 
-        console.warn('this is props', this.props);
-        // let border = this.state.border ? 5 : 0; 
         return (
             <CardContainer flex={this.props.flex || 1}>
                 <VrButton onClick={() => this.props.click(this.props.passkey)} style = {{

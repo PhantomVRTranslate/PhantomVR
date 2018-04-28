@@ -18,8 +18,7 @@ import GalleryItem from "./gallery/GalleryItem";
 
 export default class PageConstructor extends React.Component {
   constructor(props) {
-    super(props);
-    console.log('PROPS in contructor:', props); 
+    super(props);    
     this.state = {
         store: this.props.store,
         clickEvent: this.props.clickEvent,
@@ -32,8 +31,7 @@ export default class PageConstructor extends React.Component {
 
   generateComponents() {    
     let theContent = Object.values(this.state.store);    
-    let toRender = Object.values(theContent).map(el =>{
-                console.log('what is el?', el); 
+    let toRender = Object.values(theContent).map(el =>{                
         switch(el.type){
             case "text-vr":
                 return (
@@ -60,8 +58,7 @@ export default class PageConstructor extends React.Component {
 }
 
 //animation stuff below 
-  componentDidMount() {
-    console.log('comp did Mountt:', this.props); 
+  componentDidMount() {    
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.slideLeft, {
@@ -102,8 +99,7 @@ export default class PageConstructor extends React.Component {
   render() {
       // this is what is generating the components 
     let components = this.generateComponents();        
-
-    console.warn('in pageconstructor', this.state); 
+    
     return (
       <View>
         <Animated.View

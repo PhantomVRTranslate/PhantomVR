@@ -11,7 +11,6 @@ import {
 export default class ContentPlane extends React.Component {
 
   render() {
-    console.warn('this is props.children', this.props.children);
 
     return (
       <CylindricalPanel

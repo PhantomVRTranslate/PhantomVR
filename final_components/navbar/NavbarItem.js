@@ -6,8 +6,7 @@ import GazeButton from "../button/GazeButton";
 
 export default class NavbarItem extends React.Component {
   constructor(props) {
-    super(props);
-    console.log('construction');
+    super(props);  
 
     const isSelected = this.props.currGallery === this.props.link;
 
@@ -25,8 +24,7 @@ export default class NavbarItem extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     // will hit after fake dispatch of changeGallery
-    if (this.props.currGallery === this.props.link && nextProps.currGallery === nextProps.link) {
-      console.log(this);
+    if (this.props.currGallery === this.props.link && nextProps.currGallery === nextProps.link) {    
       this.setState({
           backgroundColor: "#222",
           fontSize: .1,
@@ -41,8 +39,7 @@ export default class NavbarItem extends React.Component {
     }
   }
 
-  handleTrigger() {
-    console.log(this.props.currGallery, this.props.link);
+  handleTrigger() {  
     if (this.props.currGallery !== this.props.link) {
       this.setState({
         backgroundColor: "#333",
@@ -52,15 +49,12 @@ export default class NavbarItem extends React.Component {
 
       // When the gaze button is triggered, it changes the 'link'
       this.props.changeGallery(this.props.link); // fake out changeGallery to get component to 'unmount'
-      this.setState({ isTriggered: true });
-      console.log("trigger", this);
+      this.setState({ isTriggered: true });    
       setTimeout(() => this.props.changeGallery(this.props.link), 1500);
     }
   }
 
-  onHover() {
-    console.log(this.props.currGallery, this.props.link);
-    console.log(this.state.isSelected, this.props.currGallery === this.props.link);
+  onHover() {    
   }
 
   render() {

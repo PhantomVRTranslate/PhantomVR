@@ -60,7 +60,7 @@ export default class Gallery1 extends React.Component {
   }
 
   render() {
-    console.warn('in gallery1'); 
+    
     return (
       <Animated.View
         style={{

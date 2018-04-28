@@ -46,21 +46,16 @@ export default class CardCol extends React.Component {
       }
 
     renderCards(rows, cols){
-
-        console.log(rows, cols, "rows and cols");
         let cards = [];
         for(let i = 0; i < this.props.children.length; i++){
             cards.push(this.generateCard(this.props.children[i], rows, cols, i));
         }
         this.setState({
             cards: cards
-        });
-        
+        }); 
     }
 
     render() {
-        // let fsize = this.state.fontgaze ? 50 : 30; 
-        console.log(this.state.cards.length, "hi");
         return (
             <CardContainer flex={Math.ceil(this.state.cards.length / 2)}>
                 <View style={{
@@ -68,10 +63,6 @@ export default class CardCol extends React.Component {
                     // flex: 1,
                     height: '100%',
                     width: '100%',
-                    // minHeight: 250,
-                    // maxHeight: 500,
-                    // minWidth: 400,
-                    // maxWidth: 400,
                     flexDirection: 'row',
                     flexWrap: 'wrap',
                     alignItems: 'center',
@@ -84,4 +75,3 @@ export default class CardCol extends React.Component {
     }
 }
 
-// AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);

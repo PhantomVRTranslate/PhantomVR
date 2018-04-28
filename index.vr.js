@@ -43,8 +43,7 @@ export default class WelcomeToVR extends React.Component {
     theDocs.triggerEvent(classname, i); 
   }
 
-  mergeState(addContent, removeContent){
-    console.warn('MERGESTATE: ', addContent); 
+  mergeState(addContent, removeContent){    
     let store = merge({}, this.state.store, addContent); 
     removeContent.forEach(content => {
     
@@ -67,16 +66,13 @@ export default class WelcomeToVR extends React.Component {
   }
 
   makeNavLinks(){
-    let theContent = Object.values(this.state.store);
-    console.log('theContent: ', theContent); 
+    let theContent = Object.values(this.state.store);    
     let navLinks = [];
-    theContent.forEach(content => {
-      console.log('content: ', content); 
+    theContent.forEach(content => {      
       if (content.type === 'navlink-vr'){
         navLinks.push({label: content.navTitle, link: content.key});
       }
-    });
-    console.warn('final navLinks: ', navLinks); 
+    });    
     return navLinks; 
   }
 
@@ -84,11 +80,8 @@ export default class WelcomeToVR extends React.Component {
     this.setState({ enterScene: true });
   }
 
-  render() {
-    console.log('this is state in indexVJS:', this.state); 
-    let navbarContent = this.makeNavLinks();
-    console.warn('this is navbarContent,',navbarContent); 
-    console.warn('navbarC[0],',navbarContent[0]); 
+  render() {    
+    let navbarContent = this.makeNavLinks();        
     return (
       <View>
         <Pano source={asset('space.jpg')}/>
@@ -103,12 +96,11 @@ export default class WelcomeToVR extends React.Component {
          <NavBar 
           content={navbarContent}
           changeGallery={this.state.clickEvent}
-          gallery={{type: {name: 'key'} }}
+          gallery={{type: {name: 'hello'} }}
           />
         </View>
     );
-
-    // console.log('this is <App>: ', <App/>); 
+    
     // return (
     //   <View>
     //     <Pano source={{uri: backgroundImage}}/>

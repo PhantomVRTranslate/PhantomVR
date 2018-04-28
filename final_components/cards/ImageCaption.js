@@ -20,7 +20,6 @@ export default class ImageCaption extends React.Component {
 
     
     borderShow(){
-        console.log('switched border to ' + this.state.border); 
         this.setState({border: !this.state.border});
     }
     render () {
