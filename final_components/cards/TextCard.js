@@ -6,7 +6,7 @@ import CardContainer from './CardContainer';
 export default class TextCard extends React.Component {
     render() {
         return (
-<CardContainer flex={this.props.flex}>
+<CardContainer flex={this.props.flex || 1}>
                     <Text
                         style={{
                             width: "100%",

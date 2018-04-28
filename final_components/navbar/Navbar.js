@@ -7,6 +7,7 @@ import NavbarItem from "./NavbarItem.js";
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = { 
       slideForward: new Animated.Value(-5), 
       slideUp: new Animated.Value(-4),

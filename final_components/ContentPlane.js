@@ -11,6 +11,7 @@ import {
 export default class ContentPlane extends React.Component {
 
   render() {
+
     return (
       <CylindricalPanel
         layer={{ 

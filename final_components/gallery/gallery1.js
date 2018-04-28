@@ -46,12 +46,12 @@ export default class Gallery1 extends React.Component {
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.slideLeft, {
-          toValue: 1024,
+          toValue: 0,
           duration: 2000,
           easing: Easing.linear
         }),
         Animated.timing(this.state.fadeIn, {
-          toValue: 0,
+          toValue: 1,
           duration: 2000,
           easing: Easing.linear
         })
@@ -60,6 +60,7 @@ export default class Gallery1 extends React.Component {
   }
 
   render() {
+    
     return (
       <Animated.View
         style={{
