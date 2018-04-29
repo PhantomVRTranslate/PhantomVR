@@ -6,7 +6,6 @@ import {
 } from 'react-vr';
 
 import { IMAGE, TEXT } from './cardTypes.js';
-import TextCard from '../cards/TextCard.js';
 
 class CarouselItem extends React.Component {
   constructor(props) {
@@ -19,10 +18,10 @@ class CarouselItem extends React.Component {
   }
 
   componentWillReceiveProps(next) {
-    if(this.props.card != next.card){
+    if(this.props.card !== next.card){
       this.setState({currentItem: next.card});
     }
-    if(this.props.children != next.children) {
+    if(this.props.children !== next.children) {
       this.setState({textSlice: next.children});
     }
   }
@@ -39,20 +38,25 @@ class CarouselItem extends React.Component {
               style={{
                 width: '100%',
                 height: '100%',
-
               }}
-              source={this.state.currentItem}
+              source={{uri: this.state.currentItem}}
             />
           ) : textType ? (
-            <View style={{height:'100%', width: '100%' }}>
+            <View style={{
+              width: '100%',
+              height: '100%',
+              padding: 30,
+            }}>
             <Text
                 style={{
+                    flex: 1,
                     width: "100%",
                     height: "100%",
+                    lineHeight: 80,
                     fontSize: 40,
+                    fontWeight: '400',
                     textAlign: 'center',
                     textAlignVertical: 'center',
-                    marginBottom: this.props.flex > 1 ? 0 : 100,
                 }}
               >{this.state.textSlice}</Text>
             </View>

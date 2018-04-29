@@ -1,8 +1,7 @@
 import React from "react";
 import { View, Text, VrButton } from "react-vr";
 
-import CarouselItem from "./carouselItem";
-import GazeButton from "../../components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button";
+import CarouselItem from "./CarouselItem";
 import { IMAGE, TEXT } from "./cardTypes";
 import CardContainer from "../cards/CardContainer";
 
@@ -142,7 +141,7 @@ class CardCarousel extends React.Component {
         <View
           style={{
             width: "100%",
-            height: "100%"
+            height: "100%",
           }}
         >
           <CarouselItem
@@ -169,7 +168,6 @@ class CardCarousel extends React.Component {
                 left: 10,
                 bottom: 10
               }}
-                disabled={false}
                 onClick={
                   this.state.cardType === IMAGE ? this.prevCard : this.prevSlice
                 }
@@ -187,7 +185,6 @@ class CardCarousel extends React.Component {
                 </Text>
               </VrButton>
               <VrButton
-                disabled={false}
                 onClick={
                   this.state.cardType === IMAGE ? this.nextCard : this.nextSlice
                 }

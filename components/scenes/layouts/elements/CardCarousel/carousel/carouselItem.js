@@ -19,10 +19,10 @@ class CarouselItem extends React.Component {
   }
 
   componentWillReceiveProps(next) {
-    if(this.props.card != next.card){
+    if(this.props.card !== next.card){
       this.setState({currentItem: next.card});
     }
-    if(this.props.children != next.children) {
+    if(this.props.children !== next.children) {
       this.setState({textSlice: next.children});
     }
   }
@@ -40,9 +40,8 @@ class CarouselItem extends React.Component {
                 margin: 5,
                 width: '100%',
                 height: '100%',
-
               }}
-              source={this.state.currentItem}
+              source={{uri: this.state.currentItem}}
             />
           ) : textType ? (
             <View style={{height:500, width: 500 }}>
