@@ -10,22 +10,21 @@ import {
 } from "react-vr";
 
 import { merge } from "lodash";
-import Dashboard from "./components/scenes/Dashboard.js";
 
 import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
 import BrowserBridge from "./vr/BrowserBridge.js";
-import PageConstructor from "./final_components/PageConstructor.js";
+import PageConstructor from "./components/PageConstructor.js";
 
 const browserBridge = new BrowserBridge();
 BatchedBridge.registerCallableModule(BrowserBridge.name, browserBridge);
 
 const theDocs = NativeModules.DocumentGet;
 
-import App from "./final_components/app";
-import Title from "./final_components/title";
-import ContentPlane from "./final_components/ContentPlane.js";
+import App from "./components/app";
+import Title from "./components/title";
+import ContentPlane from "./components/ContentPlane.js";
 import { backgroundImage } from "./helperFiles/styleSheet.js";
-import NavBar from "./final_components/navbar/Navbar.js";
+import NavBar from "./components/navbar/Navbar.js";
 
 export default class WelcomeToVR extends React.Component {
   constructor() {
@@ -44,6 +43,7 @@ export default class WelcomeToVR extends React.Component {
   }
 
   mergeState(addContent, removeContent) {
+      console.log("merge state", addContent, removeContent);
     let store = merge({}, this.state.store, addContent);
     removeContent.forEach(content => {
       delete store[content];
@@ -63,8 +63,9 @@ export default class WelcomeToVR extends React.Component {
   }
 
   makeNavLinks() {
-    let theContent = Object.values(this.state.store);
+    let theContent = Object.values(this.state.store) || [];
     let navLinks = [];
+    // debugger;
     theContent.forEach(content => {
       if (content.type === "navlink-vr") {
         navLinks.push({ label: content.navTitle, link: content.key });
@@ -77,7 +78,7 @@ export default class WelcomeToVR extends React.Component {
     this.setState({ enterScene: true });
   }
 
-  render() {
+  render() { 
     let navbarContent = this.makeNavLinks();
     return (
       <View>
@@ -95,22 +96,11 @@ export default class WelcomeToVR extends React.Component {
         )}
         <NavBar
           content={navbarContent}
-          changeGallery={this.state.clickEvent}
-          gallery={{ type: { name: "hello" } }}
+          changePage={this.state.clickEvent}
+          page={{ type: { name: "hello" } }}
         />
       </View>
     );
-
-    // return (
-    //   <View>
-    //     <Pano source={{uri: backgroundImage}}/>
-    //     {/* <App /> */}
-    //     <Title activateScene={this.activateScene} />
-    //     { this.state.enterScene ? <App /> : <View /> }
-    //   </View>
-    // );
-
-    // }
   }
 }
 

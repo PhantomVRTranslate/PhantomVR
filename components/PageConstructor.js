@@ -3,18 +3,16 @@ import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
 import CardContainer from "./cards/CardContainer";
-import CardCol from "./cards/CardCol";
 import CardSorter from "./cards/CardSorter";
 import Gallery from "./gallery/Gallery";
+import GalleryItem from "./gallery/GalleryItem";
 import GazeButton from "./button/GazeButton";
 import ImageCaption from "./cards/ImageCaption";
 import ImageCard from "./cards/ImageCard";
 import TextCard from "./cards/TextCard";
 import VideoCard from "./cards/VideoCard";
-import { IMAGE, TEXT } from "./carousel/cardTypes.js";
-import CardCarousel from "./carousel/carousel.js";
+import Carousel from "./carousel/Carousel";
 import Title from "./title";
-import GalleryItem from "./gallery/GalleryItem";
 
 export default class PageConstructor extends React.Component {
   constructor(props) {
@@ -70,15 +68,15 @@ export default class PageConstructor extends React.Component {
     Object.values(theContent).map(el => {      
       switch (el.type) {
         case "text-vr":    
-            toRender.push(<CardCarousel
+            toRender.push(<Carousel
               key={el.key}
               flex={1}
               initialCard={0}
-              cardType={TEXT}
+              type="text"
               maxTextLength={120}
             >
               {el.content}
-            </CardCarousel>);
+            </Carousel>);
             break;  
 
             case "image-vr":          
@@ -108,15 +106,15 @@ export default class PageConstructor extends React.Component {
               console.log('in image carosel'); 
               key = Math.floor(Math.random() * 1000000000000);  
               console.log('this is el.flex and el:', el.flex, el);
-            toRender.push(<CardCarousel
+            toRender.push(<Carousel
               key={key}
-              itemCollection={el.content}
+              imageCollection={el.content}
               initialCard={0}
-              cardType={IMAGE}
+              type="image"
               maxTextLength={120}
               flex={el.flex || 2}>
               image
-              </CardCarousel>);
+              </Carousel>);
               break; 
 
         default: 

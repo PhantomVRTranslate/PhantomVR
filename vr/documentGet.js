@@ -3,6 +3,7 @@ import { merge, isEmpty } from "lodash";
 
 export default class DocumentGet extends Module {
   constructor() {
+    console.log("document get");
     super("DocumentGet");
     this.userAgent = navigator.userAgent;
     this._bridgename = "BrowserBridge";
