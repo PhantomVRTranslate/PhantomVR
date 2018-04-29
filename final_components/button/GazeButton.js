@@ -29,7 +29,7 @@ export default class GazeButton extends React.Component{
             }).start();
 
         const { onTrigger } = this.props;
-        onTrigger();
+        if (onTrigger) onTrigger();
     }
 
     onEnter(e){
@@ -42,8 +42,9 @@ export default class GazeButton extends React.Component{
 
         this.interval = setTimeout(this.triggerSelection, this.timeout); 
 
+
         const { onHover } = this.props;
-        onHover();
+        if (onHover) onHover();
     }
 
     onExit(){
@@ -57,7 +58,7 @@ export default class GazeButton extends React.Component{
         clearTimeout(this.interval);
         
         const { onLeave } = this.props;
-        onLeave();
+        if (onLeave) onLeave();
     }
 
     render(){
@@ -65,10 +66,6 @@ export default class GazeButton extends React.Component{
 
         const style = {
                     width: .5,
-                    // backgroundColor: backgroundColor.interpolate({
-                    //   inputRange: [this.black, this.gray, this.white],
-                    //   outputRange: ['rgb(0, 0, 0)', 'rgb(40, 40, 40)', 'rgb(255, 255, 255)']
-                    // }),
                     overflow: 'hidden',
                     height: "100%",
                     justifyContent: "center",

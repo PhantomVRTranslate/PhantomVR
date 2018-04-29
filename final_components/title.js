@@ -108,11 +108,7 @@ export default class Title extends React.Component {
             style={{
               opacity: fadeInStart,
               width: 1,
-              backgroundColor: "transparent",
-              // borderRadius: 0.06,
-              // padding: 0.03,
-              // paddingLeft: 0.08,
-              // paddingRight: 0.08,
+              backgroundColor: "transparent"
             }}
           >
             <Text
