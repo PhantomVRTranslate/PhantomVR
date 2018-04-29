@@ -34,4 +34,4 @@ We also have a script tag that can be inserted into any static HTML page which, 
 
 ## Technologies
 - Software: React VR
-- Hardware: Gear VR, desktop, mobile
+- Hardware: Gear VR, desktop, mobile# PhantomScripts
