@@ -27,22 +27,30 @@ class CarouselItem extends React.Component {
     }
   }
 
-  render() {
+  componentDidMount(){
+    this.setState({
+      currentItem: this.props.card
+    });
+  }
 
+  render() {
     const imageType = this.props.cardType === IMAGE;
     const textType = this.props.cardType === TEXT;
-
     return (
-      <View>
+      <View >
         { imageType ?
-            (<Image
+             (
+            
+            <Image
               style={{
                 width: '100%',
                 height: '100%',
 
               }}
-              source={this.state.currentItem}
+              source={{uri: this.state.currentItem}}
             />
+            
+            
           ) : textType ? (
             <View style={{height:'100%', width: '100%' }}>
             <Text
@@ -54,7 +62,8 @@ class CarouselItem extends React.Component {
                     textAlignVertical: 'center',
                     marginBottom: this.props.flex > 1 ? 0 : 100,
                 }}
-              >{this.state.textSlice}</Text>
+              >{this.state.textSlice}
+              </Text>
             </View>
             ) : (
               <Text>Stuff</Text>
