@@ -25,7 +25,7 @@ import App from "./final_components/app";
 import Title from "./final_components/title";
 import ContentPlane from "./final_components/ContentPlane.js";
 import { backgroundImage } from "./helperFiles/styleSheet.js";
-import NavBar from "./final_components/navbar/Navbar.js";
+import Navbar from "./final_components/navbar/Navbar.js";
 
 export default class WelcomeToVR extends React.Component {
   constructor() {
@@ -78,39 +78,38 @@ export default class WelcomeToVR extends React.Component {
   }
 
   render() {
-    let navbarContent = this.makeNavLinks();
-    return (
-      <View>
-        <Pano source={asset("space.jpg")} />
-        <Title activateScene={this.activateScene} />
-        {this.state.enterScene ? (
-          <ContentPlane>
-            <PageConstructor
-              store={this.state.store}
-              clickEvent={this.state.clickEvent}
-            />
-          </ContentPlane>
-        ) : (
-          <View />
-        )}
-        <NavBar
-          content={navbarContent}
-          changeGallery={this.state.clickEvent}
-          gallery={{ type: { name: "hello" } }}
-        />
-      </View>
-    );
-
+    // let navbarContent = this.makeNavLinks();
     // return (
     //   <View>
-    //     <Pano source={{uri: backgroundImage}}/>
-    //     {/* <App /> */}
+    //     <Pano source={asset("space.jpg")} />
     //     <Title activateScene={this.activateScene} />
-    //     { this.state.enterScene ? <App /> : <View /> }
+    //     {this.state.enterScene ? (
+    //       <ContentPlane>
+    //         <PageConstructor
+    //           store={this.state.store}
+    //           clickEvent={this.state.clickEvent}
+    //         />
+    //       </ContentPlane>
+    //     ) : (
+    //       <View />
+    //     )}
+    //     <Navbar
+    //       content={navbarContent}
+    //       changeGallery={this.state.clickEvent}
+    //       gallery={{ type: { name: "hello" } }}
+    //     />
     //   </View>
     // );
 
-    // }
+    return (
+      <View>
+        <Pano source={{uri: backgroundImage}}/>
+        {/* <App /> */}
+        <Title activateScene={this.activateScene} />
+        { this.state.enterScene ? <App /> : <View /> }
+      </View>
+    );
+
   }
 }
 
