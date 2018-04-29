@@ -10,7 +10,6 @@ import ImageCaption from "./cards/ImageCaption";
 import ImageCard from "./cards/ImageCard";
 import TextCard from "./cards/TextCard";
 import VideoCard from "./cards/VideoCard";
-import { IMAGE, TEXT } from "./carousel/cardTypes.js";
 import CardCarousel from "./carousel/carousel.js";
 
 import GalleryItem from "./gallery/GalleryItem";
@@ -74,100 +73,82 @@ export default class Page2 extends React.Component {
       >
         <CardCarousel
           flex={1}
-          // itemCollection={[
-          //   asset("1.jpeg"),
-          //   asset("2.jpeg"),
-          //   asset("3.jpeg"),
-          //   asset("4.jpeg"),
-          //   asset("5.jpeg")
-          // ]}
+          imageCollection={[
+            'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
+            'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d',
+            'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
+            'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d',
+            'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg'
+          ]}
           initialCard={0}
-          cardType={TEXT}
+          type="image"
           maxTextLength={120}
         >
-          {/* {`There once was a man from Peru who dreamed he was eating his shoe\n
-          He woke with a fright In the middle of the night\n
-          To find that his dream had come true.\n
-          There once was a man from Peru who dreamed he was eating his shoe\n
-          He woke with a fright\n
-          In the middle of the night\n
-          To find that his dream had come true.`} */}
-
-          <Text>Hello</Text>
-          <Text>Goodbye</Text>
-          <Text>Thanks</Text>
-          <Text>Welcome</Text>
-
+        opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef
         </CardCarousel>
         {/* <TextCard flex={2}>ojpwef</TextCard> */}
-        {/* <Gallery>
-          {/* The following does not work.  Uncertain as to why. */}
-          {/* {components.map((comp) => {
-                        comp;
-                    })} */}
-          {/* <TextCard text={'TWO'}></TextCard>
-                    <TextCard text={'THREE'}></TextCard> */}
-          {/* <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
-                    <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} /> */}
-          {/*<GalleryItem
+        {/* <Gallery flex={2}>
+          <GalleryItem
+          type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
           <GalleryItem
+           type="text"
+            text="Hello smelly"
+          />
+          <GalleryItem
+           type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
           <GalleryItem
+           type="image"
+            src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
+          />
+          <GalleryItem
+           type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
           <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
-          />
-          <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
-          />
-          <GalleryItem
+           type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
         </Gallery> */}
         {/* <ImageCard flex={1} src={'https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg'}/> */}
-        <CardSorter
+        {/* <CardSorter
           options={{
             type: "video",
             src: "../static_assets/videos/fireplace.mp4"
           }}
         />
         {/* <VideoCard src={'../static_assets/videos/fireplace.mp4'}/> */}
-        {/* <TextCard>A</TextCard> */}
-        {/* <ImageCaption flex={1} src={'../static_assets/pictures/pup.jpg'}>A puppy.</ImageCaption> */}
+        {/* <TextCard>Hello! It's a good day to be eating Christmsas</TextCard> */}
+        {/* <ImageCaption 
+          flex={1} 
+          src={'../static_assets/pictures/pup.jpg'} 
+          caption="A puppy."
+          alwaysShow={false}
+           /> */}
 
         <Gallery>
           <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
+          type="image"
+            src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
           />
           <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
+          type="image"
+            src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
           />
         </Gallery>
 
-        {/* <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} /> */}
-        {/* <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} /> */}
-
-        {/* <TextCard>ojpwef</TextCard> */}
+        <TextCard>ojpwef</TextCard>
       </Animated.View>
     );
   }

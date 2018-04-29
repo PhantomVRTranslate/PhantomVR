@@ -29,8 +29,8 @@ class CardCarousel extends React.Component {
     this.textSet();
     if (
       this.props.type === "image" &&
-      this.props.itemCollection &&
-      this.props.itemCollection.length > 1
+      this.props.imageCollection &&
+      this.props.imageCollection.length > 1
     ) {
       this.setState({ largeText: true });
     }
@@ -103,7 +103,7 @@ class CardCarousel extends React.Component {
   nextCard() {
     const nextCardNum = this.state.cardNumber + 1;
 
-    if (nextCardNum > this.props.itemCollection.length - 1) {
+    if (nextCardNum > this.props.imageCollection.length - 1) {
       this.setState({
         cardNumber: 0
       });
@@ -119,7 +119,7 @@ class CardCarousel extends React.Component {
 
     if (prevCardNum < 0) {
       this.setState({
-        cardNumber: this.props.itemCollection.length - 1
+        cardNumber: this.props.imageCollection.length - 1
       });
     } else {
       this.setState({
@@ -129,9 +129,9 @@ class CardCarousel extends React.Component {
   }
 
   render() {
-    const { itemCollection } = this.props;
-    if (itemCollection) {
-      const canNext = this.state.cardNumber < itemCollection.length;
+    const { imageCollection } = this.props;
+    if (imageCollection) {
+      const canNext = this.state.cardNumber < imageCollection.length;
       const canPrev = this.state.cardNumber > 0;
     }
 
@@ -144,7 +144,7 @@ class CardCarousel extends React.Component {
           }}
         >
           <CarouselItem
-            card={itemCollection ? itemCollection[this.state.cardNumber] : null}
+            card={imageCollection ? imageCollection[this.state.cardNumber] : null}
             type={this.props.type}
             flex={this.props.flex}
           >

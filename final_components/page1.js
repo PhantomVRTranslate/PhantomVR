@@ -10,7 +10,6 @@ import ImageCaption from "./cards/ImageCaption";
 import ImageCard from "./cards/ImageCard";
 import TextCard from "./cards/TextCard";
 import VideoCard from "./cards/VideoCard";
-import { IMAGE, TEXT } from "./carousel/cardTypes.js";
 import CardCarousel from "./carousel/carousel.js";
 
 import GalleryItem from "./gallery/GalleryItem";
@@ -74,7 +73,7 @@ export default class Page1 extends React.Component {
       >
         <CardCarousel
           flex={1}
-          itemCollection={[
+          imageCollection={[
             'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
             'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d',
             'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
