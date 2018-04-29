@@ -1374,7 +1374,7 @@ var WelcomeToVR = function (_React$Component) {
             lineNumber: 83
           }
         },
-        _react2.default.createElement(_reactVr.Pano, { source: (0, _reactVr.asset)("space.jpg"), __source: {
+        _react2.default.createElement(_reactVr.Pano, { source: { uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg" }, __source: {
             fileName: _jsxFileName,
             lineNumber: 84
           }
@@ -62228,44 +62228,79 @@ var PageConstructor = function (_React$Component) {
       var _this2 = this;
 
       var theContent = Object.values(this.state.store);
-      var toRender = Object.values(theContent).map(function (el) {
+      var carouselImage = { type: 'image-carousel', content: [] };
+
+      Object.values(theContent).forEach(function (el) {
+        if (el.type === 'carousel-image-vr') {
+          carouselImage.content.push(el.content);
+          delete theContent[el];
+        }
+      });
+
+      theContent.push(carouselImage);
+      var toRender = [];
+
+      Object.values(theContent).map(function (el) {
         switch (el.type) {
           case "text-vr":
-            return _react2.default.createElement(
+            toRender.push(_react2.default.createElement(
               _carousel2.default,
               {
                 key: el.key,
                 flex: 1,
                 initialCard: 0,
                 cardType: _cardTypes.TEXT,
-                maxTextLength: 120, __source: {
+                maxTextLength: 120,
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 36
+                  lineNumber: 49
                 }
               },
               el.content
-            );
+            ));
+            break;
           case "image-vr":
-            return _react2.default.createElement(_ImageCard2.default, {
+            toRender.push(_react2.default.createElement(_ImageCard2.default, {
               key: el.key,
               passkey: el.key,
               src: el.content,
               click: _this2.state.clickEvent,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 47
+                lineNumber: 60
               }
-            });
+            }));
+            break;
           case "video-vr":
-            return _react2.default.createElement(_VideoCard2.default, { key: el.key, src: el.content, __source: {
+            toRender.push(_react2.default.createElement(_VideoCard2.default, { key: el.key, src: el.content, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 55
+                lineNumber: 68
               }
-            });
+            }));
+            break;
+          case "image-carousel":
+            var key = Math.floor(Math.random() * 1000000000000);
+
+            toRender.push(_react2.default.createElement(
+              _carousel2.default,
+              {
+                key: key,
+                itemCollection: el.content,
+                initialCard: 0,
+                cardType: _cardTypes.IMAGE,
+                maxTextLength: 120, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 73
+                }
+              },
+              "image"
+            ));
+            break;
           default:
-            return null;
+            break;
         }
       });
+
       return toRender;
     }
   }, {
@@ -62308,7 +62343,7 @@ var PageConstructor = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107
+            lineNumber: 135
           }
         },
         _react2.default.createElement(
@@ -62323,7 +62358,7 @@ var PageConstructor = function (_React$Component) {
               transform: [{ translateX: this.state.slideLeft }]
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 108
+              lineNumber: 136
             }
           },
           components.map(function (comp) {
@@ -63324,7 +63359,7 @@ var CardCarousel = function (_React$Component) {
         _CardContainer2.default,
         { flex: this.props.flex || 1, __source: {
             fileName: _jsxFileName,
-            lineNumber: 141
+            lineNumber: 142
           }
         },
         _react2.default.createElement(
@@ -63336,7 +63371,7 @@ var CardCarousel = function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 142
+              lineNumber: 143
             }
           },
           _react2.default.createElement(
@@ -63347,7 +63382,7 @@ var CardCarousel = function (_React$Component) {
               flex: this.props.flex,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 148
+                lineNumber: 149
               }
             },
             this.state.currentTextSlice
@@ -63357,7 +63392,7 @@ var CardCarousel = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 157
+                lineNumber: 158
               }
             },
             _react2.default.createElement(
@@ -63380,7 +63415,7 @@ var CardCarousel = function (_React$Component) {
                 onClick: this.state.cardType === _cardTypes.IMAGE ? this.prevCard : this.prevSlice,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 158
+                  lineNumber: 159
                 }
               },
               _react2.default.createElement(
@@ -63395,7 +63430,7 @@ var CardCarousel = function (_React$Component) {
                   },
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 177
+                    lineNumber: 178
                   }
                 },
                 "<"
@@ -63421,7 +63456,7 @@ var CardCarousel = function (_React$Component) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 189
+                  lineNumber: 190
                 }
               },
               _react2.default.createElement(
@@ -63436,7 +63471,7 @@ var CardCarousel = function (_React$Component) {
                   },
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 208
+                    lineNumber: 209
                   }
                 },
                 ">"
@@ -63496,18 +63531,23 @@ var CarouselItem = function (_React$Component) {
       }
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.setState({
+        currentItem: this.props.card
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-
       var imageType = this.props.cardType === _cardTypes.IMAGE;
       var textType = this.props.cardType === _cardTypes.TEXT;
-
       return _react2.default.createElement(
         _reactVr.View,
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 40
           }
         },
         imageType ? _react2.default.createElement(_reactVr.Image, {
@@ -63516,16 +63556,16 @@ var CarouselItem = function (_React$Component) {
             height: '100%'
 
           },
-          source: this.state.currentItem,
+          source: { uri: this.state.currentItem },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 44
           }
         }) : textType ? _react2.default.createElement(
           _reactVr.View,
           { style: { height: '100%', width: '100%' }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 47
+              lineNumber: 55
             }
           },
           _react2.default.createElement(
@@ -63541,7 +63581,7 @@ var CarouselItem = function (_React$Component) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 48
+                lineNumber: 56
               }
             },
             this.state.textSlice
@@ -63551,7 +63591,7 @@ var CarouselItem = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 60
+              lineNumber: 69
             }
           },
           'Stuff'

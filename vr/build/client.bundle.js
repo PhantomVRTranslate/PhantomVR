@@ -67886,7 +67886,7 @@ var DocumentGet = function (_Module) {
     value: function modifyContent(mutationList) {
       var _this2 = this;
 
-      var typeArray = ["navlink-vr", "text-vr", "image-vr", "video-vr"];
+      var typeArray = ["carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
       var addContent = {};
       var removeContent = [];
       Array.from(mutationList).forEach(function (mutation) {
@@ -67925,6 +67925,10 @@ var DocumentGet = function (_Module) {
           nodeObj[key]["navTitle"] = node.innerHTML;
           node.classList.add(key);
           return nodeObj;
+        case "carousel-image-vr":
+          nodeObj[key]["content"] = node.getAttribute("src");
+          node.classList.add(key);
+          return nodeObj;
         default:
           false;
       }
@@ -67935,7 +67939,7 @@ var DocumentGet = function (_Module) {
       var _this3 = this;
 
       var result = {};
-      var types = ["navlink-vr", "text-vr", "image-vr", "video-vr"];
+      var types = ["carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
       types.forEach(function (type) {
         var content = Array.from(document.getElementsByClassName(type));
         content.forEach(function (el) {
