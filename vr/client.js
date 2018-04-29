@@ -12,22 +12,30 @@ const GearVRRaycaster = {
   drawsCursor: () => true
 };
 
+import DocumentGet from './documentGet.js'; 
+
 function init(bundle, parent, options) {
   let vr;
   let { mobile } = options;
+  const browserInfo = new DocumentGet(); 
 
   vr = mobile
     ? new VRInstance(bundle, "WelcomeToVR", parent, {
+        nativeModules: [browserInfo], 
         raycasters: [GearVRRaycaster],
         cursorVisibility: "visible",
-        enableHotReload: true,
+        // enableHotReload: true,
         antialias: true,
         ...options
-      }) : new VRInstance(bundle, "WelcomeToVR", parent, {
-        enableHotReload: true,  
+      })
+    : new VRInstance(bundle, "WelcomeToVR", parent, {
+        nativeModules: [browserInfo],  
+        // enableHotReload: true,  
         antialias: true,
         ...options
       });
+
+  browserInfo._setRNContext(vr.rootView.context);
 
   vr.render = function() {
     // Any custom behavior you want to perform on each frame goes here

@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>WelcomeToVR</title>
+    <style>body { margin: 0; }</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+
+    <!-- <script src="./hideBody.js"></script> -->
+    <main></main>
+    <div style='height: 100px; width: 100px; border: 3px black solid;'   onclick='startVR()'>TURN INTO VR</div>
+    <nav>
+      <a href='http://localhost:8081/vr/' class='navlink-vr'>Home</a>
+      <a href='http://localhost:8081/vr/' class='navlink-vr' >About</a>
+      <a href='http://localhost:8081/vr/' class='navlink-vr'>Money</a> 
+    </nav> 
+
+    <div class="text-vr" onclick="myFunction()">
+      There once was a man from Peru who dreamed he was eating his shoe\n
+          He woke with a fright In the middle of the night\n
+          To find that his dream had come true.\n
+          There once was a man from Peru who dreamed he was eating his shoe\n
+          He woke with a fright\n
+          In the middle of the night\n
+          To find that his dream had come true
+    </div>
+    <img src='https://i.imgflip.com/4a8he.jpg' class="image-vr" />
+    <img src='https://vignette.wikia.nocookie.net/scream-queens/images/f/f6/O-HAPPY-DOG-DAY-OF-HAPPINESS-facebook.jpg/revision/latest?cb=20150226233059' class="gallery-item" />
+    <img src='https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png' class="gallery-item" />
+    <img src='https://cdn.pixabay.com/photo/2017/11/07/20/43/xmas-2928142_960_720.jpg' class="gallery-item" />
+    <img src='http://happydogspa.com/wp-content/themes/karma/framework/extended/timthumb/timthumb.php?src=https://i0.wp.com/happydogspa.com/wp-content/uploads/2014/11/Pug.jpg?fit=480%2C360&h=234&w=437' class="gallery-item"/>
+    <img src='https://vignette.wikia.nocookie.net/scream-queens/images/f/f6/O-HAPPY-DOG-DAY-OF-HAPPINESS-facebook.jpg/revision/latest?cb=20150226233059' class="carousel-image-vr"  />
+    <img src='https://i.imgflip.com/4a8he.jpg' class="carousel-image-vr" ci-flex-vr="1"/>
+    
+    <!-- <video class="video-vr" src='../static_assets//videos/fireplace.mp4'></video> -->
+
+
+    <div style='height: 100vh; width: 100vw;' id="phantom"></div>
+    <script>
+      function myFunction() {
+      }
+      </script>
+
+    <div class="stophere"></div>
+
+    <script src="./client.bundle?platform=vr"></script>
+
+
+ 
+    <script>
+      function startVR() {
+      let mobile = false;
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        mobile = true;
+      }
+
+      ReactVR.init(
+        '../index.vr.bundle?platform=vr&dev=true',
+
+        // Attach it to the body tag
+        document.getElementById('phantom'), 
+        {mobile}
+
+      );
+    }
+    </script>
+  </body>
+  
+</html>
