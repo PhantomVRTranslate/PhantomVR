@@ -9,11 +9,11 @@ import {
   View
 } from "react-vr";
 
-import App from "./final_components/app";
-import Title from "./final_components/title";
-import ContentPlane from "./final_components/ContentPlane.js";
+import App from "./components/app";
+import Title from "./components/title";
+import ContentPlane from "./components/ContentPlane.js";
 import { backgroundImage } from "./helperFiles/styleSheet.js";
-import Navbar from "./final_components/navbar/Navbar.js";
+import Navbar from "./components/navbar/Navbar.js";
 
 export default class WelcomeToVR extends React.Component {
   constructor() {
