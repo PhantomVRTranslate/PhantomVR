@@ -29,34 +29,61 @@ export default class PageConstructor extends React.Component {
 
   generateComponents() {
     let theContent = Object.values(this.state.store);
-    let toRender = Object.values(theContent).map(el => {
+    let carouselImage = {type: 'image-carousel', content: []}; 
+
+    //for each html element tagged carosel-image-vr push it into new object called carouselImage
+    Object.values(theContent).forEach(el => {
+     if (el.type === 'carousel-image-vr') {
+       carouselImage.content.push(el.content); 
+       delete theContent[el]; 
+     }
+    });
+    
+    //shove carouselImage into theContent to be rendered into one ImageCarousel component 
+    theContent.push(carouselImage);     
+    let toRender = []; 
+
+    Object.values(theContent).map(el => {      
       switch (el.type) {
-        case "text-vr":
-          return (
-            <CardCarousel
+        case "text-vr":    
+            toRender.push(<CardCarousel
               key={el.key}
               flex={1}
               initialCard={0}
               cardType={TEXT}
-              maxTextLength={120}>
+              maxTextLength={120}
+            >
               {el.content}
-            </CardCarousel>
-          );
-        case "image-vr":
-          return (
-            <ImageCard
+            </CardCarousel>);
+            break;          
+        case "image-vr":          
+            toRender.push(<ImageCard
               key={el.key}
               passkey={el.key}
               src={el.content}
               click={this.state.clickEvent}
-            />
-          );
-        case "video-vr":
-          return <VideoCard key={el.key} src={el.content} />;
-        default:
-          return null;
+            />);
+            break;
+        case "video-vr":          
+            toRender.push(<VideoCard key={el.key} src={el.content} />);
+            break;    
+        case "image-carousel":  
+          let key = Math.floor(Math.random() * 1000000000000);  
+          //CARDCAROUSEL CURRENTLY NEEDS INNERHTML TO WORK - ???? WHYYYYY
+          toRender.push(<CardCarousel
+          key={key}
+          itemCollection={el.content}
+          initialCard={0}
+          cardType={IMAGE}
+          maxTextLength={120}>
+          image
+          </CardCarousel>);
+          break;   
+        default: 
+          break; 
       }
     });
+    
     return toRender;
   }
 
@@ -98,9 +125,10 @@ export default class PageConstructor extends React.Component {
       ])
     ]).start();
   }
-  /////////
+
   render() {
-    // this is what is generating the components
+
+    // this is what is auto-generating the components
     let components = this.generateComponents();
 
     return (
@@ -114,7 +142,7 @@ export default class PageConstructor extends React.Component {
             opacity: this.state.fadeIn,
             transform: [{ translateX: this.state.slideLeft }]
           }}>
-          {components.map(comp => comp)}
+            {components.map(comp => comp)}
         </Animated.View>
       </View>
     );

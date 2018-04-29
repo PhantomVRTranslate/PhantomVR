@@ -132,9 +132,10 @@ class CardCarousel extends React.Component {
 
   render() {
     const { itemCollection } = this.props;
-    if (itemCollection) {
+    if (itemCollection) {      
       const canNext = this.state.cardNumber < itemCollection.length;
       const canPrev = this.state.cardNumber > 0;
+                  
     }
 
     return (
