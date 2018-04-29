@@ -31,7 +31,6 @@ In addition to a component library, we have provided a demo site and build in th
 We also have a script tag that can be inserted into any static HTML page which, coupled with various semantic class names inserted into tags, will pull that information and render it in VR, giving the user a preview of what their site could look like in VR. This will give them an idea of how their website would work in a basic VR environment before diving in and creating their own site using our components.
 
 **TODO: EDIT AND ADD CLASSNAMES AND CODE SNIPPETS**
-
 ## Technologies
 - Software: React VR
 - Hardware: Gear VR, desktop, mobile
