@@ -62,7 +62,7 @@ export default class GazeButton extends React.Component{
     }
 
     render(){
-        const { buttonStyle, progressDisabled } = this.props;
+        const { buttonStyle, progressDisabled, progressColor } = this.props;
 
         const defaultStyle = {
                     width: .5,
@@ -83,7 +83,7 @@ export default class GazeButton extends React.Component{
                 {this.props.children}
                 { !progressDisabled ? <Animated.View 
                     style={{
-                        backgroundColor:'rgb(200, 200, 200)',
+                        backgroundColor:(progressColor || 'rgb(200, 200, 200)'),
                         bottom: 0,
                         width: this.state.progressWidth,
                         height: .01,

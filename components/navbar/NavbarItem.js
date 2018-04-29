@@ -10,7 +10,10 @@ export default class NavbarItem extends React.Component {
 
     const isSelected = this.props.currPage === this.props.link;
 
-    const backgroundColor = isSelected ? "#333" : "#222";
+    this.bgColor = this.props.linkBgColor ? this.props.linkBgColor : "#222";
+    this.selectedColor = this.props.linkSelectedColor ? this.props.linkSelectedColor : "#333";
+
+    const backgroundColor = isSelected ? this.selectedColor : this.bgColor;
 
     const fontSize = isSelected ? 0.11 : 0.1;
 
@@ -29,7 +32,7 @@ export default class NavbarItem extends React.Component {
       nextProps.currPage === nextProps.link
     ) {
       this.setState({
-        backgroundColor: "#222",
+        backgroundColor: this.bgColor,
         fontSize: 0.1,
         isSelected: false
       });
@@ -45,7 +48,7 @@ export default class NavbarItem extends React.Component {
   handleTrigger() {
     if (this.props.currPage !== this.props.link) {
       this.setState({
-        backgroundColor: "#333",
+        backgroundColor: this.selectedColor,
         isSelected: true,
         fontSize: 0.11
       });
@@ -69,13 +72,16 @@ export default class NavbarItem extends React.Component {
       isTriggered
     } = this.state;
 
+    const { progressColor, progressDisabled } = this.props;
+
     return (
       <GazeButton
         buttonStyle={{
           backgroundColor,
           margin: 0.01
         }}
-        progressDisabled={isSelected || isTriggered}
+        progressColor={progressColor}
+        progressDisabled={progressDisabled || (isSelected || isTriggered)}
         onTrigger={this.handleTrigger.bind(this)}
         onHover={this.onHover.bind(this)}
         onLeave={() => {}}>

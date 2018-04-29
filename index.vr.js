@@ -40,7 +40,14 @@ export default class WelcomeToVR extends React.Component {
         {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/192/500978642_93d4446af7_o.jpg'}}/> // inari */}
         <Title
           title='PhantomVR' 
-          activateScene={this.activateScene} />
+          activateScene={this.activateScene}
+          titleStyling={{
+            color: 'orange'
+          }}
+          startText='Welcome'
+          startTextStyling={{
+            color: 'blue'
+          }} />
         { this.state.enterScene ? <App /> : <View /> }
       </View>
     );

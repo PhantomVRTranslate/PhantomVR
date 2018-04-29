@@ -28,16 +28,25 @@ export default class Gallery extends React.Component {
   generateCard(child, rows, cols, i) {
     const width = this.props.rows === 3 ? `${90 / cols}%` : `${95 / cols}%`;
     const height = this.props.rows === 3 ? `${90 / rows}%` : `${95 / rows}%`;
+    
+    const { galleryItemStyling } = this.props;
+    
+    const defaultStyling = {
+      width,
+      height,
+      margin: 5,
+      borderWidth: 2,
+      borderColor: "#333",
+      backgroundColor: "#012020"
+    };
+
+    const mergedGalleryItemStyling = Object.assign({}, defaultStyling, galleryItemStyling);
+
+    console.log(mergedGalleryItemStyling);
+    
     return (
       <View
-        style={{
-          width,
-          height,
-          margin: 5,
-          borderWidth: 2,
-          borderColor: "#333",
-          backgroundColor: "#012020"
-        }}
+        style={mergedGalleryItemStyling}
         key={i}
       >
         {child}
@@ -56,12 +65,15 @@ export default class Gallery extends React.Component {
   }
 
   render() {
+    const { galleryStyling, galleryItemStyling } = this.props;
+
     return (
       <CardContainer
         flex={
           this.props.flex ||
           Math.ceil(this.state.cards.length / (this.props.rows || 2))
         }
+        cardStyling={galleryStyling}
       >
         <View
           style={{

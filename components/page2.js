@@ -83,6 +83,17 @@ export default class Page2 extends React.Component {
           initialCard={0}
           type="image"
           maxTextLength={120}
+          cardStyling={{
+            borderWidth: 30,
+            borderColor: 'white'
+          }}
+          buttonStyling={{
+            borderWidth: 1,
+            borderColor: 'white'
+          }}
+          arrowStyling={{
+            color: '#f00',
+          }}
         >
         opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef
         </Carousel>

@@ -78,7 +78,22 @@ export default class Title extends React.Component {
   render() {
     const { slideForward, slideUp, fadeInTitle, fadeInStart, enteredScene, buttonLoaded } = this.state;
 
-    const { title } = this.props;
+    const { title, startText, titleStyling, startTextStyling } = this.props;
+
+    const defaultTitleStyling = {
+      fontSize: 0.6,
+      transform: [{ translate: [0, .2, 0] }]
+    };
+
+    const mergedTitleStyling = Object.assign({}, defaultTitleStyling, titleStyling);
+
+    const defaultStartTextStyling = {
+      fontSize: 0.3,
+      textAlign: "center",
+      textAlignVertical: "center"
+    };
+
+    const mergedStartTextStyling = Object.assign({}, defaultStartTextStyling, startTextStyling);
 
     return (
       <Animated.View
@@ -86,7 +101,7 @@ export default class Title extends React.Component {
           opacity: fadeInTitle,
           padding: 0.02,
           margin: 0.02,
-          width: 10,
+          width: 50,
           height: 0.3,
           layoutOrigin: [0.5, 0.5],
           transform: [{ translate: [0, slideUp, slideForward] }],
@@ -97,10 +112,7 @@ export default class Title extends React.Component {
         }}
       >
         <Text
-          style={{
-            fontSize: 0.6,
-            transform: [{ translate: [0, .2, 0] }]
-          }}
+          style={mergedTitleStyling}
         >
           {title || 'Sample Site'}
         </Text>
@@ -112,18 +124,14 @@ export default class Title extends React.Component {
           <Animated.View
             style={{
               opacity: fadeInStart,
-              width: 1,
+              width: 15,
               backgroundColor: "transparent"
             }}
           >
             <Text
-              style={{
-                fontSize: 0.3,
-                textAlign: "center",
-                textAlignVertical: "center"
-              }}
+              style={mergedStartTextStyling}
             >
-              Start
+              {startText || 'Start'}
             </Text>
           </Animated.View>
         </GazeButton> : <View /> }

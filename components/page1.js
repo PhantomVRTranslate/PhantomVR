@@ -71,7 +71,7 @@ export default class Page1 extends React.Component {
           transform: [{ translateX: this.state.slideLeft }]
         }}
       >
-        <Carousel
+        {/* <Carousel
           flex={1}
           imageCollection={[
             'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
@@ -85,9 +85,19 @@ export default class Page1 extends React.Component {
           maxTextLength={120}
         >
         opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef
-        </Carousel>
-        {/* <TextCard flex={2}>ojpwef</TextCard> */}
-        {/* <Gallery flex={2}>
+        </Carousel> */}
+        {/* <TextCard flex={2} cardStyling={{
+          padding: 25,
+          backgroundColor: 'orange'
+        }}>ojpwef</TextCard> */}
+        <Gallery 
+        galleryStyling={{
+          backgroundColor: 'green'
+        }}
+        galleryItemStyling={{
+          borderWidth: 2
+        }}
+        flex={2}>
           <GalleryItem
           type="image"
             src={
@@ -120,7 +130,7 @@ export default class Page1 extends React.Component {
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
-        </Gallery> */}
+        </Gallery>
         {/* <ImageCard flex={1} src={'https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg'}/> */}
         {/* <CardSorter
           options={{

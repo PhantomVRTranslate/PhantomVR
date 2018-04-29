@@ -47,27 +47,29 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    const { content, changePage, page, navbarStyle, linkStyle } = this.props;
+    const { content, changePage, page, navbarStyle, linkStyle, linkBgColor, linkSelectedColor, progressColor, progressDisabled } = this.props;
 
     const currPage = page.type.name.toLowerCase();
 
-    const defaultStyle = {};
+    const defaultNavbarStyle = {
+      opacity: this.state.fadeIn,
+      borderWidth: 0.002,
+      borderColor: "#444",
+      padding: .02,
+      margin: .02,
+      height: 0.3,
+      layoutOrigin: [0.5, 0.5],
+      transform: [{ translate: [0, this.state.slideUp, this.state.slideForward] }, { rotateX: "-45deg" }],
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-around"
+    };
+
+    const mergedNavbarStyle = Object.assign({}, navbarStyle, defaultNavbarStyle);
 
     return (
       <Animated.View
-        style={{
-          opacity: this.state.fadeIn,
-          borderWidth: 0.002,
-          borderColor: "#444",
-          padding: .02,
-          margin: .02,
-          height: 0.3,
-          layoutOrigin: [0.5, 0.5],
-          transform: [{ translate: [0, this.state.slideUp, this.state.slideForward] }, { rotateX: "-45deg" }],
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-around"
-        }}
+        style={mergedNavbarStyle}
       >
         {content.map((el, idx) => (
         <NavbarItem 
@@ -75,6 +77,11 @@ export default class Navbar extends React.Component {
           currPage={currPage}
           link={el.link} 
           key={idx}
+          linkBgColor={linkBgColor}
+          linkSelectedColor={linkSelectedColor}
+          linkStyle={linkStyle}
+          progressColor={progressColor}
+          progressDisabled={progressDisabled}
           >
             {el.label}
           </NavbarItem>)

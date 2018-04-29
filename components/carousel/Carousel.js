@@ -129,15 +129,49 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-    const { imageCollection } = this.props;
+    const { imageCollection, cardStyling, buttonStyling, arrowStyling } = this.props;
     if (imageCollection) {
       const canNext = this.state.cardNumber < imageCollection.length;
-      const canPrev = this.state.cardNumber > 0;
-                  
+      const canPrev = this.state.cardNumber > 0;            
     }
 
+    const defaultButtonStyling = {
+        borderRadius: 40,
+        opacity: 0.85,
+        paddingLeft: 0.06,
+        borderWidth: 0.01,
+        width: 70,
+        height: 70,
+        backgroundColor: "#333",
+        borderColor: "#222",
+        position: "absolute",
+        bottom: 10,
+        right: 10,
+        left: 10,
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    };
+
+    const mergedButtonStyling = Object.assign({}, defaultButtonStyling, buttonStyling);
+
+    const rightButtonStyling = Object.assign({}, mergedButtonStyling);
+    delete rightButtonStyling.left;
+    const leftButtonStyling = Object.assign({}, mergedButtonStyling);
+    delete leftButtonStyling.right;
+
+    console.log(rightButtonStyling, leftButtonStyling);
+
+    const defaultArrowStyling = {
+      color: "white",
+      fontSize: 80,
+      fontWeight: "bold"
+    };
+
+    const mergedArrowStyling = Object.assign({}, defaultArrowStyling, arrowStyling);
+
     return (
-      <CardContainer flex={this.props.flex || 1}>
+      <CardContainer flex={this.props.flex || 1}
+      cardStyling={cardStyling} >
         <View
           style={{
             width: "100%",
@@ -155,31 +189,13 @@ export default class Carousel extends React.Component {
           {this.state.largeText && (
             <View>
               <VrButton
-              style={{
-                borderRadius: 40,
-                opacity: 0.85,
-                paddingLeft: 0.06,
-                borderWidth: 0.01,
-                width: 70,
-                height: 70,
-                backgroundColor: "#333",
-                borderColor: "#222",
-                position: "absolute",
-                left: 10,
-                bottom: 10
-              }}
+              style={leftButtonStyling}
                 onClick={
                   this.props.type === "image" ? this.prevCard : this.prevSlice
                 }
               >
                 <Text
-                  style={{
-                    color: "white",
-                    bottom: 25,
-                    left: 10,
-                    fontSize: 80,
-                    fontWeight: "bold"
-                  }}
+                  style={mergedArrowStyling}
                 >
                   {"<"}
                 </Text>
@@ -188,28 +204,10 @@ export default class Carousel extends React.Component {
                 onClick={
                   this.props.type === "image" ? this.nextCard : this.nextSlice
                 }
-                style={{
-                  borderRadius: 40,
-                  opacity: 0.85,
-                  paddingLeft: 0.06,
-                  borderWidth: 0.01,
-                  width: 70,
-                  height: 70,
-                  backgroundColor: "#333",
-                  borderColor: "#222",
-                  position: "absolute",
-                  right: 10,
-                  bottom: 10
-                }}
+                style={rightButtonStyling}
               >
                 <Text
-                  style={{
-                    color: "white",
-                    bottom: 25,
-                    left: 15,
-                    fontSize: 80,
-                    fontWeight: "bold"
-                  }}
+                  style={mergedArrowStyling}
                 >
                   {">"}
                 </Text>

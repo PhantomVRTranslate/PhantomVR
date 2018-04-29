@@ -6,26 +6,33 @@ import CardSorter from './CardSorter';
 
 export default class CardContainer extends React.Component {
     render() {
+
+        const { cardStyling } = this.props;
+
         const maxWidth = (this.props.flex * 400) || 800;
+
+        const defaultCardStyling = {
+            flex: this.props.flex || 1,
+            backgroundColor: 'rgba(0,200,200,0.5)',  
+            borderWidth: 5,
+            borderColor: '#385f53',               
+            minHeight: 250,
+            height: '100%', 
+            width: '100%',
+            maxHeight: 500,
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            maxWidth,
+            margin: 10,
+            overflow: 'hidden',
+        };
+
+        const mergedCardStyling = Object.assign({}, defaultCardStyling, cardStyling);
+
         return (
             <View
-                style = {{
-                    flex: this.props.flex || 1,
-                    backgroundColor: 'rgba(0,200,200,0.5)',  
-                    borderWidth: 5,
-                    borderColor: '#385f53',               
-                    minHeight: 250,
-                    height: '100%', 
-                    width: '100%',
-                    maxHeight: 500,
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    // minWidth: this.props.flex === 3 ? 500 : 400,
-                    maxWidth,
-                    margin: 10,
-                    overflow: 'scroll',
-                }} >
+                style = {mergedCardStyling}>
                 {this.props.children}
             </View>
         );

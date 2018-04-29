@@ -32,7 +32,6 @@ export default class App extends React.Component {
   changePage(pageId) {
     let page;
 
-    // TODO: extract from navbarContent in content.js
     switch(pageId) {
       case 'page1':
         page = <Page1/>;
@@ -60,6 +59,8 @@ export default class App extends React.Component {
           content={navbarContent}
           changePage={this.changePage.bind(this)}
           page={this.state.page}
+          progressColor="#f00"
+          progressDisabled={true}
           />
       </View>
     );

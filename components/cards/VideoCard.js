@@ -5,8 +5,9 @@ import CardContainer from "./CardContainer";
 
 export default class VideoCard extends React.Component {
   render() {
+    const { cardStyling } = this.props;
     return (
-      <CardContainer flex={this.props.flex || 2}>
+      <CardContainer flex={this.props.flex || 2} cardStyling={cardStyling}>
         <View
           style={{
             width: "100%",
