@@ -145,7 +145,7 @@ export default class Carousel extends React.Component {
         backgroundColor: "#333",
         borderColor: "#222",
         position: "absolute",
-        bottom: 10,
+        bottom: -90,
         right: 10,
         left: 10,
         justifyContent: 'flex-end',
