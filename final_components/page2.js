@@ -3,7 +3,6 @@ import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
 import CardContainer from "./cards/CardContainer";
-import CardCol from "./cards/CardCol";
 import CardSorter from "./cards/CardSorter";
 import Gallery from "./gallery/Gallery";
 import GazeButton from "./button/GazeButton";

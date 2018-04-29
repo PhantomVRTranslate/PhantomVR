@@ -8,18 +8,8 @@ import CardContainer from './CardContainer';
 export default class ImageCard extends React.Component {
     constructor(){
         super();
-        this.state = {
-            border: false
-        };
     }
 
-    //need to tailor, right now its not set but if you add borderWidth: 5 & borderColor: w/e it will detect when you are hovering over an image
-    //tried to work with tint color but its opacity variable changes the opacity of the entire fucking image. 
-
-    borderShow(){
-        //turned off
-        this.setState({border: !this.state.border});
-    }
     render () {
         return (
             <CardContainer flex={this.props.flex || 1}>
@@ -29,10 +19,6 @@ export default class ImageCard extends React.Component {
                     minHeight: 250,
                     maxHeight: 500,
                     maxWidth: 400
-                    //uncomment for border to appear on gaze
-                    // minWidth: 400,
-                    // borderColor: '#FFF', 
-                    // borderWidth: border, 
                     }}>
                     
                     <Image 
@@ -40,8 +26,6 @@ export default class ImageCard extends React.Component {
                         style = {{
                             width: '100%', 
                             height: '100%',
-                            
-                            resizeMode: 'cover'
                         }}
                         
                         />

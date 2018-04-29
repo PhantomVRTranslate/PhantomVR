@@ -47,9 +47,11 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    const { content, changePage, page } = this.props;
+    const { content, changePage, page, navbarStyle, linkStyle } = this.props;
 
     const currPage = page.type.name.toLowerCase();
+
+    const defaultStyle = {};
 
     return (
       <Animated.View

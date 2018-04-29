@@ -3,7 +3,6 @@ import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
 import CardContainer from "./cards/CardContainer";
-import CardCol from "./cards/CardCol";
 import CardSorter from "./cards/CardSorter";
 import Gallery from "./gallery/Gallery";
 import GazeButton from "./button/GazeButton";
@@ -101,74 +100,68 @@ export default class Page1 extends React.Component {
 
         </CardCarousel>
         {/* <TextCard flex={2}>ojpwef</TextCard> */}
-        {/* <Gallery>
-          {/* The following does not work.  Uncertain as to why. */}
-          {/* {components.map((comp) => {
-                        comp;
-                    })} */}
-          {/* <TextCard text={'TWO'}></TextCard>
-                    <TextCard text={'THREE'}></TextCard> */}
-          {/* <CardSorter options={{type: "video", src: '../static_assets/videos/fireplace.mp4'}} />
-                    <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} /> */}
-          {/*<GalleryItem
+        {/* <Gallery flex={2}>
+          <GalleryItem
+          type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
           <GalleryItem
+           type="text"
+            text="Hello smelly"
+          />
+          <GalleryItem
+           type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
           <GalleryItem
+           type="image"
+            src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
+          />
+          <GalleryItem
+           type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
           <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
-          />
-          <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
-          />
-          <GalleryItem
+           type="image"
             src={
               "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
             }
           />
         </Gallery> */}
         {/* <ImageCard flex={1} src={'https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg'}/> */}
-        <CardSorter
+        {/* <CardSorter
           options={{
             type: "video",
             src: "../static_assets/videos/fireplace.mp4"
           }}
         />
         {/* <VideoCard src={'../static_assets/videos/fireplace.mp4'}/> */}
-        {/* <TextCard>A</TextCard> */}
-        {/* <ImageCaption flex={1} src={'../static_assets/pictures/pup.jpg'}>A puppy.</ImageCaption> */}
+        {/* <TextCard>Hello! It's a good day to be eating Christmsas</TextCard> */}
+        {/* <ImageCaption 
+          flex={1} 
+          src={'../static_assets/pictures/pup.jpg'} 
+          caption="A puppy."
+          alwaysShow={false}
+           /> */}
 
         <Gallery>
           <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
+          type="image"
+            src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
           />
           <GalleryItem
-            src={
-              "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
-            }
+          type="image"
+            src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
           />
         </Gallery>
 
-        {/* <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} /> */}
-        {/* <CardSorter options={{type: "image", src: '../static_assets/pictures/pup.jpg'}} /> */}
-
-        {/* <TextCard>ojpwef</TextCard> */}
+        <TextCard>ojpwef</TextCard>
       </Animated.View>
     );
   }

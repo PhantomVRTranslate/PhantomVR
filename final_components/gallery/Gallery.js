@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   asset,
   Animated,
@@ -7,79 +7,76 @@ import {
   View,
   Image,
   CylindricalPanel
-} from 'react-vr';
+} from "react-vr";
 
-import CardContainer from '../cards/CardContainer';
-
-
-// const AnimatedModel = Animated.createAnimatedComponent(CylindricalPanel);
-
+import CardContainer from "../cards/CardContainer";
 
 export default class Gallery extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            cards: []
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      cards: []
+    };
+  }
+
+  componentWillMount() {
+    const rows = this.props.rows || 2;
+    const cols = this.props.cols || Math.ceil(this.props.children.length / 2);
+    this.renderCards(rows, cols);
+  }
+
+  generateCard(child, rows, cols, i) {
+    const width = this.props.rows === 3 ? `${90 / cols}%` : `${95 / cols}%`;
+    const height = this.props.rows === 3 ? `${90 / rows}%` : `${95 / rows}%`;
+    return (
+      <View
+        style={{
+          width,
+          height,
+          margin: 5,
+          borderWidth: 2,
+          borderColor: "#333",
+          backgroundColor: "#012020"
+        }}
+        key={i}
+      >
+        {child}
+      </View>
+    );
+  }
+
+  renderCards(rows, cols) {
+    let cards = [];
+    for (let i = 0; i < this.props.children.length; i++) {
+      cards.push(this.generateCard(this.props.children[i], rows, cols, i));
     }
+    this.setState({
+      cards: cards
+    });
+  }
 
-
-    componentWillMount(){
-        const rows = this.props.rows || 2;
-        const cols = this.props.cols || Math.ceil(this.props.children.length / 2);
-        this.renderCards(rows, cols); 
-    }
-
-    generateCard(child, rows, cols, i) {
-        return (
-            <View style={{
-                width: `${95 / cols}%`,
-                height: `${95 / rows}%`,
-                margin: 5,
-                borderWidth: 2,
-                borderColor: 'black',
-                }}
-                key={i}>
-                {child}
-            </View>   
-        );
-      }
-
-    renderCards(rows, cols){
-
-        let cards = [];
-        for(let i = 0; i < this.props.children.length; i++){
-            cards.push(this.generateCard(this.props.children[i], rows, cols, i));
+  render() {
+    return (
+      <CardContainer
+        flex={
+          this.props.flex ||
+          Math.ceil(this.state.cards.length / (this.props.rows || 2))
         }
-        this.setState({
-            cards: cards
-        });
-        
-    }
-
-    render() {
-        // let fsize = this.state.fontgaze ? 50 : 30; 
-        return (
-            <CardContainer flex={Math.ceil(this.state.cards.length / 2)}>
-                <View style={{
-                    opacity: 1,
-                    // flex: 1,
-                    height: '100%',
-                    width: '100%',
-                    // minHeight: 250,
-                    // maxHeight: 500,
-                    // minWidth: 400,
-                    // maxWidth: 400,
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    // margin: 5
-                }}>{this.state.cards}
-                </View> 
-            </CardContainer>
-        );
-    }
+      >
+        <View
+          style={{
+            opacity: 1,
+            height: "100%",
+            width: "100%",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          {this.state.cards}
+        </View>
+      </CardContainer>
+    );
+  }
 }
-
-// AppRegistry.registerComponent('WelcomeToVR', () => WelcomeToVR);

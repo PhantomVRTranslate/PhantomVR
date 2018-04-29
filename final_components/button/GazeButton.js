@@ -64,7 +64,7 @@ export default class GazeButton extends React.Component{
     render(){
         const { buttonStyle, progressDisabled } = this.props;
 
-        const style = {
+        const defaultStyle = {
                     width: .5,
                     overflow: 'hidden',
                     height: "100%",
@@ -72,13 +72,12 @@ export default class GazeButton extends React.Component{
                     alignItems: "center"
                   };
         
-        const mergedStyle = Object.assign({}, buttonStyle, style);
+        const mergedStyle = Object.assign({}, defaultStyle, buttonStyle);
 
         return ( 
             <VrButton 
                 onEnter={this.onEnter.bind(this)} 
                 onExit={this.onExit.bind(this)}
-                style={style} 
                 style={mergedStyle}
             >
                 {this.props.children}

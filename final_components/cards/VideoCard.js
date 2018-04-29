@@ -7,7 +7,7 @@ export default class VideoCard extends React.Component {
   render() {
     return (
       <CardContainer flex={this.props.flex || 2}>
-        <VrButton
+        <View
           style={{
             width: "100%",
             height: "100%",
@@ -25,7 +25,7 @@ export default class VideoCard extends React.Component {
               // minWidth: 500,
             }}
           />
-        </VrButton>
+        </View>
       </CardContainer>
     );
   }

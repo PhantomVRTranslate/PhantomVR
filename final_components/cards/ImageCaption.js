@@ -8,25 +8,42 @@ import CardContainer from './CardContainer';
 
 
 export default class ImageCaption extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            border: false,
+            displayCaption: this.props.alwaysShow || false,
         };
+
+        console.log(this.state);
+        
     }
 
     //need to tailor, right now its not set but if you add borderWidth: 5 & borderColor: w/e it will detect when you are hovering over an image
     //tried to work with tint color but its opacity variable changes the opacity of the entire fucking image. 
 
     
-    borderShow(){
-        this.setState({border: !this.state.border});
+    toggleCaption(){
+        this.setState({displayCaption: !this.state.displayCaption});
     }
+
     render () {
-        let border = this.state.border ? 1 : 0; 
+
+        let displayCaption;
+        if (!this.props.alwaysShow) {
+        displayCaption = this.state.displayCaption ? 1 : 0;
+        } else {
+            displayCaption = 1;
+        }
+
+        const toggleHandler = this.props.alwaysShow ? () => {} : this.toggleCaption.bind(this);
+
+        console.log(this.state, toggleHandler);
+
         return (
             <CardContainer flex={this.props.flex}>
-             <VrButton onEnter={() => this.borderShow()} onExit={() => this.borderShow()} style = {{
+             <VrButton 
+             onEnter={toggleHandler} onExit={toggleHandler} 
+             style = {{
                     width: '100%' , 
                     height: '100%',
                     }}>
@@ -43,7 +60,7 @@ export default class ImageCaption extends React.Component {
                     width: '100%' , 
                     height: '100%',
                     flex: 1,
-                    opacity: border,
+                    opacity: displayCaption,
                     alignItems: 'center'
                     }}>
                     <Text style={{
@@ -57,7 +74,7 @@ export default class ImageCaption extends React.Component {
                         textAlignVertical: 'center',
                         padding: '10',
                         }}>
-                        {this.props.text || this.props.children}
+                        {this.props.caption || this.props.children}
                     </Text>  
                 </VrButton>          
             </VrButton>

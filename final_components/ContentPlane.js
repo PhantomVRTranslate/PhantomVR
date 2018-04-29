@@ -27,7 +27,7 @@ export default class ContentPlane extends React.Component {
       <View style={{
                 width: 2048,
                 height: 800,
-                layoutOrigin: [-.5, 0],
+                layoutOrigin: [-.521, 0],
                 }} >
         {this.props.children}
         </View>
