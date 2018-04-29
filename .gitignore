@@ -4,3 +4,5 @@
 *.js.meta
 node_modules/
 build/
+!build/index.bundle.js
+!build/client.bundle.js
