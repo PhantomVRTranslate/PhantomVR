@@ -84,14 +84,15 @@ export default class Page2 extends React.Component {
           type="image"
           maxTextLength={120}
           cardStyling={{
-                        // borderColor: 'white'
+            borderWidth: 30,
+            borderColor: 'white'
           }}
           buttonStyling={{
-            // borderWidth: 1,
-            // borderColor: 'white'
+            borderWidth: 1,
+            borderColor: 'white'
           }}
           arrowStyling={{
-            // color: '#f00',
+            color: '#f00',
           }}
         >
         opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef

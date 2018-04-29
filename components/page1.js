@@ -131,7 +131,7 @@ export default class Page1 extends React.Component {
             }
           />
         </Gallery>
-        <ImageCard flex={1} src={'https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg'}/>
+        {/* <ImageCard flex={1} src={'https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg'}/> */}
         {/* <CardSorter
           options={{
             type: "video",
@@ -140,12 +140,12 @@ export default class Page1 extends React.Component {
         />
         {/* <VideoCard src={'../static_assets/videos/fireplace.mp4'}/> */}
         {/* <TextCard>Hello! It's a good day to be eating Christmsas</TextCard> */}
-        <ImageCaption 
+        {/* <ImageCaption 
           flex={1} 
           src={'../static_assets/pictures/pup.jpg'} 
           caption="A puppy."
           alwaysShow={false}
-           />
+           /> */}
 
         <Gallery>
           <GalleryItem
