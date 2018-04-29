@@ -12,7 +12,7 @@ import ImageCard from "./cards/ImageCard";
 import TextCard from "./cards/TextCard";
 import VideoCard from "./cards/VideoCard";
 import { IMAGE, TEXT } from "./carousel/cardTypes.js";
-import CardCarousel from "./carousel/carousel.js";
+import Carousel from "./carousel/carousel.js";
 import Title from "./title";
 import GalleryItem from "./gallery/GalleryItem";
 
@@ -33,14 +33,14 @@ export default class PageConstructor extends React.Component {
       switch (el.type) {
         case "text-vr":
           return (
-            <CardCarousel
+            <Carousel
               key={el.key}
               flex={1}
               initialCard={0}
               cardType={TEXT}
               maxTextLength={120}>
               {el.content}
-            </CardCarousel>
+            </Carousel>
           );
         case "image-vr":
           return (

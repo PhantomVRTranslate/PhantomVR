@@ -10,7 +10,7 @@ import ImageCaption from "./cards/ImageCaption";
 import ImageCard from "./cards/ImageCard";
 import TextCard from "./cards/TextCard";
 import VideoCard from "./cards/VideoCard";
-import CardCarousel from "./carousel/carousel.js";
+import Carousel from "./carousel/Carousel.js";
 
 import GalleryItem from "./gallery/GalleryItem";
 
@@ -71,7 +71,7 @@ export default class Page3 extends React.Component {
           transform: [{ translateX: this.state.slideLeft }]
         }}
       >
-        <CardCarousel
+        <Carousel
           flex={1}
           imageCollection={[
             'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
@@ -85,7 +85,7 @@ export default class Page3 extends React.Component {
           maxTextLength={120}
         >
         opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef
-        </CardCarousel>
+        </Carousel>
         {/* <TextCard flex={2}>ojpwef</TextCard> */}
         {/* <Gallery flex={2}>
           <GalleryItem

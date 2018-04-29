@@ -4,7 +4,7 @@ import { View, Text, VrButton } from "react-vr";
 import CarouselItem from "./CarouselItem";
 import CardContainer from "../cards/CardContainer";
 
-class CardCarousel extends React.Component {
+export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
 
@@ -220,5 +220,3 @@ class CardCarousel extends React.Component {
     );
   }
 }
-
-export default CardCarousel;
