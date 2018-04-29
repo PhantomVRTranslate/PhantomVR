@@ -34,7 +34,7 @@ export default class WelcomeToVR extends React.Component {
     return (
       <View>
         {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/819/26673769157_b83ac4a9f6_o.jpg'}}/> // forest */}
-        {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/818/27568453618_37132d75e8_o.jpg'}}/> // beach */}
+        <Pano source={{uri: 'https://c1.staticflickr.com/1/818/27568453618_37132d75e8_o.jpg'}}/>
         {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/577/20214930404_d30c781c47_o.jpg'}}/> // fractal */}
         {/* <Pano source={{uri: 'https://c2.staticflickr.com/8/7720/17491232401_4fee3698ff_o.jpg'}}/> // snow */}
         {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/192/500978642_93d4446af7_o.jpg'}}/> // inari */}

@@ -84,7 +84,7 @@ export default class Page2 extends React.Component {
           type="image"
           maxTextLength={120}
           cardStyling={{
-            borderWidth: 30,
+            borderWidth: 2,
             borderColor: 'white'
           }}
           buttonStyling={{

@@ -1,6 +1,6 @@
 # PhantomVR
 
-**PhantomVR** is a proof-of-concept project envisioned to be a node package module (npm) that allows developers to create web applications using React VR, a framework for building VR projects using the declarative power of React. 
+**PhantomVR** is a proof-of-concept project that allows developers to create web applications using ReactVR a framework for building VR projects using the declarative power of React.
 
 Currently, there is a gap in the VR world between VR content and already existing web applications. The potential that VR gives us is endless, with people already taking advantage to create incredibly immersive experiences in the form of games, spatial visualizations, and artistic projects. However, websites remain static, clunky, and uninteractive. Our goal is to bridge this gap and bring the modern web application into this new platform.
 
@@ -19,87 +19,20 @@ As with HTML Elements and React Components, there is certainly the potential to 
 
 This project is being managed by [Drew Stukey](https://github.com/stukey524), [Jon Halloran](https://github.com/JonHalloran), [Michael Vasquez-Pompili](https://github.com/Mpompili), and [Nick Welch](https://github.com/nwelchr).
 
-## What we're actually proposing:
-We will be adding on to the React VR library to allow to people create responsive, flexible, and modular sites. We will add semantic class names/components/ids/tags/etc. (TBD) that developers can import to easily structure their websites. We will provide them a framework for creating simple websites based on the pre-existing React framework.
+## What we've done
+### 1.) Node.js Module (NPM)
+[Link to Package and Readme](https://www.npmjs.com/package/phantom_components)
+We have created a React VR library in the form of a Node.js module that allows people to create responsive, flexible, and modular sites. Our components provide a basic template for beginners to construct websites without worrying about the complications that React VR presents, such as 3d spacing and limitations on styling.
+
+### 2.) NPM Package Runner
+In addition to a component library, we have provided a demo site and build in the form of an npx that people can use to create their own sites using our component hierarchy in the intended manner. This also removes issues on getting started that cannot be addressed by our components, e.g. a custom raycaster (i.e. cursor) and other minor configuration settings.
+
+### 3.) HTML file processor and VR previewer
+We also have a script tag that can be inserted into any static HTML page which, coupled with various class names inserted in tags, will pull that information and render it in VR, giving the user a preview of what their site could look like in VR.
 
 ## Technologies
-- Software: React VR. (Uses three.js, WebGL, WebVR, )
-- Node.js backend for hosting content. 
-    - `TODO`: Ask Ethan how that works/how to publish a React VR project.
+- Software: React VR
 - Hardware: Gear VR, desktop, mobile
-
-## MVPs:
-
-### 1. Demo Site
-
-We essentially want to start with a template that uses our components. We are keeping the elements simple, clean, reusable, and uncomplicated in accordance with VR and React design principles. This will be important for the developer showcase as well as to demonstrate how all our components will fit together and be responsive.
-
-### 2. NPM *(Primary MVP)*
-
-We want a component library that can be bundled into an npm for developers to use. This module will give developers the tools they need to get started with React VR without worrying about the details.
-
-#### Nonexhaustive list of components:
-- The idea will be to have default styling/position/event handling on our components (e.g. `layoutOrigin`, `transform`, `flex` properties) with certain props that are handled automatically, given the user follows the protocol for each component.
-
-**`VRTitle`**
-- This will position the title of the website above all content.
-
-**`VRSideNavBar` and `VRBottomNavBar`**
-- Props: {content} (see below)
-- **`VRNavItem`**
-    - Houses `VRLabel` and `VRLink`.
-- **`VRNavLabel`**
-    - Takes in a label.
-- **`VRNavLink`**
-    - Takes in a url/route.
-
-\* Ideally, we would want them to declare a `VRSideNavBar` or `VRBottomNavBar` with the content they want displayed. This will be images, text, video previews, etc. They will be formatted into cards and formatted appropriately (through `flex` and setting `layoutOrigin` and `transform` properties, etc., as well as through sizes and behavior of containers).
-
-For example:
-```javascript
-// Each of these elements will be made into their own VRNavItem component with corresponding VRNavLabel and VRNavLink components.
-
-const content = [
-        [{label: 'Home', link: '/home'}],
-        [{label: 'About', link: '/about'}],
-        [{label: 'Gallery', link: '/gallery'}]
-    ]
-
-// ~~~~~~~~~~~~~~~~~ //
-
-<VrSideNavBar content={content} />
-```
-
-**`VRCard`**
-- Default container for index items.
-- Props: {content}
-- Used as a container for the following:
-    - **`VRText`**
-        - Default fixed properties: fontSize, color, margin, scrollRate, etc.
-        - Passed in props: scrollRate?, text
-    - **`VRImage`**
-        - Default fixed properties: margin, width, height, layoutOrigin, transform(translate), etc.
-
-**`VRGalleryContainer`**
-- Static container for `VRCard` components. Arranged in rows/columns.
-- Props: {content}
-
-**`VRCarouselContainer`**
-- Scrollable container for `VRCard` components that renders around the user.
-    - Scrolling will be managed through 
-- Props: {content}
-
-**`VRGazeButton`**
-- Has a `setTimeout` method that activates as a click handler after a set amount of time
-- Props:
-    - `onHover` same as `onEnter` but it also sets timeout
-    - `onLeave` same as `onExit` but it also clears timeout
-    - `onTrigger` occurs after the timeout has passed with the user continuously gazing at button
-    - `style`
-
-**Potentially more to come as we develop our project**, e.g.:
-- `VRForm`
-- `VRInput`
 
 ### 3. Web Scraper / File Processor (*\*Bonus\**)
 - If we have time, we want to explore the idea of simplying the process of rendering previews of content in VR for developers. Rather than having them learn the React VR technology as well as our library, it would be ideal for them to label their pre-existing content with certain tags or identifiers (i.e., class names) that a scraper or file processor would extract. Based off these class names (which would be directly associated with our components), we would render the inner HTML (and, ideally, event handling, props/state, etc.) in our default template. This will give them an idea of how their website could work in a basic VR environment before diving in and creating their own site using our components.

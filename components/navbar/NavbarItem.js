@@ -61,8 +61,6 @@ export default class NavbarItem extends React.Component {
     }
   }
 
-  onHover() {}
-
   render() {
     const {
       backgroundColor,
@@ -83,7 +81,7 @@ export default class NavbarItem extends React.Component {
         progressColor={progressColor}
         progressDisabled={progressDisabled || (isSelected || isTriggered)}
         onTrigger={this.handleTrigger.bind(this)}
-        onHover={this.onHover.bind(this)}
+        onHover={() => {}}
         onLeave={() => {}}>
         <Animated.Text
           style={{
