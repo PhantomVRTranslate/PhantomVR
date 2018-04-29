@@ -9,21 +9,68 @@ import {
   View
 } from "react-vr";
 
+import { merge } from "lodash";
+import Dashboard from "./components/scenes/Dashboard.js";
+
+import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
+import BrowserBridge from "./vr/BrowserBridge.js";
+import PageConstructor from "./final_components/PageConstructor.js";
+
+const browserBridge = new BrowserBridge();
+BatchedBridge.registerCallableModule(BrowserBridge.name, browserBridge);
+
+const theDocs = NativeModules.DocumentGet;
+
 import App from "./final_components/app";
 import Title from "./final_components/title";
 import ContentPlane from "./final_components/ContentPlane.js";
 import { backgroundImage } from "./helperFiles/styleSheet.js";
-import Navbar from "./final_components/navbar/Navbar.js";
+import NavBar from "./final_components/navbar/Navbar.js";
 
 export default class WelcomeToVR extends React.Component {
   constructor() {
     super();
-    
     this.state = {
       enterScene: false,
+      store: {},
+      clickEvent: this.clickEvent.bind(this)
     };
-
+    this.mergeState = this.mergeState.bind(this);
     this.activateScene = this.activateScene.bind(this);
+  }
+
+  clickEvent(classname, i) {
+    theDocs.triggerEvent(classname, i);
+  }
+
+  mergeState(addContent, removeContent) {
+    let store = merge({}, this.state.store, addContent);
+    removeContent.forEach(content => {
+      delete store[content];
+    });
+
+    this.setState({
+      store: store
+    });
+  }
+
+  componentWillMount() {
+    this.unsubscribe = browserBridge.subscribe(this.mergeState);
+    this.setState({ enterScene: false });
+    theDocs.getDocument(result => {
+      let mergedStore = this.state.store + result;
+    });
+  }
+
+  makeNavLinks() {
+    let theContent = Object.values(this.state.store);
+    let navLinks = [];
+    theContent.forEach(content => {
+      if (content.type === "navlink-vr") {
+        navLinks.push({ label: content.navTitle, link: content.key });
+      }
+    });
+    return navLinks;
   }
 
   activateScene() {
@@ -31,20 +78,39 @@ export default class WelcomeToVR extends React.Component {
   }
 
   render() {
+    let navbarContent = this.makeNavLinks();
     return (
       <View>
-        {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/819/26673769157_b83ac4a9f6_o.jpg'}}/> // forest */}
-        {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/818/27568453618_37132d75e8_o.jpg'}}/> // beach */}
-        {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/577/20214930404_d30c781c47_o.jpg'}}/> // fractal */}
-        {/* <Pano source={{uri: 'https://c2.staticflickr.com/8/7720/17491232401_4fee3698ff_o.jpg'}}/> // snow */}
-        {/* <Pano source={{uri: 'https://c1.staticflickr.com/1/192/500978642_93d4446af7_o.jpg'}}/> // inari */}
-        <Title
-          title='PhantomVR' 
-          activateScene={this.activateScene} />
-        { this.state.enterScene ? <App /> : <View /> }
+< Pano source = {{uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg"}}/>
+        <Title activateScene={this.activateScene} />
+        {this.state.enterScene ? (
+          <ContentPlane>
+            <PageConstructor
+              store={this.state.store}
+              clickEvent={this.state.clickEvent}
+            />
+          </ContentPlane>
+        ) : (
+          <View />
+        )}
+        <NavBar
+          content={navbarContent}
+          changeGallery={this.state.clickEvent}
+          gallery={{ type: { name: "hello" } }}
+        />
       </View>
     );
 
+    // return (
+    //   <View>
+    //     <Pano source={{uri: backgroundImage}}/>
+    //     {/* <App /> */}
+    //     <Title activateScene={this.activateScene} />
+    //     { this.state.enterScene ? <App /> : <View /> }
+    //   </View>
+    // );
+
+    // }
   }
 }
 

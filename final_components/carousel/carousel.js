@@ -133,6 +133,7 @@ export default class Carousel extends React.Component {
     if (imageCollection) {
       const canNext = this.state.cardNumber < imageCollection.length;
       const canPrev = this.state.cardNumber > 0;
+                  
     }
 
     return (
