@@ -47,9 +47,9 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    const { content, changeGallery, gallery } = this.props;
+    const { content, changePage, page } = this.props;
 
-    const currGallery = gallery.type.name.toLowerCase();
+    const currPage = page.type.name.toLowerCase();
 
     return (
       <Animated.View
@@ -69,8 +69,8 @@ export default class Navbar extends React.Component {
       >
         {content.map((el, idx) => (
         <NavbarItem 
-          changeGallery={changeGallery} 
-          currGallery={currGallery}
+          changePage={changePage} 
+          currPage={currPage}
           link={el.link} 
           key={idx}
           >

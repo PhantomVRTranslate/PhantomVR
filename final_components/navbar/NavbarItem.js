@@ -8,7 +8,7 @@ export default class NavbarItem extends React.Component {
   constructor(props) {
     super(props);
 
-    const isSelected = this.props.currGallery === this.props.link;
+    const isSelected = this.props.currPage === this.props.link;
 
     const backgroundColor = isSelected ? "#333" : "#222";
 
@@ -23,10 +23,10 @@ export default class NavbarItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // will hit after fake dispatch of changeGallery
+    // will hit after fake dispatch of changePage
     if (
-      this.props.currGallery === this.props.link &&
-      nextProps.currGallery === nextProps.link
+      this.props.currPage === this.props.link &&
+      nextProps.currPage === nextProps.link
     ) {
       this.setState({
         backgroundColor: "#222",
@@ -34,7 +34,7 @@ export default class NavbarItem extends React.Component {
         isSelected: false
       });
       // will hit after real dispatch
-    } else if (nextProps.currGallery === nextProps.link) {
+    } else if (nextProps.currPage === nextProps.link) {
       this.setState({
         isSelected: true,
         isTriggered: false
@@ -43,7 +43,7 @@ export default class NavbarItem extends React.Component {
   }
 
   handleTrigger() {
-    if (this.props.currGallery !== this.props.link) {
+    if (this.props.currPage !== this.props.link) {
       this.setState({
         backgroundColor: "#333",
         isSelected: true,
@@ -51,9 +51,10 @@ export default class NavbarItem extends React.Component {
       });
 
       // When the gaze button is triggered, it changes the 'link'
-      this.props.changeGallery(this.props.currGallery); // fake out changeGallery to get component to 'unmount'
+      this.props.changePage(this.props.currPage); // fake out changePage to get component to 'unmount'
+      // this.props.changePage(this.props.link); // fake out changePage for scraper
       this.setState({ isTriggered: true });
-      setTimeout(() => this.props.changeGallery(this.props.link), 1500);
+      setTimeout(() => this.props.changePage(this.props.link), 1500);
     }
   }
 

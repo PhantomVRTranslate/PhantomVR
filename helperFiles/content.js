@@ -1,6 +1,7 @@
+
 export const navbarContent = [
-    {label: 'Home', link: 'gallery1'},
-    {label: 'About', link: 'gallery2'},
-    {label: 'Gallery', link: 'gallery3'}
+    {label: 'Home', link: 'page1'},
+    {label: 'About', link: 'page2'},
+    {label: 'Gallery', link: 'page3'},
   ];
 

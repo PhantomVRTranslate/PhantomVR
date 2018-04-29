@@ -2,21 +2,21 @@ import React from "react";
 import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
-import CardContainer from "../cards/CardContainer";
-import CardCol from "../cards/CardCol";
-import CardSorter from "../cards/CardSorter";
-import Gallery from "./Gallery";
-import GazeButton from "../button/GazeButton";
-import ImageCaption from "../cards/ImageCaption";
-import ImageCard from "../cards/ImageCard";
-import TextCard from "../cards/TextCard";
-import VideoCard from "../cards/VideoCard";
-import { IMAGE, TEXT } from "../carousel/cardTypes.js";
-import CardCarousel from "../carousel/carousel.js";
+import CardContainer from "./cards/CardContainer";
+import CardCol from "./cards/CardCol";
+import CardSorter from "./cards/CardSorter";
+import Gallery from "./gallery/Gallery";
+import GazeButton from "./button/GazeButton";
+import ImageCaption from "./cards/ImageCaption";
+import ImageCard from "./cards/ImageCard";
+import TextCard from "./cards/TextCard";
+import VideoCard from "./cards/VideoCard";
+import { IMAGE, TEXT } from "./carousel/cardTypes.js";
+import CardCarousel from "./carousel/carousel.js";
 
-import GalleryItem from "./GalleryItem";
+import GalleryItem from "./gallery/GalleryItem";
 
-export default class Gallery2 extends React.Component {
+export default class Page1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

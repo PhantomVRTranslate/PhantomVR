@@ -9,9 +9,9 @@ import {
 } from "react-vr";
 
 // Import your custom pages here
-import Gallery1 from './gallery/gallery1';
-import Gallery2 from './gallery/gallery2';
-import Gallery3 from './gallery/gallery3';
+import Page1 from './page1';
+import Page2 from './page2';
+import Page3 from './page3';
 
 import ContentPlane from './ContentPlane';
 import NavBar from './navbar/Navbar';
@@ -23,29 +23,29 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      gallery: <Gallery1/>
+      page: <Page1/>
     };
 
-    this.changeGallery = this.changeGallery.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
-  changeGallery(galleryId) {
-    let gallery;
+  changePage(pageId) {
+    let page;
 
     // TODO: extract from navbarContent in content.js
-    switch(galleryId) {
-      case 'gallery1':
-        gallery = <Gallery1/>;
+    switch(pageId) {
+      case 'page1':
+        page = <Page1/>;
         break;
-      case 'gallery2':
-        gallery = <Gallery2/>;
+      case 'page2':
+        page = <Page2/>;
         break;
-      case 'gallery3':
-        gallery = <Gallery3/>;
+      case 'page3':
+        page = <Page3/>;
         break;
     }
 
-    this.setState({gallery});
+    this.setState({page});
   }
 
   render() {
@@ -53,13 +53,13 @@ export default class App extends React.Component {
     return (
       <View>
       <ContentPlane>
-        {this.state.gallery}
+        {this.state.page}
        </ContentPlane>
 
         <NavBar 
           content={navbarContent}
-          changeGallery={this.changeGallery.bind(this)}
-          gallery={this.state.gallery}
+          changePage={this.changePage.bind(this)}
+          page={this.state.page}
           />
       </View>
     );

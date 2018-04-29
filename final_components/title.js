@@ -3,7 +3,6 @@ import { View, Animated, asset, Image, Text, VrButton } from "react-vr";
 import { Easing } from "react-native";
 
 import GazeButton from "./button/GazeButton";
-
 export default class Title extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +11,8 @@ export default class Title extends React.Component {
       slideUp: new Animated.Value(0),
       fadeInTitle: new Animated.Value(0),
       fadeInStart: new Animated.Value(0),
-      enteredScene: false
+      enteredScene: false,
+      buttonLoaded: false
     };
   }
 
@@ -36,12 +36,14 @@ export default class Title extends React.Component {
         }),
         Animated.timing(this.state.fadeInStart, {
           toValue: 1,
-          duration: 3000,
+          duration: 5000,
           delay: 3000,
           easing: Easing.bezier(0.5, 0.34, 0.3, 0.88),
         })
       ])
     ]).start();
+
+    setTimeout(() => this.setState({ buttonLoaded: true }), 3000);
   }
 
   handleTrigger() {
@@ -74,7 +76,9 @@ export default class Title extends React.Component {
   }
 
   render() {
-    const { slideForward, slideUp, fadeInTitle, fadeInStart, enteredScene } = this.state;
+    const { slideForward, slideUp, fadeInTitle, fadeInStart, enteredScene, buttonLoaded } = this.state;
+
+    const { title } = this.props;
 
     return (
       <Animated.View
@@ -95,15 +99,16 @@ export default class Title extends React.Component {
         <Text
           style={{
             fontSize: 0.6,
-            transform: [{ translate: [0, 0, 0] }]
+            transform: [{ translate: [0, .2, 0] }]
           }}
         >
-          Phantom VR
+          {title || 'Sample Site'}
         </Text>
 
-        { !enteredScene ? 
+        { !enteredScene && buttonLoaded ? 
         <GazeButton 
-          onTrigger={this.handleTrigger.bind(this)}>
+          onTrigger={this.handleTrigger.bind(this)}
+          >
           <Animated.View
             style={{
               opacity: fadeInStart,

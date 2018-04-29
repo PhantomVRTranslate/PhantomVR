@@ -26,7 +26,6 @@ export default class ContentPlane extends React.Component {
 
     componentDidMount() {
         this.propsToState(this.props);
-
     }
 
     propsToState(props) {
