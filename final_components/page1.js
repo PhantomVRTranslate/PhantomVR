@@ -82,7 +82,7 @@ export default class Page1 extends React.Component {
             'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg'
           ]}
           initialCard={0}
-          cardType={TEXT}
+          type="image"
           maxTextLength={120}
         >
         opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef

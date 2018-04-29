@@ -5,8 +5,6 @@ import {
   Text,
 } from 'react-vr';
 
-import { IMAGE, TEXT } from './cardTypes.js';
-
 class CarouselItem extends React.Component {
   constructor(props) {
     super(props);
@@ -28,12 +26,9 @@ class CarouselItem extends React.Component {
 
   render() {
 
-    const imageType = this.props.cardType === IMAGE;
-    const textType = this.props.cardType === TEXT;
-
     return (
       <View>
-        { imageType ?
+        { this.props.type === "image" ?
             (<Image
               style={{
                 width: '100%',
@@ -41,7 +36,7 @@ class CarouselItem extends React.Component {
               }}
               source={{uri: this.state.currentItem}}
             />
-          ) : textType ? (
+          ) : (
             <View style={{
               width: '100%',
               height: '100%',
@@ -60,8 +55,6 @@ class CarouselItem extends React.Component {
                 }}
               >{this.state.textSlice}</Text>
             </View>
-            ) : (
-              <Text>Stuff</Text>
             )
           }
       </ View>

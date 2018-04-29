@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, VrButton } from "react-vr";
 
 import CarouselItem from "./CarouselItem";
-import { IMAGE, TEXT } from "./cardTypes";
 import CardContainer from "../cards/CardContainer";
 
 class CardCarousel extends React.Component {
@@ -14,7 +13,7 @@ class CardCarousel extends React.Component {
       textSlices: [],
       currentTextSliceIndex: 0,
       currentTextSlice: '',
-      cardType: this.props.cardType,
+      type: this.props.type,
       largeText: false,
       maxTextSize: this.props.maxTextSize || this.props.flex > 1 ? 200 : 120
     };
@@ -29,7 +28,7 @@ class CardCarousel extends React.Component {
   componentDidMount() {
     this.textSet();
     if (
-      this.props.cardType === IMAGE &&
+      this.props.type === "image" &&
       this.props.itemCollection &&
       this.props.itemCollection.length > 1
     ) {
@@ -146,7 +145,7 @@ class CardCarousel extends React.Component {
         >
           <CarouselItem
             card={itemCollection ? itemCollection[this.state.cardNumber] : null}
-            cardType={this.state.cardType}
+            type={this.props.type}
             flex={this.props.flex}
           >
             {this.state.currentTextSlice}
@@ -169,7 +168,7 @@ class CardCarousel extends React.Component {
                 bottom: 10
               }}
                 onClick={
-                  this.state.cardType === IMAGE ? this.prevCard : this.prevSlice
+                  this.props.type === "image" ? this.prevCard : this.prevSlice
                 }
               >
                 <Text
@@ -186,7 +185,7 @@ class CardCarousel extends React.Component {
               </VrButton>
               <VrButton
                 onClick={
-                  this.state.cardType === IMAGE ? this.nextCard : this.nextSlice
+                  this.props.type === "image" ? this.nextCard : this.nextSlice
                 }
                 style={{
                   borderRadius: 40,
