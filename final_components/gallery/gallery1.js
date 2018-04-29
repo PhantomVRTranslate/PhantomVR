@@ -42,16 +42,17 @@ export default class Gallery1 extends React.Component {
     ]).start();
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.slideLeft, {
-          toValue: 0,
+          toValue: 1024,
           duration: 2000,
           easing: Easing.linear
         }),
         Animated.timing(this.state.fadeIn, {
-          toValue: 1,
+          toValue: 0,
           duration: 2000,
           easing: Easing.linear
         })

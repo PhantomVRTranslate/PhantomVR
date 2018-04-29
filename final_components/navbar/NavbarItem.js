@@ -51,11 +51,13 @@ export default class NavbarItem extends React.Component {
       });
 
       // When the gaze button is triggered, it changes the 'link'
-      this.props.changeGallery(this.props.link); // fake out changeGallery to get component to 'unmount'
+      this.props.changeGallery(this.props.currGallery); // fake out changeGallery to get component to 'unmount'
       this.setState({ isTriggered: true });
       setTimeout(() => this.props.changeGallery(this.props.link), 1500);
     }
   }
+
+  onHover() {}
 
   render() {
     const {
@@ -74,7 +76,7 @@ export default class NavbarItem extends React.Component {
         }}
         progressDisabled={isSelected || isTriggered}
         onTrigger={this.handleTrigger.bind(this)}
-        onHover={() => {}}
+        onHover={this.onHover.bind(this)}
         onLeave={() => {}}>
         <Animated.Text
           style={{

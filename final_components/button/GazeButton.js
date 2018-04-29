@@ -79,7 +79,6 @@ export default class GazeButton extends React.Component{
                 onEnter={this.onEnter.bind(this)} 
                 onExit={this.onExit.bind(this)}
                 style={style} 
-                onClick={this.triggerSelection}
                 style={mergedStyle}
             >
                 {this.props.children}
