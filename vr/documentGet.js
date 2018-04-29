@@ -50,7 +50,7 @@ export default class DocumentGet extends Module {
     observer.observe(targetNode, config);
   }
   modifyContent(mutationList) {
-    let typeArray = ["carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+    let typeArray = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
     let addContent = {};
     let removeContent = [];
     Array.from(mutationList).forEach(mutation => {
@@ -106,8 +106,14 @@ export default class DocumentGet extends Module {
         node.classList.add(key);
         return nodeObj;
       case "carousel-image-vr":
+      console.log(node.getAttribute("flex-vr")); 
         nodeObj[key]["content"] = node.getAttribute("src");
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("ci-flex-vr")) || 2;
         node.classList.add(key);
+        return nodeObj;
+      case "gallery-item":
+        nodeObj[key]["content"] = node.getAttribute("src");
+        node.classList.add(key); 
         return nodeObj;
       default:
         false;
@@ -116,7 +122,7 @@ export default class DocumentGet extends Module {
 
   getBaseContent() {
     let result = {};
-    let types = ["carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+    let types = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
     types.forEach(type => {
       let content = Array.from(document.getElementsByClassName(type));
       content.forEach(el => {
