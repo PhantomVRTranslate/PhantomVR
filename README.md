@@ -24,16 +24,24 @@ This project is being managed by [Drew Stukey](https://github.com/stukey524), [J
 [Link to Package and Readme](https://www.npmjs.com/package/phantom_components)
 We have created a React VR library in the form of a Node.js module that allows people to create responsive, flexible, and modular sites. Our components provide a basic template for beginners to construct websites without worrying about the complications that React VR presents, such as 3d spacing and limitations on styling.
 
+<<<<<<< HEAD
 ### 2.) NPX Package
 [Link to Package](https://www.npmjs.com/package/@project-phantom/create)
 In addition to a component library, we have provided a demo site and build in the form of an npx that people can use to create their own sites using our component hierarchy in the intended manner. This also removes issues on getting started that cannot be addressed by our components, e.g. a custom raycaster (i.e. cursor) and other minor configuration settings.
 
 ### 3.) HTML file processor and VR previewer
 [Link to github and Readme](https://github.com/PhantomVRTranslate/PhantomScripts)
+=======
+### 2.) NPM Package Runner
+[Link to Demo Github](https://github.com/PhantomVRTranslate/Phantom-Components-Demo)
+In addition to a component library, we have provided a demo site and build in the form of an npx that people can use to create their own sites using our component hierarchy in the intended manner. This also removes issues on getting started that cannot be addressed by our components, e.g. a custom raycaster (i.e. cursor) and other minor configuration settings.
+
+### 3.) HTML file processor and VR previewer
+[Link to scripts](https://github.com/PhantomVRTranslate/PhantomScripts)
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
 We also have a script tag that can be inserted into any static HTML page which, coupled with various semantic class names inserted into tags, will pull that information and render it in VR, giving the user a preview of what their site could look like in VR. This will give them an idea of how their website would work in a basic VR environment before diving in and creating their own site using our components.
 
 **TODO: EDIT AND ADD CLASSNAMES AND CODE SNIPPETS**
-
 ## Technologies
 - Software: React VR
 - Hardware: Gear VR, desktop, mobile# PhantomScripts

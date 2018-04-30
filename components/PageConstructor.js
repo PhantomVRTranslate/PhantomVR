@@ -41,23 +41,39 @@ export default class PageConstructor extends React.Component {
     let galleryItems = {type: 'gallery-list', content: []}; 
     //for each html element tagged carosel-image-vr push it into new object called carouselImage
     Object.values(theContent).forEach(el => {
+<<<<<<< HEAD
      if (el.type === 'carousel-image-vr') {
+=======
+     if (el.type === 'carousel-image-vr') {       
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
        carouselImage.content.push(el.content); 
        carouselImage.flex = parseInt(el.flex) || 2;
   
      } else if (el.type === 'gallery-item') {
        galleryItems.content.push(el.content); 
      }
+<<<<<<< HEAD
     });
 
     galleryItems.content = galleryItems.content.map((content, i) => {
       return (<GalleryItem src={content} key={i}></GalleryItem>);
     });
+=======
+    });    
+
+    galleryItems.content = galleryItems.content.map((content, i) => {
+      return (<GalleryItem src={content} key={i} type={'image'}></GalleryItem>);
+    });    
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
 
     
     //shove carouselImage into theContent to be rendered into one ImageCarousel component 
     if (galleryItems.content.length > 1) theContent.push(galleryItems); 
     if (carouselImage.content.length > 1) theContent.push(carouselImage);  
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
        
     let toRender = []; 
     let key;
@@ -75,9 +91,10 @@ export default class PageConstructor extends React.Component {
             </Carousel>);
             break;  
 
-            case "image-vr":          
+            case "image-vr":               
             toRender.push(<ImageCard
               key={el.key}
+              flex={el.flex}
               passkey={el.key}
               src={el.content}
               click={this.state.clickEvent}
@@ -85,20 +102,28 @@ export default class PageConstructor extends React.Component {
               break;
               
             case "video-vr":          
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
             toRender.push(<VideoCard key={el.key} src={el.content} />);
             break; 
             
             case "gallery-list":
-
               key = Math.floor(Math.random() * 1000000000000); 
               toRender.push(
               <Gallery key={key}>
                 {galleryItems.content.map(item => item)}
-              </Gallery> );
+              </Gallery> );              
               break; 
             
+<<<<<<< HEAD
             case "image-carousel":  
               key = Math.floor(Math.random() * 1000000000000);  
+=======
+            case "image-carousel":                
+              key = Math.floor(Math.random() * 1000000000000);                
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
             toRender.push(<Carousel
               key={key}
               imageCollection={el.content}
@@ -114,7 +139,6 @@ export default class PageConstructor extends React.Component {
           break; 
       }
     });
-    
     return toRender;
   }
 

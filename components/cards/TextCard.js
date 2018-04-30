@@ -11,7 +11,11 @@ export default class TextCard extends React.Component {
         padding: 5,
       };
 
+<<<<<<< HEAD
     const mergedCardStyling = Object.assign({}, defaultCardStyling, cardStyling);
+=======
+    const mergedCardStyling = Object.assign({}, defaultCardStyling, cardStyling);  
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
     
     const defaultTextStyling = {
       width: "100%",

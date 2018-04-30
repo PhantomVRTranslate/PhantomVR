@@ -23,7 +23,10 @@ export default class GalleryItem extends React.Component {
         const mergedStyling = Object.assign({}, defaultStyling, itemStyling);
         const mergedTextStyling = Object.assign({}, defaultTextStyling, itemStyling);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
         switch(this.props.type){
             case "image":
                 content = (<Image 
@@ -45,7 +48,6 @@ export default class GalleryItem extends React.Component {
                     </Text>);
                 break;
         }
-
         return (
             <View flex={this.props.flex}>  
                 {content}        

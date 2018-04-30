@@ -41,6 +41,10 @@ export default class Page3 extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.slideLeft, {

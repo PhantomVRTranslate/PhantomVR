@@ -64,7 +64,6 @@ export default class Gallery extends React.Component {
 
   render() {
     const { galleryStyling, galleryItemStyling } = this.props;
-
     return (
       <CardContainer
         flex={

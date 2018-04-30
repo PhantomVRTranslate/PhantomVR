@@ -13,7 +13,10 @@ export default class ImageCaption extends React.Component {
         this.state = {
             displayCaption: this.props.alwaysShow || false,
         };
+<<<<<<< HEAD
 
+=======
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
         
     }
 
@@ -33,9 +36,13 @@ export default class ImageCaption extends React.Component {
         } else {
             displayCaption = 1;
         }
+<<<<<<< HEAD
 
         const toggleHandler = this.props.alwaysShow ? () => {} : this.toggleCaption.bind(this);
 
+=======
+        const toggleHandler = this.props.alwaysShow ? () => {} : this.toggleCaption.bind(this);        
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
 
         return (
             <CardContainer flex={this.props.flex}>

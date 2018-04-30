@@ -21,7 +21,11 @@ export default class DocumentGet extends Module {
   }
 
   triggerEvent(classname, key) {
+<<<<<<< HEAD
     let el = document.getElementsByClassName(classname)[0];
+=======
+    let el = document.getElementsByClassName(classname)[0];   
+>>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
     el.click();
   }
 
@@ -59,21 +63,7 @@ export default class DocumentGet extends Module {
     this._emit(addContent, removeContent);
   }
 
-  // modifyContent(mutationList){
-  //     let addContent = {};
-  //     let removeContent = [];
-  //     Array.from(mutationList).forEach(mutation => {
-  //         Array.from(mutation.addedNodes).forEach(node => {
-  //                 let resultObj = this.makeResult(node);
-  //                 if (resultObj) addContent = merge({}, addContent, resultObj);
-  //         });
-  //         Array.from(mutation.removedNodes).forEach(node => {
-  //             let classList = node.className.split(' ');
-  //             removeContent.push(node.classList[classList.length - 1]);
-  //         });
-  //     });
-  //     this._emit(addContent, removeContent);
-  // }
+
 
   makeResult(node) {
     let key = Math.floor(Math.random() * 1000000000000);
@@ -87,6 +77,7 @@ export default class DocumentGet extends Module {
       case "image-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
         node.classList.add(key);
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("image-flex")) || 1;
         return nodeObj;
       case "video-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
