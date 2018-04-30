@@ -2,19 +2,30 @@ import React from "react";
 import { View, Animated, asset, Image, Text } from "react-vr";
 import { Easing } from "react-native";
 
-import {CardContainer} from "phantom"
+import {CardContainer,
+        CardSorter,
+        Gallery,
+        GalleryItem,
+        GazeButton,
+        ImageCaption,
+        ImageCard,
+        TextCard,
+        VideoCard,
+        Carousel,
+        Title,
+       } from "phantom_components";
 
-import CardContainer from "./cards/CardContainer";
-import CardSorter from "./cards/CardSorter";
-import Gallery from "./gallery/Gallery";
-import GalleryItem from "./gallery/GalleryItem";
-import GazeButton from "./button/GazeButton";
-import ImageCaption from "./cards/ImageCaption";
-import ImageCard from "./cards/ImageCard";
-import TextCard from "./cards/TextCard";
-import VideoCard from "./cards/VideoCard";
-import Carousel from "./carousel/Carousel";
-import Title from "./title";
+// import CardContainer from "./cards/CardContainer";
+// import CardSorter from "./cards/CardSorter";
+// import Gallery from "./gallery/Gallery";
+// import GalleryItem from "./gallery/GalleryItem";
+// import GazeButton from "./button/GazeButton";
+// import ImageCaption from "./cards/ImageCaption";
+// import ImageCard from "./cards/ImageCard";
+// import TextCard from "./cards/TextCard";
+// import VideoCard from "./cards/VideoCard";
+// import Carousel from "./carousel/Carousel";
+// import Title from "./title";
 
 export default class PageConstructor extends React.Component {
   constructor(props) {
