@@ -19,7 +19,7 @@ export default class Page3 extends React.Component {
     super(props);
     this.state = {
       slideLeft: new Animated.Value(-1024),
-      fadeIn: new Animated.Value(0),
+      fadeIn: new Animated.Value(0)
     };
   }
 
@@ -41,10 +41,6 @@ export default class Page3 extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.slideLeft, {
@@ -62,7 +58,6 @@ export default class Page3 extends React.Component {
   }
 
   render() {
-    
     return (
       <Animated.View
         style={{
@@ -72,22 +67,20 @@ export default class Page3 extends React.Component {
           height: "100%",
           opacity: this.state.fadeIn,
           transform: [{ translateX: this.state.slideLeft }]
-        }}
-      >
+        }}>
         <Carousel
           flex={1}
           imageCollection={[
-            'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
-            'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d',
-            'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg',
-            'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d',
-            'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg'
+            "https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg",
+            "https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d",
+            "https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg",
+            "https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d",
+            "https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg"
           ]}
           initialCard={0}
           type="image"
-          maxTextLength={120}
-        >
-        opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef
+          maxTextLength={120}>
+          opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef
         </Carousel>
         {/* <TextCard flex={2}>ojpwef</TextCard> */}
         {/* <Gallery flex={2}>
@@ -142,11 +135,11 @@ export default class Page3 extends React.Component {
 
         <Gallery>
           <GalleryItem
-          type="image"
+            type="image"
             src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
           />
           <GalleryItem
-          type="image"
+            type="image"
             src="https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg"
           />
         </Gallery>

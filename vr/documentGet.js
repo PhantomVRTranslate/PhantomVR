@@ -21,11 +21,7 @@ export default class DocumentGet extends Module {
   }
 
   triggerEvent(classname, key) {
-<<<<<<< HEAD
     let el = document.getElementsByClassName(classname)[0];
-=======
-    let el = document.getElementsByClassName(classname)[0];   
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
     el.click();
   }
 
@@ -46,7 +42,14 @@ export default class DocumentGet extends Module {
     observer.observe(targetNode, config);
   }
   modifyContent(mutationList) {
-    let typeArray = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+    let typeArray = [
+      "gallery-item",
+      "carousel-image-vr",
+      "navlink-vr",
+      "text-vr",
+      "image-vr",
+      "video-vr"
+    ];
     let addContent = {};
     let removeContent = [];
     Array.from(mutationList).forEach(mutation => {
@@ -62,8 +65,6 @@ export default class DocumentGet extends Module {
     });
     this._emit(addContent, removeContent);
   }
-
-
 
   makeResult(node) {
     let key = Math.floor(Math.random() * 1000000000000);
@@ -95,7 +96,7 @@ export default class DocumentGet extends Module {
         return nodeObj;
       case "gallery-item":
         nodeObj[key]["content"] = node.getAttribute("src");
-        node.classList.add(key); 
+        node.classList.add(key);
         return nodeObj;
       default:
         false;
@@ -103,12 +104,19 @@ export default class DocumentGet extends Module {
   }
 
   getBaseContent() {
-    let result = {}; 
-    let title = document.getElementsByClassName('title-vr')[0];
-    title = {title: title.innerHTML};
+    let result = {};
+    let title = document.getElementsByClassName("title-vr")[0];
+    title = { title: title.innerHTML };
     result = merge({}, result, title);
 
-    let types = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+    let types = [
+      "gallery-item",
+      "carousel-image-vr",
+      "navlink-vr",
+      "text-vr",
+      "image-vr",
+      "video-vr"
+    ];
     types.forEach(type => {
       let content = Array.from(document.getElementsByClassName(type));
       content.forEach(el => {

@@ -6,14 +6,14 @@
   </head>
   <body>
 
-    
+
     <main></main>
     <div style='height: 100px; width: 100px; border: 3px black solid;'   onclick='startVR()'>TURN INTO VR</div>
     <nav>
       <a href='http://localhost:8081/vr/' class='navlink-vr'>Home</a>
       <a href='http://localhost:8081/vr/' class='navlink-vr' >About</a>
-      <a href='http://localhost:8081/vr/' class='navlink-vr'>Money</a> 
-    </nav> 
+      <a href='http://localhost:8081/vr/' class='navlink-vr'>Money</a>
+    </nav>
     <div class="title-vr" style="display: none">TESTIN TITLE</div>
     <div class="text-vr" onclick="myFunction()">
       There once was a man from Peru who dreamed he was eating his shoe\n
@@ -31,40 +31,39 @@
     <img src='https://i.imgflip.com/4a8he.jpg' class="gallery-item"/>
     <img src='https://i.imgflip.com/4a8he.jpg' class="carousel-image-vr"  />
     <img src='https://i.imgflip.com/4a8he.jpg' class="carousel-image-vr" ci-flex-vr="1"/>
-    
+
     <!-- <video class="video-vr" src='../static_assets//videos/fireplace.mp4'></video> -->
 
 
     <div style='height: 100vh; width: 100vw;' id="phantom"></div>
- 
+
     <div class="stophere"></div>
 
     <script src="./client.bundle? platform=vr"></script>
 
 
- 
+
     <script>
-      function startVR() {
-        window.hideBody()
-<<<<<<< HEAD
-        let mobile = false;
-=======
-      let mobile = false;
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
-      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        mobile = true;
-      }
+    function startVR() {
+  window.hideBody();
+  let mobile = false;
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    mobile = true;
+  }
 
-      ReactVR.init(
-        '../index.vr.bundle?platform=vr&dev=true',
+  ReactVR.init(
+    "../index.vr.bundle?platform=vr&dev=true",
 
-        // Attach it to the body tag
-        document.getElementById('phantom'), 
-        {mobile}
-
-      );
-    }
-    </script>
+    // Attach it to the body tag
+    document.getElementById("phantom"),
+    { mobile }
+  );
+}
+</script>
   </body>
-  
+
 </html>
