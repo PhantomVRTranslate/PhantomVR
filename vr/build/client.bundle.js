@@ -67947,6 +67947,7 @@ var DocumentGet = function (_Module) {
         case "image-vr":
           nodeObj[key]["content"] = node.getAttribute("src");
           node.classList.add(key);
+          nodeObj[key]["flex"] = parseInt(node.getAttribute("image-flex")) || 1;
           return nodeObj;
         case "video-vr":
           nodeObj[key]["content"] = node.getAttribute("src");
@@ -67976,6 +67977,10 @@ var DocumentGet = function (_Module) {
       var _this3 = this;
 
       var result = {};
+      var title = document.getElementsByClassName("title-vr")[0];
+      title = { title: title.innerHTML };
+      result = (0, _lodash.merge)({}, result, title);
+
       var types = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
       types.forEach(function (type) {
         var content = Array.from(document.getElementsByClassName(type));
