@@ -26,105 +26,82 @@ export default class PageConstructor extends React.Component {
   }
 
   // on HTML page users must add these classNames to render desired component
-  // class="text-vr" to render a single text card 
-  // class="image-vr" to render a single image card on any HTML tag with an src='with the image url' 
-  // class="video-vr" to render a single video card on any HTML tag with an src='with the video url' 
-  // class="carousel-image-vr" on multiple IMG/HTML tags with an src='with the image url' will render those images within a carousel 
+  // class="text-vr" to render a single text card
+  // class="image-vr" to render a single image card on any HTML tag with an src='with the image url'
+  // class="video-vr" to render a single video card on any HTML tag with an src='with the video url'
+  // class="carousel-image-vr" on multiple IMG/HTML tags with an src='with the image url' will render those images within a carousel
   // class="gallery-list" on multiple IMG and VIDEO HTML tags (max: 6) with an src='with the image/video url' (default 2 units)
-  // class="ci-flex-vr" on the LAST image tagged with carousel-image-vr to flex the proportion of the image carousel 
-  // class="navlink-vr" (with an href attribute): creates a navlink button with gaze-click functionality to send you to said href location 
-    // (with a single-page react application, attach this classname to an element with an onclick event handler to "send" user to correct page) 
-    
+  // class="ci-flex-vr" on the LAST image tagged with carousel-image-vr to flex the proportion of the image carousel
+  // class="navlink-vr" (with an href attribute): creates a navlink button with gaze-click functionality to send you to said href location
+  // (with a single-page react application, attach this classname to an element with an onclick event handler to "send" user to correct page)
+
   generateComponents() {
     let theContent = Object.values(this.state.store);
-    let carouselImage = {type: 'image-carousel', content: [], flex: 2}; 
-    let galleryItems = {type: 'gallery-list', content: []}; 
+    let carouselImage = { type: "image-carousel", content: [], flex: 2 };
+    let galleryItems = { type: "gallery-list", content: [] };
     //for each html element tagged carosel-image-vr push it into new object called carouselImage
     Object.values(theContent).forEach(el => {
-<<<<<<< HEAD
-     if (el.type === 'carousel-image-vr') {
-=======
-     if (el.type === 'carousel-image-vr') {       
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
-       carouselImage.content.push(el.content); 
-       carouselImage.flex = parseInt(el.flex) || 2;
-  
-     } else if (el.type === 'gallery-item') {
-       galleryItems.content.push(el.content); 
-     }
-<<<<<<< HEAD
+      if (el.type === "carousel-image-vr") {
+        carouselImage.content.push(el.content);
+        carouselImage.flex = parseInt(el.flex) || 2;
+      } else if (el.type === "gallery-item") {
+        galleryItems.content.push(el.content);
+      }
     });
 
     galleryItems.content = galleryItems.content.map((content, i) => {
-      return (<GalleryItem src={content} key={i}></GalleryItem>);
+      return <GalleryItem src={content} key={i} type={"image"} />;
     });
-=======
-    });    
 
-    galleryItems.content = galleryItems.content.map((content, i) => {
-      return (<GalleryItem src={content} key={i} type={'image'}></GalleryItem>);
-    });    
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
+    //shove carouselImage into theContent to be rendered into one ImageCarousel component
+    if (galleryItems.content.length > 1) theContent.push(galleryItems);
+    if (carouselImage.content.length > 1) theContent.push(carouselImage);
 
-    
-    //shove carouselImage into theContent to be rendered into one ImageCarousel component 
-    if (galleryItems.content.length > 1) theContent.push(galleryItems); 
-    if (carouselImage.content.length > 1) theContent.push(carouselImage);  
-<<<<<<< HEAD
-=======
-  
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
-       
-    let toRender = []; 
+    let toRender = [];
     let key;
-    Object.values(theContent).map(el => {      
+    Object.values(theContent).map(el => {
       switch (el.type) {
-        case "text-vr":    
-            toRender.push(<Carousel
+        case "text-vr":
+          toRender.push(
+            <Carousel
               key={el.key}
               flex={1}
               initialCard={0}
               type="text"
-              maxTextLength={120}
-            >
+              maxTextLength={120}>
               {el.content}
-            </Carousel>);
-            break;  
+            </Carousel>
+          );
+          break;
 
-            case "image-vr":               
-            toRender.push(<ImageCard
+        case "image-vr":
+          toRender.push(
+            <ImageCard
               key={el.key}
               flex={el.flex}
               passkey={el.key}
               src={el.content}
               click={this.state.clickEvent}
-              />);
-              break;
-              
-            case "video-vr":          
-<<<<<<< HEAD
-=======
+            />
+          );
+          break;
 
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
-            toRender.push(<VideoCard key={el.key} src={el.content} />);
-            break; 
-            
-            case "gallery-list":
-              key = Math.floor(Math.random() * 1000000000000); 
-              toRender.push(
-              <Gallery key={key}>
-                {galleryItems.content.map(item => item)}
-              </Gallery> );              
-              break; 
-            
-<<<<<<< HEAD
-            case "image-carousel":  
-              key = Math.floor(Math.random() * 1000000000000);  
-=======
-            case "image-carousel":                
-              key = Math.floor(Math.random() * 1000000000000);                
->>>>>>> 64698df167a8f89ebe3047fb3a6d1567ea4f8bec
-            toRender.push(<Carousel
+        case "video-vr":
+          toRender.push(<VideoCard key={el.key} src={el.content} />);
+          break;
+
+        case "gallery-list":
+          key = Math.floor(Math.random() * 1000000000000);
+          toRender.push(
+            <Gallery key={key}>
+              {galleryItems.content.map(item => item)}
+            </Gallery>
+          );
+          break;
+        case "image-carousel":
+          key = Math.floor(Math.random() * 1000000000000);
+          toRender.push(
+            <Carousel
               key={key}
               imageCollection={el.content}
               initialCard={0}
@@ -132,11 +109,12 @@ export default class PageConstructor extends React.Component {
               maxTextLength={120}
               flex={el.flex || 2}>
               image
-              </Carousel>);
-              break; 
+            </Carousel>
+          );
+          break;
 
-        default: 
-          break; 
+        default:
+          break;
       }
     });
     return toRender;
@@ -182,7 +160,6 @@ export default class PageConstructor extends React.Component {
   }
 
   render() {
-
     // this is what is auto-generating the components
     let components = this.generateComponents();
     return (
@@ -196,7 +173,7 @@ export default class PageConstructor extends React.Component {
             opacity: this.state.fadeIn,
             transform: [{ translateX: this.state.slideLeft }]
           }}>
-            {components.map(comp => comp)}
+          {components.map(comp => comp)}
         </Animated.View>
       </View>
     );
