@@ -8,13 +8,15 @@ export default class TextCard extends React.Component {
     const { cardStyling, textStyling, flex } = this.props;
 
     const defaultCardStyling = {
-        padding: 5,
-      };
+      padding: 5
+    };
 
-    const mergedCardStyling = Object.assign({}, defaultCardStyling, cardStyling);
+    const mergedCardStyling = Object.assign(
+      {},
+      defaultCardStyling,
+      cardStyling
+    );
 
-    console.log(mergedCardStyling);
-    
     const defaultTextStyling = {
       width: "100%",
       height: "100%",
@@ -26,17 +28,17 @@ export default class TextCard extends React.Component {
       textAlignVertical: "center"
     };
 
-    const mergedTextStyling = Object.assign({}, defaultTextStyling, textStyling);
+    const mergedTextStyling = Object.assign(
+      {},
+      defaultTextStyling,
+      textStyling
+    );
 
     return (
-      <CardContainer 
-        flex={flex || 1}
-        cardStyling={mergedCardStyling}>
-          <Text
-            style={mergedTextStyling}
-          >
-            {this.props.src || this.props.text || this.props.children}
-          </Text>
+      <CardContainer flex={flex || 1} cardStyling={mergedCardStyling}>
+        <Text style={mergedTextStyling}>
+          {this.props.src || this.props.text || this.props.children}
+        </Text>
       </CardContainer>
     );
   }

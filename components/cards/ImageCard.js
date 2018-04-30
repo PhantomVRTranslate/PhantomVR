@@ -19,7 +19,8 @@ export default class ImageCard extends React.Component {
             height: "100%",
             minHeight: 250,
             maxHeight: 500,
-            maxWidth: 400
+            maxWidth: 800
+            // maxWidth: 400
           }}
         >
           <Image

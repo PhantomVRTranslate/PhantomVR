@@ -3,7 +3,6 @@ import { merge, isEmpty } from "lodash";
 
 export default class DocumentGet extends Module {
   constructor() {
-    console.log("document get");
     super("DocumentGet");
     this.userAgent = navigator.userAgent;
     this._bridgename = "BrowserBridge";
@@ -12,7 +11,6 @@ export default class DocumentGet extends Module {
   }
 
   _setRNContext(rnctx) {
-    console.log("_setRNCOntext", rnctx);
     this._rnctx = rnctx;
   }
 
@@ -24,14 +22,7 @@ export default class DocumentGet extends Module {
 
   triggerEvent(classname, key) {
     let el = document.getElementsByClassName(classname)[0];
-    console.log("triggerEvent el, classname, key", el, classname, key);
     el.click();
-    let body = document.body;
-    let div = document.createElement("div");
-    div.classList.add("text-vr");
-    div.innerHTML = Math.floor(Math.random() * 1000000000000);
-    div.addEventListener("click", () => div.remove());
-    body.appendChild(div);
   }
 
   _emit(addContent, removeContent) {
@@ -51,7 +42,14 @@ export default class DocumentGet extends Module {
     observer.observe(targetNode, config);
   }
   modifyContent(mutationList) {
-    let typeArray = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+    let typeArray = [
+      "gallery-item",
+      "carousel-image-vr",
+      "navlink-vr",
+      "text-vr",
+      "image-vr",
+      "video-vr"
+    ];
     let addContent = {};
     let removeContent = [];
     Array.from(mutationList).forEach(mutation => {
@@ -68,22 +66,6 @@ export default class DocumentGet extends Module {
     this._emit(addContent, removeContent);
   }
 
-  // modifyContent(mutationList){
-  //     let addContent = {};
-  //     let removeContent = [];
-  //     Array.from(mutationList).forEach(mutation => {
-  //         Array.from(mutation.addedNodes).forEach(node => {
-  //                 let resultObj = this.makeResult(node);
-  //                 if (resultObj) addContent = merge({}, addContent, resultObj);
-  //         });
-  //         Array.from(mutation.removedNodes).forEach(node => {
-  //             let classList = node.className.split(' ');
-  //             removeContent.push(node.classList[classList.length - 1]);
-  //         });
-  //     });
-  //     this._emit(addContent, removeContent);
-  // }
-
   makeResult(node) {
     let key = Math.floor(Math.random() * 1000000000000);
     let nodeObj = { [key]: { type: node.className, events: [], key: key } };
@@ -96,6 +78,7 @@ export default class DocumentGet extends Module {
       case "image-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
         node.classList.add(key);
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("image-flex")) || 1;
         return nodeObj;
       case "video-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
@@ -107,14 +90,13 @@ export default class DocumentGet extends Module {
         node.classList.add(key);
         return nodeObj;
       case "carousel-image-vr":
-      console.log(node.getAttribute("flex-vr")); 
         nodeObj[key]["content"] = node.getAttribute("src");
         nodeObj[key]["flex"] = parseInt(node.getAttribute("ci-flex-vr")) || 2;
         node.classList.add(key);
         return nodeObj;
       case "gallery-item":
         nodeObj[key]["content"] = node.getAttribute("src");
-        node.classList.add(key); 
+        node.classList.add(key);
         return nodeObj;
       default:
         false;
@@ -123,7 +105,18 @@ export default class DocumentGet extends Module {
 
   getBaseContent() {
     let result = {};
-    let types = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+    let title = document.getElementsByClassName("title-vr")[0];
+    title = { title: title.innerHTML };
+    result = merge({}, result, title);
+
+    let types = [
+      "gallery-item",
+      "carousel-image-vr",
+      "navlink-vr",
+      "text-vr",
+      "image-vr",
+      "video-vr"
+    ];
     types.forEach(type => {
       let content = Array.from(document.getElementsByClassName(type));
       content.forEach(el => {

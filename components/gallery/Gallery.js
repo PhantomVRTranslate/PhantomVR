@@ -41,8 +41,6 @@ export default class Gallery extends React.Component {
     };
 
     const mergedGalleryItemStyling = Object.assign({}, defaultStyling, galleryItemStyling);
-
-    console.log(mergedGalleryItemStyling);
     
     return (
       <View
@@ -66,7 +64,6 @@ export default class Gallery extends React.Component {
 
   render() {
     const { galleryStyling, galleryItemStyling } = this.props;
-
     return (
       <CardContainer
         flex={

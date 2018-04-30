@@ -52,9 +52,11 @@ export default class NavbarItem extends React.Component {
         isSelected: true,
         fontSize: 0.11
       });
-
+      if (this.props.currPage !== 'hello' ){
+        this.props.changePage(this.props.currPage); // fake out changePage to get component to 'unmount'
+      }
+      
       // When the gaze button is triggered, it changes the 'link'
-      this.props.changePage(this.props.currPage); // fake out changePage to get component to 'unmount'
       // this.props.changePage(this.props.link); // fake out changePage for scraper
       this.setState({ isTriggered: true });
       setTimeout(() => this.props.changePage(this.props.link), 1500);

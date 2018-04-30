@@ -159,8 +159,6 @@ export default class Carousel extends React.Component {
     const leftButtonStyling = Object.assign({}, mergedButtonStyling);
     delete leftButtonStyling.right;
 
-    console.log(rightButtonStyling, leftButtonStyling);
-
     const defaultArrowStyling = {
       color: "white",
       fontSize: 80,
