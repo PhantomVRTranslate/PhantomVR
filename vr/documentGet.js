@@ -3,7 +3,6 @@ import { merge, isEmpty } from "lodash";
 
 export default class DocumentGet extends Module {
   constructor() {
-    console.log("document get");
     super("DocumentGet");
     this.userAgent = navigator.userAgent;
     this._bridgename = "BrowserBridge";
@@ -12,7 +11,6 @@ export default class DocumentGet extends Module {
   }
 
   _setRNContext(rnctx) {
-    console.log("_setRNCOntext", rnctx);
     this._rnctx = rnctx;
   }
 
@@ -24,14 +22,7 @@ export default class DocumentGet extends Module {
 
   triggerEvent(classname, key) {
     let el = document.getElementsByClassName(classname)[0];
-    console.log("triggerEvent el, classname, key", el, classname, key);
     el.click();
-    let body = document.body;
-    let div = document.createElement("div");
-    div.classList.add("text-vr");
-    div.innerHTML = Math.floor(Math.random() * 1000000000000);
-    div.addEventListener("click", () => div.remove());
-    body.appendChild(div);
   }
 
   _emit(addContent, removeContent) {
@@ -107,7 +98,6 @@ export default class DocumentGet extends Module {
         node.classList.add(key);
         return nodeObj;
       case "carousel-image-vr":
-      console.log(node.getAttribute("flex-vr")); 
         nodeObj[key]["content"] = node.getAttribute("src");
         nodeObj[key]["flex"] = parseInt(node.getAttribute("ci-flex-vr")) || 2;
         node.classList.add(key);

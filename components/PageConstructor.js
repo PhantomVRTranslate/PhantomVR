@@ -42,7 +42,6 @@ export default class PageConstructor extends React.Component {
     //for each html element tagged carosel-image-vr push it into new object called carouselImage
     Object.values(theContent).forEach(el => {
      if (el.type === 'carousel-image-vr') {
-       console.log('el.type is imageCarosel', el, el.content, el.flex); 
        carouselImage.content.push(el.content); 
        carouselImage.flex = parseInt(el.flex) || 2;
   
@@ -50,18 +49,15 @@ export default class PageConstructor extends React.Component {
        galleryItems.content.push(el.content); 
      }
     });
-    console.warn('before galleryitems map', galleryItems); 
 
     galleryItems.content = galleryItems.content.map((content, i) => {
       return (<GalleryItem src={content} key={i}></GalleryItem>);
     });
-    console.warn('post galleryitems map', galleryItems); 
 
     
     //shove carouselImage into theContent to be rendered into one ImageCarousel component 
     if (galleryItems.content.length > 1) theContent.push(galleryItems); 
     if (carouselImage.content.length > 1) theContent.push(carouselImage);  
-  console.warn('THECONTENT AFTER GALLERYITEMS PUSH', theContent); 
        
     let toRender = []; 
     let key;
@@ -89,7 +85,6 @@ export default class PageConstructor extends React.Component {
               break;
               
             case "video-vr":          
-              console.log('in VIDEO carosel'); 
             toRender.push(<VideoCard key={el.key} src={el.content} />);
             break; 
             
@@ -103,9 +98,7 @@ export default class PageConstructor extends React.Component {
               break; 
             
             case "image-carousel":  
-              console.log('in image carosel'); 
               key = Math.floor(Math.random() * 1000000000000);  
-              console.log('this is el.flex and el:', el.flex, el);
             toRender.push(<Carousel
               key={key}
               imageCollection={el.content}

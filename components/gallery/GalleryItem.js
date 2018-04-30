@@ -23,7 +23,6 @@ export default class GalleryItem extends React.Component {
         const mergedStyling = Object.assign({}, defaultStyling, itemStyling);
         const mergedTextStyling = Object.assign({}, defaultTextStyling, itemStyling);
 
-        console.log(mergedStyling);
 
         switch(this.props.type){
             case "image":

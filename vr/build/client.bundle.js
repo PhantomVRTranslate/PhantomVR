@@ -1249,52 +1249,58 @@ babelHelpers.toConsumableArray = function (arr) {
 })(typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : this);
 __d(/* WelcomeToVR/vr/client.js */function(global, require, module, exports) {var _reactVrWeb = require(12            ); // 12 = react-vr-web
 
-var _documentGet = require(131               ); // 131 = ./documentGet.js
+var _hideBody = require(131         ); // 131 = ./hideBody
+
+var _hideBody2 = babelHelpers.interopRequireDefault(_hideBody);
+
+var _documentGet = require(132               ); // 132 = ./documentGet.js
 
 var _documentGet2 = babelHelpers.interopRequireDefault(_documentGet);
 
 var GearVRRaycaster = {
-  getType: function getType() {
-    return "Gear VR";
-  },
-  getRayOrigin: function getRayOrigin() {
-    return [0, 0, 0];
-  },
-  getRayDirection: function getRayDirection() {
-    return [0, 0, -1];
-  },
-  drawsCursor: function drawsCursor() {
-    return true;
-  }
+    getType: function getType() {
+        return "Gear VR";
+    },
+    getRayOrigin: function getRayOrigin() {
+        return [0, 0, 0];
+    },
+    getRayDirection: function getRayDirection() {
+        return [0, 0, -1];
+    },
+    drawsCursor: function drawsCursor() {
+        return true;
+    }
 };
 
 function init(bundle, parent, options) {
-  var vr = void 0;
-  var mobile = options.mobile;
+    var vr = void 0;
+    var mobile = options.mobile;
 
-  var browserInfo = new _documentGet2.default();
+    var browserInfo = new _documentGet2.default();
 
-  vr = mobile ? new _reactVrWeb.VRInstance(bundle, "WelcomeToVR", parent, babelHelpers.extends({
-    nativeModules: [browserInfo],
-    raycasters: [GearVRRaycaster],
-    cursorVisibility: "visible",
+    vr = mobile ? new _reactVrWeb.VRInstance(bundle, "WelcomeToVR", parent, babelHelpers.extends({
+        nativeModules: [browserInfo],
+        raycasters: [GearVRRaycaster],
+        cursorVisibility: "visible",
 
-    antialias: true
-  }, options)) : new _reactVrWeb.VRInstance(bundle, "WelcomeToVR", parent, babelHelpers.extends({
-    nativeModules: [browserInfo],
+        antialias: true
+    }, options)) : new _reactVrWeb.VRInstance(bundle, "WelcomeToVR", parent, babelHelpers.extends({
+        nativeModules: [browserInfo],
 
-    antialias: true
-  }, options));
+        antialias: true
+    }, options));
 
-  browserInfo._setRNContext(vr.rootView.context);
+    browserInfo._setRNContext(vr.rootView.context);
 
-  vr.render = function () {};
+    vr.render = function () {};
 
-  vr.start();
-  return vr;
+    vr.start();
+    return vr;
 }
-
-window.ReactVR = { init: init };
+window.hideBody = _hideBody2.default;
+window.ReactVR = {
+    init: init
+};
 }, 0, null, "WelcomeToVR/vr/client.js");
 __d(/* react-vr-web/ReactVR.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
@@ -67814,13 +67820,49 @@ exports.VRVideoComponent = _VRVideoComponent2.default;
 exports.addCustomizedVideoPlayer = _VRVideoPlayer.addCustomizedVideoPlayer;
 exports.getSupportedFormats = _getSupportedFormats2.default;
 }, 130, null, "react-vr-web/js/Video/OVRVideo.js");
+__d(/* WelcomeToVR/vr/hideBody.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var hideBody = function hideBody() {
+    var body = document.getElementsByTagName('body')[0];
+    body.setAttribute('style', 'visibility: hidden');
+    document.addEventListener('DOMContentLoaded', function () {
+        return hideChildren();
+    });
+};
+
+var hideChildren = function hideChildren() {
+    var body = document.getElementsByTagName('body')[0];
+    var phantom = document.getElementById('phantom');
+    var children = Array.from(body.children);
+    children.forEach(function (child) {
+        if (child.id !== "phantom") {
+            child.setAttribute('style', 'display: none;');
+        }
+    });
+
+    body.setAttribute('style', 'visibility: visible');
+};
+
+var hideHtml = function hideHtml() {
+    var body = document.body;
+    var children = Array.from(body.children);
+    children.forEach(function (child) {
+        if (child.id !== "phantom") {
+            child.setAttribute('style', 'display: none;');
+        }
+    });
+};
+
+exports.default = hideHtml;
+}, 131, null, "WelcomeToVR/vr/hideBody.js");
 __d(/* WelcomeToVR/vr/documentGet.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
 var _reactVrWeb = require(12            ); // 12 = react-vr-web
 
-var _lodash = require(132     ); // 132 = lodash
+var _lodash = require(133     ); // 133 = lodash
 
 var DocumentGet = function (_Module) {
   babelHelpers.inherits(DocumentGet, _Module);
@@ -67840,7 +67882,6 @@ var DocumentGet = function (_Module) {
   babelHelpers.createClass(DocumentGet, [{
     key: "_setRNContext",
     value: function _setRNContext(rnctx) {
-      console.log("_setRNCOntext", rnctx);
       this._rnctx = rnctx;
     }
   }, {
@@ -67854,16 +67895,7 @@ var DocumentGet = function (_Module) {
     key: "triggerEvent",
     value: function triggerEvent(classname, key) {
       var el = document.getElementsByClassName(classname)[0];
-      console.log("triggerEvent el, classname, key", el, classname, key);
       el.click();
-      var body = document.body;
-      var div = document.createElement("div");
-      div.classList.add("text-vr");
-      div.innerHTML = Math.floor(Math.random() * 1000000000000);
-      div.addEventListener("click", function () {
-        return div.remove();
-      });
-      body.appendChild(div);
     }
   }, {
     key: "_emit",
@@ -67886,7 +67918,7 @@ var DocumentGet = function (_Module) {
     value: function modifyContent(mutationList) {
       var _this2 = this;
 
-      var typeArray = ["carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+      var typeArray = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
       var addContent = {};
       var removeContent = [];
       Array.from(mutationList).forEach(function (mutation) {
@@ -67927,6 +67959,11 @@ var DocumentGet = function (_Module) {
           return nodeObj;
         case "carousel-image-vr":
           nodeObj[key]["content"] = node.getAttribute("src");
+          nodeObj[key]["flex"] = parseInt(node.getAttribute("ci-flex-vr")) || 2;
+          node.classList.add(key);
+          return nodeObj;
+        case "gallery-item":
+          nodeObj[key]["content"] = node.getAttribute("src");
           node.classList.add(key);
           return nodeObj;
         default:
@@ -67939,7 +67976,7 @@ var DocumentGet = function (_Module) {
       var _this3 = this;
 
       var result = {};
-      var types = ["carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
+      var types = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
       types.forEach(function (type) {
         var content = Array.from(document.getElementsByClassName(type));
         content.forEach(function (el) {
@@ -67953,7 +67990,7 @@ var DocumentGet = function (_Module) {
 }(_reactVrWeb.Module);
 
 exports.default = DocumentGet;
-}, 131, null, "WelcomeToVR/vr/documentGet.js");
+}, 132, null, "WelcomeToVR/vr/documentGet.js");
 __d(/* lodash/lodash.js */function(global, require, module, exports) {/**
  * @license
  * Lodash <https://lodash.com/>
@@ -74623,5 +74660,5 @@ __d(/* lodash/lodash.js */function(global, require, module, exports) {/**
       root._ = _;
     }
 }).call(this);
-}, 132, null, "lodash/lodash.js");
+}, 133, null, "lodash/lodash.js");
 ;require(0);

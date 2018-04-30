@@ -1260,37 +1260,33 @@ var _reactVr = require(22        ); // 22 = react-vr
 
 var _lodash = require(349     ); // 349 = lodash
 
-var _Dashboard = require(350                               ); // 350 = ./components/scenes/Dashboard.js
-
-var _Dashboard2 = babelHelpers.interopRequireDefault(_Dashboard);
-
 var _BatchedBridge = require(41                                                  ); // 41 = react-native/Libraries/BatchedBridge/BatchedBridge
 
 var _BatchedBridge2 = babelHelpers.interopRequireDefault(_BatchedBridge);
 
-var _BrowserBridge = require(366                    ); // 366 = ./vr/BrowserBridge.js
+var _BrowserBridge = require(350                    ); // 350 = ./vr/BrowserBridge.js
 
 var _BrowserBridge2 = babelHelpers.interopRequireDefault(_BrowserBridge);
 
-var _PageConstructor = require(367                                    ); // 367 = ./final_components/PageConstructor.js
+var _PageConstructor = require(351                              ); // 351 = ./components/PageConstructor.js
 
 var _PageConstructor2 = babelHelpers.interopRequireDefault(_PageConstructor);
 
-var _app = require(382                     ); // 382 = ./final_components/app
+var _app = require(364               ); // 364 = ./components/app
 
 var _app2 = babelHelpers.interopRequireDefault(_app);
 
-var _title = require(380                       ); // 380 = ./final_components/title
+var _title = require(363                 ); // 363 = ./components/title
 
 var _title2 = babelHelpers.interopRequireDefault(_title);
 
-var _ContentPlane = require(386                                 ); // 386 = ./final_components/ContentPlane.js
+var _ContentPlane = require(368                           ); // 368 = ./components/ContentPlane.js
 
 var _ContentPlane2 = babelHelpers.interopRequireDefault(_ContentPlane);
 
-var _styleSheet = require(390                          ); // 390 = ./helperFiles/styleSheet.js
+var _styleSheet = require(372                          ); // 372 = ./helperFiles/styleSheet.js
 
-var _Navbar = require(387                                  ); // 387 = ./final_components/navbar/Navbar.js
+var _Navbar = require(369                            ); // 369 = ./components/navbar/Navbar.js
 
 var _Navbar2 = babelHelpers.interopRequireDefault(_Navbar);
 
@@ -1348,7 +1344,7 @@ var WelcomeToVR = function (_React$Component) {
   }, {
     key: "makeNavLinks",
     value: function makeNavLinks() {
-      var theContent = Object.values(this.state.store);
+      var theContent = Object.values(this.state.store) || [];
       var navLinks = [];
       theContent.forEach(function (content) {
         if (content.type === "navlink-vr") {
@@ -1371,17 +1367,17 @@ var WelcomeToVR = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 82
           }
         },
         _react2.default.createElement(_reactVr.Pano, { source: { uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg" }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 83
           }
         }),
         _react2.default.createElement(_title2.default, { activateScene: this.activateScene, __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 84
           }
         }),
         this.state.enterScene ? _react2.default.createElement(
@@ -1389,7 +1385,7 @@ var WelcomeToVR = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 87
+              lineNumber: 86
             }
           },
           _react2.default.createElement(_PageConstructor2.default, {
@@ -1397,22 +1393,22 @@ var WelcomeToVR = function (_React$Component) {
             clickEvent: this.state.clickEvent,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 88
+              lineNumber: 87
             }
           })
         ) : _react2.default.createElement(_reactVr.View, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 93
           }
         }),
         _react2.default.createElement(_Navbar2.default, {
           content: navbarContent,
-          changeGallery: this.state.clickEvent,
-          gallery: { type: { name: "hello" } },
+          changePage: this.state.clickEvent,
+          page: { type: { name: "hello" } },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96
+            lineNumber: 95
           }
         })
       );
@@ -60521,1588 +60517,6 @@ __d(/* lodash/lodash.js */function(global, require, module, exports) {/**
     }
 }).call(this);
 }, 349, null, "lodash/lodash.js");
-__d(/* WelcomeToVR/components/scenes/Dashboard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/Dashboard.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _DashboardLayout = require(351                           ); // 351 = ./layouts/DashboardLayout.js
-
-var _DashboardLayout2 = babelHelpers.interopRequireDefault(_DashboardLayout);
-
-var Dashboard = function (_React$Component) {
-    babelHelpers.inherits(Dashboard, _React$Component);
-
-    function Dashboard() {
-        babelHelpers.classCallCheck(this, Dashboard);
-        return babelHelpers.possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
-    }
-
-    babelHelpers.createClass(Dashboard, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactVr.View,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 13
-                    }
-                },
-                _react2.default.createElement(_DashboardLayout2.default, { content: this.props.content, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 14
-                    }
-                })
-            );
-        }
-    }]);
-    return Dashboard;
-}(_react2.default.Component);
-
-exports.default = Dashboard;
-}, 350, null, "WelcomeToVR/components/scenes/Dashboard.js");
-__d(/* WelcomeToVR/components/scenes/layouts/DashboardLayout.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/DashboardLayout.js";
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _reactNative = require(205           ); // 205 = react-native
-
-var _TextVr = require(352                   ); // 352 = ./elements/TextVr.js
-
-var _TextVr2 = babelHelpers.interopRequireDefault(_TextVr);
-
-var _ContentPlane = require(353                      ); // 353 = ./elements/ContentPlane
-
-var _ContentPlane2 = babelHelpers.interopRequireDefault(_ContentPlane);
-
-var _CardCol = require(354                    ); // 354 = ./elements/CardCol.js
-
-var _CardCol2 = babelHelpers.interopRequireDefault(_CardCol);
-
-var _Gallery = require(355                 ); // 355 = ./elements/Gallery
-
-var _Gallery2 = babelHelpers.interopRequireDefault(_Gallery);
-
-var _CardSorter = require(356                    ); // 356 = ./elements/CardSorter
-
-var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
-
-var _TextCard = require(359                     ); // 359 = ./elements/TextCard.js
-
-var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
-
-var _Card = require(358                 ); // 358 = ./elements/Card.js
-
-var _Card2 = babelHelpers.interopRequireDefault(_Card);
-
-var _ImageCard = require(357                      ); // 357 = ./elements/ImageCard.js
-
-var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
-
-var _ImageCaption = require(361                         ); // 361 = ./elements/ImageCaption.js
-
-var _ImageCaption2 = babelHelpers.interopRequireDefault(_ImageCaption);
-
-var _carousel = require(362                                           ); // 362 = ./elements/CardCarousel/carousel/carousel.js
-
-var _carousel2 = babelHelpers.interopRequireDefault(_carousel);
-
-var _cardTypes = require(364                                            ); // 364 = ./elements/CardCarousel/carousel/cardTypes.js
-
-var _VideoCard = require(360                      ); // 360 = ./elements/VideoCard.js
-
-var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
-
-var DashboardLayout = function (_React$Component) {
-  babelHelpers.inherits(DashboardLayout, _React$Component);
-
-  function DashboardLayout(props) {
-    babelHelpers.classCallCheck(this, DashboardLayout);
-
-    var _this = babelHelpers.possibleConstructorReturn(this, (DashboardLayout.__proto__ || Object.getPrototypeOf(DashboardLayout)).call(this, props));
-
-    _this.state = {
-      content: {},
-      clickEvent: null
-    };
-    return _this;
-  }
-
-  babelHelpers.createClass(DashboardLayout, [{
-    key: "generateComponents",
-    value: function generateComponents() {
-      var _this2 = this;
-
-      var theContent = Object.values(this.state.content);
-      var toRender = Object.values(theContent).map(function (el) {
-        switch (el.type) {
-          case "text-vr":
-            return _react2.default.createElement(_TextCard2.default, { el: el, clickEvent: _this2.state.clickEvent, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 31
-              }
-            });
-          case "image-vr":
-            return _react2.default.createElement(_ImageCard2.default, { src: el.content, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 33
-              }
-            });
-          case "video-vr":
-            return _react2.default.createElement(_VideoCard2.default, { src: el.content, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 35
-              }
-            });
-          default:
-            return null;
-        }
-      });
-      return toRender;
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(newProps) {
-      this.setState({
-        content: newProps.content.store,
-        clickEvent: newProps.content.clickEvent
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var words = "Hello";
-      var components = this.generateComponents(this.props.content);
-      return _react2.default.createElement(
-        _ContentPlane2.default,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 57
-          }
-        },
-        _react2.default.createElement(
-          _Gallery2.default,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 58
-            }
-          },
-          components[0],
-          components[1],
-          components[2],
-          _react2.default.createElement(_CardSorter2.default, {
-            options: {
-              type: "video",
-              src: "../static_assets/videos/fireplace.mp4"
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 69
-            }
-          }),
-          _react2.default.createElement(_CardSorter2.default, {
-            options: {
-              type: "image",
-              src: "../static_assets/pictures/pup.jpg"
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 75
-            }
-          }),
-          _react2.default.createElement(_TextCard2.default, { text: "Four", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 81
-            }
-          })
-        ),
-        _react2.default.createElement(
-          _carousel2.default,
-          {
-            itemCollection: [(0, _reactVr.asset)("1.jpeg"), (0, _reactVr.asset)("2.jpeg"), (0, _reactVr.asset)("3.jpeg"), (0, _reactVr.asset)("4.jpeg"), (0, _reactVr.asset)("5.jpeg")],
-            initialCard: 0,
-            cardType: _cardTypes.TEXT,
-            maxTextLength: 180, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 83
-            }
-          },
-          "asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka klj there once was a mouse who lived on a house asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka asdfaljflkajweflkjawelfjawefjawelkfjalkefjaklwejflkawejfawefjklawjeflkawjeflkawjelka"
-        ),
-        components.map(function (comp, i) {
-          return _react2.default.createElement(
-            _Card2.default,
-            { key: i, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 100
-              }
-            },
-            comp
-          );
-        }),
-        _react2.default.createElement(_ImageCard2.default, { src: "../static_assets/pictures/pup.jpg", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 102
-          }
-        })
-      );
-    }
-  }]);
-  return DashboardLayout;
-}(_react2.default.Component);
-
-exports.default = DashboardLayout;
-}, 351, null, "WelcomeToVR/components/scenes/layouts/DashboardLayout.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/TextVr.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/TextVr.js";
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var TextVr = function (_React$Component) {
-  babelHelpers.inherits(TextVr, _React$Component);
-
-  function TextVr(props) {
-    babelHelpers.classCallCheck(this, TextVr);
-
-    var _this = babelHelpers.possibleConstructorReturn(this, (TextVr.__proto__ || Object.getPrototypeOf(TextVr)).call(this, props));
-
-    _this.state = {
-      text: [],
-      textPart: 0
-    };
-    return _this;
-  }
-
-  babelHelpers.createClass(TextVr, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        _reactVr.VrButton,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 49
-          }
-        },
-        _react2.default.createElement(
-          _reactVr.Text,
-          {
-            style: {
-              flex: 1,
-              backgroundColor: "rgba(0,200,200,0.5)",
-              color: "#FFF",
-              fontSize: 50,
-              textAlign: "center",
-              textAlignVertical: "center",
-              overflow: "scroll",
-
-              height: "100%",
-              maxHeight: 500,
-              width: "100%",
-              maxWidth: 800,
-              margin: 1
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 50
-            }
-          },
-          this.props.text || this.props.children
-        )
-      );
-    }
-  }]);
-  return TextVr;
-}(_react2.default.Component);
-
-exports.default = TextVr;
-}, 352, null, "WelcomeToVR/components/scenes/layouts/elements/TextVr.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/ContentPlane.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/ContentPlane.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var ContentPlane = function (_React$Component) {
-    babelHelpers.inherits(ContentPlane, _React$Component);
-
-    function ContentPlane(props) {
-        babelHelpers.classCallCheck(this, ContentPlane);
-
-        var _this = babelHelpers.possibleConstructorReturn(this, (ContentPlane.__proto__ || Object.getPrototypeOf(ContentPlane)).call(this, props));
-
-        _this.state = {
-            subComponentLimit: 0
-        };
-        _this.subComponents = [];
-
-        _this.propsToState = _this.propsToState.bind(_this);
-        return _this;
-    }
-
-    babelHelpers.createClass(ContentPlane, [{
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(newProps) {
-            this.propsToState(newProps);
-        }
-    }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.propsToState(this.props);
-        }
-    }, {
-        key: 'propsToState',
-        value: function propsToState(props) {
-
-            if (props.children.length === undefined) {
-                this.setState({
-                    subComponentLimit: 1
-                });
-                this.subComponents.push(props.children);
-            } else {
-                var childLength = props.children.length >= 5 ? 5 : props.children.length;
-
-                this.setState({
-                    subComponentLimit: childLength
-                });
-                var sComps = [];
-                for (var i = 0; i < childLength; i++) {
-                    sComps.push(props.children[i]);
-                }
-                this.subComponents = sComps;
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactVr.View,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 56
-                    }
-                },
-                _react2.default.createElement(
-                    _reactVr.CylindricalPanel,
-                    {
-                        layer: { width: 4096, height: 800, density: 8092 },
-                        style: {
-                            opacity: 1
-                        },
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 57
-                        }
-                    },
-                    _react2.default.createElement(
-                        _reactVr.View,
-                        { style: { layoutOrigin: [-.5, 0] }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 63
-                            }
-                        },
-                        _react2.default.createElement(
-                            _reactVr.View,
-                            {
-                                style: {
-                                    opacity: 1,
-                                    width: 2048,
-                                    height: 1000,
-                                    flexDirection: 'row',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between'
-                                },
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 64
-                                }
-                            },
-                            this.subComponents
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-    return ContentPlane;
-}(_react2.default.Component);
-
-exports.default = ContentPlane;
-}, 353, null, "WelcomeToVR/components/scenes/layouts/elements/ContentPlane.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/CardCol.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/CardCol.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var CardCol = function (_React$Component) {
-    babelHelpers.inherits(CardCol, _React$Component);
-
-    function CardCol(props) {
-        babelHelpers.classCallCheck(this, CardCol);
-
-        var _this = babelHelpers.possibleConstructorReturn(this, (CardCol.__proto__ || Object.getPrototypeOf(CardCol)).call(this, props));
-
-        _this.state = {
-            cards: []
-        };
-        return _this;
-    }
-
-    babelHelpers.createClass(CardCol, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.renderCards(this.props.row || 2, this.props.col || 1);
-        }
-    }, {
-        key: 'generateCard',
-        value: function generateCard(child, row, col, i) {
-            return _react2.default.createElement(
-                _reactVr.View,
-                { style: { width: 99 / this.props.children.length * row + '%',
-                        height: 99 / this.props.children.length * col + '%',
-                        margin: 1 },
-                    key: i, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 32
-                    }
-                },
-                child
-            );
-        }
-    }, {
-        key: 'renderCards',
-        value: function renderCards(row, col) {
-            var cards = [];
-            for (var i = 0; i < this.props.children.length; i++) {
-                cards.push(this.generateCard(this.props.children[i], row, col, i));
-            }
-            this.setState({
-                cards: cards
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactVr.View,
-                { style: {
-                        opacity: 1,
-                        flex: 1,
-                        height: '100%',
-                        width: '100%',
-                        minHeight: 250,
-                        maxHeight: 500,
-                        minWidth: 400,
-                        maxWidth: 400,
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        marginHorizontal: 1
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 55
-                    }
-                },
-                this.state.cards
-            );
-        }
-    }]);
-    return CardCol;
-}(_react2.default.Component);
-
-exports.default = CardCol;
-}, 354, null, "WelcomeToVR/components/scenes/layouts/elements/CardCol.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/Gallery.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/Gallery.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _CardSorter = require(356           ); // 356 = ./CardSorter
-
-var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
-
-var _TextVr = require(352          ); // 352 = ./TextVr.js
-
-var _TextVr2 = babelHelpers.interopRequireDefault(_TextVr);
-
-var MainMenuContainer = function (_React$Component) {
-    babelHelpers.inherits(MainMenuContainer, _React$Component);
-
-    function MainMenuContainer() {
-        babelHelpers.classCallCheck(this, MainMenuContainer);
-
-        var _this = babelHelpers.possibleConstructorReturn(this, (MainMenuContainer.__proto__ || Object.getPrototypeOf(MainMenuContainer)).call(this));
-
-        _this.state = {
-            cards: ""
-        };
-
-        return _this;
-    }
-
-    babelHelpers.createClass(MainMenuContainer, [{
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(newProps) {
-            this.renderCards(newProps, newProps.row || 2, newProps.col || 3);
-        }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.renderCards(this.props, this.props.row || 2, this.props.col || 3);
-        }
-    }, {
-        key: 'renderCards',
-        value: function renderCards(props, row, col) {
-            var cards = [];
-            for (var i = 0; i < props.children.length; i++) {
-                cards.push(this.generateCard(props.children[i], row, col, i));
-            }
-            this.setState({
-                cards: cards
-            });
-        }
-    }, {
-        key: 'generateCard',
-        value: function generateCard(child, row, col, i) {
-            return _react2.default.createElement(
-                _reactVr.View,
-                { style: { width: 99 / this.props.children.length * row + '%',
-                        height: 99 / this.props.children.length * col + '%',
-                        margin: 1 },
-                    key: i, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 38
-                    }
-                },
-                child
-            );
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactVr.View,
-                {
-                    style: {
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                        flex: 1,
-                        backgroundColor: 'rgba(0,200,200,0.5)',
-
-                        minHeight: 500,
-                        maxHeight: 500,
-                        minWidth: 800,
-                        maxWidth: 800
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 50
-                    }
-                },
-                this.state.cards
-            );
-        }
-    }]);
-    return MainMenuContainer;
-}(_react2.default.Component);
-
-exports.default = MainMenuContainer;
-}, 355, null, "WelcomeToVR/components/scenes/layouts/elements/Gallery.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/CardSorter.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/CardSorter.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _ImageCard = require(357          ); // 357 = ./ImageCard
-
-var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
-
-var _TextCard = require(359         ); // 359 = ./TextCard
-
-var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
-
-var _VideoCard = require(360          ); // 360 = ./VideoCard
-
-var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
-
-var CardSorter = function (_React$Component) {
-    babelHelpers.inherits(CardSorter, _React$Component);
-
-    function CardSorter() {
-        babelHelpers.classCallCheck(this, CardSorter);
-        return babelHelpers.possibleConstructorReturn(this, (CardSorter.__proto__ || Object.getPrototypeOf(CardSorter)).apply(this, arguments));
-    }
-
-    babelHelpers.createClass(CardSorter, [{
-        key: 'render',
-        value: function render() {
-            switch (this.props.options.type) {
-                case "image":
-                    return _react2.default.createElement(_ImageCard2.default, { src: this.props.options.src, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 11
-                        }
-                    });
-                case "video":
-                    return _react2.default.createElement(_VideoCard2.default, { src: this.props.options.src, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 13
-                        }
-                    });
-                case "text":
-                    return _react2.default.createElement(_TextCard2.default, { text: this.props.options.text, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 15
-                        }
-                    });
-                default:
-                    return '';
-            }
-        }
-    }]);
-    return CardSorter;
-}(_react2.default.Component);
-
-exports.default = CardSorter;
-}, 356, null, "WelcomeToVR/components/scenes/layouts/elements/CardSorter.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/ImageCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/ImageCard.js";
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _Card = require(358     ); // 358 = ./Card
-
-var _Card2 = babelHelpers.interopRequireDefault(_Card);
-
-var ImageCard = function (_React$Component) {
-  babelHelpers.inherits(ImageCard, _React$Component);
-
-  function ImageCard() {
-    babelHelpers.classCallCheck(this, ImageCard);
-
-    var _this = babelHelpers.possibleConstructorReturn(this, (ImageCard.__proto__ || Object.getPrototypeOf(ImageCard)).call(this));
-
-    _this.state = {
-      border: false
-    };
-    return _this;
-  }
-
-  babelHelpers.createClass(ImageCard, [{
-    key: "borderShow",
-    value: function borderShow() {
-      this.setState({ border: !this.state.border });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        _reactVr.VrButton,
-        {
-          onEnter: function onEnter() {
-            return _this2.borderShow();
-          },
-          onExit: function onExit() {
-            return _this2.borderShow();
-          },
-          style: {
-            flex: 1,
-            width: "100%",
-            height: "100%",
-            minHeight: 250,
-            maxHeight: 500,
-            maxWidth: 400
-          }, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 26
-          }
-        },
-        _react2.default.createElement(_reactVr.Image, {
-          source: { uri: this.props.src },
-          style: {
-            width: "100%",
-            height: "100%",
-
-            resizeMode: "cover"
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 41
-          }
-        })
-      );
-    }
-  }]);
-  return ImageCard;
-}(_react2.default.Component);
-
-exports.default = ImageCard;
-}, 357, null, "WelcomeToVR/components/scenes/layouts/elements/ImageCard.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/Card.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/Card.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _CardSorter = require(356           ); // 356 = ./CardSorter
-
-var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
-
-var _TextVr = require(352          ); // 352 = ./TextVr.js
-
-var _TextVr2 = babelHelpers.interopRequireDefault(_TextVr);
-
-var Card = function (_React$Component) {
-    babelHelpers.inherits(Card, _React$Component);
-
-    function Card() {
-        babelHelpers.classCallCheck(this, Card);
-        return babelHelpers.possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
-    }
-
-    babelHelpers.createClass(Card, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactVr.View,
-                {
-                    style: {
-                        flex: 1,
-                        backgroundColor: 'rgba(0,200,200,0.5)',
-
-                        minHeight: 250,
-                        height: '100%',
-                        width: '100%',
-                        maxHeight: 500,
-                        minWidth: 400,
-                        maxWidth: 400
-
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 11
-                    }
-                },
-                this.props.children
-            );
-        }
-    }]);
-    return Card;
-}(_react2.default.Component);
-
-exports.default = Card;
-}, 358, null, "WelcomeToVR/components/scenes/layouts/elements/Card.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/TextCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/TextCard.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var TextCard = function (_React$Component) {
-    babelHelpers.inherits(TextCard, _React$Component);
-
-    function TextCard() {
-        babelHelpers.classCallCheck(this, TextCard);
-        return babelHelpers.possibleConstructorReturn(this, (TextCard.__proto__ || Object.getPrototypeOf(TextCard)).apply(this, arguments));
-    }
-
-    babelHelpers.createClass(TextCard, [{
-        key: 'render',
-        value: function render() {
-
-            return _react2.default.createElement(
-                _reactVr.Text,
-                {
-                    style: {
-                        flex: 1,
-                        backgroundColor: 'rgba(0,200,200,0.5)',
-                        width: "100%",
-                        height: "100",
-                        maxWidth: 400,
-                        maxHeight: 500,
-                        lineHeight: 80,
-                        fontSize: 40,
-                        fontWeight: '400',
-                        textAlign: 'center',
-                        textAlignVertical: 'center',
-                        margin: 2
-                    },
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 8
-                    }
-                },
-                this.props.src || this.props.text || this.props.children || this.props.el.content
-            );
-        }
-    }]);
-    return TextCard;
-}(_react2.default.Component);
-
-exports.default = TextCard;
-}, 359, null, "WelcomeToVR/components/scenes/layouts/elements/TextCard.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/VideoCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/VideoCard.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var VideoCard = function (_React$Component) {
-    babelHelpers.inherits(VideoCard, _React$Component);
-
-    function VideoCard() {
-        babelHelpers.classCallCheck(this, VideoCard);
-        return babelHelpers.possibleConstructorReturn(this, (VideoCard.__proto__ || Object.getPrototypeOf(VideoCard)).apply(this, arguments));
-    }
-
-    babelHelpers.createClass(VideoCard, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactVr.VrButton,
-                { style: {
-                        width: '100%',
-                        height: '100%'
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 7
-                    }
-                },
-                _react2.default.createElement(_reactVr.Video, {
-                    source: {
-                        uri: this.props.src
-                    },
-                    style: {
-                        width: "100%",
-                        height: "100%"
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 11
-                    }
-                })
-            );
-        }
-    }]);
-    return VideoCard;
-}(_react2.default.Component);
-
-exports.default = VideoCard;
-}, 360, null, "WelcomeToVR/components/scenes/layouts/elements/VideoCard.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/ImageCaption.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/ImageCaption.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _TextCard = require(359            ); // 359 = ./TextCard.js
-
-var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
-
-var ImageCaption = function (_React$Component) {
-    babelHelpers.inherits(ImageCaption, _React$Component);
-
-    function ImageCaption() {
-        babelHelpers.classCallCheck(this, ImageCaption);
-
-        var _this = babelHelpers.possibleConstructorReturn(this, (ImageCaption.__proto__ || Object.getPrototypeOf(ImageCaption)).call(this));
-
-        _this.state = {
-            border: false
-        };
-        return _this;
-    }
-
-    babelHelpers.createClass(ImageCaption, [{
-        key: 'borderShow',
-        value: function borderShow() {
-            this.setState({ border: !this.state.border });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var border = this.state.border ? 1 : 0;
-            return _react2.default.createElement(
-                _reactVr.View,
-                { style: {
-                        opacity: 1,
-                        flex: 1,
-                        height: '100%',
-                        width: '100%',
-                        minHeight: 250,
-                        maxHeight: 600,
-                        minWidth: 400,
-                        maxWidth: 400,
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        marginHorizontal: 1,
-                        marginTop: 50
-                    }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 26
-                    }
-                },
-                _react2.default.createElement(
-                    _reactVr.VrButton,
-                    { onEnter: function onEnter() {
-                            return _this2.borderShow();
-                        }, onExit: function onExit() {
-                            return _this2.borderShow();
-                        }, style: {
-                            width: '100%',
-                            height: '100%',
-                            flex: 1,
-                            minWidth: 400,
-                            minHeight: 500,
-                            maxHeight: 500,
-                            maxWidth: 400
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 41
-                        }
-                    },
-                    _react2.default.createElement(_reactVr.Image, {
-                        source: { uri: this.props.src },
-                        style: {
-                            width: '100%',
-                            height: '100%',
-
-                            resizeMode: 'cover'
-                        },
-
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 51
-                        }
-                    })
-                ),
-                _react2.default.createElement(
-                    _reactVr.VrButton,
-                    { style: {
-                            width: '100%',
-                            height: '100%',
-                            flex: 1,
-                            minWidth: 400,
-                            minHeight: 100,
-                            maxHeight: 100,
-                            maxWidth: 400,
-                            backgroundColor: 'rgba(0,0,0,0)',
-                            marginTop: -50,
-                            opacity: border
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 62
-                        }
-                    },
-                    _react2.default.createElement(
-                        _reactVr.Text,
-                        { style: {
-                                flex: 1,
-                                minWidth: '100%',
-                                minHeight: '100%',
-                                fontSize: 45,
-                                color: '#FFF',
-                                fontWeight: '500',
-                                textAlign: 'center',
-                                textAlignVertical: 'center'
-                            }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 74
-                            }
-                        },
-                        this.props.text || this.props.children
-                    )
-                )
-            );
-        }
-    }]);
-    return ImageCaption;
-}(_react2.default.Component);
-
-exports.default = ImageCaption;
-}, 361, null, "WelcomeToVR/components/scenes/layouts/elements/ImageCaption.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/CardCarousel/carousel/carousel.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/CardCarousel/carousel/carousel.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _carouselItem = require(363             ); // 363 = ./carouselItem
-
-var _carouselItem2 = babelHelpers.interopRequireDefault(_carouselItem);
-
-var _gaze_button = require(365                         ); // 365 = ../gaze_button/gaze_button
-
-var _gaze_button2 = babelHelpers.interopRequireDefault(_gaze_button);
-
-var _cardTypes = require(364          ); // 364 = ./cardTypes
-
-var CardCarousel = function (_React$Component) {
-  babelHelpers.inherits(CardCarousel, _React$Component);
-
-  function CardCarousel(props) {
-    babelHelpers.classCallCheck(this, CardCarousel);
-
-    var _this = babelHelpers.possibleConstructorReturn(this, (CardCarousel.__proto__ || Object.getPrototypeOf(CardCarousel)).call(this, props));
-
-    _this.state = {
-      cardNumber: _this.props.initialCard,
-      textSlices: [],
-      currentTextSliceIndex: 0,
-      currentTextSlice: _this.props.children || _this.props.text,
-      cardType: _this.props.cardType,
-      largeText: false,
-      maxTextSize: _this.props.maxTextLength
-    };
-
-    _this.nextCard = _this.nextCard.bind(_this);
-    _this.prevCard = _this.prevCard.bind(_this);
-    _this.nextSlice = _this.nextSlice.bind(_this);
-    _this.prevSlice = _this.prevSlice.bind(_this);
-    _this.textSet = _this.textSet.bind(_this);
-    return _this;
-  }
-
-  babelHelpers.createClass(CardCarousel, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.textSet();
-      if (this.props.cardType === _cardTypes.IMAGE) {
-        this.setState({ largeText: true });
-      }
-    }
-  }, {
-    key: 'textSet',
-    value: function textSet() {
-      var iterateCount = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state.maxTextSize;
-
-
-      var text = this.props.children || this.props.text;
-      if (text.length < this.state.maxTextSize) {
-        this.setState({ currentTextSlice: text });
-      } else {
-        for (var i = 0; i < text.length; i += iterateCount) {
-          if (text.length - i >= iterateCount) {
-            this.state.textSlices.push(text.slice(i, i + iterateCount));
-          } else {
-            this.state.textSlices.push(text.slice(i, i + iterateCount));
-          }
-        }
-        this.setState({ currentTextSlice: this.state.textSlices[0], largeText: true });
-      }
-    }
-  }, {
-    key: 'nextSlice',
-    value: function nextSlice() {
-      var nextSliceNum = this.state.currentTextSliceIndex + 1;
-
-      if (nextSliceNum > this.state.textSlices.length - 1) {
-        this.setState({
-          currentTextSlice: this.state.textSlices[0],
-          currentTextSliceIndex: 0
-        });
-      } else {
-        this.setState({
-          currentTextSliceIndex: nextSliceNum,
-          currentTextSlice: this.state.textSlices[nextSliceNum]
-        });
-      }
-    }
-  }, {
-    key: 'prevSlice',
-    value: function prevSlice() {
-      var prevSliceNum = this.state.currentTextSliceIndex - 1;
-
-      if (prevSliceNum < 0) {
-        this.setState({
-          currentTextSlice: this.state.textSlices[this.state.textSlices.length - 1],
-          currentTextSliceIndex: this.state.textSlices.length - 1
-        });
-      } else {
-        this.setState({
-          currentTextSlice: this.state.textSlices[prevSliceNum],
-          currentTextSliceIndex: prevSliceNum
-        });
-      }
-    }
-  }, {
-    key: 'nextCard',
-    value: function nextCard() {
-      var nextCardNum = this.state.cardNumber + 1;
-
-      if (nextCardNum > this.props.itemCollection.length - 1) {
-        this.setState({
-          cardNumber: 0
-        });
-      } else {
-        this.setState({
-          cardNumber: nextCardNum
-        });
-      }
-    }
-  }, {
-    key: 'prevCard',
-    value: function prevCard() {
-      var prevCardNum = this.state.cardNumber - 1;
-
-      if (prevCardNum < 0) {
-        this.setState({
-          cardNumber: this.props.itemCollection.length - 1
-        });
-      } else {
-        this.setState({
-          cardNumber: prevCardNum
-        });
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var itemCollection = this.props.itemCollection;
-
-      var canNext = this.state.cardNumber < itemCollection.length;
-      var canPrev = this.state.cardNumber > 0;
-
-      return _react2.default.createElement(
-        _reactVr.View,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 122
-          }
-        },
-        _react2.default.createElement(
-          _reactVr.View,
-          { style: {
-              opacity: 1,
-              flex: 1,
-              width: '100%',
-              height: '100%',
-              minHeight: 250,
-              maxHeight: 500,
-              maxWidth: 400
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 123
-            }
-          },
-          _react2.default.createElement(
-            _carouselItem2.default,
-            { card: this.props.itemCollection[this.state.cardNumber],
-              cardType: this.state.cardType, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 132
-              }
-            },
-            this.state.currentTextSlice
-          ),
-          this.state.largeText && _react2.default.createElement(
-            _reactVr.View,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 136
-              }
-            },
-            _react2.default.createElement(
-              _gaze_button2.default,
-              { disabled: false, onClick: this.state.cardType === _cardTypes.IMAGE ? this.prevCard : this.prevSlice,
-                buttonStyle: {
-                  borderRadius: 40,
-                  opacity: .85,
-                  paddingLeft: .06,
-                  borderWidth: .01,
-                  width: 70,
-                  height: 70,
-                  backgroundColor: "#333",
-                  borderColor: "#222"
-                },
-                containerStyle: {
-                  position: 'absolute',
-                  transform: [{
-                    translate: [20, 100, 0]
-                  }]
-
-                }, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 137
-                }
-              },
-              _react2.default.createElement(
-                _reactVr.Text,
-                { style: {
-                    color: "white",
-                    bottom: 25,
-                    left: 10,
-                    fontSize: 80,
-                    fontWeight: "bold"
-                  }, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 155
-                  }
-                },
-                "<"
-              )
-            ),
-            _react2.default.createElement(
-              _gaze_button2.default,
-              { disabled: false, onClick: this.state.cardType === _cardTypes.IMAGE ? this.nextCard : this.nextSlice,
-                buttonStyle: {
-                  borderRadius: 40,
-                  opacity: .85,
-                  paddingLeft: .06,
-                  borderWidth: .01,
-                  width: 70,
-                  height: 70,
-                  backgroundColor: "#333",
-                  borderColor: "#222"
-                },
-                containerStyle: {
-                  position: "absolute",
-                  transform: [{
-                    translate: [320, 100, 0]
-                  }]
-                }, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 165
-                }
-              },
-              _react2.default.createElement(
-                _reactVr.Text,
-                { style: {
-                    color: "white",
-                    bottom: 25,
-                    left: 15,
-                    fontSize: 80,
-                    fontWeight: "bold"
-                  }, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 182
-                  }
-                },
-                ">"
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-  return CardCarousel;
-}(_react2.default.Component);
-
-exports.default = CardCarousel;
-}, 362, null, "WelcomeToVR/components/scenes/layouts/elements/CardCarousel/carousel/carousel.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/CardCarousel/carousel/carouselItem.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/CardCarousel/carousel/carouselItem.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _cardTypes = require(364             ); // 364 = ./cardTypes.js
-
-var _TextCard = require(359                ); // 359 = ../../TextCard.js
-
-var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
-
-var CarouselItem = function (_React$Component) {
-  babelHelpers.inherits(CarouselItem, _React$Component);
-
-  function CarouselItem(props) {
-    babelHelpers.classCallCheck(this, CarouselItem);
-
-    var _this = babelHelpers.possibleConstructorReturn(this, (CarouselItem.__proto__ || Object.getPrototypeOf(CarouselItem)).call(this, props));
-
-    _this.state = {
-      opacity: 1,
-      currentItem: _this.props.card,
-      textSlice: _this.props.children
-    };
-    return _this;
-  }
-
-  babelHelpers.createClass(CarouselItem, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(next) {
-      if (this.props.card != next.card) {
-        this.setState({ currentItem: next.card });
-      }
-      if (this.props.children != next.children) {
-        this.setState({ textSlice: next.children });
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-
-      var imageType = this.props.cardType === _cardTypes.IMAGE;
-      var textType = this.props.cardType === _cardTypes.TEXT;
-
-      return _react2.default.createElement(
-        _reactVr.View,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 36
-          }
-        },
-        imageType ? _react2.default.createElement(_reactVr.Image, {
-          style: {
-            margin: 5,
-            width: '100%',
-            height: '100%'
-
-          },
-          source: this.state.currentItem,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 38
-          }
-        }) : textType ? _react2.default.createElement(
-          _reactVr.View,
-          { style: { height: 500, width: 500 }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 48
-            }
-          },
-          _react2.default.createElement(
-            _reactVr.Text,
-            {
-              style: {
-                flex: 1,
-                backgroundColor: 'rgba(0,200,200,0.5)',
-                width: "100%",
-                height: "100",
-                maxWidth: 400,
-                maxHeight: 500,
-                lineHeight: 80,
-                fontSize: 40,
-                fontWeight: '400',
-                textAlign: 'center',
-                textAlignVertical: 'center',
-                margin: 2
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 49
-              }
-            },
-            this.state.textSlice
-          )
-        ) : _react2.default.createElement(
-          _reactVr.Text,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 67
-            }
-          },
-          'Stuff'
-        )
-      );
-    }
-  }]);
-  return CarouselItem;
-}(_react2.default.Component);
-
-exports.default = CarouselItem;
-}, 363, null, "WelcomeToVR/components/scenes/layouts/elements/CardCarousel/carousel/carouselItem.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/CardCarousel/carousel/cardTypes.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var IMAGE = exports.IMAGE = "IMAGE";
-var TEXT = exports.TEXT = "TEXT";
-}, 364, null, "WelcomeToVR/components/scenes/layouts/elements/CardCarousel/carousel/cardTypes.js");
-__d(/* WelcomeToVR/components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button.js";
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var GazeButton = function (_React$Component) {
-    babelHelpers.inherits(GazeButton, _React$Component);
-
-    function GazeButton(props) {
-        babelHelpers.classCallCheck(this, GazeButton);
-
-        var _this = babelHelpers.possibleConstructorReturn(this, (GazeButton.__proto__ || Object.getPrototypeOf(GazeButton)).call(this, props));
-
-        _this.onEnter = _this.onEnter.bind(_this);
-        _this.onExit = _this.onExit.bind(_this);
-        _this.finalizeSelection = _this.finalizeSelection.bind(_this);
-        _this.interval;
-        _this.animation;
-        _this.defaultHeight = .2;
-        _this.defaultWidth = 1;
-        _this.state = {
-            gazeProgressMeter: new _reactVr.Animated.Value(0)
-        };
-        return _this;
-    }
-
-    babelHelpers.createClass(GazeButton, [{
-        key: "finalizeSelection",
-        value: function finalizeSelection() {
-            var onClick = this.props.onClick;
-
-            onClick();
-        }
-    }, {
-        key: "onEnter",
-        value: function onEnter(e) {
-            var _props = this.props,
-                selectTimeout = _props.selectTimeout,
-                buttonStyle = _props.buttonStyle,
-                disabled = _props.disabled;
-
-            if (disabled) {
-                return;
-            }
-            var timeout = selectTimeout;
-            this.interval = setTimeout(this.finalizeSelection, timeout);
-        }
-    }, {
-        key: "onExit",
-        value: function onExit() {
-            clearTimeout(this.interval);
-        }
-    }, {
-        key: "render",
-        value: function render() {
-            var _this2 = this;
-
-            var _props2 = this.props,
-                buttonStyle = _props2.buttonStyle,
-                disabled = _props2.disabled,
-                containerStyle = _props2.containerStyle,
-                progressColor = _props2.progressColor,
-                selectTimeout = _props2.selectTimeout,
-                isSelected = _props2.isSelected;
-
-            var buttonWidth = buttonStyle && buttonStyle.width || this.defaultWidth;
-            var buttonHeight = buttonStyle && buttonStyle.height || this.defaultHeight;
-            var finalButtonStyle = babelHelpers.extends({}, buttonStyle, { width: buttonWidth, height: buttonHeight });
-            return _react2.default.createElement(
-                _reactVr.View,
-                { style: containerStyle, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 48
-                    }
-                },
-                _react2.default.createElement(
-                    _reactVr.VrButton,
-                    { onEnter: this.onEnter, onExit: this.onExit,
-                        disabled: disabled,
-                        style: finalButtonStyle,
-                        onClick: function onClick() {
-                            _this2.finalizeSelection();
-                            _this2.onExit();
-                        },
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 49
-                        }
-                    },
-                    this.props.children
-                )
-            );
-        }
-    }]);
-    return GazeButton;
-}(_react2.default.Component);
-
-GazeButton.defaultProps = {
-    selectTimeout: 1000,
-    progressColor: "#46A032"
-};
-exports.default = GazeButton;
-}, 365, null, "WelcomeToVR/components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button.js");
 __d(/* WelcomeToVR/vr/BrowserBridge.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -62141,11 +60555,11 @@ var BrowserBridge = function () {
 }();
 
 exports.default = BrowserBridge;
-}, 366, null, "WelcomeToVR/vr/BrowserBridge.js");
-__d(/* WelcomeToVR/final_components/PageConstructor.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 350, null, "WelcomeToVR/vr/BrowserBridge.js");
+__d(/* WelcomeToVR/components/PageConstructor.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/PageConstructor.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/PageConstructor.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -62155,55 +60569,49 @@ var _reactVr = require(22        ); // 22 = react-vr
 
 var _reactNative = require(205           ); // 205 = react-native
 
-var _CardContainer = require(368                    ); // 368 = ./cards/CardContainer
+var _CardContainer = require(352                    ); // 352 = ./cards/CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
-var _CardCol = require(373              ); // 373 = ./cards/CardCol
-
-var _CardCol2 = babelHelpers.interopRequireDefault(_CardCol);
-
-var _CardSorter = require(369                 ); // 369 = ./cards/CardSorter
+var _CardSorter = require(353                 ); // 353 = ./cards/CardSorter
 
 var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
 
-var _Gallery = require(374                ); // 374 = ./gallery/Gallery
+var _Gallery = require(357                ); // 357 = ./gallery/Gallery
 
 var _Gallery2 = babelHelpers.interopRequireDefault(_Gallery);
 
-var _GazeButton = require(375                  ); // 375 = ./button/GazeButton
+var _GalleryItem = require(358                    ); // 358 = ./gallery/GalleryItem
+
+var _GalleryItem2 = babelHelpers.interopRequireDefault(_GalleryItem);
+
+var _GazeButton = require(359                  ); // 359 = ./button/GazeButton
 
 var _GazeButton2 = babelHelpers.interopRequireDefault(_GazeButton);
 
-var _ImageCaption = require(376                   ); // 376 = ./cards/ImageCaption
+var _ImageCaption = require(360                   ); // 360 = ./cards/ImageCaption
 
 var _ImageCaption2 = babelHelpers.interopRequireDefault(_ImageCaption);
 
-var _ImageCard = require(370                ); // 370 = ./cards/ImageCard
+var _ImageCard = require(354                ); // 354 = ./cards/ImageCard
 
 var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
 
-var _TextCard = require(371               ); // 371 = ./cards/TextCard
+var _TextCard = require(355               ); // 355 = ./cards/TextCard
 
 var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
 
-var _VideoCard = require(372                ); // 372 = ./cards/VideoCard
+var _VideoCard = require(356                ); // 356 = ./cards/VideoCard
 
 var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
 
-var _cardTypes = require(377                      ); // 377 = ./carousel/cardTypes.js
+var _Carousel = require(361                  ); // 361 = ./carousel/Carousel
 
-var _carousel = require(378                     ); // 378 = ./carousel/carousel.js
+var _Carousel2 = babelHelpers.interopRequireDefault(_Carousel);
 
-var _carousel2 = babelHelpers.interopRequireDefault(_carousel);
-
-var _title = require(380      ); // 380 = ./title
+var _title = require(363      ); // 363 = ./title
 
 var _title2 = babelHelpers.interopRequireDefault(_title);
-
-var _GalleryItem = require(381                    ); // 381 = ./gallery/GalleryItem
-
-var _GalleryItem2 = babelHelpers.interopRequireDefault(_GalleryItem);
 
 var PageConstructor = function (_React$Component) {
   babelHelpers.inherits(PageConstructor, _React$Component);
@@ -62228,37 +60636,51 @@ var PageConstructor = function (_React$Component) {
       var _this2 = this;
 
       var theContent = Object.values(this.state.store);
-      var carouselImage = { type: 'image-carousel', content: [] };
+      var carouselImage = { type: 'image-carousel', content: [], flex: 2 };
+      var galleryItems = { type: 'gallery-list', content: [] };
 
       Object.values(theContent).forEach(function (el) {
         if (el.type === 'carousel-image-vr') {
           carouselImage.content.push(el.content);
-          delete theContent[el];
+          carouselImage.flex = parseInt(el.flex) || 2;
+        } else if (el.type === 'gallery-item') {
+          galleryItems.content.push(el.content);
         }
       });
 
-      theContent.push(carouselImage);
-      var toRender = [];
+      galleryItems.content = galleryItems.content.map(function (content, i) {
+        return _react2.default.createElement(_GalleryItem2.default, { src: content, key: i, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54
+          }
+        });
+      });
 
+      if (galleryItems.content.length > 1) theContent.push(galleryItems);
+      if (carouselImage.content.length > 1) theContent.push(carouselImage);
+
+      var toRender = [];
+      var key = void 0;
       Object.values(theContent).map(function (el) {
         switch (el.type) {
           case "text-vr":
             toRender.push(_react2.default.createElement(
-              _carousel2.default,
+              _Carousel2.default,
               {
                 key: el.key,
                 flex: 1,
                 initialCard: 0,
-                cardType: _cardTypes.TEXT,
+                type: "text",
                 maxTextLength: 120,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 49
+                  lineNumber: 67
                 }
               },
               el.content
             ));
             break;
+
           case "image-vr":
             toRender.push(_react2.default.createElement(_ImageCard2.default, {
               key: el.key,
@@ -62267,35 +60689,54 @@ var PageConstructor = function (_React$Component) {
               click: _this2.state.clickEvent,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 60
+                lineNumber: 79
               }
             }));
             break;
+
           case "video-vr":
             toRender.push(_react2.default.createElement(_VideoCard2.default, { key: el.key, src: el.content, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 68
+                lineNumber: 88
               }
             }));
             break;
-          case "image-carousel":
-            var key = Math.floor(Math.random() * 1000000000000);
 
+          case "gallery-list":
+
+            key = Math.floor(Math.random() * 1000000000000);
             toRender.push(_react2.default.createElement(
-              _carousel2.default,
+              _Gallery2.default,
+              { key: key, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 95
+                }
+              },
+              galleryItems.content.map(function (item) {
+                return item;
+              })
+            ));
+            break;
+
+          case "image-carousel":
+            key = Math.floor(Math.random() * 1000000000000);
+            toRender.push(_react2.default.createElement(
+              _Carousel2.default,
               {
                 key: key,
-                itemCollection: el.content,
+                imageCollection: el.content,
                 initialCard: 0,
-                cardType: _cardTypes.IMAGE,
-                maxTextLength: 120, __source: {
+                type: "image",
+                maxTextLength: 120,
+                flex: el.flex || 2, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 73
+                  lineNumber: 102
                 }
               },
               "image"
             ));
             break;
+
           default:
             break;
         }
@@ -62337,13 +60778,12 @@ var PageConstructor = function (_React$Component) {
     key: "render",
     value: function render() {
       var components = this.generateComponents();
-
       return _react2.default.createElement(
         _reactVr.View,
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135
+            lineNumber: 165
           }
         },
         _react2.default.createElement(
@@ -62358,7 +60798,7 @@ var PageConstructor = function (_React$Component) {
               transform: [{ translateX: this.state.slideLeft }]
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 136
+              lineNumber: 166
             }
           },
           components.map(function (comp) {
@@ -62372,11 +60812,11 @@ var PageConstructor = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PageConstructor;
-}, 367, null, "WelcomeToVR/final_components/PageConstructor.js");
-__d(/* WelcomeToVR/final_components/cards/CardContainer.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 351, null, "WelcomeToVR/components/PageConstructor.js");
+__d(/* WelcomeToVR/components/cards/CardContainer.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/cards/CardContainer.js';
+var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/cards/CardContainer.js';
 
 var _react = require(12     ); // 12 = react
 
@@ -62384,7 +60824,7 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _CardSorter = require(369           ); // 369 = ./CardSorter
+var _CardSorter = require(353           ); // 353 = ./CardSorter
 
 var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
 
@@ -62399,29 +60839,36 @@ var CardContainer = function (_React$Component) {
     babelHelpers.createClass(CardContainer, [{
         key: 'render',
         value: function render() {
-            var maxWidth = this.props.flex === 1 ? 400 : 2 ? 800 : 1200;
+            var cardStyling = this.props.cardStyling;
+
+
+            var maxWidth = this.props.flex * 400 || 800;
+
+            var defaultCardStyling = {
+                flex: this.props.flex || 1,
+                backgroundColor: 'rgba(0,200,200,0.5)',
+                borderWidth: 5,
+                borderColor: '#385f53',
+                minHeight: 250,
+                height: '100%',
+                width: '100%',
+                maxHeight: 500,
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                maxWidth: maxWidth,
+                margin: 10,
+                overflow: 'hidden'
+            };
+
+            var mergedCardStyling = babelHelpers.extends({}, defaultCardStyling, cardStyling);
+
             return _react2.default.createElement(
                 _reactVr.View,
                 {
-                    style: {
-                        flex: this.props.flex || 1,
-                        backgroundColor: 'rgba(0,200,200,0.5)',
-                        borderWidth: 5,
-                        borderColor: '#385f53',
-                        minHeight: 250,
-                        height: '100%',
-                        width: '100%',
-                        maxHeight: 500,
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-
-                        maxWidth: maxWidth,
-                        margin: 10,
-                        overflow: 'scroll'
-                    }, __source: {
+                    style: mergedCardStyling, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 11
+                        lineNumber: 34
                     }
                 },
                 this.props.children
@@ -62432,25 +60879,25 @@ var CardContainer = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = CardContainer;
-}, 368, null, "WelcomeToVR/final_components/cards/CardContainer.js");
-__d(/* WelcomeToVR/final_components/cards/CardSorter.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 352, null, "WelcomeToVR/components/cards/CardContainer.js");
+__d(/* WelcomeToVR/components/cards/CardSorter.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/cards/CardSorter.js';
+var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/cards/CardSorter.js';
 
 var _react = require(12     ); // 12 = react
 
 var _react2 = babelHelpers.interopRequireDefault(_react);
 
-var _ImageCard = require(370          ); // 370 = ./ImageCard
+var _ImageCard = require(354          ); // 354 = ./ImageCard
 
 var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
 
-var _TextCard = require(371         ); // 371 = ./TextCard
+var _TextCard = require(355         ); // 355 = ./TextCard
 
 var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
 
-var _VideoCard = require(372          ); // 372 = ./VideoCard
+var _VideoCard = require(356          ); // 356 = ./VideoCard
 
 var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
 
@@ -62493,11 +60940,11 @@ var CardSorter = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = CardSorter;
-}, 369, null, "WelcomeToVR/final_components/cards/CardSorter.js");
-__d(/* WelcomeToVR/final_components/cards/ImageCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
+}, 353, null, "WelcomeToVR/components/cards/CardSorter.js");
+__d(/* WelcomeToVR/components/cards/ImageCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/cards/ImageCard.js';
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/cards/ImageCard.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -62505,83 +60952,69 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _CardContainer = require(368              ); // 368 = ./CardContainer
+var _CardContainer = require(352              ); // 352 = ./CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
 var ImageCard = function (_React$Component) {
-    babelHelpers.inherits(ImageCard, _React$Component);
+  babelHelpers.inherits(ImageCard, _React$Component);
 
-    function ImageCard() {
-        babelHelpers.classCallCheck(this, ImageCard);
+  function ImageCard() {
+    babelHelpers.classCallCheck(this, ImageCard);
+    return babelHelpers.possibleConstructorReturn(this, (ImageCard.__proto__ || Object.getPrototypeOf(ImageCard)).call(this));
+  }
 
-        var _this = babelHelpers.possibleConstructorReturn(this, (ImageCard.__proto__ || Object.getPrototypeOf(ImageCard)).call(this));
+  babelHelpers.createClass(ImageCard, [{
+    key: "render",
+    value: function render() {
+      var cardStyling = this.props.cardStyling;
 
-        _this.state = {
-            border: false
-        };
-        return _this;
+      return _react2.default.createElement(
+        _CardContainer2.default,
+        { flex: this.props.flex || 1, cardStyling: cardStyling, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 15
+          }
+        },
+        _react2.default.createElement(
+          _reactVr.VrButton,
+          {
+            style: {
+              width: "100%",
+              height: "100%",
+              minHeight: 250,
+              maxHeight: 500,
+              maxWidth: 400
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 16
+            }
+          },
+          _react2.default.createElement(_reactVr.Image, {
+            source: { uri: this.props.src },
+            style: {
+              width: "100%",
+              height: "100%"
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          })
+        )
+      );
     }
-
-    babelHelpers.createClass(ImageCard, [{
-        key: 'borderShow',
-        value: function borderShow() {
-            this.setState({ border: !this.state.border });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                _CardContainer2.default,
-                { flex: this.props.flex || 1, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 25
-                    }
-                },
-                _react2.default.createElement(
-                    _reactVr.VrButton,
-                    { onClick: function onClick() {
-                            return _this2.props.click(_this2.props.passkey);
-                        }, style: {
-                            width: '100%',
-                            height: '100%',
-                            minHeight: 250,
-                            maxHeight: 500,
-                            maxWidth: 400
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 26
-                        }
-                    },
-                    _react2.default.createElement(_reactVr.Image, {
-                        source: { uri: this.props.src },
-                        style: {
-                            width: '100%',
-                            height: '100%',
-
-                            resizeMode: 'cover'
-                        },
-
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 38
-                        }
-                    })
-                )
-            );
-        }
-    }]);
-    return ImageCard;
+  }]);
+  return ImageCard;
 }(_react2.default.Component);
 
 exports.default = ImageCard;
-}, 370, null, "WelcomeToVR/final_components/cards/ImageCard.js");
-__d(/* WelcomeToVR/final_components/cards/TextCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
+}, 354, null, "WelcomeToVR/components/cards/ImageCard.js");
+__d(/* WelcomeToVR/components/cards/TextCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/cards/TextCard.js';
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/cards/TextCard.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -62589,60 +61022,78 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _CardContainer = require(368              ); // 368 = ./CardContainer
+var _CardContainer = require(352              ); // 352 = ./CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
 var TextCard = function (_React$Component) {
-    babelHelpers.inherits(TextCard, _React$Component);
+  babelHelpers.inherits(TextCard, _React$Component);
 
-    function TextCard() {
-        babelHelpers.classCallCheck(this, TextCard);
-        return babelHelpers.possibleConstructorReturn(this, (TextCard.__proto__ || Object.getPrototypeOf(TextCard)).apply(this, arguments));
+  function TextCard() {
+    babelHelpers.classCallCheck(this, TextCard);
+    return babelHelpers.possibleConstructorReturn(this, (TextCard.__proto__ || Object.getPrototypeOf(TextCard)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(TextCard, [{
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          cardStyling = _props.cardStyling,
+          textStyling = _props.textStyling,
+          flex = _props.flex;
+
+
+      var defaultCardStyling = {
+        padding: 5
+      };
+
+      var mergedCardStyling = babelHelpers.extends({}, defaultCardStyling, cardStyling);
+
+      var defaultTextStyling = {
+        width: "100%",
+        height: "100%",
+        maxHeight: 500,
+        lineHeight: 80,
+        fontSize: 40,
+        fontWeight: "400",
+        textAlign: "center",
+        textAlignVertical: "center"
+      };
+
+      var mergedTextStyling = babelHelpers.extends({}, defaultTextStyling, textStyling);
+
+      return _react2.default.createElement(
+        _CardContainer2.default,
+        {
+          flex: flex || 1,
+          cardStyling: mergedCardStyling, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        },
+        _react2.default.createElement(
+          _reactVr.Text,
+          {
+            style: mergedTextStyling,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 33
+            }
+          },
+          this.props.src || this.props.text || this.props.children
+        )
+      );
     }
-
-    babelHelpers.createClass(TextCard, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _CardContainer2.default,
-                { flex: this.props.flex || 1, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 9
-                    }
-                },
-                _react2.default.createElement(
-                    _reactVr.Text,
-                    {
-                        style: {
-                            width: "100%",
-                            height: "100",
-                            maxHeight: 500,
-                            lineHeight: 80,
-                            fontSize: 40,
-                            fontWeight: '400',
-                            textAlign: 'center',
-                            textAlignVertical: 'center'
-                        },
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 10
-                        }
-                    },
-                    this.props.src || this.props.text || this.props.children
-                )
-            );
-        }
-    }]);
-    return TextCard;
+  }]);
+  return TextCard;
 }(_react2.default.Component);
 
 exports.default = TextCard;
-}, 371, null, "WelcomeToVR/final_components/cards/TextCard.js");
-__d(/* WelcomeToVR/final_components/cards/VideoCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 355, null, "WelcomeToVR/components/cards/TextCard.js");
+__d(/* WelcomeToVR/components/cards/VideoCard.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/cards/VideoCard.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/cards/VideoCard.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -62650,7 +61101,7 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _CardContainer = require(368              ); // 368 = ./CardContainer
+var _CardContainer = require(352              ); // 352 = ./CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
@@ -62665,15 +61116,17 @@ var VideoCard = function (_React$Component) {
   babelHelpers.createClass(VideoCard, [{
     key: "render",
     value: function render() {
+      var cardStyling = this.props.cardStyling;
+
       return _react2.default.createElement(
         _CardContainer2.default,
-        { flex: this.props.flex || 2, __source: {
+        { flex: this.props.flex || 2, cardStyling: cardStyling, __source: {
             fileName: _jsxFileName,
-            lineNumber: 9
+            lineNumber: 10
           }
         },
         _react2.default.createElement(
-          _reactVr.VrButton,
+          _reactVr.View,
           {
             style: {
               width: "100%",
@@ -62683,7 +61136,7 @@ var VideoCard = function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 10
+              lineNumber: 11
             }
           },
           _react2.default.createElement(_reactVr.Video, {
@@ -62696,7 +61149,7 @@ var VideoCard = function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 18
+              lineNumber: 19
             }
           })
         )
@@ -62707,11 +61160,11 @@ var VideoCard = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = VideoCard;
-}, 372, null, "WelcomeToVR/final_components/cards/VideoCard.js");
-__d(/* WelcomeToVR/final_components/cards/CardCol.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 356, null, "WelcomeToVR/components/cards/VideoCard.js");
+__d(/* WelcomeToVR/components/gallery/Gallery.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/cards/CardCol.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/gallery/Gallery.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -62719,17 +61172,17 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _CardContainer = require(368              ); // 368 = ./CardContainer
+var _CardContainer = require(352                     ); // 352 = ../cards/CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
-var CardCol = function (_React$Component) {
-  babelHelpers.inherits(CardCol, _React$Component);
+var Gallery = function (_React$Component) {
+  babelHelpers.inherits(Gallery, _React$Component);
 
-  function CardCol(props) {
-    babelHelpers.classCallCheck(this, CardCol);
+  function Gallery(props) {
+    babelHelpers.classCallCheck(this, Gallery);
 
-    var _this = babelHelpers.possibleConstructorReturn(this, (CardCol.__proto__ || Object.getPrototypeOf(CardCol)).call(this, props));
+    var _this = babelHelpers.possibleConstructorReturn(this, (Gallery.__proto__ || Object.getPrototypeOf(Gallery)).call(this, props));
 
     _this.state = {
       cards: []
@@ -62737,7 +61190,7 @@ var CardCol = function (_React$Component) {
     return _this;
   }
 
-  babelHelpers.createClass(CardCol, [{
+  babelHelpers.createClass(Gallery, [{
     key: "componentWillMount",
     value: function componentWillMount() {
       var rows = this.props.rows || 2;
@@ -62747,19 +61200,31 @@ var CardCol = function (_React$Component) {
   }, {
     key: "generateCard",
     value: function generateCard(child, rows, cols, i) {
+      var width = this.props.rows === 3 ? 90 / cols + "%" : 95 / cols + "%";
+      var height = this.props.rows === 3 ? 90 / rows + "%" : 95 / rows + "%";
+
+      var galleryItemStyling = this.props.galleryItemStyling;
+
+
+      var defaultStyling = {
+        width: width,
+        height: height,
+        margin: 5,
+        borderWidth: 2,
+        borderColor: "#333",
+        backgroundColor: "#012020"
+      };
+
+      var mergedGalleryItemStyling = babelHelpers.extends({}, defaultStyling, galleryItemStyling);
+
       return _react2.default.createElement(
         _reactVr.View,
         {
-          style: {
-            width: 95 / cols + "%",
-            height: 95 / rows + "%",
-            margin: 5,
-            borderWidth: 2,
-            borderColor: "black"
-          },
-          key: i, __source: {
+          style: mergedGalleryItemStyling,
+          key: i,
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 32
+            lineNumber: 46
           }
         },
         child
@@ -62779,11 +61244,19 @@ var CardCol = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _props = this.props,
+          galleryStyling = _props.galleryStyling,
+          galleryItemStyling = _props.galleryItemStyling;
+
+
       return _react2.default.createElement(
         _CardContainer2.default,
-        { flex: Math.ceil(this.state.cards.length / 2), __source: {
+        {
+          flex: this.props.flex || Math.ceil(this.state.cards.length / (this.props.rows || 2)),
+          cardStyling: galleryStyling,
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 69
           }
         },
         _react2.default.createElement(
@@ -62791,16 +61264,16 @@ var CardCol = function (_React$Component) {
           {
             style: {
               opacity: 1,
-
               height: "100%",
               width: "100%",
               flexDirection: "row",
               flexWrap: "wrap",
               alignItems: "center",
               justifyContent: "center"
-            }, __source: {
+            },
+            __source: {
               fileName: _jsxFileName,
-              lineNumber: 59
+              lineNumber: 76
             }
           },
           this.state.cards
@@ -62808,15 +61281,15 @@ var CardCol = function (_React$Component) {
       );
     }
   }]);
-  return CardCol;
+  return Gallery;
 }(_react2.default.Component);
 
-exports.default = CardCol;
-}, 373, null, "WelcomeToVR/final_components/cards/CardCol.js");
-__d(/* WelcomeToVR/final_components/gallery/Gallery.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+exports.default = Gallery;
+}, 357, null, "WelcomeToVR/components/gallery/Gallery.js");
+__d(/* WelcomeToVR/components/gallery/GalleryItem.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/gallery/Gallery.js';
+var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/gallery/GalleryItem.js';
 
 var _react = require(12     ); // 12 = react
 
@@ -62824,104 +61297,91 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _CardContainer = require(368                     ); // 368 = ../cards/CardContainer
+var GalleryItem = function (_React$Component) {
+    babelHelpers.inherits(GalleryItem, _React$Component);
 
-var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
-
-var Gallery = function (_React$Component) {
-    babelHelpers.inherits(Gallery, _React$Component);
-
-    function Gallery(props) {
-        babelHelpers.classCallCheck(this, Gallery);
-
-        var _this = babelHelpers.possibleConstructorReturn(this, (Gallery.__proto__ || Object.getPrototypeOf(Gallery)).call(this, props));
-
-        _this.state = {
-            cards: []
-        };
-        return _this;
+    function GalleryItem() {
+        babelHelpers.classCallCheck(this, GalleryItem);
+        return babelHelpers.possibleConstructorReturn(this, (GalleryItem.__proto__ || Object.getPrototypeOf(GalleryItem)).call(this));
     }
 
-    babelHelpers.createClass(Gallery, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            var rows = this.props.rows || 2;
-            var cols = this.props.cols || Math.ceil(this.props.children.length / 2);
-            this.renderCards(rows, cols);
-        }
-    }, {
-        key: 'generateCard',
-        value: function generateCard(child, rows, cols, i) {
-            return _react2.default.createElement(
-                _reactVr.View,
-                { style: {
-                        width: 95 / cols + '%',
-                        height: 95 / rows + '%',
-                        margin: 5,
-                        borderWidth: 2,
-                        borderColor: 'black'
-                    },
-                    key: i, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 35
-                    }
-                },
-                child
-            );
-        }
-    }, {
-        key: 'renderCards',
-        value: function renderCards(rows, cols) {
-
-            var cards = [];
-            for (var i = 0; i < this.props.children.length; i++) {
-                cards.push(this.generateCard(this.props.children[i], rows, cols, i));
-            }
-            this.setState({
-                cards: cards
-            });
-        }
-    }, {
+    babelHelpers.createClass(GalleryItem, [{
         key: 'render',
         value: function render() {
+            var content = void 0;
+            var itemStyling = this.props.itemStyling;
+
+            var defaultStyling = {
+                width: '100%',
+                height: '100%'
+            };
+            var defaultTextStyling = {
+                width: '100%',
+                height: '100%',
+                fontSize: 30,
+                fontWeight: "400",
+                textAlign: "center",
+                textAlignVertical: "center"
+            };
+            var mergedStyling = babelHelpers.extends({}, defaultStyling, itemStyling);
+            var mergedTextStyling = babelHelpers.extends({}, defaultTextStyling, itemStyling);
+
+            switch (this.props.type) {
+                case "image":
+                    content = _react2.default.createElement(_reactVr.Image, {
+                        source: { uri: this.props.src },
+                        style: mergedStyling,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 29
+                        }
+                    });
+                    break;
+                case "video":
+                    content = _react2.default.createElement(_reactVr.Video, {
+                        source: { uri: this.props.src },
+                        style: mergedStyling,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 35
+                        }
+                    });
+                    break;
+                case "text":
+                    content = _react2.default.createElement(
+                        _reactVr.Text,
+                        {
+                            style: mergedTextStyling,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 41
+                            }
+                        },
+                        this.props.text || this.props.children
+                    );
+                    break;
+            }
+
             return _react2.default.createElement(
-                _CardContainer2.default,
-                { flex: Math.ceil(this.state.cards.length / 2), __source: {
+                _reactVr.View,
+                { flex: this.props.flex, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 63
+                        lineNumber: 50
                     }
                 },
-                _react2.default.createElement(
-                    _reactVr.View,
-                    { style: {
-                            opacity: 1,
-
-                            height: '100%',
-                            width: '100%',
-
-                            flexDirection: 'row',
-                            flexWrap: 'wrap',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 64
-                        }
-                    },
-                    this.state.cards
-                )
+                content
             );
         }
     }]);
-    return Gallery;
+    return GalleryItem;
 }(_react2.default.Component);
 
-exports.default = Gallery;
-}, 374, null, "WelcomeToVR/final_components/gallery/Gallery.js");
-__d(/* WelcomeToVR/final_components/button/GazeButton.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+exports.default = GalleryItem;
+}, 358, null, "WelcomeToVR/components/gallery/GalleryItem.js");
+__d(/* WelcomeToVR/components/button/GazeButton.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/button/GazeButton.js';
+var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/button/GazeButton.js';
 
 var _react = require(12     ); // 12 = react
 
@@ -62961,7 +61421,7 @@ var GazeButton = function (_React$Component) {
 
             var onTrigger = this.props.onTrigger;
 
-            onTrigger();
+            if (onTrigger) onTrigger();
         }
     }, {
         key: 'onEnter',
@@ -62976,7 +61436,7 @@ var GazeButton = function (_React$Component) {
 
             var onHover = this.props.onHover;
 
-            onHover();
+            if (onHover) onHover();
         }
     }, {
         key: 'onExit',
@@ -62991,56 +61451,54 @@ var GazeButton = function (_React$Component) {
 
             var onLeave = this.props.onLeave;
 
-            onLeave();
+            if (onLeave) onLeave();
         }
     }, {
         key: 'render',
         value: function render() {
             var _props = this.props,
                 buttonStyle = _props.buttonStyle,
-                progressDisabled = _props.progressDisabled;
+                progressDisabled = _props.progressDisabled,
+                progressColor = _props.progressColor;
 
 
-            var style = {
+            var defaultStyle = {
                 width: .5,
-
                 overflow: 'hidden',
                 height: "100%",
                 justifyContent: "center",
                 alignItems: "center"
             };
 
-            var mergedStyle = babelHelpers.extends({}, buttonStyle, style);
+            var mergedStyle = babelHelpers.extends({}, defaultStyle, buttonStyle);
 
             return _react2.default.createElement(
                 _reactVr.VrButton,
                 {
                     onEnter: this.onEnter.bind(this),
                     onExit: this.onExit.bind(this),
-                    style: style,
-                    onClick: this.triggerSelection,
                     style: mergedStyle,
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 81
+                        lineNumber: 78
                     }
                 },
                 this.props.children,
                 !progressDisabled ? _react2.default.createElement(_reactVr.Animated.View, {
                     style: {
-                        backgroundColor: 'rgb(200, 200, 200)',
+                        backgroundColor: progressColor || 'rgb(200, 200, 200)',
                         bottom: 0,
                         width: this.state.progressWidth,
                         height: .01
                     },
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 89
+                        lineNumber: 84
                     }
                 }) : _react2.default.createElement(_reactVr.View, {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 96
+                        lineNumber: 91
                     }
                 })
             );
@@ -63050,11 +61508,11 @@ var GazeButton = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = GazeButton;
-}, 375, null, "WelcomeToVR/final_components/button/GazeButton.js");
-__d(/* WelcomeToVR/final_components/cards/ImageCaption.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 359, null, "WelcomeToVR/components/button/GazeButton.js");
+__d(/* WelcomeToVR/components/cards/ImageCaption.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/cards/ImageCaption.js';
+var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/cards/ImageCaption.js';
 
 var _react = require(12     ); // 12 = react
 
@@ -63062,58 +61520,64 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _TextCard = require(371            ); // 371 = ./TextCard.js
+var _TextCard = require(355            ); // 355 = ./TextCard.js
 
 var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
 
-var _CardContainer = require(368              ); // 368 = ./CardContainer
+var _CardContainer = require(352              ); // 352 = ./CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
 var ImageCaption = function (_React$Component) {
     babelHelpers.inherits(ImageCaption, _React$Component);
 
-    function ImageCaption() {
+    function ImageCaption(props) {
         babelHelpers.classCallCheck(this, ImageCaption);
 
-        var _this = babelHelpers.possibleConstructorReturn(this, (ImageCaption.__proto__ || Object.getPrototypeOf(ImageCaption)).call(this));
+        var _this = babelHelpers.possibleConstructorReturn(this, (ImageCaption.__proto__ || Object.getPrototypeOf(ImageCaption)).call(this, props));
 
         _this.state = {
-            border: false
+            displayCaption: _this.props.alwaysShow || false
         };
+
         return _this;
     }
 
     babelHelpers.createClass(ImageCaption, [{
-        key: 'borderShow',
-        value: function borderShow() {
-            this.setState({ border: !this.state.border });
+        key: 'toggleCaption',
+        value: function toggleCaption() {
+            this.setState({ displayCaption: !this.state.displayCaption });
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
 
-            var border = this.state.border ? 1 : 0;
+            var displayCaption = void 0;
+            if (!this.props.alwaysShow) {
+                displayCaption = this.state.displayCaption ? 1 : 0;
+            } else {
+                displayCaption = 1;
+            }
+
+            var toggleHandler = this.props.alwaysShow ? function () {} : this.toggleCaption.bind(this);
+
             return _react2.default.createElement(
                 _CardContainer2.default,
                 { flex: this.props.flex, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 28
+                        lineNumber: 41
                     }
                 },
                 _react2.default.createElement(
                     _reactVr.VrButton,
-                    { onEnter: function onEnter() {
-                            return _this2.borderShow();
-                        }, onExit: function onExit() {
-                            return _this2.borderShow();
-                        }, style: {
+                    {
+                        onEnter: toggleHandler, onExit: toggleHandler,
+                        style: {
                             width: '100%',
                             height: '100%'
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 29
+                            lineNumber: 42
                         }
                     },
                     _react2.default.createElement(_reactVr.Image, {
@@ -63125,7 +61589,7 @@ var ImageCaption = function (_React$Component) {
 
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 34
+                            lineNumber: 49
                         }
                     }),
                     _react2.default.createElement(
@@ -63134,11 +61598,11 @@ var ImageCaption = function (_React$Component) {
                                 width: '100%',
                                 height: '100%',
                                 flex: 1,
-                                opacity: border,
+                                opacity: displayCaption,
                                 alignItems: 'center'
                             }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 42
+                                lineNumber: 57
                             }
                         },
                         _react2.default.createElement(
@@ -63155,10 +61619,10 @@ var ImageCaption = function (_React$Component) {
                                     padding: '10'
                                 }, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 49
+                                    lineNumber: 64
                                 }
                             },
-                            this.props.text || this.props.children
+                            this.props.caption || this.props.children
                         )
                     )
                 )
@@ -63169,17 +61633,11 @@ var ImageCaption = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ImageCaption;
-}, 376, null, "WelcomeToVR/final_components/cards/ImageCaption.js");
-__d(/* WelcomeToVR/final_components/carousel/cardTypes.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 360, null, "WelcomeToVR/components/cards/ImageCaption.js");
+__d(/* WelcomeToVR/components/carousel/Carousel.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var IMAGE = exports.IMAGE = "IMAGE";
-var TEXT = exports.TEXT = "TEXT";
-}, 377, null, "WelcomeToVR/final_components/carousel/cardTypes.js");
-__d(/* WelcomeToVR/final_components/carousel/carousel.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/carousel/carousel.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/carousel/Carousel.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -63187,34 +61645,28 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _carouselItem = require(379             ); // 379 = ./carouselItem
+var _CarouselItem = require(362             ); // 362 = ./CarouselItem
 
-var _carouselItem2 = babelHelpers.interopRequireDefault(_carouselItem);
+var _CarouselItem2 = babelHelpers.interopRequireDefault(_CarouselItem);
 
-var _gaze_button = require(365                                                                            ); // 365 = ../../components/scenes/layouts/elements/CardCarousel/gaze_button/gaze_button
-
-var _gaze_button2 = babelHelpers.interopRequireDefault(_gaze_button);
-
-var _cardTypes = require(377          ); // 377 = ./cardTypes
-
-var _CardContainer = require(368                     ); // 368 = ../cards/CardContainer
+var _CardContainer = require(352                     ); // 352 = ../cards/CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
-var CardCarousel = function (_React$Component) {
-  babelHelpers.inherits(CardCarousel, _React$Component);
+var Carousel = function (_React$Component) {
+  babelHelpers.inherits(Carousel, _React$Component);
 
-  function CardCarousel(props) {
-    babelHelpers.classCallCheck(this, CardCarousel);
+  function Carousel(props) {
+    babelHelpers.classCallCheck(this, Carousel);
 
-    var _this = babelHelpers.possibleConstructorReturn(this, (CardCarousel.__proto__ || Object.getPrototypeOf(CardCarousel)).call(this, props));
+    var _this = babelHelpers.possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).call(this, props));
 
     _this.state = {
       cardNumber: _this.props.initialCard,
       textSlices: [],
       currentTextSliceIndex: 0,
       currentTextSlice: '',
-      cardType: _this.props.cardType,
+      type: _this.props.type,
       largeText: false,
       maxTextSize: _this.props.maxTextSize || _this.props.flex > 1 ? 200 : 120
     };
@@ -63227,11 +61679,11 @@ var CardCarousel = function (_React$Component) {
     return _this;
   }
 
-  babelHelpers.createClass(CardCarousel, [{
+  babelHelpers.createClass(Carousel, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.textSet();
-      if (this.props.cardType === _cardTypes.IMAGE && this.props.itemCollection && this.props.itemCollection.length > 1) {
+      if (this.props.type === "image" && this.props.imageCollection && this.props.imageCollection.length > 1) {
         this.setState({ largeText: true });
       }
     }
@@ -63320,7 +61772,7 @@ var CardCarousel = function (_React$Component) {
     value: function nextCard() {
       var nextCardNum = this.state.cardNumber + 1;
 
-      if (nextCardNum > this.props.itemCollection.length - 1) {
+      if (nextCardNum > this.props.imageCollection.length - 1) {
         this.setState({
           cardNumber: 0
         });
@@ -63337,7 +61789,7 @@ var CardCarousel = function (_React$Component) {
 
       if (prevCardNum < 0) {
         this.setState({
-          cardNumber: this.props.itemCollection.length - 1
+          cardNumber: this.props.imageCollection.length - 1
         });
       } else {
         this.setState({
@@ -63348,18 +61800,55 @@ var CardCarousel = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var itemCollection = this.props.itemCollection;
+      var _props = this.props,
+          imageCollection = _props.imageCollection,
+          cardStyling = _props.cardStyling,
+          buttonStyling = _props.buttonStyling,
+          arrowStyling = _props.arrowStyling;
 
-      if (itemCollection) {
-        var canNext = this.state.cardNumber < itemCollection.length;
+      if (imageCollection) {
+        var canNext = this.state.cardNumber < imageCollection.length;
         var canPrev = this.state.cardNumber > 0;
       }
 
+      var defaultButtonStyling = {
+        borderRadius: 40,
+        opacity: 0.85,
+        paddingLeft: 0.06,
+        borderWidth: 0.01,
+        width: 70,
+        height: 70,
+        backgroundColor: "#333",
+        borderColor: "#222",
+        position: "absolute",
+        bottom: -90,
+        right: 10,
+        left: 10,
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+      };
+
+      var mergedButtonStyling = babelHelpers.extends({}, defaultButtonStyling, buttonStyling);
+
+      var rightButtonStyling = babelHelpers.extends({}, mergedButtonStyling);
+      delete rightButtonStyling.left;
+      var leftButtonStyling = babelHelpers.extends({}, mergedButtonStyling);
+      delete leftButtonStyling.right;
+
+      var defaultArrowStyling = {
+        color: "white",
+        fontSize: 80,
+        fontWeight: "bold"
+      };
+
+      var mergedArrowStyling = babelHelpers.extends({}, defaultArrowStyling, arrowStyling);
+
       return _react2.default.createElement(
         _CardContainer2.default,
-        { flex: this.props.flex || 1, __source: {
+        { flex: this.props.flex || 1,
+          cardStyling: cardStyling, __source: {
             fileName: _jsxFileName,
-            lineNumber: 142
+            lineNumber: 171
           }
         },
         _react2.default.createElement(
@@ -63371,18 +61860,18 @@ var CardCarousel = function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 143
+              lineNumber: 173
             }
           },
           _react2.default.createElement(
-            _carouselItem2.default,
+            _CarouselItem2.default,
             {
-              card: itemCollection ? itemCollection[this.state.cardNumber] : null,
-              cardType: this.state.cardType,
+              card: imageCollection ? imageCollection[this.state.cardNumber] : null,
+              type: this.props.type,
               flex: this.props.flex,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 149
+                lineNumber: 179
               }
             },
             this.state.currentTextSlice
@@ -63392,45 +61881,26 @@ var CardCarousel = function (_React$Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 158
+                lineNumber: 188
               }
             },
             _react2.default.createElement(
               _reactVr.VrButton,
               {
-                style: {
-                  borderRadius: 40,
-                  opacity: 0.85,
-                  paddingLeft: 0.06,
-                  borderWidth: 0.01,
-                  width: 70,
-                  height: 70,
-                  backgroundColor: "#333",
-                  borderColor: "#222",
-                  position: "absolute",
-                  left: 10,
-                  bottom: 10
-                },
-                disabled: false,
-                onClick: this.state.cardType === _cardTypes.IMAGE ? this.prevCard : this.prevSlice,
+                style: leftButtonStyling,
+                onClick: this.props.type === "image" ? this.prevCard : this.prevSlice,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 159
+                  lineNumber: 189
                 }
               },
               _react2.default.createElement(
                 _reactVr.Text,
                 {
-                  style: {
-                    color: "white",
-                    bottom: 25,
-                    left: 10,
-                    fontSize: 80,
-                    fontWeight: "bold"
-                  },
+                  style: mergedArrowStyling,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 178
+                    lineNumber: 195
                   }
                 },
                 "<"
@@ -63439,39 +61909,20 @@ var CardCarousel = function (_React$Component) {
             _react2.default.createElement(
               _reactVr.VrButton,
               {
-                disabled: false,
-                onClick: this.state.cardType === _cardTypes.IMAGE ? this.nextCard : this.nextSlice,
-                style: {
-                  borderRadius: 40,
-                  opacity: 0.85,
-                  paddingLeft: 0.06,
-                  borderWidth: 0.01,
-                  width: 70,
-                  height: 70,
-                  backgroundColor: "#333",
-                  borderColor: "#222",
-                  position: "absolute",
-                  right: 10,
-                  bottom: 10
-                },
+                onClick: this.props.type === "image" ? this.nextCard : this.nextSlice,
+                style: rightButtonStyling,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 190
+                  lineNumber: 201
                 }
               },
               _react2.default.createElement(
                 _reactVr.Text,
                 {
-                  style: {
-                    color: "white",
-                    bottom: 25,
-                    left: 15,
-                    fontSize: 80,
-                    fontWeight: "bold"
-                  },
+                  style: mergedArrowStyling,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 209
+                    lineNumber: 207
                   }
                 },
                 ">"
@@ -63482,27 +61933,21 @@ var CardCarousel = function (_React$Component) {
       );
     }
   }]);
-  return CardCarousel;
+  return Carousel;
 }(_react2.default.Component);
 
-exports.default = CardCarousel;
-}, 378, null, "WelcomeToVR/final_components/carousel/carousel.js");
-__d(/* WelcomeToVR/final_components/carousel/carouselItem.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+exports.default = Carousel;
+}, 361, null, "WelcomeToVR/components/carousel/Carousel.js");
+__d(/* WelcomeToVR/components/carousel/CarouselItem.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/carousel/carouselItem.js';
+var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/components/carousel/CarouselItem.js';
 
 var _react = require(12     ); // 12 = react
 
 var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
-
-var _cardTypes = require(377             ); // 377 = ./cardTypes.js
-
-var _TextCard = require(371                   ); // 371 = ../cards/TextCard.js
-
-var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
 
 var CarouselItem = function (_React$Component) {
   babelHelpers.inherits(CarouselItem, _React$Component);
@@ -63523,78 +61968,66 @@ var CarouselItem = function (_React$Component) {
   babelHelpers.createClass(CarouselItem, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(next) {
-      if (this.props.card != next.card) {
+      if (this.props.card !== next.card) {
         this.setState({ currentItem: next.card });
       }
-      if (this.props.children != next.children) {
+      if (this.props.children !== next.children) {
         this.setState({ textSlice: next.children });
       }
     }
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.setState({
-        currentItem: this.props.card
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var imageType = this.props.cardType === _cardTypes.IMAGE;
-      var textType = this.props.cardType === _cardTypes.TEXT;
+
       return _react2.default.createElement(
         _reactVr.View,
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 30
           }
         },
-        imageType ? _react2.default.createElement(_reactVr.Image, {
+        this.props.type === "image" ? _react2.default.createElement(_reactVr.Image, {
           style: {
             width: '100%',
             height: '100%'
-
           },
           source: { uri: this.state.currentItem },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 32
           }
-        }) : textType ? _react2.default.createElement(
+        }) : _react2.default.createElement(
           _reactVr.View,
-          { style: { height: '100%', width: '100%' }, __source: {
+          { style: {
+              width: '100%',
+              height: '100%',
+              padding: 30
+            }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 55
+              lineNumber: 40
             }
           },
           _react2.default.createElement(
             _reactVr.Text,
             {
               style: {
+                flex: 1,
                 width: "100%",
                 height: "100%",
+                lineHeight: 80,
                 fontSize: 40,
+                fontWeight: '400',
                 textAlign: 'center',
-                textAlignVertical: 'center',
-                marginBottom: this.props.flex > 1 ? 0 : 100
+                textAlignVertical: 'center'
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 56
+                lineNumber: 45
               }
             },
             this.state.textSlice
           )
-        ) : _react2.default.createElement(
-          _reactVr.Text,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 69
-            }
-          },
-          'Stuff'
         )
       );
     }
@@ -63603,11 +62036,11 @@ var CarouselItem = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = CarouselItem;
-}, 379, null, "WelcomeToVR/final_components/carousel/carouselItem.js");
-__d(/* WelcomeToVR/final_components/title.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 362, null, "WelcomeToVR/components/carousel/CarouselItem.js");
+__d(/* WelcomeToVR/components/title.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/title.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/title.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -63617,7 +62050,7 @@ var _reactVr = require(22        ); // 22 = react-vr
 
 var _reactNative = require(205           ); // 205 = react-native
 
-var _GazeButton = require(375                  ); // 375 = ./button/GazeButton
+var _GazeButton = require(359                  ); // 359 = ./button/GazeButton
 
 var _GazeButton2 = babelHelpers.interopRequireDefault(_GazeButton);
 
@@ -63634,7 +62067,8 @@ var Title = function (_React$Component) {
       slideUp: new _reactVr.Animated.Value(0),
       fadeInTitle: new _reactVr.Animated.Value(0),
       fadeInStart: new _reactVr.Animated.Value(0),
-      enteredScene: false
+      enteredScene: false,
+      buttonLoaded: false
     };
     return _this;
   }
@@ -63642,6 +62076,8 @@ var Title = function (_React$Component) {
   babelHelpers.createClass(Title, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideForward, {
         toValue: -3,
         duration: 3000,
@@ -63656,19 +62092,23 @@ var Title = function (_React$Component) {
         easing: _reactNative.Easing.linear
       }), _reactVr.Animated.timing(this.state.fadeInStart, {
         toValue: 1,
-        duration: 3000,
+        duration: 5000,
         delay: 3000,
         easing: _reactNative.Easing.bezier(0.5, 0.34, 0.3, 0.88)
       })])]).start();
+
+      setTimeout(function () {
+        return _this2.setState({ buttonLoaded: true });
+      }, 3000);
     }
   }, {
     key: "handleTrigger",
     value: function handleTrigger() {
-      var _this2 = this;
+      var _this3 = this;
 
       setTimeout(this.props.activateScene, 3000);
       setTimeout(function () {
-        return _this2.setState({ enteredScene: true });
+        return _this3.setState({ enteredScene: true });
       }, 3000);
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideForward, {
         toValue: -5,
@@ -63696,8 +62136,29 @@ var Title = function (_React$Component) {
           slideUp = _state.slideUp,
           fadeInTitle = _state.fadeInTitle,
           fadeInStart = _state.fadeInStart,
-          enteredScene = _state.enteredScene;
+          enteredScene = _state.enteredScene,
+          buttonLoaded = _state.buttonLoaded;
+      var _props = this.props,
+          title = _props.title,
+          startText = _props.startText,
+          titleStyling = _props.titleStyling,
+          startTextStyling = _props.startTextStyling;
 
+
+      var defaultTitleStyling = {
+        fontSize: 0.6,
+        transform: [{ translate: [0, .2, 0] }]
+      };
+
+      var mergedTitleStyling = babelHelpers.extends({}, defaultTitleStyling, titleStyling);
+
+      var defaultStartTextStyling = {
+        fontSize: 0.3,
+        textAlign: "center",
+        textAlignVertical: "center"
+      };
+
+      var mergedStartTextStyling = babelHelpers.extends({}, defaultStartTextStyling, startTextStyling);
 
       return _react2.default.createElement(
         _reactVr.Animated.View,
@@ -63706,7 +62167,7 @@ var Title = function (_React$Component) {
             opacity: fadeInTitle,
             padding: 0.02,
             margin: 0.02,
-            width: 10,
+            width: 50,
             height: 0.3,
             layoutOrigin: [0.5, 0.5],
             transform: [{ translate: [0, slideUp, slideForward] }],
@@ -63717,29 +62178,27 @@ var Title = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 99
           }
         },
         _react2.default.createElement(
           _reactVr.Text,
           {
-            style: {
-              fontSize: 0.6,
-              transform: [{ translate: [0, 0, 0] }]
-            },
+            style: mergedTitleStyling,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 95
+              lineNumber: 114
             }
           },
-          "Phantom VR"
+          title || 'Sample Site'
         ),
-        !enteredScene ? _react2.default.createElement(
+        !enteredScene && buttonLoaded ? _react2.default.createElement(
           _GazeButton2.default,
           {
-            onTrigger: this.handleTrigger.bind(this), __source: {
+            onTrigger: this.handleTrigger.bind(this),
+            __source: {
               fileName: _jsxFileName,
-              lineNumber: 105
+              lineNumber: 121
             }
           },
           _react2.default.createElement(
@@ -63747,34 +62206,30 @@ var Title = function (_React$Component) {
             {
               style: {
                 opacity: fadeInStart,
-                width: 1,
+                width: 15,
                 backgroundColor: "transparent"
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 107
+                lineNumber: 124
               }
             },
             _react2.default.createElement(
               _reactVr.Text,
               {
-                style: {
-                  fontSize: 0.3,
-                  textAlign: "center",
-                  textAlignVertical: "center"
-                },
+                style: mergedStartTextStyling,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 118
+                  lineNumber: 131
                 }
               },
-              "Start"
+              startText || 'Start'
             )
           )
         ) : _react2.default.createElement(_reactVr.View, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 128
+            lineNumber: 137
           }
         })
       );
@@ -63784,71 +62239,11 @@ var Title = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Title;
-}, 380, null, "WelcomeToVR/final_components/title.js");
-__d(/* WelcomeToVR/final_components/gallery/GalleryItem.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var _jsxFileName = '/Users/jonathanhalloran/Desktop/PhantomVR/final_components/gallery/GalleryItem.js';
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var GalleryItem = function (_React$Component) {
-    babelHelpers.inherits(GalleryItem, _React$Component);
-
-    function GalleryItem() {
-        babelHelpers.classCallCheck(this, GalleryItem);
-
-        var _this = babelHelpers.possibleConstructorReturn(this, (GalleryItem.__proto__ || Object.getPrototypeOf(GalleryItem)).call(this));
-
-        _this.state = {
-            border: false
-        };
-        return _this;
-    }
-
-    babelHelpers.createClass(GalleryItem, [{
-        key: 'borderShow',
-        value: function borderShow() {
-            this.setState({ border: !this.state.border });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactVr.View,
-                { flex: this.props.flex, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 26
-                    }
-                },
-                _react2.default.createElement(_reactVr.Image, {
-                    source: { uri: this.props.src },
-                    style: {
-                        width: '100%',
-                        height: '100%'
-                    },
-
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 27
-                    }
-                })
-            );
-        }
-    }]);
-    return GalleryItem;
-}(_react2.default.Component);
-
-exports.default = GalleryItem;
-}, 381, null, "WelcomeToVR/final_components/gallery/GalleryItem.js");
-__d(/* WelcomeToVR/final_components/app.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 363, null, "WelcomeToVR/components/title.js");
+__d(/* WelcomeToVR/components/app.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/app.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/app.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -63856,27 +62251,27 @@ var _react2 = babelHelpers.interopRequireDefault(_react);
 
 var _reactVr = require(22        ); // 22 = react-vr
 
-var _gallery = require(383                 ); // 383 = ./gallery/gallery1
+var _page = require(365      ); // 365 = ./page1
 
-var _gallery2 = babelHelpers.interopRequireDefault(_gallery);
+var _page2 = babelHelpers.interopRequireDefault(_page);
 
-var _gallery3 = require(384                 ); // 384 = ./gallery/gallery2
+var _page3 = require(366      ); // 366 = ./page2
 
-var _gallery4 = babelHelpers.interopRequireDefault(_gallery3);
+var _page4 = babelHelpers.interopRequireDefault(_page3);
 
-var _gallery5 = require(385                 ); // 385 = ./gallery/gallery3
+var _page5 = require(367      ); // 367 = ./page3
 
-var _gallery6 = babelHelpers.interopRequireDefault(_gallery5);
+var _page6 = babelHelpers.interopRequireDefault(_page5);
 
-var _ContentPlane = require(386             ); // 386 = ./ContentPlane
+var _ContentPlane = require(368             ); // 368 = ./ContentPlane
 
 var _ContentPlane2 = babelHelpers.interopRequireDefault(_ContentPlane);
 
-var _Navbar = require(387              ); // 387 = ./navbar/Navbar
+var _Navbar = require(369              ); // 369 = ./navbar/Navbar
 
 var _Navbar2 = babelHelpers.interopRequireDefault(_Navbar);
 
-var _content = require(389                     ); // 389 = ../helperFiles/content
+var _content = require(371                     ); // 371 = ../helperFiles/content
 
 var App = function (_React$Component) {
   babelHelpers.inherits(App, _React$Component);
@@ -63887,7 +62282,7 @@ var App = function (_React$Component) {
     var _this = babelHelpers.possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      gallery: _react2.default.createElement(_gallery2.default, {
+      page: _react2.default.createElement(_page2.default, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 26
@@ -63895,43 +62290,43 @@ var App = function (_React$Component) {
       })
     };
 
-    _this.changeGallery = _this.changeGallery.bind(_this);
+    _this.changePage = _this.changePage.bind(_this);
     return _this;
   }
 
   babelHelpers.createClass(App, [{
-    key: "changeGallery",
-    value: function changeGallery(galleryId) {
-      var gallery = void 0;
+    key: "changePage",
+    value: function changePage(pageId) {
+      var page = void 0;
 
-      switch (galleryId) {
-        case 'gallery1':
-          gallery = _react2.default.createElement(_gallery2.default, {
+      switch (pageId) {
+        case 'page1':
+          page = _react2.default.createElement(_page2.default, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 38
+              lineNumber: 37
             }
           });
           break;
-        case 'gallery2':
-          gallery = _react2.default.createElement(_gallery4.default, {
+        case 'page2':
+          page = _react2.default.createElement(_page4.default, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 40
             }
           });
           break;
-        case 'gallery3':
-          gallery = _react2.default.createElement(_gallery6.default, {
+        case 'page3':
+          page = _react2.default.createElement(_page6.default, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 44
+              lineNumber: 43
             }
           });
           break;
       }
 
-      this.setState({ gallery: gallery });
+      this.setState({ page: page });
     }
   }, {
     key: "render",
@@ -63942,7 +62337,7 @@ var App = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 53
           }
         },
         _react2.default.createElement(
@@ -63950,18 +62345,20 @@ var App = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 55
+              lineNumber: 54
             }
           },
-          this.state.gallery
+          this.state.page
         ),
         _react2.default.createElement(_Navbar2.default, {
           content: _content.navbarContent,
-          changeGallery: this.changeGallery.bind(this),
-          gallery: this.state.gallery,
+          changePage: this.changePage.bind(this),
+          page: this.state.page,
+          progressColor: "#f00",
+          progressDisabled: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 58
           }
         })
       );
@@ -63971,11 +62368,11 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = App;
-}, 382, null, "WelcomeToVR/final_components/app.js");
-__d(/* WelcomeToVR/final_components/gallery/gallery1.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 364, null, "WelcomeToVR/components/app.js");
+__d(/* WelcomeToVR/components/page1.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/gallery/gallery1.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/page1.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -63985,59 +62382,53 @@ var _reactVr = require(22        ); // 22 = react-vr
 
 var _reactNative = require(205           ); // 205 = react-native
 
-var _CardContainer = require(368                     ); // 368 = ../cards/CardContainer
+var _CardContainer = require(352                    ); // 352 = ./cards/CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
-var _CardCol = require(373               ); // 373 = ../cards/CardCol
-
-var _CardCol2 = babelHelpers.interopRequireDefault(_CardCol);
-
-var _CardSorter = require(369                  ); // 369 = ../cards/CardSorter
+var _CardSorter = require(353                 ); // 353 = ./cards/CardSorter
 
 var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
 
-var _Gallery = require(374        ); // 374 = ./Gallery
+var _Gallery = require(357                ); // 357 = ./gallery/Gallery
 
 var _Gallery2 = babelHelpers.interopRequireDefault(_Gallery);
 
-var _GazeButton = require(375                   ); // 375 = ../button/GazeButton
+var _GazeButton = require(359                  ); // 359 = ./button/GazeButton
 
 var _GazeButton2 = babelHelpers.interopRequireDefault(_GazeButton);
 
-var _ImageCaption = require(376                    ); // 376 = ../cards/ImageCaption
+var _ImageCaption = require(360                   ); // 360 = ./cards/ImageCaption
 
 var _ImageCaption2 = babelHelpers.interopRequireDefault(_ImageCaption);
 
-var _ImageCard = require(370                 ); // 370 = ../cards/ImageCard
+var _ImageCard = require(354                ); // 354 = ./cards/ImageCard
 
 var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
 
-var _TextCard = require(371                ); // 371 = ../cards/TextCard
+var _TextCard = require(355               ); // 355 = ./cards/TextCard
 
 var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
 
-var _VideoCard = require(372                 ); // 372 = ../cards/VideoCard
+var _VideoCard = require(356                ); // 356 = ./cards/VideoCard
 
 var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
 
-var _cardTypes = require(377                       ); // 377 = ../carousel/cardTypes.js
+var _Carousel = require(361                     ); // 361 = ./carousel/Carousel.js
 
-var _carousel = require(378                      ); // 378 = ../carousel/carousel.js
+var _Carousel2 = babelHelpers.interopRequireDefault(_Carousel);
 
-var _carousel2 = babelHelpers.interopRequireDefault(_carousel);
-
-var _GalleryItem = require(381            ); // 381 = ./GalleryItem
+var _GalleryItem = require(358                    ); // 358 = ./gallery/GalleryItem
 
 var _GalleryItem2 = babelHelpers.interopRequireDefault(_GalleryItem);
 
-var Gallery1 = function (_React$Component) {
-  babelHelpers.inherits(Gallery1, _React$Component);
+var Page1 = function (_React$Component) {
+  babelHelpers.inherits(Page1, _React$Component);
 
-  function Gallery1(props) {
-    babelHelpers.classCallCheck(this, Gallery1);
+  function Page1(props) {
+    babelHelpers.classCallCheck(this, Page1);
 
-    var _this = babelHelpers.possibleConstructorReturn(this, (Gallery1.__proto__ || Object.getPrototypeOf(Gallery1)).call(this, props));
+    var _this = babelHelpers.possibleConstructorReturn(this, (Page1.__proto__ || Object.getPrototypeOf(Page1)).call(this, props));
 
     _this.state = {
       slideLeft: new _reactVr.Animated.Value(-1024),
@@ -64046,7 +62437,7 @@ var Gallery1 = function (_React$Component) {
     return _this;
   }
 
-  babelHelpers.createClass(Gallery1, [{
+  babelHelpers.createClass(Page1, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
@@ -64061,13 +62452,13 @@ var Gallery1 = function (_React$Component) {
     }
   }, {
     key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps() {
+    value: function componentWillReceiveProps(nextProps) {
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
-        toValue: 0,
+        toValue: 1024,
         duration: 2000,
         easing: _reactNative.Easing.linear
       }), _reactVr.Animated.timing(this.state.fadeIn, {
-        toValue: 1,
+        toValue: 0,
         duration: 2000,
         easing: _reactNative.Easing.linear
       })])]).start();
@@ -64089,108 +62480,302 @@ var Gallery1 = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 63
           }
         },
         _react2.default.createElement(
-          _carousel2.default,
+          _Gallery2.default,
           {
-            flex: 1,
-
-            initialCard: 0,
-            cardType: _cardTypes.TEXT,
-            maxTextLength: 120,
-            __source: {
+            galleryStyling: {
+              backgroundColor: 'green'
+            },
+            galleryItemStyling: {
+              borderWidth: 2
+            },
+            flex: 2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 75
+              lineNumber: 92
             }
           },
-          _react2.default.createElement(
-            _reactVr.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 96
-              }
-            },
-            "Hello"
-          ),
-          _react2.default.createElement(
-            _reactVr.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 97
-              }
-            },
-            "Goodbye"
-          ),
-          _react2.default.createElement(
-            _reactVr.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 98
-              }
-            },
-            "Thanks"
-          ),
-          _react2.default.createElement(
-            _reactVr.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 99
-              }
-            },
-            "Welcome"
-          )
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 100
+            }
+          }),
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "text",
+            text: "Hello smelly",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 106
+            }
+          }),
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 110
+            }
+          }),
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 116
+            }
+          }),
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 120
+            }
+          }),
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 126
+            }
+          })
         ),
-        _react2.default.createElement(_CardSorter2.default, {
-          options: {
-            type: "video",
-            src: "../static_assets/videos/fireplace.mp4"
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 144
-          }
-        }),
         _react2.default.createElement(
           _Gallery2.default,
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 154
+              lineNumber: 149
             }
           },
           _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 150
+            }
+          }),
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 154
+            }
+          })
+        ),
+        _react2.default.createElement(
+          _TextCard2.default,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 160
+            }
+          },
+          "ojpwef"
+        )
+      );
+    }
+  }]);
+  return Page1;
+}(_react2.default.Component);
+
+exports.default = Page1;
+}, 365, null, "WelcomeToVR/components/page1.js");
+__d(/* WelcomeToVR/components/page2.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/page2.js";
+
+var _react = require(12     ); // 12 = react
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactVr = require(22        ); // 22 = react-vr
+
+var _reactNative = require(205           ); // 205 = react-native
+
+var _CardContainer = require(352                    ); // 352 = ./cards/CardContainer
+
+var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
+
+var _CardSorter = require(353                 ); // 353 = ./cards/CardSorter
+
+var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
+
+var _Gallery = require(357                ); // 357 = ./gallery/Gallery
+
+var _Gallery2 = babelHelpers.interopRequireDefault(_Gallery);
+
+var _GazeButton = require(359                  ); // 359 = ./button/GazeButton
+
+var _GazeButton2 = babelHelpers.interopRequireDefault(_GazeButton);
+
+var _ImageCaption = require(360                   ); // 360 = ./cards/ImageCaption
+
+var _ImageCaption2 = babelHelpers.interopRequireDefault(_ImageCaption);
+
+var _ImageCard = require(354                ); // 354 = ./cards/ImageCard
+
+var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
+
+var _TextCard = require(355               ); // 355 = ./cards/TextCard
+
+var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
+
+var _VideoCard = require(356                ); // 356 = ./cards/VideoCard
+
+var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
+
+var _Carousel = require(361                     ); // 361 = ./carousel/Carousel.js
+
+var _Carousel2 = babelHelpers.interopRequireDefault(_Carousel);
+
+var _GalleryItem = require(358                    ); // 358 = ./gallery/GalleryItem
+
+var _GalleryItem2 = babelHelpers.interopRequireDefault(_GalleryItem);
+
+var Page2 = function (_React$Component) {
+  babelHelpers.inherits(Page2, _React$Component);
+
+  function Page2(props) {
+    babelHelpers.classCallCheck(this, Page2);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Page2.__proto__ || Object.getPrototypeOf(Page2)).call(this, props));
+
+    _this.state = {
+      slideLeft: new _reactVr.Animated.Value(-1024),
+      fadeIn: new _reactVr.Animated.Value(0)
+    };
+    return _this;
+  }
+
+  babelHelpers.createClass(Page2, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
+        toValue: 0,
+        duration: 2000,
+        easing: _reactNative.Easing.linear
+      }), _reactVr.Animated.timing(this.state.fadeIn, {
+        toValue: 1,
+        duration: 2000,
+        easing: _reactNative.Easing.bezier(0.5, 0.34, 0.3, 0.88)
+      })])]).start();
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
+        toValue: 1024,
+        duration: 2000,
+        easing: _reactNative.Easing.linear
+      }), _reactVr.Animated.timing(this.state.fadeIn, {
+        toValue: 0,
+        duration: 2000,
+        easing: _reactNative.Easing.linear
+      })])]).start();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+
+      return _react2.default.createElement(
+        _reactVr.Animated.View,
+        {
+          style: {
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+            opacity: this.state.fadeIn,
+            transform: [{ translateX: this.state.slideLeft }]
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 63
+          }
+        },
+        _react2.default.createElement(
+          _Carousel2.default,
+          {
+            flex: 1,
+            imageCollection: ['https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg', 'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d', 'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg', 'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d', 'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg'],
+            initialCard: 0,
+            type: "image",
+            maxTextLength: 120,
+            cardStyling: {
+              borderWidth: 2,
+              borderColor: 'white'
+            },
+            buttonStyling: {
+              borderWidth: 1,
+              borderColor: 'white'
+            },
+            arrowStyling: {
+              color: '#f00'
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 73
+            }
+          },
+          "opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef"
+        ),
+        _react2.default.createElement(
+          _Gallery2.default,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 150
+            }
+          },
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
+            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 151
+            }
+          }),
+          _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
               lineNumber: 155
             }
-          }),
-          _react2.default.createElement(_GalleryItem2.default, {
-            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
+          })
+        ),
+        _react2.default.createElement(
+          _TextCard2.default,
+          {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 160
+              lineNumber: 161
             }
-          })
+          },
+          "ojpwef"
         )
       );
     }
   }]);
-  return Gallery1;
+  return Page2;
 }(_react2.default.Component);
 
-exports.default = Gallery1;
-}, 383, null, "WelcomeToVR/final_components/gallery/gallery1.js");
-__d(/* WelcomeToVR/final_components/gallery/gallery2.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+exports.default = Page2;
+}, 366, null, "WelcomeToVR/components/page2.js");
+__d(/* WelcomeToVR/components/page3.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/gallery/gallery2.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/page3.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -64200,59 +62785,53 @@ var _reactVr = require(22        ); // 22 = react-vr
 
 var _reactNative = require(205           ); // 205 = react-native
 
-var _CardContainer = require(368                     ); // 368 = ../cards/CardContainer
+var _CardContainer = require(352                    ); // 352 = ./cards/CardContainer
 
 var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
 
-var _CardCol = require(373               ); // 373 = ../cards/CardCol
-
-var _CardCol2 = babelHelpers.interopRequireDefault(_CardCol);
-
-var _CardSorter = require(369                  ); // 369 = ../cards/CardSorter
+var _CardSorter = require(353                 ); // 353 = ./cards/CardSorter
 
 var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
 
-var _Gallery = require(374        ); // 374 = ./Gallery
+var _Gallery = require(357                ); // 357 = ./gallery/Gallery
 
 var _Gallery2 = babelHelpers.interopRequireDefault(_Gallery);
 
-var _GazeButton = require(375                   ); // 375 = ../button/GazeButton
+var _GazeButton = require(359                  ); // 359 = ./button/GazeButton
 
 var _GazeButton2 = babelHelpers.interopRequireDefault(_GazeButton);
 
-var _ImageCaption = require(376                    ); // 376 = ../cards/ImageCaption
+var _ImageCaption = require(360                   ); // 360 = ./cards/ImageCaption
 
 var _ImageCaption2 = babelHelpers.interopRequireDefault(_ImageCaption);
 
-var _ImageCard = require(370                 ); // 370 = ../cards/ImageCard
+var _ImageCard = require(354                ); // 354 = ./cards/ImageCard
 
 var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
 
-var _TextCard = require(371                ); // 371 = ../cards/TextCard
+var _TextCard = require(355               ); // 355 = ./cards/TextCard
 
 var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
 
-var _VideoCard = require(372                 ); // 372 = ../cards/VideoCard
+var _VideoCard = require(356                ); // 356 = ./cards/VideoCard
 
 var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
 
-var _cardTypes = require(377                       ); // 377 = ../carousel/cardTypes.js
+var _Carousel = require(361                     ); // 361 = ./carousel/Carousel.js
 
-var _carousel = require(378                      ); // 378 = ../carousel/carousel.js
+var _Carousel2 = babelHelpers.interopRequireDefault(_Carousel);
 
-var _carousel2 = babelHelpers.interopRequireDefault(_carousel);
-
-var _GalleryItem = require(381            ); // 381 = ./GalleryItem
+var _GalleryItem = require(358                    ); // 358 = ./gallery/GalleryItem
 
 var _GalleryItem2 = babelHelpers.interopRequireDefault(_GalleryItem);
 
-var Gallery2 = function (_React$Component) {
-  babelHelpers.inherits(Gallery2, _React$Component);
+var Page3 = function (_React$Component) {
+  babelHelpers.inherits(Page3, _React$Component);
 
-  function Gallery2(props) {
-    babelHelpers.classCallCheck(this, Gallery2);
+  function Page3(props) {
+    babelHelpers.classCallCheck(this, Page3);
 
-    var _this = babelHelpers.possibleConstructorReturn(this, (Gallery2.__proto__ || Object.getPrototypeOf(Gallery2)).call(this, props));
+    var _this = babelHelpers.possibleConstructorReturn(this, (Page3.__proto__ || Object.getPrototypeOf(Page3)).call(this, props));
 
     _this.state = {
       slideLeft: new _reactVr.Animated.Value(-1024),
@@ -64261,7 +62840,7 @@ var Gallery2 = function (_React$Component) {
     return _this;
   }
 
-  babelHelpers.createClass(Gallery2, [{
+  babelHelpers.createClass(Page3, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
@@ -64276,7 +62855,7 @@ var Gallery2 = function (_React$Component) {
     }
   }, {
     key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps() {
+    value: function componentWillReceiveProps(nextProps) {
       _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
         toValue: 1024,
         duration: 2000,
@@ -64290,6 +62869,7 @@ var Gallery2 = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+
       return _react2.default.createElement(
         _reactVr.Animated.View,
         {
@@ -64303,244 +62883,71 @@ var Gallery2 = function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 63
           }
         },
         _react2.default.createElement(
-          _carousel2.default,
+          _Carousel2.default,
           {
             flex: 1,
-            itemCollection: [(0, _reactVr.asset)("1.jpeg"), (0, _reactVr.asset)("2.jpeg"), (0, _reactVr.asset)("3.jpeg"), (0, _reactVr.asset)("4.jpeg"), (0, _reactVr.asset)("5.jpeg")],
+            imageCollection: ['https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg', 'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d', 'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg', 'https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d', 'https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg'],
             initialCard: 0,
-            cardType: _cardTypes.TEXT,
+            type: "image",
             maxTextLength: 120,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 74
+              lineNumber: 73
             }
           },
-          "There once was a man from Peru who dreamed he was eating his shoe\n\n          He woke with a fright In the middle of the night\n\n          To find that his dream had come true.\n\n          There once was a man from Peru who dreamed he was eating his shoe\n\n          He woke with a fright\n\n          In the middle of the night\n\n          To find that his dream had come true."
+          "opjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjwefopjweffopjwefopjwefopjwefopjwefopjwefopjwefopjwef"
         ),
-        _react2.default.createElement(_CardSorter2.default, {
-          options: {
-            type: "video",
-            src: "../static_assets/videos/fireplace.mp4"
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 137
-          }
-        }),
         _react2.default.createElement(
           _Gallery2.default,
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 147
+              lineNumber: 139
             }
           },
           _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 148
+              lineNumber: 140
             }
           }),
           _react2.default.createElement(_GalleryItem2.default, {
+            type: "image",
             src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 153
+              lineNumber: 144
             }
           })
-        )
-      );
-    }
-  }]);
-  return Gallery2;
-}(_react2.default.Component);
-
-exports.default = Gallery2;
-}, 384, null, "WelcomeToVR/final_components/gallery/gallery2.js");
-__d(/* WelcomeToVR/final_components/gallery/gallery3.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/gallery/gallery3.js";
-
-var _react = require(12     ); // 12 = react
-
-var _react2 = babelHelpers.interopRequireDefault(_react);
-
-var _reactVr = require(22        ); // 22 = react-vr
-
-var _reactNative = require(205           ); // 205 = react-native
-
-var _CardContainer = require(368                     ); // 368 = ../cards/CardContainer
-
-var _CardContainer2 = babelHelpers.interopRequireDefault(_CardContainer);
-
-var _CardCol = require(373               ); // 373 = ../cards/CardCol
-
-var _CardCol2 = babelHelpers.interopRequireDefault(_CardCol);
-
-var _CardSorter = require(369                  ); // 369 = ../cards/CardSorter
-
-var _CardSorter2 = babelHelpers.interopRequireDefault(_CardSorter);
-
-var _Gallery = require(374        ); // 374 = ./Gallery
-
-var _Gallery2 = babelHelpers.interopRequireDefault(_Gallery);
-
-var _GazeButton = require(375                   ); // 375 = ../button/GazeButton
-
-var _GazeButton2 = babelHelpers.interopRequireDefault(_GazeButton);
-
-var _ImageCaption = require(376                    ); // 376 = ../cards/ImageCaption
-
-var _ImageCaption2 = babelHelpers.interopRequireDefault(_ImageCaption);
-
-var _ImageCard = require(370                 ); // 370 = ../cards/ImageCard
-
-var _ImageCard2 = babelHelpers.interopRequireDefault(_ImageCard);
-
-var _TextCard = require(371                ); // 371 = ../cards/TextCard
-
-var _TextCard2 = babelHelpers.interopRequireDefault(_TextCard);
-
-var _VideoCard = require(372                 ); // 372 = ../cards/VideoCard
-
-var _VideoCard2 = babelHelpers.interopRequireDefault(_VideoCard);
-
-var _cardTypes = require(377                       ); // 377 = ../carousel/cardTypes.js
-
-var _carousel = require(378                      ); // 378 = ../carousel/carousel.js
-
-var _carousel2 = babelHelpers.interopRequireDefault(_carousel);
-
-var _GalleryItem = require(381            ); // 381 = ./GalleryItem
-
-var _GalleryItem2 = babelHelpers.interopRequireDefault(_GalleryItem);
-
-var Gallery3 = function (_React$Component) {
-  babelHelpers.inherits(Gallery3, _React$Component);
-
-  function Gallery3(props) {
-    babelHelpers.classCallCheck(this, Gallery3);
-
-    var _this = babelHelpers.possibleConstructorReturn(this, (Gallery3.__proto__ || Object.getPrototypeOf(Gallery3)).call(this, props));
-
-    _this.state = {
-      slideLeft: new _reactVr.Animated.Value(-1024),
-      fadeIn: new _reactVr.Animated.Value(0)
-    };
-    return _this;
-  }
-
-  babelHelpers.createClass(Gallery3, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
-        toValue: 0,
-        duration: 2000,
-        easing: _reactNative.Easing.linear
-      }), _reactVr.Animated.timing(this.state.fadeIn, {
-        toValue: 1,
-        duration: 2000,
-        easing: _reactNative.Easing.bezier(0.5, 0.34, 0.3, 0.88)
-      })])]).start();
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps() {
-      _reactVr.Animated.sequence([_reactVr.Animated.parallel([_reactVr.Animated.timing(this.state.slideLeft, {
-        toValue: 1024,
-        duration: 2000,
-        easing: _reactNative.Easing.linear
-      }), _reactVr.Animated.timing(this.state.fadeIn, {
-        toValue: 0,
-        duration: 2000,
-        easing: _reactNative.Easing.linear
-      })])]).start();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        _reactVr.Animated.View,
-        {
-          style: {
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            opacity: this.state.fadeIn,
-            transform: [{ translateX: this.state.slideLeft }]
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 64
-          }
-        },
-        _react2.default.createElement(
-          _carousel2.default,
-          {
-            flex: 1,
-            itemCollection: [(0, _reactVr.asset)("1.jpeg"), (0, _reactVr.asset)("2.jpeg"), (0, _reactVr.asset)("3.jpeg"), (0, _reactVr.asset)("4.jpeg"), (0, _reactVr.asset)("5.jpeg")],
-            initialCard: 0,
-            cardType: _cardTypes.TEXT,
-            maxTextLength: 120,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 74
-            }
-          },
-          "There once was a man from Peru who dreamed he was eating his shoe\n\n          He woke with a fright In the middle of the night\n\n          To find that his dream had come true.\n\n          There once was a man from Peru who dreamed he was eating his shoe\n\n          He woke with a fright\n\n          In the middle of the night\n\n          To find that his dream had come true."
         ),
-        _react2.default.createElement(_CardSorter2.default, {
-          options: {
-            type: "video",
-            src: "../static_assets/videos/fireplace.mp4"
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 137
-          }
-        }),
         _react2.default.createElement(
-          _Gallery2.default,
+          _TextCard2.default,
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 147
+              lineNumber: 150
             }
           },
-          _react2.default.createElement(_GalleryItem2.default, {
-            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 148
-            }
-          }),
-          _react2.default.createElement(_GalleryItem2.default, {
-            src: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 153
-            }
-          })
+          "ojpwef"
         )
       );
     }
   }]);
-  return Gallery3;
+  return Page3;
 }(_react2.default.Component);
 
-exports.default = Gallery3;
-}, 385, null, "WelcomeToVR/final_components/gallery/gallery3.js");
-__d(/* WelcomeToVR/final_components/ContentPlane.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+exports.default = Page3;
+}, 367, null, "WelcomeToVR/components/page3.js");
+__d(/* WelcomeToVR/components/ContentPlane.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/ContentPlane.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/ContentPlane.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -64582,7 +62989,7 @@ var ContentPlane = function (_React$Component) {
           { style: {
               width: 2048,
               height: 800,
-              layoutOrigin: [-.5, 0]
+              layoutOrigin: [-.521, 0]
             }, __source: {
               fileName: _jsxFileName,
               lineNumber: 27
@@ -64597,11 +63004,11 @@ var ContentPlane = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ContentPlane;
-}, 386, null, "WelcomeToVR/final_components/ContentPlane.js");
-__d(/* WelcomeToVR/final_components/navbar/Navbar.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 368, null, "WelcomeToVR/components/ContentPlane.js");
+__d(/* WelcomeToVR/components/navbar/Navbar.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/navbar/Navbar.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/navbar/Navbar.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -64611,7 +63018,7 @@ var _reactVr = require(22        ); // 22 = react-vr
 
 var _reactNative = require(205           ); // 205 = react-native
 
-var _NavbarItem = require(388              ); // 388 = ./NavbarItem.js
+var _NavbarItem = require(370              ); // 370 = ./NavbarItem.js
 
 var _NavbarItem2 = babelHelpers.interopRequireDefault(_NavbarItem);
 
@@ -64653,44 +63060,59 @@ var Navbar = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           content = _props.content,
-          changeGallery = _props.changeGallery,
-          gallery = _props.gallery;
+          changePage = _props.changePage,
+          page = _props.page,
+          navbarStyle = _props.navbarStyle,
+          linkStyle = _props.linkStyle,
+          linkBgColor = _props.linkBgColor,
+          linkSelectedColor = _props.linkSelectedColor,
+          progressColor = _props.progressColor,
+          progressDisabled = _props.progressDisabled;
 
 
-      var currGallery = gallery.type.name.toLowerCase();
+      var currPage = page.type.name.toLowerCase();
+
+      var defaultNavbarStyle = {
+        opacity: this.state.fadeIn,
+        borderWidth: 0.002,
+        borderColor: "#444",
+        padding: .02,
+        margin: .02,
+        height: 0.3,
+        layoutOrigin: [0.5, 0.5],
+        transform: [{ translate: [0, this.state.slideUp, this.state.slideForward] }, { rotateX: "-45deg" }],
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around"
+      };
+
+      var mergedNavbarStyle = babelHelpers.extends({}, navbarStyle, defaultNavbarStyle);
 
       return _react2.default.createElement(
         _reactVr.Animated.View,
         {
-          style: {
-            opacity: this.state.fadeIn,
-            borderWidth: 0.002,
-            borderColor: "#444",
-            padding: .02,
-            margin: .02,
-            height: 0.3,
-            layoutOrigin: [0.5, 0.5],
-            transform: [{ translate: [0, this.state.slideUp, this.state.slideForward] }, { rotateX: "-45deg" }],
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-around"
-          },
+          style: mergedNavbarStyle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 71
           }
         },
         content.map(function (el, idx) {
           return _react2.default.createElement(
             _NavbarItem2.default,
             {
-              changeGallery: changeGallery,
-              currGallery: currGallery,
+              changePage: changePage,
+              currPage: currPage,
               link: el.link,
               key: idx,
+              linkBgColor: linkBgColor,
+              linkSelectedColor: linkSelectedColor,
+              linkStyle: linkStyle,
+              progressColor: progressColor,
+              progressDisabled: progressDisabled,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 71
+                lineNumber: 75
               }
             },
             el.label
@@ -64703,11 +63125,11 @@ var Navbar = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Navbar;
-}, 387, null, "WelcomeToVR/final_components/navbar/Navbar.js");
-__d(/* WelcomeToVR/final_components/navbar/NavbarItem.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
+}, 369, null, "WelcomeToVR/components/navbar/Navbar.js");
+__d(/* WelcomeToVR/components/navbar/NavbarItem.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/final_components/navbar/NavbarItem.js";
+var _jsxFileName = "/Users/jonathanhalloran/Desktop/PhantomVR/components/navbar/NavbarItem.js";
 
 var _react = require(12     ); // 12 = react
 
@@ -64717,7 +63139,7 @@ var _reactVr = require(22        ); // 22 = react-vr
 
 var _reactNative = require(205           ); // 205 = react-native
 
-var _GazeButton = require(375                   ); // 375 = ../button/GazeButton
+var _GazeButton = require(359                   ); // 359 = ../button/GazeButton
 
 var _GazeButton2 = babelHelpers.interopRequireDefault(_GazeButton);
 
@@ -64729,9 +63151,12 @@ var NavbarItem = function (_React$Component) {
 
     var _this = babelHelpers.possibleConstructorReturn(this, (NavbarItem.__proto__ || Object.getPrototypeOf(NavbarItem)).call(this, props));
 
-    var isSelected = _this.props.currGallery === _this.props.link;
+    var isSelected = _this.props.currPage === _this.props.link;
 
-    var backgroundColor = isSelected ? "#333" : "#222";
+    _this.bgColor = _this.props.linkBgColor ? _this.props.linkBgColor : "#222";
+    _this.selectedColor = _this.props.linkSelectedColor ? _this.props.linkSelectedColor : "#333";
+
+    var backgroundColor = isSelected ? _this.selectedColor : _this.bgColor;
 
     var fontSize = isSelected ? 0.11 : 0.1;
 
@@ -64746,13 +63171,13 @@ var NavbarItem = function (_React$Component) {
   babelHelpers.createClass(NavbarItem, [{
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      if (this.props.currGallery === this.props.link && nextProps.currGallery === nextProps.link) {
+      if (this.props.currPage === this.props.link && nextProps.currPage === nextProps.link) {
         this.setState({
-          backgroundColor: "#222",
+          backgroundColor: this.bgColor,
           fontSize: 0.1,
           isSelected: false
         });
-      } else if (nextProps.currGallery === nextProps.link) {
+      } else if (nextProps.currPage === nextProps.link) {
         this.setState({
           isSelected: true,
           isTriggered: false
@@ -64764,23 +63189,22 @@ var NavbarItem = function (_React$Component) {
     value: function handleTrigger() {
       var _this2 = this;
 
-      if (this.props.currGallery !== this.props.link) {
+      if (this.props.currPage !== this.props.link) {
         this.setState({
-          backgroundColor: "#333",
+          backgroundColor: this.selectedColor,
           isSelected: true,
           fontSize: 0.11
         });
+        if (this.props.currPage !== 'hello') {
+          this.props.changePage(this.props.currPage);
+        }
 
-        this.props.changeGallery(this.props.link);
         this.setState({ isTriggered: true });
         setTimeout(function () {
-          return _this2.props.changeGallery(_this2.props.link);
+          return _this2.props.changePage(_this2.props.link);
         }, 1500);
       }
     }
-  }, {
-    key: "onHover",
-    value: function onHover() {}
   }, {
     key: "render",
     value: function render() {
@@ -64790,6 +63214,9 @@ var NavbarItem = function (_React$Component) {
           fontSize = _state.fontSize,
           isSelected = _state.isSelected,
           isTriggered = _state.isTriggered;
+      var _props = this.props,
+          progressColor = _props.progressColor,
+          progressDisabled = _props.progressDisabled;
 
 
       return _react2.default.createElement(
@@ -64799,12 +63226,13 @@ var NavbarItem = function (_React$Component) {
             backgroundColor: backgroundColor,
             margin: 0.01
           },
-          progressDisabled: isSelected || isTriggered,
+          progressColor: progressColor,
+          progressDisabled: progressDisabled || isSelected || isTriggered,
           onTrigger: this.handleTrigger.bind(this),
-          onHover: this.onHover.bind(this),
+          onHover: function onHover() {},
           onLeave: function onLeave() {}, __source: {
             fileName: _jsxFileName,
-            lineNumber: 72
+            lineNumber: 78
           }
         },
         _react2.default.createElement(
@@ -64815,7 +63243,7 @@ var NavbarItem = function (_React$Component) {
               color: "#FFF"
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 88
             }
           },
           this.props.children
@@ -64827,16 +63255,16 @@ var NavbarItem = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = NavbarItem;
-}, 388, null, "WelcomeToVR/final_components/navbar/NavbarItem.js");
+}, 370, null, "WelcomeToVR/components/navbar/NavbarItem.js");
 __d(/* WelcomeToVR/helperFiles/content.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var navbarContent = exports.navbarContent = [{ label: 'Home', link: 'gallery1' }, { label: 'About', link: 'gallery2' }, { label: 'Gallery', link: 'gallery3' }];
-}, 389, null, "WelcomeToVR/helperFiles/content.js");
+var navbarContent = exports.navbarContent = [{ label: 'Home', link: 'page1' }, { label: 'About', link: 'page2' }, { label: 'Gallery', link: 'page3' }];
+}, 371, null, "WelcomeToVR/helperFiles/content.js");
 __d(/* WelcomeToVR/helperFiles/styleSheet.js */function(global, require, module, exports) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var backgroundImage = exports.backgroundImage = 'https://s3.us-east-2.amazonaws.com/phantom-vr-images/space.jpg';
-}, 390, null, "WelcomeToVR/helperFiles/styleSheet.js");
+}, 372, null, "WelcomeToVR/helperFiles/styleSheet.js");
 ;require(60);
 ;require(0);

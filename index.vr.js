@@ -43,7 +43,6 @@ export default class WelcomeToVR extends React.Component {
   }
 
   mergeState(addContent, removeContent) {
-      console.log("merge state", addContent, removeContent);
     let store = merge({}, this.state.store, addContent);
     removeContent.forEach(content => {
       delete store[content];
@@ -65,10 +64,9 @@ export default class WelcomeToVR extends React.Component {
   makeNavLinks() {
     let theContent = Object.values(this.state.store) || [];
     let navLinks = [];
-    // debugger;
     theContent.forEach(content => {
       if (content.type === "navlink-vr") {
-        navLinks.push({ label: content.navTitle, link: content.key });
+        navLinks.push({ label: content.navTitle, link: content.key});
       }
     });
     return navLinks;
@@ -82,7 +80,7 @@ export default class WelcomeToVR extends React.Component {
     let navbarContent = this.makeNavLinks();
     return (
       <View>
-< Pano source = {{uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg"}}/>
+        <Pano source={{uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg"}}/>
         <Title activateScene={this.activateScene} />
         {this.state.enterScene ? (
           <ContentPlane>

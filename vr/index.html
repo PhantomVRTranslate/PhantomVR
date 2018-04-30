@@ -39,7 +39,7 @@
 
     <div class="stophere"></div>
 
-    <script src="./client.bundle?platform=vr"></script>
+    <script src="./client.bundle? platform=vr"></script>
 
 
  
@@ -47,12 +47,12 @@
       function startVR() {
         window.hideBody()
         let mobile = false;
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-          mobile = true;
-        }
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        mobile = true;
+      }
 
-        ReactVR.init(
-          '../index.vr.bundle?platform=vr&dev=true',
+      ReactVR.init(
+        '../index.vr.bundle?platform=vr&dev=true',
 
         // Attach it to the body tag
         document.getElementById('phantom'), 

@@ -12,8 +12,6 @@ export default class TextCard extends React.Component {
       };
 
     const mergedCardStyling = Object.assign({}, defaultCardStyling, cardStyling);
-
-    console.log(mergedCardStyling);
     
     const defaultTextStyling = {
       width: "100%",
