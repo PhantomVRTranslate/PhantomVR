@@ -12,7 +12,6 @@ export default class DocumentGet extends Module {
   }
 
   _setRNContext(rnctx) {
-    console.log("_setRNCOntext", rnctx);
     this._rnctx = rnctx;
   }
 
@@ -23,8 +22,7 @@ export default class DocumentGet extends Module {
   }
 
   triggerEvent(classname, key) {
-    let el = document.getElementsByClassName(classname)[0];
-    console.log("triggerEvent el, classname, key", el, classname, key);
+    let el = document.getElementsByClassName(classname)[0];   
     el.click();
     let body = document.body;
     let div = document.createElement("div");
@@ -68,21 +66,7 @@ export default class DocumentGet extends Module {
     this._emit(addContent, removeContent);
   }
 
-  // modifyContent(mutationList){
-  //     let addContent = {};
-  //     let removeContent = [];
-  //     Array.from(mutationList).forEach(mutation => {
-  //         Array.from(mutation.addedNodes).forEach(node => {
-  //                 let resultObj = this.makeResult(node);
-  //                 if (resultObj) addContent = merge({}, addContent, resultObj);
-  //         });
-  //         Array.from(mutation.removedNodes).forEach(node => {
-  //             let classList = node.className.split(' ');
-  //             removeContent.push(node.classList[classList.length - 1]);
-  //         });
-  //     });
-  //     this._emit(addContent, removeContent);
-  // }
+
 
   makeResult(node) {
     let key = Math.floor(Math.random() * 1000000000000);
@@ -108,7 +92,6 @@ export default class DocumentGet extends Module {
         node.classList.add(key);
         return nodeObj;
       case "carousel-image-vr":
-      console.log(node.getAttribute("flex-vr")); 
         nodeObj[key]["content"] = node.getAttribute("src");
         nodeObj[key]["flex"] = parseInt(node.getAttribute("ci-flex-vr")) || 2;
         node.classList.add(key);
