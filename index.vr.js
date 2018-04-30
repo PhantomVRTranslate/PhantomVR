@@ -43,7 +43,6 @@ export default class WelcomeToVR extends React.Component {
   }
 
   mergeState(addContent, removeContent) {
-      console.log("merge state", addContent, removeContent);
     let store = merge({}, this.state.store, addContent);
     removeContent.forEach(content => {
       delete store[content];

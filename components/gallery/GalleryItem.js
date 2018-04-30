@@ -44,7 +44,6 @@ export default class GalleryItem extends React.Component {
                     </Text>);
                 break;
         }
-        console.log('content in galleryITEM', content);
         return (
             <View flex={this.props.flex}>  
                 {content}        

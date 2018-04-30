@@ -87,24 +87,20 @@ export default class PageConstructor extends React.Component {
               break;
               
             case "video-vr":          
-              console.log('in VIDEO carosel'); 
+
             toRender.push(<VideoCard key={el.key} src={el.content} />);
             break; 
             
             case "gallery-list":
-console.log('in gallery list within to Render',el); 
               key = Math.floor(Math.random() * 1000000000000); 
               toRender.push(
               <Gallery key={key}>
                 {galleryItems.content.map(item => item)}
-              </Gallery> );
-              console.warn('torender after gallery shove:', toRender); 
+              </Gallery> );              
               break; 
             
-            case "image-carousel":  
-              console.log('in image carosel'); 
-              key = Math.floor(Math.random() * 1000000000000);  
-              console.log('this is el.flex and el:', el.flex, el);
+            case "image-carousel":                
+              key = Math.floor(Math.random() * 1000000000000);                
             toRender.push(<Carousel
               key={key}
               imageCollection={el.content}
@@ -120,7 +116,6 @@ console.log('in gallery list within to Render',el);
           break; 
       }
     });
-    console.warn('toRender beforerender', toRender); 
     return toRender;
   }
 

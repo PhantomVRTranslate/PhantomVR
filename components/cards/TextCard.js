@@ -11,9 +11,7 @@ export default class TextCard extends React.Component {
         padding: 5,
       };
 
-    const mergedCardStyling = Object.assign({}, defaultCardStyling, cardStyling);
-
-    console.log(mergedCardStyling);
+    const mergedCardStyling = Object.assign({}, defaultCardStyling, cardStyling);  
     
     const defaultTextStyling = {
       width: "100%",
