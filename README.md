@@ -1,13 +1,13 @@
 # PhantomVR
 
-![](assets/logo.png)
+[![](assets/logo.png)](https://phantomvrtranslate.github.io/website/)
+[View project page](https://phantomvrtranslate.github.io/website/)
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Summary of features](#features)
 - [Technologies](#technologies)
+- [Summary of features](#features)
 - [Additional Features](#additional-features)
-
 
 <a name="introduction"></a>
 ## Introduction
@@ -31,6 +31,13 @@ As with HTML Elements and React Components, there is certainly the potential to 
 
 This project is being managed by [Drew Stukey](https://github.com/stukey524), [Jon Halloran](https://github.com/JonHalloran), [Michael Vasquez-Pompili](https://github.com/Mpompili), and [Nick Welch](https://github.com/nwelchr).
 
+<a name="technologies"></a>
+
+## Technologies
+
+* Software: React VR
+* Hardware: Gear VR, desktop, mobile
+
 <a name="features"></a>
 
 ## Summary of features
@@ -40,29 +47,20 @@ This project is being managed by [Drew Stukey](https://github.com/stukey524), [J
 [Package and Readme](https://www.npmjs.com/package/phantom_components)<br>
 We have created a React VR library in the form of a Node.js module that allows people to create responsive, flexible, and modular sites. Our components provide a basic template for beginners to construct websites without worrying about the complications that React VR presents, such as 3d spacing and limitations on styling.
 
-### 2.) NPM Package Runner
+### 2.) NPM Package Runner (NPX)
 
 [Clonable repo](https://github.com/PhantomVRTranslate/Phantom-Components-Demo)<br>
 [Demo Page](https://phantomvrtranslate.github.io/Phantom-Components-Demo/)<br>
-In addition to a component library, we have provided a demo site and build in the form of an npx that people can use to create their own sites using our component hierarchy in the intended manner. This also removes issues on getting started that cannot be addressed by our components, e.g. a custom raycaster (i.e. cursor) and other minor configuration settings.
+In addition to a component library, we have provided a demo site and build in the form of an npx that people can use to create their own sites using our components in the intended manner. This also removes issues on getting started that cannot be addressed by our components, e.g. a custom raycaster (i.e. cursor), the navbar, and other minor configuration settings.
 
 ### 3.) HTML file processor and VR previewer
 
-[Scripts](https://github.com/PhantomVRTranslate/PhantomScripts)<br>
+[Scripts and Readme](https://github.com/PhantomVRTranslate/PhantomScripts)<br>
 [Demo page](https://phantomvrtranslate.github.io/Phantom-Demo-Site/)<br>
-We also have a script tag that can be inserted into any static HTML page which, coupled with various semantic class names inserted into tags, will pull that information and render it in VR, giving the user a preview of what their site could look like in VR. This will give them an idea of how their website would work in a basic VR environment before diving in and creating their own site using our components.
+We also have script tags that can be inserted into any static HTML page which, coupled with various semantic class names, will pull that information and render it in VR, giving the user a preview of what their site could look like. This will give them an idea of how their website would work in a basic VR environment before diving in and creating their own site using our components.
 
-
-<a name="technologies"></a>
-
-
-## Technologies
-
-* Software: React VR
-* Hardware: Gear VR, desktop, mobile# PhantomScripts
 
 <a name="additional-features"></a>
-
 
 ## Additional Features (to be implemented)
 - `Form` and `Input` components
