@@ -96,6 +96,7 @@ export default class DocumentGet extends Module {
       case "image-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
         node.classList.add(key);
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("image-flex")) || 1;
         return nodeObj;
       case "video-vr":
         nodeObj[key]["content"] = node.getAttribute("src");

@@ -41,27 +41,24 @@ export default class PageConstructor extends React.Component {
     let galleryItems = {type: 'gallery-list', content: []}; 
     //for each html element tagged carosel-image-vr push it into new object called carouselImage
     Object.values(theContent).forEach(el => {
-     if (el.type === 'carousel-image-vr') {
-       console.log('el.type is imageCarosel', el, el.content, el.flex); 
+     if (el.type === 'carousel-image-vr') {       
        carouselImage.content.push(el.content); 
        carouselImage.flex = parseInt(el.flex) || 2;
   
      } else if (el.type === 'gallery-item') {
        galleryItems.content.push(el.content); 
      }
-    });
-    console.warn('before galleryitems map', galleryItems); 
+    });    
 
     galleryItems.content = galleryItems.content.map((content, i) => {
-      return (<GalleryItem src={content} key={i}></GalleryItem>);
-    });
-    console.warn('post galleryitems map', galleryItems); 
+      return (<GalleryItem src={content} key={i} type={'image'}></GalleryItem>);
+    });    
 
     
     //shove carouselImage into theContent to be rendered into one ImageCarousel component 
     if (galleryItems.content.length > 1) theContent.push(galleryItems); 
     if (carouselImage.content.length > 1) theContent.push(carouselImage);  
-  console.warn('THECONTENT AFTER GALLERYITEMS PUSH', theContent); 
+  
        
     let toRender = []; 
     let key;
@@ -79,9 +76,10 @@ export default class PageConstructor extends React.Component {
             </Carousel>);
             break;  
 
-            case "image-vr":          
+            case "image-vr":               
             toRender.push(<ImageCard
               key={el.key}
+              flex={el.flex}
               passkey={el.key}
               src={el.content}
               click={this.state.clickEvent}
@@ -94,12 +92,13 @@ export default class PageConstructor extends React.Component {
             break; 
             
             case "gallery-list":
-
+console.log('in gallery list within to Render',el); 
               key = Math.floor(Math.random() * 1000000000000); 
               toRender.push(
               <Gallery key={key}>
                 {galleryItems.content.map(item => item)}
               </Gallery> );
+              console.warn('torender after gallery shove:', toRender); 
               break; 
             
             case "image-carousel":  
@@ -121,7 +120,7 @@ export default class PageConstructor extends React.Component {
           break; 
       }
     });
-    
+    console.warn('toRender beforerender', toRender); 
     return toRender;
   }
 
