@@ -80,8 +80,9 @@ export default class WelcomeToVR extends React.Component {
     let navbarContent = this.makeNavLinks();
     return (
       <View>
-        <Pano source={{uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg"}}/>
-        <Title activateScene={this.activateScene} />
+
+        <Pano source = {{uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg"}}/>
+        <Title title={this.state.store.title} activateScene={this.activateScene} />
         {this.state.enterScene ? (
           <ContentPlane>
             <PageConstructor
