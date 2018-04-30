@@ -106,7 +106,11 @@ export default class DocumentGet extends Module {
   }
 
   getBaseContent() {
-    let result = {};
+    let result = {}; 
+    let title = document.getElementsByClassName('title-vr')[0];
+    title = {title: title.innerHTML};
+    result = merge({}, result, title);
+
     let types = ["gallery-item", "carousel-image-vr", "navlink-vr", "text-vr", "image-vr", "video-vr"];
     types.forEach(type => {
       let content = Array.from(document.getElementsByClassName(type));

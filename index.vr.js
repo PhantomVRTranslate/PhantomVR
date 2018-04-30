@@ -82,7 +82,7 @@ export default class WelcomeToVR extends React.Component {
     return (
       <View>
 < Pano source = {{uri: "https://rawgit.com/PhantomVRTranslate/PhantomVR/master/static_assets/space.jpg"}}/>
-        <Title activateScene={this.activateScene} />
+        <Title title={this.state.store.title} activateScene={this.activateScene} />
         {this.state.enterScene ? (
           <ContentPlane>
             <PageConstructor
