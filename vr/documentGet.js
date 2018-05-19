@@ -74,15 +74,17 @@ export default class DocumentGet extends Module {
       case "text-vr":
         nodeObj[key]["content"] = node.innerHTML;
         node.classList.add(key);
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("flex-vr")) || 1;
         return nodeObj;
       case "image-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
         node.classList.add(key);
-        nodeObj[key]["flex"] = parseInt(node.getAttribute("image-flex")) || 1;
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("flex-vr")) || 1;
         return nodeObj;
       case "video-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
         node.classList.add(key);
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("flex-vr")) || 1;
         return nodeObj;
       case "navlink-vr":
         nodeObj[key]["content"] = node.getAttribute("href");
@@ -91,7 +93,7 @@ export default class DocumentGet extends Module {
         return nodeObj;
       case "carousel-image-vr":
         nodeObj[key]["content"] = node.getAttribute("src");
-        nodeObj[key]["flex"] = parseInt(node.getAttribute("ci-flex-vr")) || 2;
+        nodeObj[key]["flex"] = parseInt(node.getAttribute("flex-vr")) || 2;
         node.classList.add(key);
         return nodeObj;
       case "gallery-item":
