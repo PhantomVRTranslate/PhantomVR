@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-vr';
-import CardSorter from './CardSorter';
+// import CardSorter from './CardSorter';
  
 // can be used as a "BlankCard" To TakeUp 1 unit of space in Content Plane
 

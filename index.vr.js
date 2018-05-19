@@ -20,7 +20,7 @@ BatchedBridge.registerCallableModule(BrowserBridge.name, browserBridge);
 
 const theDocs = NativeModules.DocumentGet;
 
-import App from "./components/app";
+// import App from "./components/app";
 import Title from "./components/title";
 import ContentPlane from "./components/ContentPlane.js";
 import { backgroundImage } from "./helperFiles/styleSheet.js";

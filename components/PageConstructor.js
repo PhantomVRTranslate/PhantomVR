@@ -44,7 +44,7 @@ export default class PageConstructor extends React.Component {
   // class="video-vr" to render a single video card on any HTML tag with an src='with the video url'
   // class="carousel-image-vr" on multiple IMG/HTML tags with an src='with the image url' will render those images within a carousel
   // class="gallery-list" on multiple IMG and VIDEO HTML tags (max: 6) with an src='with the image/video url' (default 2 units)
-  // class="ci-flex-vr" on the LAST image tagged with carousel-image-vr to flex the proportion of the image carousel
+  // attr="flex-vr" on text, image, video, carousel-image-vr will adjust the flex property of the specified component
   // class="navlink-vr" (with an href attribute): creates a navlink button with gaze-click functionality to send you to said href location
   // (with a single-page react application, attach this classname to an element with an onclick event handler to "send" user to correct page)
 
@@ -78,7 +78,7 @@ export default class PageConstructor extends React.Component {
           toRender.push(
             <Carousel
               key={el.key}
-              flex={1}
+              flex={el.flex || 1}
               initialCard={0}
               type="text"
               maxTextLength={120}>
@@ -91,7 +91,7 @@ export default class PageConstructor extends React.Component {
           toRender.push(
             <ImageCard
               key={el.key}
-              flex={el.flex}
+              flex={el.flex || 1}
               passkey={el.key}
               src={el.content}
               click={this.state.clickEvent}
@@ -100,7 +100,10 @@ export default class PageConstructor extends React.Component {
           break;
 
         case "video-vr":
-          toRender.push(<VideoCard key={el.key} src={el.content} />);
+          toRender.push(<VideoCard 
+            key={el.key} 
+            src={el.content}
+            flex={el.flex || 2} />);
           break;
 
         case "gallery-list":
